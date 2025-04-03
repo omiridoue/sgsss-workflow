@@ -1,93 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/01-introduction.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/01-getting-started-with-nextflow.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/404.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/CODE_OF_CONDUCT.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/02-workflow_parameters.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/LICENSE.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/03-channels.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/aio.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/04-processes-part1.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/discuss.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/05-processes-part2.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/images.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/06-workflow.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/index.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/07-operators.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/01-introduction.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/08-reporting.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/404.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/09-configuration.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/10-workflow_checkpoint_caching.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/LICENSE.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/11-Simple_Rna-Seq_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/aio.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/12-nfcore.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/discuss.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/404.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/images.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/index.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/instructor-notes.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/introduction.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/discuss.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/key-points.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/keypoints.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/learner_profiles.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/01-getting-started-with-nextflow.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/profiles.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor/reference.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/02-workflow_parameters.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/instructor-notes.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/03-channels.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/introduction.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/04-processes-part1.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/key-points.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/05-processes-part2.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/keypoints.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/06-workflow.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/learner_profiles.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/07-operators.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/profiles.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/08-reporting.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-rmd/reference.html</loc>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/09-configuration.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/10-workflow_checkpoint_caching.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/11-Simple_Rna-Seq_pipeline.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/12-nfcore.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/404.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/images.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/keypoints.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/learner_profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/keypoints.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/learner_profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://omiridoue.github.io/sgsss_workflow/reference.html</loc>
   </url>
 </urlset>
