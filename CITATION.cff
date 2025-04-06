@@ -1,11 +1,12 @@
 # This template CITATION.cff file was generated with cffinit.
 # Visit https://bit.ly/cffinit to replace its contents
 # with information about your lesson.
-# Remember to update this file periodically, 
+# Remember to update this file periodically,
 # ensuring that the author list and other fields remain accurate.
 
 cff-version: 1.2.0
-title: FIXME
+title: Building your Own Computational Workflow for Social Scientists
+version: 0.0.1
 message: >-
   Please cite this lesson using the information in this file
   when you refer to it in publications, and/or if you
@@ -13,10 +14,8 @@ message: >-
   training material.
 type: dataset
 authors:
-  - given-names: FIXME
-    family-names: FIXME
+  - given-names: Eleni
+    family-names: Omiridou
 abstract: >-
-  FIXME Replace this with a short abstract describing the
-  lesson, e.g. its target audience and main intended
-  learning objectives.
+  Explore resources to support best practice in making your research Findable, Accessible, Interoperable and Reproducible (FAIR). This workshop offers guided and hands-on learning of the building blocks to design your own scalable and reproducible scientific workflow using Nextflow.
 license: CC-BY-4.0

@@ -10,18 +10,18 @@ such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
 be seamlessly coupled together. It implements a Domain Specific Language
 (DSL) that simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructures.
+cloud or high-performance computing (HPC) infrastructure
 
 This lesson also introduces [nf-core](https://nf-co.re/): a
 community-driven platform, which provide peer reviewed
 best practice analysis pipelines written in Nextflow.
 
-This lesson motivates the use of Nextflow and nf-core as development tools
-for building and sharing reproducible data science workflows.
+This lesson motivates the use of Nextflow ad nf-core as development tools
+for building and sharing reproducible data science workflow
 
 ## lesson objectives
 
-1. The learner will understand the fundamental components of a Nextflow
+1. The learner will understand the fundamental components of Nextflow
   script, including channels, processes and operators.
 2. The learner will write a multi-step workflow script to align, quantify, and perform QC on an RNA-Seq data in Nextflow DSL2.
 3. The learner will be able to write a Nextflow configuration file to alter the computational resources allocated to a process.
@@ -38,7 +38,7 @@ It is helpful to be familiar with using another programming language, to the lev
 [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder) or
 [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder),
 although this lesson does not specifically rely on Python or R.
-No previous knowledge of Nextflow, other workflow software, or Groovy is required.
+No previous knowledge of Nextflow, other workflow software, or Groovy required
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
