@@ -55,12 +55,6 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
-      - name: "Install Dependencies"
-        run: |
-          install.packages('renv/local/sandbox', repos = NULL, type = 'source')
-          install.packages('renv/local/varnish', repos = NULL, type = 'source')
-        shell: Rscript {0}
-
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"
