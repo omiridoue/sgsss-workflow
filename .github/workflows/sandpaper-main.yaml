@@ -55,14 +55,6 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
-      - name: "Install sandpaper from source"
-        run: |
-          R -e "install.packages('sandpaper.tar.gz', repos = NULL, type = 'source')"
-
-      - name: "Install varnish from source"
-        run: |
-          R -e "install.packages('varnish.tar.gz', repos = NULL, type = 'source')"
-
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"
