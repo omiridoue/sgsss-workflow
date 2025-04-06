@@ -10,7 +10,7 @@
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
 carpentry: "incubator"
-display_header: true
+display_header: false
 
 # Overall title for pages.
 title: "Building Your Own Computational Workflow for Social Scientists"
