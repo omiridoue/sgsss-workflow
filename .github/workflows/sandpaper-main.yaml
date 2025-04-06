@@ -57,8 +57,8 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          RUN R -e "install.packages('renv/local/sandbox', repos = NULL, type = 'source')"
-          RUN R -e "install.packages('renv/local/sandbox', repos = NULL, type = 'source')"
+          install.packages('renv/local/sandbox', repos = NULL, type = 'source')
+          install.packages('renv/local/varnish', repos = NULL, type = 'source')
         shell: Rscript {0}
 
       - name: "Deploy Site"
