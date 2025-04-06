@@ -55,6 +55,12 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
+      - name: "Install Dependencies"
+        run: |
+          RUN R -e "install.packages('renv/local/sandbox', repos = NULL, type = 'source')"
+          RUN R -e "install.packages('renv/local/sandbox', repos = NULL, type = 'source')"
+        shell: Rscript {0}
+
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"
