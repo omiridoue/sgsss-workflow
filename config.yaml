@@ -86,9 +86,3 @@ profiles:
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
-sandpaper:
-  name: "calcite"
-  version: "2.2.0"
-varnish:
-  name: "flannel"
-  version: "0.7.0"
