@@ -10,9 +10,10 @@
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
 carpentry: "incubator"
+display_header: true
 
 # Overall title for pages.
-title: "Building Your Own Computational Workflow - A Software Carpentry Course for Social Scientists"
+title: "Building Your Own Computational Workflow for Social Scientists"
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: 2025-04-03
@@ -34,7 +35,7 @@ source: "https://github.com/omiridoue/sgsss_workflow/"
 branch: "main"
 
 # Who to contact if there are any issues
-contact: "eleni.omiridou@glasgow.ac.uk&quot;"
+contact: "eleni.omiridou@glasgow.ac.uk"
 
 # Navigation ------------------------------------------------
 #
@@ -60,18 +61,18 @@ contact: "eleni.omiridou@glasgow.ac.uk&quot;"
 
 # Order of episodes in your lesson
 episodes:
-  - 01-getting-started-with-nextflow.md
-  - 02-workflow_parameters.md
-  - 03-channels.md
-  - 04-processes-part1.md
-  - 05-processes-part2.md
-  - 06-workflow.md
-  - 07-operators.md
-  - 08-reporting.md
-  - 09-configuration.md
-  - 10-workflow_checkpoint_caching.md
-  - 11-Simple_Rna-Seq_pipeline.md
-  - 12-nfcore.md
+  - 00.md
+  - 01.md
+  - 02.md
+  - 03.md
+  - 04.md
+  - 05.md
+  - 06.md
+  - 07.md
+  - 08.md
+  - 09.md
+  - 10.md
+  - 11.md
 
 # Information for Learners
 learners:
@@ -85,4 +86,3 @@ profiles:
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
-
