@@ -57,6 +57,7 @@ jobs:
 
       - name: "Deploy Site"
         run: |
+          renv::install("omiridoue/varnish")
           reset <- "${{ github.event.inputs.reset }}" == "true"
           sandpaper::package_cache_trigger(TRUE)
           sandpaper:::ci_deploy(reset = reset)

@@ -8,7 +8,7 @@ enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
 such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
-be seamlessly coupled together. It implements a Domain Specific Language
+be seamlessly coupled together. It implements Domain Specific Language
 (DSL) that simplifies the implementation and running of workflows on
 cloud or high-performance computing (HPC) infrastructure
 
