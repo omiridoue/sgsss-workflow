@@ -12,7 +12,7 @@ home:
 template:
   package: varnish
   params:
-    time: 2025-04-06 22:07:39 +0000
+    time: 2025-04-07 14:31:45 +0000
     source: https://github.com/omiridoue/sgsss_workflow
     branch: main
     contact: eleni.omiridou@glasgow.ac.uk
