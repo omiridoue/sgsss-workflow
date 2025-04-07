@@ -1,5 +1,7 @@
 # sandpaper files
 episodes/*html
+site/*
+!site/README.md
 
 # History files
 .Rhistory
@@ -30,6 +32,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 # pkgdown site
+docs/
 # translation temp files
 po/*~
 # renv detritus
