@@ -55,11 +55,6 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
-      - name: "Download Varnish Repository"
-        run: |
-          git clone https://github.com/omiridoue/varnish varnish-repo
-          echo "Downloaded varnish repository to varnish-repo directory"
-
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"
