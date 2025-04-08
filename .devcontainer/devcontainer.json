@@ -5,7 +5,7 @@
 //
 {
     "name": "sgsss-training",
-    "image": "ghcr.io/nextflow-io/training:latest",
+    "image": "ghcr.io/robsyme/features/nextflow:1",
     "workspaceFolder": "/workspaces/training",
     "remoteUser": "root",
     "remoteEnv": {
@@ -15,7 +15,7 @@
         "NXF_VER": "24.10.4",
         // Other env vars
         "HOST_PROJECT_PATH": "/workspaces/training",
-        "SHELL": "/bin/bash" // Ush bash
+        "SHELL": "/bin/bash" // Use bash
     },
     "onCreateCommand": "bash .devcontainer/setup.sh",
     "customizations": {
