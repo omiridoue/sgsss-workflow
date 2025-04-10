@@ -3,7 +3,7 @@
 # Building your own Computational Pipeline for Social Scientists
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="docs/assets/img/cc_by-nc-nd.svg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="episodes/fig/cc_by-nc-nd.svg" /></a>
 
 This lesson is a template lesson that uses [The Carpentries Workbench][workbench].
 
@@ -21,7 +21,7 @@ This lesson is a template lesson that uses [The Carpentries Workbench][workbench
 
 [workbench]: https://carpentries.github.io/sandpaper-docs/
 
-This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and 
+This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). 
 
 
 ## Data 
@@ -52,3 +52,13 @@ I am grateful to the Scottish Graduate School of Social Sciences (SGSSS) for fun
 Please do not hesitate to get in contact if you have queries, criticisms or ideas regarding these materials: [PGR Eleni Omiridou](mailto:2333157o@student.gla.ac.uk)
 
 > Copyright 2025, omiridoue. All examples and descriptions are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
+## Citations 
+
+> The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. DOI 10.5281/zenodo.3233853.
+
+> The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3332807.
+
+> Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. https://github.com/carpentries-incubator/workflows-nextflow 2021.
+
+>The lesson material was adapted with permission from from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)

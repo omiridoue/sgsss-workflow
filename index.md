@@ -59,8 +59,7 @@ Connecting with Computational Social Scientists
 ::::::::::::::::::::::::::::
 
 
-This lesson motivates the use of Nextflow ad nf-core as development tools
-for building and sharing reproducible data science workflow
+This lesson motivates the use of Nextflow ad nf-core as development tools for building and sharing reproducible data science workflow.
 
 ## lesson objectives
 
@@ -74,7 +73,7 @@ for building and sharing reproducible data science workflow
 
 ## Prerequisites
 
-This is an intermediate lesson and assumes familiarity with the core materials covered in the
+This is an introductory lesson to computational workflows. Basic familiarity with the core materials covered in the
 [Software Carpentry Lessons](https://software-carpentry.org/lessons/). In particular learners need to be familiar with
 material covered in [The Unix Shell](https://swcarpentry.github.io/shell-novice).
 It is helpful to be familiar with using another programming language, to the level of
@@ -109,21 +108,21 @@ You should be presented with a page where you can create a new GitHub Codespace:
 You can click "Change options" to configure the machine used.
 Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
 
-**For our Hello Nextflow, Nextflow For Science, and nf-core training courses, we recommend using a 4-core machine.**
+**For our the hands-on component, we recommend using a 4-core machine.**
 
 The free GitHub plan includes 120 core-hours of Codespaces compute per month, which amounts to 30 hours of a 4-core machine.
 (See below for more information about quotas.)
 
-!!! warning
 
-    Opening a new GitHub Codespaces environment for the first time can take several minutes.
-    Just enough time to brew a cup of tea and check your emails, or go over the intro materials if you're in a group training.
 
-## Explore your GitHub Codespaces IDE
+Opening a new GitHub Codespaces environment for the first time can take several minutes.
+Just enough time to go over the intro materials if you're in a group training.
+
+## Explore GitHub Codespaces
 
 After GitHub Codespaces has loaded, you should see something similar to the following (which may open in light mode depending on your account preferences):
 
-![GitHub Codespaces welcome](img/codespaces_welcome.png)
+![GitHub Codespaces welcome](episodes/fig/codespaces_welcome.png)
 
 This is the interface of the VSCode IDE, a popular code development application that we recommend using for Nextflow development.
 
@@ -141,7 +140,7 @@ You can reopen an environment from <https://github.com/codespaces/>.
 Previous environments will be listed.
 Click a session to resume it.
 
-![List GitHub Codespace sessions](img/codespaces_list.png)
+![List GitHub Codespace sessions](episodes/fig/codespaces_list.png)
 
 If you have saved the URL for your previous GitHub Codespaces environment, you can simply open it in your browser.
 Alternatively, click the same button that you used to create it in the first place:
@@ -150,7 +149,7 @@ Alternatively, click the same button that you used to create it in the first pla
 
 You should see the previous session, the default option is to resume it:
 
-![Resume a GitHub Codespace](img/codespaces_resume.png)
+![Resume a GitHub Codespace](episodes/fig/codespaces_resume.png)
 
 ## Saving files from GitHub Codespaces to your local machine
 

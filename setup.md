@@ -77,11 +77,8 @@ on a server.
 
 ### Unix Shells on Windows
 
-Computers with Windows operating systems do not automatically have a Unix Shell
-program installed. In this lesson, we encourage you to use an emulator included
-in Git for Windows, which gives you access to both Bash shell commands and Git.
-If you have attended a Software Carpentry workshop session, it is likely you
-have already received instructions on how to install Git for Windows.
+Computers with Windows operating systems do not automatically have a Unix Shell program installed. In this lesson, we encourage you to use an emulator included in Git for Windows, which gives you access to both Bash shell commands and Git.
+If you have attended a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
 
 Once installed, you can open a terminal by running the program Git Bash from
 the Windows start menu.
@@ -91,8 +88,8 @@ the Windows start menu.
 * [Git for Windows][git4win] -- *Recommended*
 * [Windows Subsystem for Linux][ms-wsl] -- advanced option for Windows 10
 
-> ## Alternatives to Git for Windows
->
+## Alternatives to Git for Windows
+
 > Other solutions are available for running Bash commands on Windows. There is
 > now a Bash shell command-line tool available for Windows 10. Additionally,
 > you can run Bash commands on a remote computer or server that already has a
@@ -101,22 +98,19 @@ the Windows start menu.
 > computers is [PuTTY][putty]. See the reference below for information on
 > installing and using PuTTY, using the Windows 10 command-line tool, or
 > installing and using a Unix/Linux emulator.
->
+
 > For advanced users, you may choose one of the following alternatives:
->
+
 > * Install the [Windows Subsystem for Linux][ms-wsl]
 > * Use the Windows [PowerShell][ms-shell]
-> * Read up on [Using a Unix/Linux emulator][unix-emulator] (Cygwin) or Secure
->   Shell (SSH) client (PuTTY)
->
-> > ## Warning
-> >
-> > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin
-> > may differ slightly from those shown in the lesson or presented in the
-> > workshop. Please ask if you encounter such a mismatch -- you're
-> > probably not alone.
-> {: .challenge}
-{: .discussion}
+> * Read up on [Using a Unix/Linux emulator][unix-emulator] 
+>(Cygwin) or Secure
+> Shell (SSH) client (PuTTY)
+
+## Warning
+> > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. Please ask if you encounter such a mismatch -- you're probably not alone.
+
+
 
 ### Unix Shell on macOS
 
@@ -160,7 +154,6 @@ Git for Windows comes with SSH preinstalled: you do not have to do anything.
 > graphical user interface (a GUI window needs to open for the application to
 > run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
 > Edition.
-{: .discussion}
 
 ### SSH for macOS
 
@@ -170,7 +163,6 @@ macOS comes with SSH pre-installed: you do not have to do anything.
 >
 > If you know that the software you will be running requires a graphical user
 > interface, please install [XQuartz](https://www.xquartz.org).
-{: .discussion}
 
 ### SSH for Linux
 
