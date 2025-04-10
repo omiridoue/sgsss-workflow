@@ -1,4 +1,4 @@
-![SGSSS Logo](../episodes/fig/SGSSS_Stacked.png)
+![SGSSS Logo](episodes/fig/SGSSS_Stacked.png)
 
 # Practical Computational Methods for Social Scientists
 
