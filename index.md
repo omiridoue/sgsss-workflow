@@ -5,18 +5,59 @@ site: sandpaper::sandpaper_site
 
 ![Scottish Graduate School for Social Sciences](../sgsss-workflow/episodes/fig/SGSSS_Stacked.png)
 
+## Introduction
+
+Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
+
 [Nextflow](https://www.nextflow.io/) is workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
 such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
-be seamlessly coupled together. It implements Domain Specific Language
-(DSL) that simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructure
+be seamlessly coupled together. It simplifies the implementation and running of workflows on
+cloud or high-performance computing (HPC) infrastructure.
 
-This lesson also introduces [nf-core](https://nf-co.re/): a
-community-driven platform, which provide peer reviewed
-best practice analysis pipelines written in Nextflow.
+:::::::::::::::::: checklist
+
+## :droplet: Drop in the Ocean :droplet:
+
+__Core Competencies__
+
+-[x] Ability to design and execute research projects from end to end (data to report)
+-[] Domain expertise
+-[] Programming fluency in R and/or Python
+-[] Experience with data management
+-[] Effective communication and collaborative research skills with both technical and nontechnical colleagues (e.g.,
+version control and documentation)
+-[] Practiced knowledge of machine learning and traditional quantitative social science paradigms
+-[] Engagement with ethical concerns about digital and digitized data and computational methods (e.g., privacy
+protection and algorithmic bias)
+
+**Additional Market-Specific Skills** 
+
+-[] Ability to apply theory, methods, and findings to the practical aims of a product and/or organization (non-academic)
+-[] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
+
+__Building a CSS Portfolio__
+
+**Core Competencies**
+-[] Publicly available research projects documented from end to end 
+-[x] Reproducible, efficient, and communicable code via GitHub
+-[] Publish and serve as reviewer for journal publications/conference proceedings
+
+**Additional Market-Specific Skills**
+-[] Sharing learnings through research notes (non-academic) and tutorials (academic)
+Connecting with Computational Social Scientists
+
+**Core Competencies**
+-[] Attend and know how to navigate cross-disciplinary computational social science conferences
+**Additional Market-Specific Skills **
+-[] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations
+(non-academic)
+-[x] Connect with computational social scientists working on similar topics in different sectors via online platforms (e.g., LinkedIn and Slack) (non-academic)
+
+::::::::::::::::::::::::::::
+
 
 This lesson motivates the use of Nextflow ad nf-core as development tools
 for building and sharing reproducible data science workflow
