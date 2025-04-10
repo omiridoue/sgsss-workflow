@@ -5,6 +5,29 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="episodes/fig/cc_by-nc-nd.svg" /></a>
 
+
+## Introduction
+
+Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
+
+[Nextflow](https://www.nextflow.io/) is workflow management software which
+enables the writing of scalable and reproducible scientific workflows. It
+can integrate various software package and environment management systems
+such as Docker, Singularity, and Conda. It allows for existing pipelines
+written in common scripting languages, such as R and Python, to
+be seamlessly coupled together. It simplifies the implementation and running of workflows on
+cloud or high-performance computing (HPC) infrastructure.
+
+This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). The course material page was designed based off the [workbench](https://carpentries.github.io/sandpaper-docs/).
+
+## Data 
+
+Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
+
+## Course materials
+
+The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [PGR Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
+
 This lesson is a template lesson that uses [The Carpentries Workbench][workbench].
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
@@ -18,19 +41,6 @@ This lesson is a template lesson that uses [The Carpentries Workbench][workbench
   </a>
 </p>
 
-
-[workbench]: https://carpentries.github.io/sandpaper-docs/
-
-This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). 
-
-
-## Data 
-
-Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
-
-## Course materials
-
-The course material for the half day course live in this repository, material was prepared by [PGR Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in March 2025.
 
 ### Programme
 

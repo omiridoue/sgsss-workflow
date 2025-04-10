@@ -3,8 +3,6 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-![Scottish Graduate School for Social Sciences](../sgsss-workflow/episodes/fig/SGSSS_Stacked.png)
-
 ## Introduction
 
 Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
