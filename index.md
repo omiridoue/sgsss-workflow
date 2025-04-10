@@ -3,21 +3,61 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
+## Introduction
+
+Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
+
 [Nextflow](https://www.nextflow.io/) is workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
 such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
-be seamlessly coupled together. It implements Domain Specific Language
-(DSL) that simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructure
+be seamlessly coupled together. It simplifies the implementation and running of workflows on
+cloud or high-performance computing (HPC) infrastructure.
 
-This lesson also introduces [nf-core](https://nf-co.re/): a
-community-driven platform, which provide peer reviewed
-best practice analysis pipelines written in Nextflow.
+:::::::::::::::::: checklist
 
-This lesson motivates the use of Nextflow ad nf-core as development tools
-for building and sharing reproducible data science workflow
+## :droplet: Drop in the Ocean :droplet:
+
+__Core Competencies__
+
+- [x] Ability to design and execute research projects from end to end (data to report)
+- [ ] Domain expertise
+- [ ] Programming fluency in R and/or Python
+- [ ] Experience with data management
+- [ ] Effective communication and collaborative research skills with both technical and nontechnical colleagues (e.g.,
+version control and documentation)
+- [ ] Practiced knowledge of machine learning and traditional quantitative social science paradigms
+- [ ] Engagement with ethical concerns about digital and digitized data and computational methods (e.g., privacy
+protection and algorithmic bias)
+
+**Additional Market-Specific Skills** 
+
+- [ ] Ability to apply theory, methods, and findings to the practical aims of a product and/or organization (non-academic)
+- [ ] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
+
+__Building a CSS Portfolio__
+
+**Core Competencies**
+- [ ] Publicly available research projects documented from end to end 
+- [x] Reproducible, efficient, and communicable code via GitHub
+- [ ] Publish and serve as reviewer for journal publications/conference proceedings
+
+**Additional Market-Specific Skills**
+- [ ] Sharing learnings through research notes (non-academic) and tutorials (academic)
+Connecting with Computational Social Scientists
+
+**Core Competencies**
+- [ ] Attend and know how to navigate cross-disciplinary computational social science conferences
+**Additional Market-Specific Skills**
+- [ ] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations
+(non-academic)
+- [ ] Connect with computational social scientists working on similar topics in different sectors via online platforms (e.g., LinkedIn and Slack) (non-academic)
+
+::::::::::::::::::::::::::::
+
+
+This lesson motivates the use of Nextflow ad nf-core as development tools for building and sharing reproducible data science workflow.
 
 ## lesson objectives
 
@@ -31,7 +71,7 @@ for building and sharing reproducible data science workflow
 
 ## Prerequisites
 
-This is an intermediate lesson and assumes familiarity with the core materials covered in the
+This is an introductory lesson to computational workflows. Basic familiarity with the core materials covered in the
 [Software Carpentry Lessons](https://software-carpentry.org/lessons/). In particular learners need to be familiar with
 material covered in [The Unix Shell](https://swcarpentry.github.io/shell-novice).
 It is helpful to be familiar with using another programming language, to the level of
@@ -63,26 +103,24 @@ Alternatively, you can click on the button shown below from the many pages in th
 
 You should be presented with a page where you can create a new GitHub Codespace:
 
-![Create a GitHub Codespace](img/codespaces_create.png)
-
 You can click "Change options" to configure the machine used.
 Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
 
-**For our Hello Nextflow, Nextflow For Science, and nf-core training courses, we recommend using a 4-core machine.**
+**For our the hands-on component, we recommend using a 4-core machine.**
 
 The free GitHub plan includes 120 core-hours of Codespaces compute per month, which amounts to 30 hours of a 4-core machine.
 (See below for more information about quotas.)
 
-!!! warning
 
-    Opening a new GitHub Codespaces environment for the first time can take several minutes.
-    Just enough time to brew a cup of tea and check your emails, or go over the intro materials if you're in a group training.
 
-## Explore your GitHub Codespaces IDE
+Opening a new GitHub Codespaces environment for the first time can take several minutes.
+Just enough time to go over the intro materials if you're in a group training.
+
+## Explore GitHub Codespaces
 
 After GitHub Codespaces has loaded, you should see something similar to the following (which may open in light mode depending on your account preferences):
 
-![GitHub Codespaces welcome](img/codespaces_welcome.png)
+![GitHub Codespaces welcome](episodes/fig/codespaces_welcome.png)
 
 This is the interface of the VSCode IDE, a popular code development application that we recommend using for Nextflow development.
 
@@ -100,7 +138,7 @@ You can reopen an environment from <https://github.com/codespaces/>.
 Previous environments will be listed.
 Click a session to resume it.
 
-![List GitHub Codespace sessions](img/codespaces_list.png)
+![List GitHub Codespace sessions](episodes/fig/codespaces_list.png)
 
 If you have saved the URL for your previous GitHub Codespaces environment, you can simply open it in your browser.
 Alternatively, click the same button that you used to create it in the first place:
@@ -109,7 +147,7 @@ Alternatively, click the same button that you used to create it in the first pla
 
 You should see the previous session, the default option is to resume it:
 
-![Resume a GitHub Codespace](img/codespaces_resume.png)
+![Resume a GitHub Codespace](episodes/fig/codespaces_resume.png)
 
 ## Saving files from GitHub Codespaces to your local machine
 
