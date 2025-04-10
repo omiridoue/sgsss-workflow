@@ -207,7 +207,8 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#lesson-objectives">lesson objectives</a></li>
+        <ul><li><a href="#introduction">Introduction</a></li>
+<li><a href="#lesson-objectives">lesson objectives</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -226,7 +227,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01.html">2. Getting Started with Nextflow</a>
+        <a href="02.html">2. Getting Started with Nextflow</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -235,7 +236,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02.html">3. Workflow parameterisation</a>
+        <a href="03.html">3. Workflow parameterisation</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -244,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="03.html">4. Workflow parameterisation</a>
+        <a href="04.html">4. Channels</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -253,7 +254,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04.html">5. Channels</a>
+        <a href="05.html">5. Processes</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -262,7 +263,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="05.html">6. Processes</a>
+        <a href="06.html">6. Processes Part 2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -271,7 +272,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="06.html">7. Processes Part 2</a>
+        <a href="07.html">7. Workflow</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -280,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="07.html">8. Workflow</a>
+        <a href="08.html">8. Operators</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -289,7 +290,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="08.html">9. Operators</a>
+        <a href="09.html">9. Reporting</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -298,7 +299,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="09.html">10. Reporting</a>
+        <a href="10.html">10. Nextflow configuration</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -307,7 +308,7 @@
 <div class="accordion accordion-flush" id="accordionFlush12">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading12">
-        <a href="10.html">11. Nextflow configuration</a>
+        <a href="01.html">11. Auxiliary Tools</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -317,6 +318,15 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading13">
         <a href="11.html">12. Workflow caching and checkpointing</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush14">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading14">
+        <a href="12.html">13. Resources + Next Steps</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -373,21 +383,73 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Schedule</h1>
       
 
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
+<hr class="half-width"><p>Computational social science (CSS), which brings computational
+approaches to social science questions, has been shown to be a powerful
+tool.</p>
 <p><a href="https://www.nextflow.io/" class="external-link">Nextflow</a> is workflow
 management software which enables the writing of scalable and
 reproducible scientific workflows. It can integrate various software
 package and environment management systems such as Docker, Singularity,
 and Conda. It allows for existing pipelines written in common scripting
 languages, such as R and Python, to be seamlessly coupled together. It
-implements Domain Specific Language (DSL) that simplifies the
-implementation and running of workflows on cloud or high-performance
-computing (HPC) infrastructure</p>
-<p>This lesson also introduces <a href="https://nf-co.re/" class="external-link">nf-core</a>:
-a community-driven platform, which provide peer reviewed best practice
-analysis pipelines written in Nextflow.</p>
+simplifies the implementation and running of workflows on cloud or
+high-performance computing (HPC) infrastructure.</p>
+<div id="drop-in-the-ocean" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<div id="drop-in-the-ocean" class="callout-inner">
+<h3 class="callout-title">
+<span class="emoji" data-emoji="droplet">💧</span> Drop in the Ocean <span class="emoji" data-emoji="droplet">💧</span>
+</h3>
+<div class="callout-content">
+<p><strong>Core Competencies</strong></p>
+<ul class="task-list"><li><label><input type="checkbox" checked>Ability to design and
+execute research projects from end to end (data to report)</label></li>
+<li><label><input type="checkbox">Domain expertise</label></li>
+<li><label><input type="checkbox">Programming fluency in R and/or
+Python</label></li>
+<li><label><input type="checkbox">Experience with data
+management</label></li>
+<li><label><input type="checkbox">Effective communication and
+collaborative research skills with both technical and nontechnical
+colleagues (e.g., version control and documentation)</label></li>
+<li><label><input type="checkbox">Practiced knowledge of machine
+learning and traditional quantitative social science
+paradigms</label></li>
+<li><label><input type="checkbox">Engagement with ethical concerns
+about digital and digitized data and computational methods (e.g.,
+privacy protection and algorithmic bias)</label></li>
+</ul><p><strong>Additional Market-Specific Skills</strong></p>
+<ul class="task-list"><li><label><input type="checkbox">Ability to apply theory, methods,
+and findings to the practical aims of a product and/or organization
+(non-academic)</label></li>
+<li><label><input type="checkbox">Proficiency with relational database
+languages (e.g., SQL) and cloud-based databases (non-academic
+especially)</label></li>
+</ul><p><strong>Building a CSS Portfolio</strong></p>
+<p><strong>Core Competencies</strong> - [ ] Publicly available research
+projects documented from end to end - [x] Reproducible, efficient, and
+communicable code via GitHub - [ ] Publish and serve as reviewer for
+journal publications/conference proceedings</p>
+<p><strong>Additional Market-Specific Skills</strong> - [ ] Sharing
+learnings through research notes (non-academic) and tutorials (academic)
+Connecting with Computational Social Scientists</p>
+<p><strong>Core Competencies</strong> - [ ] Attend and know how to
+navigate cross-disciplinary computational social science conferences
+<strong>Additional Market-Specific Skills</strong> - [ ] Work with
+computational social scientists through internships and work with civic,
+social, and nonprofit organizations (non-academic) - [ ] Connect with
+computational social scientists working on similar topics in different
+sectors via online platforms (e.g., LinkedIn and Slack)
+(non-academic)</p>
+</div>
+</div>
+</div>
 <p>This lesson motivates the use of Nextflow ad nf-core as development
-tools for building and sharing reproducible data science workflow</p>
-<section><h2 class="section-heading" id="lesson-objectives">lesson objectives<a class="anchor" aria-label="anchor" href="#lesson-objectives"></a></h2>
+tools for building and sharing reproducible data science workflow.</p>
+</section><section><h2 class="section-heading" id="lesson-objectives">lesson objectives<a class="anchor" aria-label="anchor" href="#lesson-objectives"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li>The learner will understand the fundamental components of Nextflow
 script, including channels, processes and operators.</li>
 <li>The learner will write a multi-step workflow script to align,
@@ -403,8 +465,8 @@ pipeline.</li>
 <div id="prerequisites" class="callout-inner">
 <h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
-<p>This is an intermediate lesson and assumes familiarity with the core
-materials covered in the <a href="https://software-carpentry.org/lessons/" class="external-link">Software Carpentry
+<p>This is an introductory lesson to computational workflows. Basic
+familiarity with the core materials covered in the <a href="https://software-carpentry.org/lessons/" class="external-link">Software Carpentry
 Lessons</a>. In particular learners need to be familiar with material
 covered in <a href="https://swcarpentry.github.io/shell-novice" class="external-link">The Unix
 Shell</a>. It is helpful to be familiar with using another programming
@@ -435,29 +497,24 @@ pages in the training portal where it is displayed.</p>
 <p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
 <p>You should be presented with a page where you can create a new GitHub
 Codespace:</p>
-<figure><img src="../img/codespaces_create.png" alt="Create a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Create a GitHub Codespace</div>
-</figure><p>You can click “Change options” to configure the machine used. Using a
+<p>You can click “Change options” to configure the machine used. Using a
 machine with more cores allows you to take greater advantage of
 Nextflow’s ability to parallelize workflow execution.</p>
-<p><strong>For our Hello Nextflow, Nextflow For Science, and nf-core
-training courses, we recommend using a 4-core machine.</strong></p>
+<p><strong>For our the hands-on component, we recommend using a 4-core
+machine.</strong></p>
 <p>The free GitHub plan includes 120 core-hours of Codespaces compute
 per month, which amounts to 30 hours of a 4-core machine. (See below for
 more information about quotas.)</p>
-<p>!!! warning</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">Opening</span> a new GitHub Codespaces environment for the first time can take several minutes.</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">Just</span> enough time to brew a cup of tea and check your emails, or go over the intro materials if you<span class="st">'re in a group training.</span></span></code></pre>
-</div>
+<p>Opening a new GitHub Codespaces environment for the first time can
+take several minutes. Just enough time to go over the intro materials if
+you’re in a group training.</p>
 </div>
 <div class="section level2">
-<h2 id="explore-your-github-codespaces-ide">Explore your GitHub Codespaces IDE<a class="anchor" aria-label="anchor" href="#explore-your-github-codespaces-ide"></a></h2>
+<h2 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h2>
 <p>After GitHub Codespaces has loaded, you should see something similar
 to the following (which may open in light mode depending on your account
 preferences):</p>
-<figure><img src="../img/codespaces_welcome.png" alt="GitHub Codespaces welcome" class="figure mx-auto d-block"><div class="figcaption">GitHub Codespaces welcome</div>
+<figure><img src="../fig/codespaces_welcome.png" alt="GitHub Codespaces welcome" class="figure mx-auto d-block"><div class="figcaption">GitHub Codespaces welcome</div>
 </figure><p>This is the interface of the VSCode IDE, a popular code development
 application that we recommend using for Nextflow development.</p>
 <ul><li>
@@ -486,14 +543,14 @@ time out after 30 minutes of inactivity and will save your changes for
 up to 2 weeks.</p>
 <p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>. Previous environments
 will be listed. Click a session to resume it.</p>
-<figure><img src="../img/codespaces_list.png" alt="List GitHub Codespace sessions" class="figure mx-auto d-block"><div class="figcaption">List GitHub Codespace sessions</div>
+<figure><img src="../fig/codespaces_list.png" alt="List GitHub Codespace sessions" class="figure mx-auto d-block"><div class="figcaption">List GitHub Codespace sessions</div>
 </figure><p>If you have saved the URL for your previous GitHub Codespaces
 environment, you can simply open it in your browser. Alternatively,
 click the same button that you used to create it in the first place:</p>
 <p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
 <p>You should see the previous session, the default option is to resume
 it:</p>
-<figure><img src="../img/codespaces_resume.png" alt="Resume a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Resume a GitHub Codespace</div>
+<figure><img src="../fig/codespaces_resume.png" alt="Resume a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Resume a GitHub Codespace</div>
 </figure></div>
 <div class="section level2">
 <h2 id="saving-files-from-github-codespaces-to-your-local-machine">Saving files from GitHub Codespaces to your local machine<a class="anchor" aria-label="anchor" href="#saving-files-from-github-codespaces-to-your-local-machine"></a></h2>
@@ -529,14 +586,14 @@ any links that you are not going to use.
 </td>
 <td>
 What are the FAIR research principles?<br>How do FAIR principles apply
-to software?<br>How should I name my files?<br>How does folder
-organisation help me
+to software?<br>How does folder organisation help me?<br>How should I
+name and organise my files?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 25m
 </td>
 <td>
- 2. <a href="01.html">Getting Started with Nextflow</a>
+ 2. <a href="02.html">Getting Started with Nextflow</a>
 </td>
 <td>
 What is a workflow what are workflow management systems?<br>Why should
@@ -548,7 +605,7 @@ script?<br>How do I run Nextflow script?
 <span class="visually-hidden">Duration: </span>01h 05m
 </td>
 <td>
- 3. <a href="02.html">Workflow parameterisation</a>
+ 3. <a href="03.html">Workflow parameterisation</a>
 </td>
 <td>
 How can I change the data a workflow uses?<br>How can I parameterise a
@@ -558,17 +615,7 @@ workflow?<br>How can I add my parameters to a file?
 <span class="visually-hidden">Duration: </span>01h 30m
 </td>
 <td>
- 4. <a href="03.html">Workflow parameterisation</a>
-</td>
-<td>
-How can I change the data a workflow uses?<br>How can I parameterise a
-workflow?<br>How can I add my parameters to a file?
-</td>
-</tr><tr><td>
-<span class="visually-hidden">Duration: </span>01h 55m
-</td>
-<td>
- 5. <a href="04.html">Channels</a>
+ 4. <a href="04.html">Channels</a>
 </td>
 <td>
 How do I move data around in Nextflow?<br>How do I handle different
@@ -577,20 +624,20 @@ Nextflow channel?<br>How can I use pattern matching to select input
 files?<br>How do I change the way inputs are handled?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>02h 35m
+<span class="visually-hidden">Duration: </span>02h 10m
 </td>
 <td>
- 6. <a href="05.html">Processes</a>
+ 5. <a href="05.html">Processes</a>
 </td>
 <td>
 How do I run tasks/processes in Nextflow?<br>How do I get data, files
 and values, into a processes?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>03h 20m
+<span class="visually-hidden">Duration: </span>02h 55m
 </td>
 <td>
- 7. <a href="06.html">Processes Part 2</a>
+ 6. <a href="06.html">Processes Part 2</a>
 </td>
 <td>
 How do I get data, files, and values, out of processes?<br>How do I
@@ -600,20 +647,20 @@ memory, available to processes?<br>How do I save output/results from a
 process?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>04h 00m
+<span class="visually-hidden">Duration: </span>03h 35m
 </td>
 <td>
- 8. <a href="07.html">Workflow</a>
+ 7. <a href="07.html">Workflow</a>
 </td>
 <td>
 How do I connect channels and processes to create a workflow?<br>How do
 I invoke a process inside a workflow?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>04h 40m
+<span class="visually-hidden">Duration: </span>04h 15m
 </td>
 <td>
- 9. <a href="08.html">Operators</a>
+ 8. <a href="08.html">Operators</a>
 </td>
 <td>
 How do I perform operations, such as filtering, on channels?<br>What
@@ -622,20 +669,20 @@ do I combine operations?<br>How can I use a CSV file to process data
 into a Channel?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>05h 20m
+<span class="visually-hidden">Duration: </span>04h 55m
 </td>
 <td>
-10. <a href="09.html">Reporting</a>
+ 9. <a href="09.html">Reporting</a>
 </td>
 <td>
 How do I get information about my pipeline run?<br>How can I see what
 commands I ran?<br>How can I create a report from my run?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>05h 45m
+<span class="visually-hidden">Duration: </span>05h 20m
 </td>
 <td>
-11. <a href="10.html">Nextflow configuration</a>
+10. <a href="10.html">Nextflow configuration</a>
 </td>
 <td>
 What is the difference between the workflow implementation and the
@@ -644,6 +691,16 @@ workflow?<br>How do I assign different resources to different
 processes?<br>How do I separate and provide configuration for different
 computational systems?<br>How do I change configuration settings from
 the default settings provided by the workflow?
+</td>
+</tr><tr><td>
+<span class="visually-hidden">Duration: </span>06h 05m
+</td>
+<td>
+11. <a href="01.html">Auxiliary Tools</a>
+</td>
+<td>
+When should I use a pre-built container?<br>How do I set up code from a
+GitHub repository?<br>How can I navigate folders in a directory?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>06h 30m
@@ -660,6 +717,15 @@ can I find intermediate data and results?
 <span class="visually-hidden">Duration: </span>07h 00m
 </td>
 <td>
+13. <a href="12.html">Resources + Next Steps</a>
+</td>
+<td>
+How can I move my analysis to a computer cluster?
+</td>
+</tr><tr><td>
+<span class="visually-hidden">Duration: </span>07h 30m
+</td>
+<td>
 Finish
 </td>
 <td>
@@ -670,140 +736,201 @@ any links that you are not going to use.
  --></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><p>There are several pieces of software you will wish to install befor
-the workshop. Though installation help will be provided at the workshop,
-we recommend that these tools are installed (or at least downloaded)
-beforehand.</p>
-<ol style="list-style-type: decimal"><li><a href="#where-to-type-commands-how-to-open-a-new-shell">A terminal
-application or command-line interface</a></li>
-<li><a href="#ssh-for-secure-connections">A Secure Shell
-application</a></li>
-</ol><blockquote>
-<h2 id="bash-and-ssh">Bash and SSH</h2>
-<p>This lesson requires a terminal application (<code>bash</code>,
-<code>zsh</code>, or others) with the ability to securely connect to a
-remote machine (<code>ssh</code>). {: .prereq}</p>
-</blockquote>
-<section><h2 class="section-heading" id="where-to-type-commands-how-to-open-a-new-shell">Where to Type Commands: How to Open a New Shell<a class="anchor" aria-label="anchor" href="#where-to-type-commands-how-to-open-a-new-shell"></a></h2>
-<hr class="half-width"><p>The shell is a program that enables us to send commands to the
-computer and receive output. It is also referred to as the terminal or
-command line.</p>
-<p>Some computers include a default Unix Shell program. The steps below
-describe some methods for identifying and opening a Unix Shell program
-if you already have one installed. There are also options for
-identifying and downloading a Unix Shell program, a Linux/UNIX emulator,
-or a program to access a Unix Shell on a server.</p>
+      </section><section id="setup"><section><h2 class="section-heading" id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a></h2>
+<hr class="half-width"><p>A set of options are available to set up your and follow along the
+practical component:</p>
+<ol style="list-style-type: decimal"><li>Running locally on your personal computer</li>
+<li>Running the exercises in your browser using a remote environment
+called Gitpod.</li>
+</ol></section><section><h2 class="section-heading" id="running-locally-on-your-personal-computer">Running locally on your personal computer<a class="anchor" aria-label="anchor" href="#running-locally-on-your-personal-computer"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="training-directory">Training directory<a class="anchor" aria-label="anchor" href="#training-directory"></a></h3>
+<p>Each learner should setup a training folder
+e.g. <code>nf-training</code></p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mkdir</span> nf-training</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> nf-training</span></code></pre>
+</div>
+<p>There are three items that you need to download:</p>
+<ol style="list-style-type: decimal"><li>The training software.</li>
+<li>The training dataset.</li>
+<li>The workshop scripts.</li>
+</ol></div>
 <div class="section level3">
-<h3 id="unix-shells-on-windows">Unix Shells on Windows<a class="anchor" aria-label="anchor" href="#unix-shells-on-windows"></a></h3>
-<p>Computers with Windows operating systems do not automatically have a
-Unix Shell program installed. In this lesson, we encourage you to use an
-emulator included in Git for Windows, which gives you access to both
-Bash shell commands and Git. If you have attended a Software Carpentry
-workshop session, it is likely you have already received instructions on
-how to install Git for Windows.</p>
-<p>Once installed, you can open a terminal by running the program Git
-Bash from the Windows start menu.</p>
+<h3 id="training-software">Training software<a class="anchor" aria-label="anchor" href="#training-software"></a></h3>
+<p>A list of software with version required for this training is listed
+below:</p>
+<table class="table"><thead><tr class="header"><th>Software</th>
+<th>Version</th>
+</tr></thead><tbody><tr class="odd"><td>Nextflow</td>
+<td>20.10.0</td>
+</tr><tr class="even"><td>nf-core/tools</td>
+<td>1.12.1</td>
+</tr><tr class="odd"><td>salmon</td>
+<td>1.5</td>
+</tr><tr class="even"><td>fastqc</td>
+<td>0.11</td>
+</tr><tr class="odd"><td>multiqc</td>
+<td>1.10</td>
+</tr><tr class="even"><td>python</td>
+<td>3.8</td>
+</tr></tbody></table><div class="section level4">
+<h4 id="conda">conda<a class="anchor" aria-label="anchor" href="#conda"></a></h4>
+<p>The simplest way to install the software for this course is using
+conda.</p>
+<p>To install conda see <a href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/" class="external-link">here</a>.</p>
+<p>An environment file is provided here <a href="https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml" class="external-link">environment.yml</a></p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># You can use either wget or curl to download content from the web via the command line.</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># wget</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># curl </span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> environment.yml https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml</span></code></pre>
+</div>
+<p>To create the training environment run:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-n</span> nf-training <span class="at">-f</span> environment.yml</span></code></pre>
+</div>
+<p>Then activate the environment by running</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">conda</span> activate nf-training</span></code></pre>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="training-scripts">Training scripts<a class="anchor" aria-label="anchor" href="#training-scripts"></a></h3>
+<p>To aid in the delivery of the lesson, the scripts mentioned in each
+episode, can be found in the respective episode folders in the github
+repository. <a href="https://github.com/carpentries-incubator/workflows-nextflow/tree/gh-pages/files/scripts" class="external-link">https://github.com/carpentries-incubator/workflows-nextflow/tree/main/episodes/files/scripts</a></p>
+<p>To get the scripts associated with each episode you will need to
+download the scripts folder from the github repository.</p>
+<p>Below is a series of commands to download and unpack scripts
+folder.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># get the gitrepo as a zip file</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> main.zip https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># unzip the script file</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">unzip</span> main.zip <span class="st">'workflows-nextflow-main/episodes/files/scripts*'</span> <span class="at">-d</span>  .</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># mv the scripts folder to the nf-training folder</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="fu">mv</span> workflows-nextflow-main/episodes/files/scripts .</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co"># remove the zip file and the git repo</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> workflows-nextflow-main main.zip</span></code></pre>
+</div>
+<p>The nextflow scripts for each episode, can be found in the respective
+episode folders inside this the scripts folder.</p>
 <div class="section level4">
-<h4 id="shell-programs-for-windows">Shell Programs for Windows<a class="anchor" aria-label="anchor" href="#shell-programs-for-windows"></a></h4>
-<ul><li>
-<a href="https://gitforwindows.org/" class="external-link">Git for Windows</a> –
-<em>Recommended</em>
-</li>
-<li>
-<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
-Subsystem for Linux</a> – advanced option for Windows 10</li>
-</ul><blockquote>
-<h2 id="alternatives-to-git-for-windows">Alternatives to Git for
-Windows</h2>
-<p>Other solutions are available for running Bash commands on Windows.
-There is now a Bash shell command-line tool available for Windows 10.
-Additionally, you can run Bash commands on a remote computer or server
-that already has a Unix Shell, from your Windows machine. This can
-usually be done through a Secure Shell (SSH) client. One such client
-available for free for Windows computers is <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" class="external-link">PuTTY</a>.
-See the reference below for information on installing and using PuTTY,
-using the Windows 10 command-line tool, or installing and using a
-Unix/Linux emulator.</p>
-<p>For advanced users, you may choose one of the following
-alternatives:</p>
-<ul><li>Install the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
-Subsystem for Linux</a>
-</li>
-<li>Use the Windows <a href="https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7" class="external-link">PowerShell</a>
-</li>
-<li>Read up on <a href="https://www.cygwin.com/" class="external-link">Using a Unix/Linux
-emulator</a> (Cygwin) or Secure Shell (SSH) client (PuTTY)</li>
-</ul><blockquote>
-<h2 id="warning">Warning</h2>
-<p>Commands in the Windows Subsystem for Linux (WSL), PowerShell, or
-Cygwin may differ slightly from those shown in the lesson or presented
-in the workshop. Please ask if you encounter such a mismatch – you’re
-probably not alone. {: .challenge} {: .discussion}</p>
-</blockquote>
-</blockquote>
+<h4 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a></h4>
+<p>Inside the <code>nf-training</code> folder download the workshop
+dataset from Figshare, <a href="https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481" class="external-link">https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481</a></p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">wget</span> <span class="at">--content-disposition</span> https://ndownloader.figshare.com/files/28531743</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co"># or curl</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span>  data.tar.gz https://ndownloader.figshare.com/files/28531743</span></code></pre>
+</div>
+<p>Unpack gzipped tar file:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span>  data.tar.gz</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">rm</span> data.tar.gz</span></code></pre>
+</div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="unix-shell-on-macos">Unix Shell on macOS<a class="anchor" aria-label="anchor" href="#unix-shell-on-macos"></a></h3>
-<p>On macOS, the default Unix Shell is accessible by running the
-Terminal program from the <code>/Application/Utilities</code> folder in
-Finder.</p>
-<p>To open Terminal, try one or both of the following:</p>
-<ul><li>In Finder, select the Go menu, then select Utilities. Locate
-Terminal in the Utilities folder and open it.</li>
-<li>Use the Mac ‘Spotlight’ computer search function. Search for:
-<code>Terminal</code> and press <kbd>Return</kbd>.</li>
-</ul><p>For an introduction, see <a href="https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/" class="external-link">How
-to Use Terminal on a Mac</a>.</p>
+<h3 id="visual-studio-code-editor-setup">Visual Studio Code editor setup<a class="anchor" aria-label="anchor" href="#visual-studio-code-editor-setup"></a></h3>
+<p>Any text editor can be used to write Nextflow scripts. A recommended
+code editor is <a href="https://code.visualstudio.com/" class="external-link">Visual Studio
+Code</a>.</p>
+<p>Go to <a href="https://code.visualstudio.com/" class="external-link">Visual Studio Code</a>
+and you should see a download button. The button or buttons should be
+specific to your platform and the download package should be
+installable.</p>
+<div class="section level4">
+<h4 id="nextflow-language-support-in-visual-studio-code">Nextflow language support in Visual Studio Code<a class="anchor" aria-label="anchor" href="#nextflow-language-support-in-visual-studio-code"></a></h4>
+<p>You can add Nextflow language support in Visual Studio Code by
+clicking the <a href="https://marketplace.visualstudio.com/items?itemName=nextflow.nextflow" class="external-link">install</a>
+button on the Nextflow language extension.</p>
+</div>
 </div>
 <div class="section level3">
-<h3 id="unix-shell-on-linux">Unix Shell on Linux<a class="anchor" aria-label="anchor" href="#unix-shell-on-linux"></a></h3>
-<p>On most versions of Linux, the default Unix Shell is accessible by
-running the <a href="https://help.gnome.org/users/gnome-terminal/stable/" class="external-link">(Gnome)
-Terminal</a> or <a href="https://konsole.kde.org/" class="external-link">(KDE) Konsole</a> or
-<a href="https://en.wikipedia.org/wiki/Xterm" class="external-link">xterm</a>, which can be
-found via the applications menu or the search bar.</p>
+<h3 id="nextflow-install-without-conda">Nextflow install without conda<a class="anchor" aria-label="anchor" href="#nextflow-install-without-conda"></a></h3>
+<p>Nextflow can be used on any POSIX-compatible system (Linux, macOS,
+etc), and on Windows through WSL. It requires Bash 3.2 (or later) and
+Java 11 (or later, up to 22) to be installed</p>
 </div>
 <div class="section level3">
-<h3 id="special-cases">Special Cases<a class="anchor" aria-label="anchor" href="#special-cases"></a></h3>
-<p>If none of the options above address your circumstances, try an
-online search for: <code>Unix shell [your operating system]</code>.</p>
+<h3 id="nextflow-installation">Nextflow installation<a class="anchor" aria-label="anchor" href="#nextflow-installation"></a></h3>
+<p>Install the latest version of Nextflow copy &amp; pasting the
+following snippet in a terminal window:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Make sure that Java v11 or later is installed:</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># Install Nextflow</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://get.nextflow.io <span class="kw">|</span> <span class="fu">bash</span></span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="ssh-for-secure-connections">SSH for Secure Connections<a class="anchor" aria-label="anchor" href="#ssh-for-secure-connections"></a></h2>
-<hr class="half-width"><p>All students should have an SSH client installed. SSH is a tool that
-allows us to connect to and use a remote computer as our own.</p>
-<div class="section level3">
-<h3 id="ssh-for-windows">SSH for Windows<a class="anchor" aria-label="anchor" href="#ssh-for-windows"></a></h3>
-<p>Git for Windows comes with SSH preinstalled: you do not have to do
-anything.</p>
-<blockquote>
-<h2 id="gui-support-for-windows">GUI Support for Windows</h2>
-<p>If you know that the software you will be running on the cluster
-requires a graphical user interface (a GUI window needs to open for the
-application to run properly), please install <a href="https://mobaxterm.mobatek.net" class="external-link">MobaXterm</a> Home Edition. {:
-.discussion}</p>
-</blockquote>
 </div>
 <div class="section level3">
-<h3 id="ssh-for-macos">SSH for macOS<a class="anchor" aria-label="anchor" href="#ssh-for-macos"></a></h3>
-<p>macOS comes with SSH pre-installed: you do not have to do
-anything.</p>
-<blockquote>
-<h2 id="gui-support-for-macos">GUI Support for macOS</h2>
-<p>If you know that the software you will be running requires a
-graphical user interface, please install <a href="https://www.xquartz.org" class="external-link">XQuartz</a>. {: .discussion}</p>
-</blockquote>
+<h3 id="add-nextflow-binary-to-your-users-path">Add Nextflow binary to your user’s PATH:<a class="anchor" aria-label="anchor" href="#add-nextflow-binary-to-your-users-path"></a></h3>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">mv</span> nextflow ~/bin/</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># OR system-wide installation:</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co"># sudo mv nextflow /usr/local/bin</span></span></code></pre>
+</div>
+<p>Check the correct installation running the following command:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">nextflow</span> info</span></code></pre>
+</div>
 </div>
 <div class="section level3">
-<h3 id="ssh-for-linux">SSH for Linux<a class="anchor" aria-label="anchor" href="#ssh-for-linux"></a></h3>
-<p>Linux comes with SSH and X window support preinstalled: you do not
-have to do anything.</p>
-<!-- links -->
+<h3 id="nf-coretools-installation-without-conda">nf-core/tools installation without conda<a class="anchor" aria-label="anchor" href="#nf-coretools-installation-without-conda"></a></h3>
+<div class="section level4">
+<h4 id="pip">Pip<a class="anchor" aria-label="anchor" href="#pip"></a></h4>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">pip</span> install nf-core</span></code></pre>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="running-exercises-remotely-in-your-web-browser-through-gitpod-">Running exercises remotely in your web-browser through Gitpod.<a class="anchor" aria-label="anchor" href="#running-exercises-remotely-in-your-web-browser-through-gitpod-"></a></h2>
+<hr class="half-width"><p>Gitpod is a cloud-based computing environment that is accessed using
+your web-browser. You can click the button below to open up a Gitpod
+instance ready for training. This Gitpod environment comes with the
+tools necessary for the exercises already installed. You’ll be presented
+with a VSCode-like interface in your browser, which has a file explorer
+panel on the left, a main panel in which to view and edit files, and a
+panel below that includes a terminal in which to run unix commands.
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- -->
-</div>
+ --></p>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/00.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
@@ -853,8 +980,8 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/index.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/index.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-04-08",
-  "datePublished": "2025-04-08"
+  "dateModified": "2025-04-10",
+  "datePublished": "2025-04-10"
 }
 
   </script><script>
