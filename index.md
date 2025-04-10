@@ -21,38 +21,38 @@ cloud or high-performance computing (HPC) infrastructure.
 
 __Core Competencies__
 
--[x] Ability to design and execute research projects from end to end (data to report)
--[] Domain expertise
--[] Programming fluency in R and/or Python
--[] Experience with data management
--[] Effective communication and collaborative research skills with both technical and nontechnical colleagues (e.g.,
+- [x] Ability to design and execute research projects from end to end (data to report)
+- [ ] Domain expertise
+- [ ] Programming fluency in R and/or Python
+- [ ] Experience with data management
+- [ ] Effective communication and collaborative research skills with both technical and nontechnical colleagues (e.g.,
 version control and documentation)
--[] Practiced knowledge of machine learning and traditional quantitative social science paradigms
--[] Engagement with ethical concerns about digital and digitized data and computational methods (e.g., privacy
+- [ ] Practiced knowledge of machine learning and traditional quantitative social science paradigms
+- [ ] Engagement with ethical concerns about digital and digitized data and computational methods (e.g., privacy
 protection and algorithmic bias)
 
 **Additional Market-Specific Skills** 
 
--[] Ability to apply theory, methods, and findings to the practical aims of a product and/or organization (non-academic)
--[] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
+- [ ] Ability to apply theory, methods, and findings to the practical aims of a product and/or organization (non-academic)
+- [ ] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
 
 __Building a CSS Portfolio__
 
 **Core Competencies**
--[] Publicly available research projects documented from end to end 
--[x] Reproducible, efficient, and communicable code via GitHub
--[] Publish and serve as reviewer for journal publications/conference proceedings
+- [ ] Publicly available research projects documented from end to end 
+- [x] Reproducible, efficient, and communicable code via GitHub
+- [ ] Publish and serve as reviewer for journal publications/conference proceedings
 
 **Additional Market-Specific Skills**
--[] Sharing learnings through research notes (non-academic) and tutorials (academic)
+- [ ] Sharing learnings through research notes (non-academic) and tutorials (academic)
 Connecting with Computational Social Scientists
 
 **Core Competencies**
--[] Attend and know how to navigate cross-disciplinary computational social science conferences
-**Additional Market-Specific Skills **
--[] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations
+- [ ] Attend and know how to navigate cross-disciplinary computational social science conferences
+**Additional Market-Specific Skills**
+- [ ] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations
 (non-academic)
--[x] Connect with computational social scientists working on similar topics in different sectors via online platforms (e.g., LinkedIn and Slack) (non-academic)
+- [ ] Connect with computational social scientists working on similar topics in different sectors via online platforms (e.g., LinkedIn and Slack) (non-academic)
 
 ::::::::::::::::::::::::::::
 
