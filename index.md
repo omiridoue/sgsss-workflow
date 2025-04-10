@@ -7,17 +7,11 @@ site: sandpaper::sandpaper_site
 
 Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
 
-[Nextflow](https://www.nextflow.io/) is workflow management software which
-enables the writing of scalable and reproducible scientific workflows. It
-can integrate various software package and environment management systems
-such as Docker, Singularity, and Conda. It allows for existing pipelines
-written in common scripting languages, such as R and Python, to
-be seamlessly coupled together. It simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructure.
+[Nextflow](https://www.nextflow.io/) is workflow management software which enables the writing of scalable and reproducible scientific workflows. It can integrate various software package and environment management systems such as Docker, Singularity, and Conda. It allows for existing pipelines written in common scripting languages, such as R and Python, to be seamlessly coupled together. It simplifies the implementation and running of workflows on cloud or high-performance computing (HPC) infrastructure.
 
 :::::::::::::::::: checklist
 
-## :droplet: Drop in the Ocean :droplet:
+## 🗺️ Skills Roadmap
 
 __Core Competencies__
 
@@ -36,22 +30,26 @@ protection and algorithmic bias)
 - [ ] Ability to apply theory, methods, and findings to the practical aims of a product and/or organization (non-academic)
 - [ ] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
 
-__Building a CSS Portfolio__
+__Building a Portfolio__
 
 **Core Competencies**
+
 - [ ] Publicly available research projects documented from end to end 
 - [x] Reproducible, efficient, and communicable code via GitHub
 - [ ] Publish and serve as reviewer for journal publications/conference proceedings
 
 **Additional Market-Specific Skills**
+
 - [ ] Sharing learnings through research notes (non-academic) and tutorials (academic)
-Connecting with Computational Social Scientists
+- [x] Connecting with Computational Social Scientists
 
 **Core Competencies**
+
 - [ ] Attend and know how to navigate cross-disciplinary computational social science conferences
+
 **Additional Market-Specific Skills**
-- [ ] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations
-(non-academic)
+
+- [ ] Work with computational social scientists through internships and work with civic, social, and nonprofit organizations (non-academic)
 - [ ] Connect with computational social scientists working on similar topics in different sectors via online platforms (e.g., LinkedIn and Slack) (non-academic)
 
 ::::::::::::::::::::::::::::
