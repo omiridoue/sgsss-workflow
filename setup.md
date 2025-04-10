@@ -4,6 +4,25 @@ title: Setup
 root: .
 ---
 
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Understand how to reproduce code.
+- Understand the benefits of containers.
+- Clone a repository on GitHub.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- When should I use a pre-built container?
+- How do I set up code from a GitHub repository?
+- How can I navigate folders in a directory?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+Join this half day training to explore resources to support best practice in making your research Findable, Accessible, Interoperable and Reproducible (FAIR). This software carpentry course offers guided and hands-on learning of the building blocks to design your own scalable and reproducible scientific workflow using Nextflow.
+
 There are several pieces of software you will wish to install befor the
 workshop. Though installation help will be provided at the workshop, we
 recommend that these tools are installed (or at least downloaded) beforehand.
@@ -17,6 +36,33 @@ recommend that these tools are installed (or at least downloaded) beforehand.
 > This lesson requires a terminal application (`bash`, `zsh`, or others) with
 > the ability to securely connect to a remote machine (`ssh`).
 {: .prereq}
+
+Participants will be expected to bring their own devices to be able to follow hands-on training. All participants are required to set up an account with GitHub in advance of the session. Optionally, participants can choose to apply for a GitHub Education account, provided they have used their institutional email at the time of registering.
+
+## GitHub Codespaces
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+<p align="center">
+  <a href="https://nextflow.io/">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true">
+        <img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true">
+    </picture>
+  </a>
+</p>
+
+## Customising Container 
+
+```
+rm -rf *
+```
+
+## Using Git
+
+```
+git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
+```
 
 ## Where to Type Commands: How to Open a New Shell
 

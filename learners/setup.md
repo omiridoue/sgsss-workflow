@@ -2,12 +2,10 @@
 title: Setup
 permalink: /setup/
 ---
+ 
+## Setup
 
-
-# Setup
-
-There are two options presented here on how setup your computer to complete the exercises
-in this workshop.
+A set of options are available to set up your and follow along the practical component:
 
 1. Running locally on your personal computer
 2. Running the exercises in your browser using a remote environment called Gitpod.
@@ -23,7 +21,6 @@ Each learner should setup a training folder e.g. `nf-training`
 mkdir nf-training
 cd nf-training
 ```
-
 
 There are three items that you need to download:
 
@@ -177,21 +174,9 @@ pip install nf-core
 
 ## Running exercises remotely in your web-browser through Gitpod.
 
-Gitpod is a cloud-based computing environment that is accessed using
-your web-browser. You can click the button below to open up a
-Gitpod instance ready for training. This Gitpod environment comes
+Gitpod is a cloud-based computing environment that is accessed using your web-browser. You can click the button below to open up a Gitpod instance ready for training. This Gitpod environment comes
 with the tools necessary for the exercises already installed.
 You'll be presented with a VSCode-like interface in your browser,
 which has a file explorer panel on the left, a main panel in which
 to view and edit files, and a panel below that includes a terminal
-in which to run unix commands.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/carpentries-incubator/workflows-nextflow)
-
-Gitpod sessions automatically close after some period of inactivity.
-To open your session again, go to the [Gitpod Dashboard](https://gitpod.io/workspaces)
-where you can find and reopen any session.
-
-Gitpod gives each user 10 hours usage allocation per month ( 50 if you
-connect your LinkedIn account). 
-
+in which to run unix commands. 

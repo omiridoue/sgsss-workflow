@@ -1,0 +1,15 @@
+.nextflow
+work
+meta-network-pipeline.Rproj
+data
+.RData
+.Ruserdata
+.Rhistory
+.Rproj.user
+.RDS
+output/
+.sif
+.img
+index 
+
+

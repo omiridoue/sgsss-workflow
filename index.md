@@ -3,6 +3,8 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
+![Scottish Graduate School for Social Sciences](../sgsss-workflow/episodes/fig/SGSSS_Stacked.png)
+
 [Nextflow](https://www.nextflow.io/) is workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
@@ -62,8 +64,6 @@ Alternatively, you can click on the button shown below from the many pages in th
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
 You should be presented with a page where you can create a new GitHub Codespace:
-
-![Create a GitHub Codespace](img/codespaces_create.png)
 
 You can click "Change options" to configure the machine used.
 Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
