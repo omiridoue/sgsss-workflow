@@ -20,26 +20,23 @@ root: .
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
+## Introduction
 Join this half day training to explore resources to support best practice in making your research Findable, Accessible, Interoperable and Reproducible (FAIR). This software carpentry course offers guided and hands-on learning of the building blocks to design your own scalable and reproducible scientific workflow using Nextflow.
 
-There are several pieces of software you will wish to install befor the
-workshop. Though installation help will be provided at the workshop, we
-recommend that these tools are installed (or at least downloaded) beforehand.
-
-1. [A terminal application or command-line interface](
-   #where-to-type-commands-how-to-open-a-new-shell)
-2. [A Secure Shell application](#ssh-for-secure-connections)
-
-> ## Bash and SSH
->
-> This lesson requires a terminal application (`bash`, `zsh`, or others) with
-> the ability to securely connect to a remote machine (`ssh`).
-{: .prereq}
+### Recommended Preparation 
 
 Participants will be expected to bring their own devices to be able to follow hands-on training. All participants are required to set up an account with GitHub in advance of the session. Optionally, participants can choose to apply for a GitHub Education account, provided they have used their institutional email at the time of registering.
 
-## GitHub Codespaces
+:::::::::::::: callout
+
+ As an optional alternative I would also recommend creating a GitHub account, [Register an Account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). You can then upgrade your Account to a GitHub Education Account for free (you will need to use your academic email to do this) [GitHub Education](https://github.com/education/students). This is a platform where you'll find plenty of open source material from projects including code and open access data. You can then use your GitHub account to login on to GitHub Codespaces, the free resource access online for 120 hours each month. This is an ideal option if you would prefer to skip any of the set-up instructions to download the software to your own computer but follow along the practical component nevertheless. 
+
+::::::::::::::::::::::
+
+
+
+
+### Step 1: Open GitHub Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
@@ -52,19 +49,21 @@ Participants will be expected to bring their own devices to be able to follow ha
   </a>
 </p>
 
-## Customising Container 
+### Step 2: Clear files
 
 ```
 rm -rf *
 ```
 
-## Using Git
+### Step 3: Download Material Using Git
 
 ```
 git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
 ```
 
-## Where to Type Commands: How to Open a New Shell
+## Getting Started 
+
+### Where to Type Commands: How to Open a New Shell
 
 The shell is a program that enables us to send commands to the computer and
 receive output. It is also referred to as the terminal or command line.
@@ -74,6 +73,10 @@ some methods for identifying and opening a Unix Shell program if you already
 have one installed. There are also options for identifying and downloading a
 Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell
 on a server.
+
+::: group-tab
+
+### Windows
 
 ### Unix Shells on Windows
 
@@ -86,7 +89,7 @@ the Windows start menu.
 #### Shell Programs for Windows
 
 * [Git for Windows][git4win] -- *Recommended*
-* [Windows Subsystem for Linux][ms-wsl] -- advanced option for Windows 10
+* [Windows Subsystem for Linux][ms-wsl] -- recommended option for Windows 10 
 
 ## Alternatives to Git for Windows
 
@@ -111,8 +114,7 @@ the Windows start menu.
 > > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. Please ask if you encounter such a mismatch -- you're probably not alone.
 
 
-
-### Unix Shell on macOS
+### Mac
 
 On macOS, the default Unix Shell is accessible by running the Terminal program
 from the `/Application/Utilities` folder in Finder.
@@ -126,6 +128,8 @@ To open Terminal, try one or both of the following:
 
 For an introduction, see [How to Use Terminal on a Mac][mac-terminal].
 
+### Linux
+
 ### Unix Shell on Linux
 
 On most versions of Linux, the default Unix Shell is accessible by running the
@@ -133,6 +137,8 @@ On most versions of Linux, the default Unix Shell is accessible by running the
 [(KDE) Konsole](https://konsole.kde.org/) or
 [xterm](https://en.wikipedia.org/wiki/Xterm), which can be found via the
 applications menu or the search bar.
+
+:::
 
 ### Special Cases
 
