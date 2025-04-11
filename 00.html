@@ -392,7 +392,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>FAIR research software</h1>
-        <p>Last updated on 2025-04-10 |
+        <p>Last updated on 2025-04-11 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/00.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -569,15 +569,14 @@ an pseudonym if your project works with confidential data.</p>
 <p>We can come back to this to see how we can combine handy process
 labels in our workflow with base functions like <code>paste0()</code> in
 R and concatenate literal words or values with ones that depend on the
-input in a given point in time.</p>
-<p>Here are some tips for naming files within a research project, which
-are both human- and machine-readable
-<code>Cowles2019Filenaming,Hodge2015Filenaming</code>:</p>
-<p>The short answer is ‘yes’. The project design will allow you to
-manage your work well for yourself (see the section: Getting Started
-Checklist).</p>
+input in a given point in time. Here are some tips for naming files
+within a research project, which are both human- and
+machine-readable:</p>
 <p>A little work and time investment early on in project design saves a
-lot of time later when any circumstances arise that demand change.</p>
+lot of time later when any circumstances arise that demand change. Does
+this apply to my PhD, the answer is ‘yes’. The project design will allow
+you to manage your work well for yourself (see the section: Getting
+Started Checklist).</p>
 </div>
 </section><section><h2 class="section-heading" id="background">Background<a class="anchor" aria-label="anchor" href="#background"></a></h2>
 <hr class="half-width"><p>A repository (or a “repo”) is a storage location for your research
@@ -586,12 +585,40 @@ used to store your project by using online platforms such as GitHub. The
 aim of a repository is to organise your project in such a way this is
 both accessible to others and efficient to use.</p>
 <p>So far, we saw the key documents that one should add when starting or
-setting up a project repository. If you are following along, your
-project should contain the following files:</p>
+setting up a project repository. If you are following along, navigate to
+, this should contain the following files.</p>
 <div class="section level3">
 <h3 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a></h3>
-<p>Here are suggestion of files and folders a research project must
-have.</p>
+<p>Here is the repository folder structure that Nextflow uses:</p>
+<pre><code>Project folder
+└── 📁workflow                &lt;- Main workflow directory
+  └── 📁apptainer          &lt;- Container definitions for Apptainer (formerly Singularity)
+  └── 📁bin                 &lt;- Executable scripts used in the workflow, ex. in R these would be functions
+  └── 📁conf               &lt;- Configuration files for different execution environments
+  └── 📁data               &lt;- Input data files for the workflow
+  └── 📁docker             &lt;- Docker container definition and dependencies
+  └── 📁docs               &lt;- Documentation, reports, and visualizations
+  └── 📁modules            &lt;- Nextflow modules for different analysis steps
+    └── 📁estimation     &lt;- Module for model estimation
+      └── main.nf
+    └── 📁generate_reads &lt;- Module for generating reads
+      └── main.nf
+    └── 📁join_files     &lt;- Module for joining files
+      └── main.nf
+    └── 📁meta_fishers   &lt;- Module for Fisher's meta-analysis
+      └── main.nf
+    └── 📁meta_moran     &lt;- Module for Moran's meta-analysis
+      └── main.nf
+    └── 📁meta_reg       &lt;- Module for meta-regression
+      └── main.nf
+  └── 📁params             &lt;- Parameter files for the workflow
+  └── 📁templates          &lt;- Template scripts used in the workflow
+  └── .dockerignore        &lt;- Files to exclude from Docker builds
+  └── .gitignore           &lt;- Files to exclude from Git version control
+  └── main.nf              &lt;- Main Nextflow workflow definition
+  └── nextflow.config      &lt;- Main Nextflow configuration
+  └── params.config        &lt;- Parameter configuration
+  └── README.md            &lt;- Project documentation</code></pre>
 </div>
 <div class="section level3">
 <h3 id="example-with-every-possible-folder">Example with Every Possible Folder<a class="anchor" aria-label="anchor" href="#example-with-every-possible-folder"></a></h3>
@@ -763,8 +790,8 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/00.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/00.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-04-10",
-  "datePublished": "2025-04-10"
+  "dateModified": "2025-04-11",
+  "datePublished": "2025-04-11"
 }
 
   </script><script>
