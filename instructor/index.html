@@ -404,24 +404,22 @@ high-performance computing (HPC) infrastructure.</p>
 <div class="callout-content">
 <p><strong>Core Competencies</strong></p>
 <ul class="task-list"><li><label><input type="checkbox" checked>Ability to design and
-execute research projects from end to end (data to report)</label></li>
+execute research projects from data to report</label></li>
 <li><label><input type="checkbox">Domain expertise</label></li>
 <li><label><input type="checkbox">Programming fluency in R and/or
 Python</label></li>
 <li><label><input type="checkbox">Experience with data
 management</label></li>
 <li><label><input type="checkbox">Effective communication and
-collaborative research skills with both technical and nontechnical
-colleagues (e.g., version control and documentation)</label></li>
-<li><label><input type="checkbox">Practiced knowledge of machine
-learning and traditional quantitative social science
-paradigms</label></li>
+collaborative with both technical and nontechnical
+colleagues</label></li>
+<li><label><input type="checkbox">Practiced knowledge of quantitative
+social science paradigms</label></li>
 <li><label><input type="checkbox">Engagement with ethical concerns
-about digital and digitized data and computational methods (e.g.,
-privacy protection and algorithmic bias)</label></li>
+(e.g., privacy protection and algorithmic bias)</label></li>
 </ul><p><strong>Additional Market-Specific Skills</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Ability to apply theory, methods,
-and findings to the practical aims of a product and/or organization
+<ul class="task-list"><li><label><input type="checkbox">Ability to apply theory and methods
+to practical aims of a product and/or organization
 (non-academic)</label></li>
 <li><label><input type="checkbox">Proficiency with relational database
 languages (e.g., SQL) and cloud-based databases (non-academic
@@ -441,28 +439,34 @@ notes (non-academic) and tutorials (academic)</label></li>
 Computational Social Scientists</label></li>
 </ul><p><strong>Core Competencies</strong></p>
 <ul class="task-list"><li><label><input type="checkbox">Attend and know how to navigate
-cross-disciplinary computational social science conferences</label></li>
+cross-disciplinary conferences</label></li>
 </ul><p><strong>Additional Market-Specific Skills</strong></p>
 <ul class="task-list"><li><label><input type="checkbox">Work with computational social
-scientists through internships and work with civic, social, and
-nonprofit organizations (non-academic)</label></li>
+scientists through work with civic, social, and nonprofit organizations
+(non-academic)</label></li>
 <li><label><input type="checkbox">Connect with computational social
-scientists working on similar topics in different sectors via online
-platforms (e.g., LinkedIn and Slack) (non-academic)</label></li>
+scientists via online platforms (e.g., LinkedIn and Slack)
+(non-academic)</label></li>
 </ul></div>
 </div>
 </div>
 <p>This lesson motivates the use of Nextflow ad nf-core as development
 tools for building and sharing reproducible data science workflow.</p>
 </section><section><h2 class="section-heading" id="lesson-objectives">lesson objectives<a class="anchor" aria-label="anchor" href="#lesson-objectives"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>The learner will understand the fundamental components of Nextflow
-script, including channels, processes and operators.</li>
-<li>The learner will write a multi-step workflow script to align,
-quantify, and perform QC on an RNA-Seq data in Nextflow DSL2.</li>
-<li>The learner will be able to write a Nextflow configuration file to
-alter the computational resources allocated to a process.</li>
-<li>The learner will use nf-core to run a community curated
-pipeline.</li>
+<hr class="half-width"><ol style="list-style-type: decimal"><li>Understand the role of auxiliary tools (Docker/Git) in supporting
+best practice within the Open Research framework.</li>
+<li>Design and adapt a research project directory to own research
+objectives.</li>
+<li>Understand the fundamental components of a workflow implemented in
+Nextflow, including channels, processes and operators.</li>
+<li>Learn-by-doing launch a computational workflow using remote
+workspace, GitPod.</li>
+<li>Curate own configurations and settings on a practice workflow to
+ensure portability, scalability, automatic resource management and
+re-entrancy.</li>
+<li>Discuss ways to implement own research directory.</li>
+<li>Explore links to the wider network for computational researchers
+across Scotland.</li>
 </ol><div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
@@ -508,11 +512,10 @@ Nextflow’s ability to parallelize workflow execution.</p>
 <p><strong>For our the hands-on component, we recommend using a 4-core
 machine.</strong></p>
 <p>The free GitHub plan includes 120 core-hours of Codespaces compute
-per month, which amounts to 30 hours of a 4-core machine. (See below for
+per month, which amounts to 30 hours of a 4-core machine (See below for
 more information about quotas.)</p>
 <p>Opening a new GitHub Codespaces environment for the first time can
-take several minutes. Just enough time to go over the intro materials if
-you’re in a group training.</p>
+take several minutes. Just enough time to touch on the rest of this</p>
 </div>
 <div class="section level2">
 <h2 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h2>
@@ -546,8 +549,10 @@ open there.</li>
 restart it and continue from where you left off. Your environment will
 time out after 30 minutes of inactivity and will save your changes for
 up to 2 weeks.</p>
-<p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>. Previous environments
-will be listed. Click a session to resume it.</p>
+<p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>.</p>
+<p>Previous environments will be listed. You can manage these sessions
+by freezing or removing previous sessions. For the moment you can click
+a session to resume it, just be mindful of your usage.</p>
 <figure><img src="../fig/codespaces_list.png" alt="List GitHub Codespace sessions" class="figure mx-auto d-block"><div class="figcaption">List GitHub Codespace sessions</div>
 </figure><p>If you have saved the URL for your previous GitHub Codespaces
 environment, you can simply open it in your browser. Alternatively,

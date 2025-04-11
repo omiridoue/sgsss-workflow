@@ -506,7 +506,7 @@ organizations</li>
 <p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
 comprises a set of principles designed to increase the visibility and
 usefulness of your research to others. FAIR principles have been applied
-for software, here is an outline of what they stand for:</p>
+for software, here is a brief concept translation:</p>
 <ul>
 <li>
 <strong>Findable</strong> - software and its associated metadata
@@ -516,18 +516,16 @@ must be easy to discover by humans and machines.</li>
 software and its metadata must be retrievable by standard protocols,
 free and legally usable.</li>
 <li>
-<strong>Interoperable</strong> - when interacting with other
-software it must be done by exchanging data and/or metadata through
-standardised protocols and application programming interfaces
-(APIs).</li>
+<strong>Interoperable</strong> - appropriate scaffolding in place
+for cross-platform interaction, different languages can be used.</li>
 <li>
-<strong>Reusable</strong> - software should be usable (can be
-executed) and reusable (can be understood, modified, built upon, or
-incorporated into other software).</li>
+<strong>Reusable</strong> - software should be usable and reusable
+(can be understood, modified, built upon, or incorporated into other
+software).</li>
 </ul>
-<p>In practice achieving these goals is not an outcome, but a process
-that will bring you closer to the gold standard of fully reproducible
-research.</p>
+<p>In practice achieving these goals is not an outcome, but a process in
+itself that will bring you closer to making your research
+reproducible.</p>
 <figure><img src="../fig/reproducible_replicable.svg" alt="Grid with the characteristics of: Reproducible; same data, same analysis. Replicable; different data, same analysis. Robust; same data, different analysis. And generalisable; different data, different analysis; Research" class="figure mx-auto d-block"><div class="figcaption">Grid with the characteristics of: Reproducible;
 same data, same analysis. Replicable; different data, same analysis.
 Robust; same data, different analysis. And generalisable; different
@@ -541,20 +539,23 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 <h3 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a>
 </h3>
 <ul>
-<li>Create a description of your software to make it discoverable by
-search engines and other search tools</li>
-<li>Use standards (such as [CodeMeta][codemeta]) to describe
+<li><p>Create a description of your software to make it discoverable by
+search engines and other search tools</p></li>
+<li><p>Use standards (such as [CodeMeta][codemeta]) to describe
 interoperable metadata for your software (see [Research Software
-Metadata Guidelines][rsmd-g1])</li>
-<li>Place your software in a public software repository (and ideally
+Metadata Guidelines][rsmd-g1])</p></li>
+<li><p>Place your software in a public software repository (and ideally
 register it in a [general-purpose or domain-specific software
-registry][awesome-rs-registries])</li>
-<li>Use a unique and persistent identifier (DOI) for your software
-(e.g. by depositing your code on Zenodod, OSF, GitHub), which is also
-useful for citations - note that depositing your data/code on GitHub and
-similar software repositories may not be enough as they may change their
-open access model or disappear completely in the future, so archiving
-your code means it stands a better chance at being preserved</li>
+registry][awesome-rs-registries])</p></li>
+<li>
+<p>Use a unique and persistent identifier (DOI) for your software
+(e.g. by depositing your code on Zenodod, OSF, GitHub)</p>
+<p>which is also useful for citations - note that depositing your
+data/code on GitHub and similar software repositories may not be enough
+as they may change their open access model or disappear completely in
+the future, so archiving your code means it stands a better chance at
+being preserved</p>
+</li>
 </ul>
 </div>
 <div class="section level3">
@@ -602,7 +603,7 @@ data, different analysis; Research</div>
 all kinds of things and the third is optional but valuable for keeping
 track of your files.</p>
 <p>File names should be: 1. Machine readable 2. Human readable 3.
-Optional: Play well with default ordering 4. Optional: Generated
+Optional: Tap into default ordering 4. Optional: Generated
 dynamically</p>
 <p>Before we dive into the details of what they mean, let’s look at some
 examples of bad and good file names, please note there is nuansce.</p>
@@ -710,62 +711,31 @@ own workflow</div>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> repo-boilerplate <span class="at">--single-branch</span> git@github.com:omiridoue/sgsss-workflow.git</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">Here</span> is the repository folder structure that Nextflow uses:</span></code></pre>
 </div>
-<p>Project folder └── 📁workflow &lt;- Main workflow directory └──
-📁apptainer &lt;- Container definitions for Apptainer (formerly
-Singularity) └── 📁bin &lt;- Executable scripts used in the workflow,
-ex. in R these would be functions └── 📁conf &lt;- Configuration files
-for different execution environments └── 📁data &lt;- Input data files
-for the workflow └── 📁docker &lt;- Docker container definition and
-dependencies └── 📁docs &lt;- Documentation, reports, and visualizations
-└── 📁modules &lt;- Nextflow modules for different analysis steps └──
-📁params &lt;- Parameter files for the workflow └── 📁templates &lt;-
-Template scripts used in the workflow └── .dockerignore &lt;- Files to
-exclude from Docker builds └── .gitignore &lt;- Files to exclude from
-Git version control └── main.nf &lt;- Main Nextflow workflow definition
-└── nextflow.config &lt;- Main Nextflow configuration └── params.config
-&lt;- Parameter configuration └── README.md &lt;- Project
-documentation</p>
-<pre><code>
-### Example with Every Possible Folder
-
-This example shows different files and directory a project can contain when building a software application or research engineering tools.
-</code></pre>
-<p>Project folder └── 📁workflow &lt;- Main workflow directory └──
-📁apptainer &lt;- Container definitions for Apptainer (formerly
-Singularity) └── .gitkeep └── 📁bin &lt;- Executable scripts used in the
-workflow └── EgoAlterTable.R └── InfluenceTables.R └──
-moran_decomposition.R └── siena07RunSimOnly.R └──
-siena07RunToConvergence.R └── 📁conf &lt;- Configuration files for
-different execution environments └── awsbatch.config └── ci.config └──
-local.config └── sge.config └── slurm.config └── 📁data &lt;- Input data
-files for the workflow └── .gitkeep └── composition_each_period.tar.gz
-└── composition_multi_period.tar.gz └── each_period.tar.gz └──
-multi_period.tar.gz └── 📁docker &lt;- Docker container definition and
-dependencies └── .Rprofile └── docker.Rproj └── Dockerfile └── 📁renv
-&lt;- R environment management └── renv.lock └── .gitignore └──
-activate.R └── settings.json └── Rscript.R └── rsiena_1.4.19.tar.gz └──
-📁docs &lt;- Documentation, reports, and visualizations └──
-gitpod101.png └── report.html └── siena_meta_network.png └──
-timeline.html └── 📁modules &lt;- Nextflow modules for different
-analysis steps └── 📁estimation &lt;- Module for model estimation └──
-main.nf └── 📁generate_reads &lt;- Module for generating reads └──
-main.nf └── 📁join_files &lt;- Module for joining files └── main.nf └──
-📁meta_fishers &lt;- Module for Fisher’s meta-analysis └── main.nf └──
-📁meta_moran &lt;- Module for Moran’s meta-analysis └── main.nf └──
-📁meta_reg &lt;- Module for meta-regression └── main.nf └── 📁params
-&lt;- Parameter files for the workflow └── effects.csv └── meta.csv └──
-school_info.json └── subgroup.csv └── 📁templates &lt;- Template scripts
-used in the workflow └── 1000_model_estimation_all.R └──
-1000_model_estimation_influence.R └── 1000_model_estimation_no.R └──
-1000_model_estimation_selection.R └── 3000_meta_analysis.R └──
-3000_meta_moran.R └── 3000_moran_plots.R └──
-4000_meta_regression_rural.R └── 4000_meta_regression_trial.R └──
-4000_meta_regression.R └── 6000_random_effects.R └── README.md └──
-.dockerignore &lt;- Files to exclude from Docker builds └── .gitignore
-&lt;- Files to exclude from Git version control └── main.nf &lt;- Main
-Nextflow workflow definition └── nextflow.config &lt;- Main Nextflow
-configuration └── params.config &lt;- Parameter configuration └──
-README.md &lt;- Project documentation ```</p>
+<p>A good way to map the organisation of folders within your directory
+is using this file tree.</p>
+<pre><code>Project folder
+└── 📁workflow                &lt;- Main workflow directory
+  └── 📁apptainer          &lt;- Container definitions for Apptainer (formerly Singularity)
+  └── 📁bin                 &lt;- Executable scripts used in the workflow, ex. in R these would be functions
+  └── 📁conf               &lt;- Configuration files for different execution environments
+  └── 📁data               &lt;- Input data files for the workflow
+  └── 📁docker             &lt;- Docker container definition and dependencies
+  └── 📁docs               &lt;- Documentation, reports, and visualizations
+  └── 📁modules            &lt;- Nextflow modules for different analysis steps
+  └── 📁params             &lt;- Parameter files for the workflow
+  └── 📁templates          &lt;- Template scripts used in the workflow
+  └── .dockerignore        &lt;- Files to exclude from Docker builds
+  └── .gitignore           &lt;- Files to exclude from Git version control
+  └── main.nf              &lt;- Main Nextflow workflow definition
+  └── nextflow.config      &lt;- Main Nextflow configuration
+  └── params.config        &lt;- Parameter configuration
+  └── README.md            &lt;- Project documentation</code></pre>
+</div>
+<div class="section level3">
+<h3 id="example-with-every-possible-folder">Example with Every Possible Folder<a class="anchor" aria-label="anchor" href="#example-with-every-possible-folder"></a>
+</h3>
+<p>This example shows different files and directory a project can
+contain when building a workflow.</p>
 </div>
 <div class="section level3">
 <h3 id="curated-examples-of-github-repositories">Curated Examples of GitHub Repositories<a class="anchor" aria-label="anchor" href="#curated-examples-of-github-repositories"></a>
@@ -773,6 +743,8 @@ README.md &lt;- Project documentation ```</p>
 <ul>
 <li><a href="https://github.com/nextflow-io/nextflow" class="external-link">Nextflow
 repository</a></li>
+<li><a href="https://github.com/Eskimuz/economic_model-zenodo" class="external-link">Agent
+Based Model Workflow</a></li>
 </ul>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -981,7 +953,7 @@ the following code:</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -1116,7 +1088,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -1305,7 +1277,7 @@ with <code>.fq.gz</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1415,7 +1387,7 @@ input to 1 second?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1514,7 +1486,7 @@ created parameter file, specifying:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">JSON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2621,7 +2593,7 @@ process <code>COUNT_BASES</code> that runs the command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2771,7 +2743,7 @@ executor &gt;  local (1)
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The following section on python is meant to be run by the instructor
 not the learners. It is meant to be a demonstration of the different
@@ -3077,7 +3049,7 @@ terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3571,7 +3543,7 @@ input.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3784,7 +3756,7 @@ combines two input channels</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3925,7 +3897,7 @@ running the process for each value.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6590,7 +6562,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -6773,7 +6745,7 @@ we would run:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Example solution using run name <code>elegant_descartes</code>.</p>
 <div class="codewrapper sourceCode" id="cb13">
@@ -6802,7 +6774,7 @@ for a specific process e.g. multiqc.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6888,7 +6860,7 @@ and the template.html file.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7176,7 +7148,7 @@ script <code>print_message.nf</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>‘hello’ - Workflow script uses the value in
@@ -7421,7 +7393,7 @@ for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7604,7 +7576,7 @@ where the Conda environments are stored. By default this is in
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This following exercise necessitates the installation of conda, a
 package and environment management software, on your system for
@@ -7696,7 +7668,7 @@ configuration file using the <code>-c</code> option.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
