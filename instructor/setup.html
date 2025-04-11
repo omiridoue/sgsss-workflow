@@ -378,7 +378,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Setup</h1>
-        <p>Last updated on 2025-04-10 |
+        <p>Last updated on 2025-04-11 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/setup.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -392,201 +392,225 @@
 
         
 
-<section><h2 class="section-heading" id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a></h2>
-<hr class="half-width"><p>A set of options are available to set up your and follow along the
-practical component:</p>
-<ol style="list-style-type: decimal"><li>Running locally on your personal computer</li>
-<li>Running the exercises in your browser using a remote environment
-called Gitpod.</li>
-</ol></section><section><h2 class="section-heading" id="running-locally-on-your-personal-computer">Running locally on your personal computer<a class="anchor" aria-label="anchor" href="#running-locally-on-your-personal-computer"></a></h2>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul><li>When should I use a pre-built container?</li>
+<li>How do I set up code from a GitHub repository?</li>
+<li>How can I navigate folders in a directory?</li>
+</ul></div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul><li>Understand how to reproduce code.</li>
+<li>Understand the benefits of containers.</li>
+<li>Clone a repository on GitHub.</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
+<hr class="half-width"><p>Join this half day training to explore resources to support best
+practice in making your research Findable, Accessible, Interoperable and
+Reproducible (FAIR). This software carpentry course offers guided and
+hands-on learning of the building blocks to design your own scalable and
+reproducible scientific workflow using Nextflow.</p>
+<div class="section level3">
+<h3 id="recommended-preparation">Recommended Preparation<a class="anchor" aria-label="anchor" href="#recommended-preparation"></a></h3>
+<p>Participants will be expected to bring their own devices to be able
+to follow hands-on training. All participants are required to set up an
+account with GitHub in advance of the session. Optionally, participants
+can choose to apply for a GitHub Education account, provided they have
+used their institutional email at the time of registering.</p>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>As an optional alternative I would also recommend creating a GitHub
+account, <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" class="external-link">Register
+an Account</a>. You can then upgrade your Account to a GitHub Education
+Account for free (you will need to use your academic email to do this)
+<a href="https://github.com/education/students" class="external-link">GitHub Education</a>.
+This is a platform where you’ll find plenty of open source material from
+projects including code and open access data. You can then use your
+GitHub account to login on to GitHub Codespaces, the free resource
+access online for 120 hours each month. This is an ideal option if you
+would prefer to skip any of the set-up instructions to download the
+software to your own computer but follow along the practical component
+nevertheless.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="step-1-open-github-codespaces">Step 1: Open GitHub Codespaces<a class="anchor" aria-label="anchor" href="#step-1-open-github-codespaces"></a></h3>
+<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
+<p align="center">
+<a href="https://nextflow.io/" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true"><img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true" class="figure"></source></picture></a>
+</p>
+</div>
+<div class="section level3">
+<h3 id="step-2-clear-files">Step 2: Clear files<a class="anchor" aria-label="anchor" href="#step-2-clear-files"></a></h3>
+<pre><code>rm -rf *</code></pre>
+</div>
+<div class="section level3">
+<h3 id="step-3-download-material-using-git">Step 3: Download Material Using Git<a class="anchor" aria-label="anchor" href="#step-3-download-material-using-git"></a></h3>
+<pre><code>git clone git@github.com:omiridoue/sgsss-workflow-scripts.git</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a></h2>
 <hr class="half-width"><div class="section level3">
-<h3 id="training-directory">Training directory<a class="anchor" aria-label="anchor" href="#training-directory"></a></h3>
-<p>Each learner should setup a training folder
-e.g. <code>nf-training</code></p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mkdir</span> nf-training</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> nf-training</span></code></pre>
+<h3 id="where-to-type-commands-how-to-open-a-new-shell">Where to Type Commands: How to Open a New Shell<a class="anchor" aria-label="anchor" href="#where-to-type-commands-how-to-open-a-new-shell"></a></h3>
+<p>The shell is a program that enables us to send commands to the
+computer and receive output. It is also referred to as the terminal or
+command line.</p>
+<p>Some computers include a default Unix Shell program. The steps below
+describe some methods for identifying and opening a Unix Shell program
+if you already have one installed. There are also options for
+identifying and downloading a Unix Shell program, a Linux/UNIX emulator,
+or a program to access a Unix Shell on a server.</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-Windows" name="Windows" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Windows" type="button" role="tab" aria-controls="nav-tabpanel-1-Windows" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-Windows">
+  Windows
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-UnixShellsonWindows" name="UnixShellsonWindows" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-UnixShellsonWindows" type="button" role="tab" aria-controls="nav-tabpanel-1-UnixShellsonWindows" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-UnixShellsonWindows">
+  Unix Shells on Windows
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Mac" name="Mac" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Mac" type="button" role="tab" aria-controls="nav-tabpanel-1-Mac" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Mac">
+  Mac
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Linux" name="Linux" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Linux" type="button" role="tab" aria-controls="nav-tabpanel-1-Linux" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Linux">
+  Linux
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-UnixShellonLinux" name="UnixShellonLinux" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-UnixShellonLinux" type="button" role="tab" aria-controls="nav-tabpanel-1-UnixShellonLinux" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-UnixShellonLinux">
+  Unix Shell on Linux
+  </h3>
+</button>
 </div>
-<p>There are three items that you need to download:</p>
-<ol style="list-style-type: decimal"><li>The training software.</li>
-<li>The training dataset.</li>
-<li>The workshop scripts.</li>
-</ol></div>
-<div class="section level3">
-<h3 id="training-software">Training software<a class="anchor" aria-label="anchor" href="#training-software"></a></h3>
-<p>A list of software with version required for this training is listed
-below:</p>
-<table class="table"><thead><tr class="header"><th>Software</th>
-<th>Version</th>
-</tr></thead><tbody><tr class="odd"><td>Nextflow</td>
-<td>20.10.0</td>
-</tr><tr class="even"><td>nf-core/tools</td>
-<td>1.12.1</td>
-</tr><tr class="odd"><td>salmon</td>
-<td>1.5</td>
-</tr><tr class="even"><td>fastqc</td>
-<td>0.11</td>
-</tr><tr class="odd"><td>multiqc</td>
-<td>1.10</td>
-</tr><tr class="even"><td>python</td>
-<td>3.8</td>
-</tr></tbody></table><div class="section level4">
-<h4 id="conda">conda<a class="anchor" aria-label="anchor" href="#conda"></a></h4>
-<p>The simplest way to install the software for this course is using
-conda.</p>
-<p>To install conda see <a href="https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/" class="external-link">here</a>.</p>
-<p>An environment file is provided here <a href="https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml" class="external-link">environment.yml</a></p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># You can use either wget or curl to download content from the web via the command line.</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># wget</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># curl </span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> environment.yml https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml</span></code></pre>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-Windows" class="tab-pane show active" aria-labelledby="nav-tab-1-Windows" role="tabpanel">
+
 </div>
-<p>To create the training environment run:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-n</span> nf-training <span class="at">-f</span> environment.yml</span></code></pre>
+<div id="nav-tabpanel-1-UnixShellsonWindows" class="tab-pane" aria-labelledby="nav-tab-1-UnixShellsonWindows" role="tabpanel">
+<p>Computers with Windows operating systems do not automatically have a
+Unix Shell program installed. In this lesson, we encourage you to use an
+emulator included in Git for Windows, which gives you access to both
+Bash shell commands and Git. If you have attended a Software Carpentry
+workshop session, it is likely you have already received instructions on
+how to install Git for Windows.</p>
+<p>Once installed, you can open a terminal by running the program Git
+Bash from the Windows start menu.</p>
+<ul><li>
+<a href="https://gitforwindows.org/" class="external-link">Git for Windows</a> –
+<em>Recommended</em>
+</li>
+<li>
+<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
+Subsystem for Linux</a> – recommended option for Windows 10</li>
+</ul><p>Other solutions are available for running Bash commands on Windows.
+There is now a Bash shell command-line tool available for Windows 10.
+Additionally, you can run Bash commands on a remote computer or server
+that already has a Unix Shell, from your Windows machine. This can
+usually be done through a Secure Shell (SSH) client. One such client
+available for free for Windows computers is <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" class="external-link">PuTTY</a>.
+See the reference below for information on installing and using PuTTY,
+using the Windows 10 command-line tool, or installing and using a
+Unix/Linux emulator.</p>
+<p>For advanced users, you may choose one of the following
+alternatives:</p>
+<ul><li>Install the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
+Subsystem for Linux</a>
+</li>
+<li>Use the Windows <a href="https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7" class="external-link">PowerShell</a>
+</li>
+<li>Read up on <a href="https://www.cygwin.com/" class="external-link">Using a Unix/Linux
+emulator</a> (Cygwin) or Secure Shell (SSH) client (PuTTY)</li>
+</ul><p>Commands in the Windows Subsystem for Linux (WSL), PowerShell, or
+Cygwin may differ slightly from those shown in the lesson or presented
+in the workshop. Please ask if you encounter such a mismatch – you’re
+probably not alone.</p>
 </div>
-<p>Then activate the environment by running</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">conda</span> activate nf-training</span></code></pre>
+<div id="nav-tabpanel-1-Mac" class="tab-pane" aria-labelledby="nav-tab-1-Mac" role="tabpanel">
+<p>On macOS, the default Unix Shell is accessible by running the
+Terminal program from the <code>/Application/Utilities</code> folder in
+Finder.</p>
+<p>To open Terminal, try one or both of the following:</p>
+<ul><li>In Finder, select the Go menu, then select Utilities. Locate
+Terminal in the Utilities folder and open it.</li>
+<li>Use the Mac ‘Spotlight’ computer search function. Search for:
+<code>Terminal</code> and press <kbd>Return</kbd>.</li>
+</ul><p>For an introduction, see <a href="https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/" class="external-link">How
+to Use Terminal on a Mac</a>.</p>
 </div>
+<div id="nav-tabpanel-1-Linux" class="tab-pane" aria-labelledby="nav-tab-1-Linux" role="tabpanel">
+<p>On most versions of Linux, the default Unix Shell is accessible by
+running the <a href="https://help.gnome.org/users/gnome-terminal/stable/" class="external-link">(Gnome)
+Terminal</a> or <a href="https://konsole.kde.org/" class="external-link">(KDE) Konsole</a> or
+<a href="https://en.wikipedia.org/wiki/Xterm" class="external-link">xterm</a>, which can be
+found via the applications menu or the search bar.</p>
 </div>
-</div>
-<div class="section level3">
-<h3 id="training-scripts">Training scripts<a class="anchor" aria-label="anchor" href="#training-scripts"></a></h3>
-<p>To aid in the delivery of the lesson, the scripts mentioned in each
-episode, can be found in the respective episode folders in the github
-repository. <a href="https://github.com/carpentries-incubator/workflows-nextflow/tree/gh-pages/files/scripts" class="external-link">https://github.com/carpentries-incubator/workflows-nextflow/tree/main/episodes/files/scripts</a></p>
-<p>To get the scripts associated with each episode you will need to
-download the scripts folder from the github repository.</p>
-<p>Below is a series of commands to download and unpack scripts
-folder.</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># get the gitrepo as a zip file</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> main.zip https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># unzip the script file</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="fu">unzip</span> main.zip <span class="st">'workflows-nextflow-main/episodes/files/scripts*'</span> <span class="at">-d</span>  .</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># mv the scripts folder to the nf-training folder</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="fu">mv</span> workflows-nextflow-main/episodes/files/scripts .</span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co"># remove the zip file and the git repo</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> workflows-nextflow-main main.zip</span></code></pre>
-</div>
-<p>The nextflow scripts for each episode, can be found in the respective
-episode folders inside this the scripts folder.</p>
-<div class="section level4">
-<h4 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a></h4>
-<p>Inside the <code>nf-training</code> folder download the workshop
-dataset from Figshare, <a href="https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481" class="external-link">https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481</a></p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">wget</span> <span class="at">--content-disposition</span> https://ndownloader.figshare.com/files/28531743</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co"># or curl</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span>  data.tar.gz https://ndownloader.figshare.com/files/28531743</span></code></pre>
-</div>
-<p>Unpack gzipped tar file:</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span>  data.tar.gz</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">rm</span> data.tar.gz</span></code></pre>
 </div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="visual-studio-code-editor-setup">Visual Studio Code editor setup<a class="anchor" aria-label="anchor" href="#visual-studio-code-editor-setup"></a></h3>
-<p>Any text editor can be used to write Nextflow scripts. A recommended
-code editor is <a href="https://code.visualstudio.com/" class="external-link">Visual Studio
-Code</a>.</p>
-<p>Go to <a href="https://code.visualstudio.com/" class="external-link">Visual Studio Code</a>
-and you should see a download button. The button or buttons should be
-specific to your platform and the download package should be
-installable.</p>
-<div class="section level4">
-<h4 id="nextflow-language-support-in-visual-studio-code">Nextflow language support in Visual Studio Code<a class="anchor" aria-label="anchor" href="#nextflow-language-support-in-visual-studio-code"></a></h4>
-<p>You can add Nextflow language support in Visual Studio Code by
-clicking the <a href="https://marketplace.visualstudio.com/items?itemName=nextflow.nextflow" class="external-link">install</a>
-button on the Nextflow language extension.</p>
+<h3 id="special-cases">Special Cases<a class="anchor" aria-label="anchor" href="#special-cases"></a></h3>
+<p>If none of the options above address your circumstances, try an
+online search for: <code>Unix shell [your operating system]</code>.</p>
 </div>
+</section><section><h2 class="section-heading" id="ssh-for-secure-connections">SSH for Secure Connections<a class="anchor" aria-label="anchor" href="#ssh-for-secure-connections"></a></h2>
+<hr class="half-width"><p>All students should have an SSH client installed. SSH is a tool that
+allows us to connect to and use a remote computer as our own.</p>
+<div class="section level3">
+<h3 id="ssh-for-windows">SSH for Windows<a class="anchor" aria-label="anchor" href="#ssh-for-windows"></a></h3>
+<p>Git for Windows comes with SSH preinstalled: you do not have to do
+anything.</p>
+<blockquote>
+<h2 id="gui-support-for-windows">GUI Support for Windows</h2>
+<p>If you know that the software you will be running on the cluster
+requires a graphical user interface (a GUI window needs to open for the
+application to run properly), please install <a href="https://mobaxterm.mobatek.net" class="external-link">MobaXterm</a> Home Edition.</p>
+</blockquote>
 </div>
 <div class="section level3">
-<h3 id="nextflow-install-without-conda">Nextflow install without conda<a class="anchor" aria-label="anchor" href="#nextflow-install-without-conda"></a></h3>
-<p>Nextflow can be used on any POSIX-compatible system (Linux, macOS,
-etc), and on Windows through WSL. It requires Bash 3.2 (or later) and
-Java 11 (or later, up to 22) to be installed</p>
+<h3 id="ssh-for-macos">SSH for macOS<a class="anchor" aria-label="anchor" href="#ssh-for-macos"></a></h3>
+<p>macOS comes with SSH pre-installed: you do not have to do
+anything.</p>
+<blockquote>
+<h2 id="gui-support-for-macos">GUI Support for macOS</h2>
+<p>If you know that the software you will be running requires a
+graphical user interface, please install <a href="https://www.xquartz.org" class="external-link">XQuartz</a>.</p>
+</blockquote>
 </div>
 <div class="section level3">
-<h3 id="nextflow-installation">Nextflow installation<a class="anchor" aria-label="anchor" href="#nextflow-installation"></a></h3>
-<p>Install the latest version of Nextflow copy &amp; pasting the
-following snippet in a terminal window:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Make sure that Java v11 or later is installed:</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># Install Nextflow</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://get.nextflow.io <span class="kw">|</span> <span class="fu">bash</span></span></code></pre>
-</div>
-</div>
-<div class="section level3">
-<h3 id="add-nextflow-binary-to-your-users-path">Add Nextflow binary to your user’s PATH:<a class="anchor" aria-label="anchor" href="#add-nextflow-binary-to-your-users-path"></a></h3>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">mv</span> nextflow ~/bin/</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># OR system-wide installation:</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co"># sudo mv nextflow /usr/local/bin</span></span></code></pre>
-</div>
-<p>Check the correct installation running the following command:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">nextflow</span> info</span></code></pre>
-</div>
-</div>
-<div class="section level3">
-<h3 id="nf-coretools-installation-without-conda">nf-core/tools installation without conda<a class="anchor" aria-label="anchor" href="#nf-coretools-installation-without-conda"></a></h3>
-<div class="section level4">
-<h4 id="pip">Pip<a class="anchor" aria-label="anchor" href="#pip"></a></h4>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">pip</span> install nf-core</span></code></pre>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="running-exercises-remotely-in-your-web-browser-through-gitpod-">Running exercises remotely in your web-browser through Gitpod.<a class="anchor" aria-label="anchor" href="#running-exercises-remotely-in-your-web-browser-through-gitpod-"></a></h2>
-<hr class="half-width"><p>Gitpod is a cloud-based computing environment that is accessed using
-your web-browser. You can click the button below to open up a Gitpod
-instance ready for training. This Gitpod environment comes with the
-tools necessary for the exercises already installed. You’ll be presented
-with a VSCode-like interface in your browser, which has a file explorer
-panel on the left, a main panel in which to view and edit files, and a
-panel below that includes a terminal in which to run unix commands.
+<h3 id="ssh-for-linux">SSH for Linux<a class="anchor" aria-label="anchor" href="#ssh-for-linux"></a></h3>
+<p>Linux comes with SSH and X window support preinstalled: you do not
+have to do anything.</p>
+<!-- links -->
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></p>
+ -->
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -645,7 +669,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/setup.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/setup.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-04-10",
+  "dateModified": "2025-04-11",
   "datePublished": "2025-04-11"
 }
 
