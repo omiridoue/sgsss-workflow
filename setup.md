@@ -1,182 +1,186 @@
 ---
+layout: page
 title: Setup
-permalink: /setup/
+root: .
 ---
- 
-## Setup
 
-A set of options are available to set up your and follow along the practical component:
+::::::::::::::::::::::::::::::::::::::: objectives
 
-1. Running locally on your personal computer
-2. Running the exercises in your browser using a remote environment called Gitpod.
+- Understand how to reproduce code.
+- Understand the benefits of containers.
+- Clone a repository on GitHub.
 
-## Running locally on your personal computer
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- When should I use a pre-built container?
+- How do I set up code from a GitHub repository?
+- How can I navigate folders in a directory?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Introduction
+Join this half day training to explore resources to support best practice in making your research Findable, Accessible, Interoperable and Reproducible (FAIR). This software carpentry course offers guided and hands-on learning of the building blocks to design your own scalable and reproducible scientific workflow using Nextflow.
+
+### Recommended Preparation 
+
+Participants will be expected to bring their own devices to be able to follow hands-on training. All participants are required to set up an account with GitHub in advance of the session. Optionally, participants can choose to apply for a GitHub Education account, provided they have used their institutional email at the time of registering.
+
+:::::::::::::: callout
+
+ As an optional alternative I would also recommend creating a GitHub account, [Register an Account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). You can then upgrade your Account to a GitHub Education Account for free (you will need to use your academic email to do this) [GitHub Education](https://github.com/education/students). This is a platform where you'll find plenty of open source material from projects including code and open access data. You can then use your GitHub account to login on to GitHub Codespaces, the free resource access online for 120 hours each month. This is an ideal option if you would prefer to skip any of the set-up instructions to download the software to your own computer but follow along the practical component nevertheless. 
+
+::::::::::::::::::::::
 
 
-### Training directory
 
-Each learner should setup a training folder e.g. `nf-training`
 
-```bash
-mkdir nf-training
-cd nf-training
+### Step 1: Open GitHub Codespaces
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+<p align="center">
+  <a href="https://nextflow.io/">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true">
+        <img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true">
+    </picture>
+  </a>
+</p>
+
+### Step 2: Clear files
+
+```
+rm -rf *
 ```
 
-There are three items that you need to download:
+### Step 3: Download Material Using Git
 
-
-1. The training software.
-2. The training dataset.
-3. The workshop scripts.
-
-
-
-### Training software
-
-A list of software with version required for this training is listed below:
-
-|Software|Version|
-|--------|-------|
-|Nextflow|20.10.0|
-|nf-core/tools|1.12.1|
-|salmon|1.5|
-|fastqc|0.11|
-|multiqc|1.10|
-|python|3.8|
-
-#### conda
-
-The simplest way to install the software for this course is using conda.
-
-
-To install conda see [here](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/).
-
-An environment file is provided here [environment.yml](https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml)
-
-```bash
-# You can use either wget or curl to download content from the web via the command line.
-# wget
-wget https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml
-
-# curl 
-curl -L -o environment.yml https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml
+```
+git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
 ```
 
-To create the training environment run:
+## Getting Started 
 
-```bash
-conda env create -n nf-training -f environment.yml
-```
+### Where to Type Commands: How to Open a New Shell
 
-Then activate the environment by running
+The shell is a program that enables us to send commands to the computer and
+receive output. It is also referred to as the terminal or command line.
 
-```bash
-conda activate nf-training
-```
+Some computers include a default Unix Shell program. The steps below describe
+some methods for identifying and opening a Unix Shell program if you already
+have one installed. There are also options for identifying and downloading a
+Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell
+on a server.
 
-### Training scripts
+::: group-tab
 
+### Windows
 
-To aid in the delivery of the lesson, the scripts mentioned in each episode, can be found in the respective episode folders in the github repository.
-[https://github.com/carpentries-incubator/workflows-nextflow/tree/main/episodes/files/scripts](https://github.com/carpentries-incubator/workflows-nextflow/tree/gh-pages/files/scripts)
+### Unix Shells on Windows
 
-To get the scripts associated with each episode you will need to download the scripts folder from the github repository.
+Computers with Windows operating systems do not automatically have a Unix Shell program installed. In this lesson, we encourage you to use an emulator included in Git for Windows, which gives you access to both Bash shell commands and Git.
+If you have attended a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
 
-Below is a series of commands to download and unpack scripts folder.
+Once installed, you can open a terminal by running the program Git Bash from
+the Windows start menu.
 
-```bash
-# get the gitrepo as a zip file
-wget https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip
+#### Shell Programs for Windows
 
-#or
-curl -L -o main.zip https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip
+* [Git for Windows][git4win] -- *Recommended*
+* [Windows Subsystem for Linux][ms-wsl] -- recommended option for Windows 10 
 
-# unzip the script file
-unzip main.zip 'workflows-nextflow-main/episodes/files/scripts*' -d  .
+## Alternatives to Git for Windows
 
-# mv the scripts folder to the nf-training folder
-mv workflows-nextflow-main/episodes/files/scripts .
+> Other solutions are available for running Bash commands on Windows. There is
+> now a Bash shell command-line tool available for Windows 10. Additionally,
+> you can run Bash commands on a remote computer or server that already has a
+> Unix Shell, from your Windows machine. This can usually be done through a
+> Secure Shell (SSH) client. One such client available for free for Windows
+> computers is [PuTTY][putty]. See the reference below for information on
+> installing and using PuTTY, using the Windows 10 command-line tool, or
+> installing and using a Unix/Linux emulator.
 
-# remove the zip file and the git repo
-rm -r workflows-nextflow-main main.zip
-```
+> For advanced users, you may choose one of the following alternatives:
 
-The nextflow scripts for each episode, can be found in the respective episode folders inside this the scripts folder.
+> * Install the [Windows Subsystem for Linux][ms-wsl]
+> * Use the Windows [PowerShell][ms-shell]
+> * Read up on [Using a Unix/Linux emulator][unix-emulator] 
+>(Cygwin) or Secure
+> Shell (SSH) client (PuTTY)
 
-
-#### Data
-
-Inside the `nf-training` folder download the workshop dataset from Figshare, [https://figshare.com/articles/dataset/RNA-seq\_training\_dataset/14822481](https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481)
-
-```bash
-wget --content-disposition https://ndownloader.figshare.com/files/28531743
-
-# or curl
-curl -L -o  data.tar.gz https://ndownloader.figshare.com/files/28531743
-```
-
-Unpack gzipped tar file:
-
-```bash
-tar -xvf  data.tar.gz
-rm data.tar.gz
-```
-
-### Visual Studio Code editor setup
-
-Any text editor can be used to write Nextflow scripts. A recommended  code editor is [Visual Studio Code](https://code.visualstudio.com/).
-
-Go to [Visual Studio Code](https://code.visualstudio.com/) and you should see a download button. The button or buttons should be specific to your platform and the download package should be  installable.
+## Warning
+> > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. Please ask if you encounter such a mismatch -- you're probably not alone.
 
 
-#### Nextflow language support in Visual Studio Code
+### Mac
 
-You can add Nextflow language support in Visual Studio Code by clicking the [install](https://marketplace.visualstudio.com/items?itemName=nextflow.nextflow) button on the Nextflow language extension.
+On macOS, the default Unix Shell is accessible by running the Terminal program
+from the `/Application/Utilities` folder in Finder.
 
+To open Terminal, try one or both of the following:
 
-### Nextflow install without conda
+* In Finder, select the Go menu, then select Utilities. Locate Terminal in the
+  Utilities folder and open it.
+* Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and
+  press <kbd>Return</kbd>.
 
-Nextflow can be used on any POSIX-compatible system (Linux, macOS, etc), and on Windows through WSL. It requires Bash 3.2 (or later) and Java 11 (or later, up to 22) to be installed
+For an introduction, see [How to Use Terminal on a Mac][mac-terminal].
 
-### Nextflow installation
+### Linux
 
-Install the latest version of Nextflow copy \& pasting the following snippet in a terminal window:
+### Unix Shell on Linux
 
-```bash
-# Make sure that Java v11 or later is installed:
-java -version
+On most versions of Linux, the default Unix Shell is accessible by running the
+[(Gnome) Terminal](https://help.gnome.org/users/gnome-terminal/stable/) or
+[(KDE) Konsole](https://konsole.kde.org/) or
+[xterm](https://en.wikipedia.org/wiki/Xterm), which can be found via the
+applications menu or the search bar.
 
-# Install Nextflow
-curl -s https://get.nextflow.io | bash
-```
+:::
 
-### Add Nextflow binary to your user's PATH:
+### Special Cases
 
-```bash
-mv nextflow ~/bin/
-# OR system-wide installation:
-# sudo mv nextflow /usr/local/bin
-```
+If none of the options above address your circumstances, try an online search
+for: `Unix shell [your operating system]`.
 
-Check the correct installation running the following command:
+## SSH for Secure Connections
 
-```bash
-nextflow info
-```
+All students should have an SSH client installed. SSH is a tool that allows us
+to connect to and use a remote computer as our own.
 
-### nf-core/tools installation without conda
+### SSH for Windows
 
-#### Pip
+Git for Windows comes with SSH preinstalled: you do not have to do anything.
 
-```bash
-pip install nf-core
-```
+> ## GUI Support for Windows
+>
+> If you know that the software you will be running on the cluster requires a
+> graphical user interface (a GUI window needs to open for the application to
+> run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
+> Edition.
 
-## Running exercises remotely in your web-browser through Gitpod.
+### SSH for macOS
 
-Gitpod is a cloud-based computing environment that is accessed using your web-browser. You can click the button below to open up a Gitpod instance ready for training. This Gitpod environment comes
-with the tools necessary for the exercises already installed.
-You'll be presented with a VSCode-like interface in your browser,
-which has a file explorer panel on the left, a main panel in which
-to view and edit files, and a panel below that includes a terminal
-in which to run unix commands. 
+macOS comes with SSH pre-installed: you do not have to do anything.
+
+> ## GUI Support for macOS
+>
+> If you know that the software you will be running requires a graphical user
+> interface, please install [XQuartz](https://www.xquartz.org).
+
+### SSH for Linux
+
+Linux comes with SSH and X window support preinstalled: you do not have to do
+anything.
+
+<!-- links -->
+[git4win]: https://gitforwindows.org/
+[mac-terminal]: https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
+[ms-wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+[ms-shell]: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7
+[mobax-gen]: https://mobaxterm.mobatek.net/documentation.html
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+[unix-emulator]: https://www.cygwin.com/
+[wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
