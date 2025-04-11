@@ -61,7 +61,7 @@ rm -rf *
 git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
 ```
 
-## Getting Started 
+## Setting up Locally
 
 ### Where to Type Commands: How to Open a New Shell
 
@@ -74,11 +74,11 @@ have one installed. There are also options for identifying and downloading a
 Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell
 on a server.
 
+### Git for Version Control
+
 ::: group-tab
 
 ### Windows
-
-### Unix Shells on Windows
 
 Computers with Windows operating systems do not automatically have a Unix Shell program installed. In this lesson, we encourage you to use an emulator included in Git for Windows, which gives you access to both Bash shell commands and Git.
 If you have attended a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
@@ -91,7 +91,7 @@ the Windows start menu.
 * [Git for Windows][git4win] -- *Recommended*
 * [Windows Subsystem for Linux][ms-wsl] -- recommended option for Windows 10 
 
-## Alternatives to Git for Windows
+#### Alternatives to Git for Windows
 
 > Other solutions are available for running Bash commands on Windows. There is
 > now a Bash shell command-line tool available for Windows 10. Additionally,
@@ -110,9 +110,8 @@ the Windows start menu.
 >(Cygwin) or Secure
 > Shell (SSH) client (PuTTY)
 
-## Warning
+#### Warning
 > > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. Please ask if you encounter such a mismatch -- you're probably not alone.
-
 
 ### Mac
 
@@ -130,8 +129,6 @@ For an introduction, see [How to Use Terminal on a Mac][mac-terminal].
 
 ### Linux
 
-### Unix Shell on Linux
-
 On most versions of Linux, the default Unix Shell is accessible by running the
 [(Gnome) Terminal](https://help.gnome.org/users/gnome-terminal/stable/) or
 [(KDE) Konsole](https://konsole.kde.org/) or
@@ -140,47 +137,49 @@ applications menu or the search bar.
 
 :::
 
-### Special Cases
-
-If none of the options above address your circumstances, try an online search
-for: `Unix shell [your operating system]`.
-
 ## SSH for Secure Connections
 
 All students should have an SSH client installed. SSH is a tool that allows us
 to connect to and use a remote computer as our own.
 
-### SSH for Windows
+::: group-tab
+
+### Windows
 
 Git for Windows comes with SSH preinstalled: you do not have to do anything.
 
-> ## GUI Support for Windows
+> #### GUI Support for Windows
 >
 > If you know that the software you will be running on the cluster requires a
 > graphical user interface (a GUI window needs to open for the application to
 > run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
 > Edition.
 
-### SSH for macOS
+### macOS
 
 macOS comes with SSH pre-installed: you do not have to do anything.
 
-> ## GUI Support for macOS
+> #### GUI Support for macOS
 >
 > If you know that the software you will be running requires a graphical user
 > interface, please install [XQuartz](https://www.xquartz.org).
 
-### SSH for Linux
+### Linux
 
 Linux comes with SSH and X window support preinstalled: you do not have to do
 anything.
 
-<!-- links -->
-[git4win]: https://gitforwindows.org/
-[mac-terminal]: https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
-[ms-wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-[ms-shell]: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7
-[mobax-gen]: https://mobaxterm.mobatek.net/documentation.html
-[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
-[unix-emulator]: https://www.cygwin.com/
-[wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+:::
+
+::: callout
+
+- [git4win]: https://gitforwindows.org/
+- [mac-terminal]: https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
+- [ms-wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+- [ms-shell]: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7
+- [mobax-gen]: https://mobaxterm.mobatek.net/documentation.html
+- [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+- [unix-emulator]: https://www.cygwin.com/
+- [wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+:::
