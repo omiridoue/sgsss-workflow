@@ -16,7 +16,7 @@ can integrate various software package and environment management systems
 such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
 be seamlessly coupled together. It simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructure.
+cloud or high-performance computing (HPC) infrastructure
 
 This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). The course material page was designed based off the [workbench](https://carpentries.github.io/sandpaper-docs/).
 
