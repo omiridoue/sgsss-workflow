@@ -1,9 +1,9 @@
-![SGSSS Logo](episodes/fig/SGSSS_Stacked.png)
+![SGSSS Logo](fig/SGSSS_Stacked.png)
 
 # Building your own Computational Pipeline for Social Scientists
 
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="episodes/fig/cc_by-nc-nd.svg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="fig/cc_by-nc-nd.svg" /></a>
 
 
 ## Introduction
@@ -50,14 +50,9 @@ rm -rf *
 ### Step 3: Download Material Using Git
 
 ```
-git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
+git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
+
 ```
-
-
-### Programme
-
-The course programme can be viewed here:
-* 
 
 ### Materials
 
