@@ -136,37 +136,3 @@ On most versions of Linux, the default Unix Shell is accessible by running the
 applications menu or the search bar.
 
 :::
-
-## SSH for Secure Connections
-
-All students should have an SSH client installed. SSH is a tool that allows us
-to connect to and use a remote computer as our own.
-
-::: group-tab
-
-### Windows
-
-Git for Windows comes with SSH preinstalled: you do not have to do anything.
-
-> #### GUI Support for Windows
->
-> If you know that the software you will be running on the cluster requires a
-> graphical user interface (a GUI window needs to open for the application to
-> run properly), please install [MobaXterm](https://mobaxterm.mobatek.net) Home
-> Edition.
-
-### macOS
-
-macOS comes with SSH pre-installed: you do not have to do anything.
-
-> #### GUI Support for macOS
->
-> If you know that the software you will be running requires a graphical user
-> interface, please install [XQuartz](https://www.xquartz.org).
-
-### Linux
-
-Linux comes with SSH and X window support preinstalled: you do not have to do
-anything.
-
-:::
