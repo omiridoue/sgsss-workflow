@@ -170,16 +170,3 @@ Linux comes with SSH and X window support preinstalled: you do not have to do
 anything.
 
 :::
-
-::: callout
-
-- [git4win]: https://gitforwindows.org/
-- [mac-terminal]: https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
-- [ms-wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-- [ms-shell]: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7
-- [mobax-gen]: https://mobaxterm.mobatek.net/documentation.html
-- [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
-- [unix-emulator]: https://www.cygwin.com/
-- [wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-
-:::
