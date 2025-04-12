@@ -378,7 +378,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Setup</h1>
-        <p>Last updated on 2025-04-11 |
+        <p>Last updated on 2025-04-12 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/setup.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -499,7 +499,7 @@ or a program to access a Unix Shell on a server.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-Windows" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-Windows">
+<div id="nav-tabpanel-1-Windows" class="tab-pane show active" aria-labelledby="nav-tab-1-Windows" role="tabpanel">
 <p>Computers with Windows operating systems do not automatically have a
 Unix Shell program installed. In this lesson, we encourage you to use an
 emulator included in Git for Windows, which gives you access to both
@@ -508,37 +508,31 @@ workshop session, it is likely you have already received instructions on
 how to install Git for Windows.</p>
 <p>Once installed, you can open a terminal by running the program Git
 Bash from the Windows start menu.</p>
-<ul><li>
-<a href="https://gitforwindows.org/" class="external-link">Git for Windows</a> –
-<em>Recommended</em>
+<ul><li>[Git for Windows][git4win] – <em>Recommended</em>
 </li>
-<li>
-<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
-Subsystem for Linux</a> – recommended option for Windows 10</li>
+<li>[Windows Subsystem for Linux][ms-wsl] – recommended option for
+Windows 10</li>
 </ul><p>Other solutions are available for running Bash commands on Windows.
 There is now a Bash shell command-line tool available for Windows 10.
 Additionally, you can run Bash commands on a remote computer or server
 that already has a Unix Shell, from your Windows machine. This can
 usually be done through a Secure Shell (SSH) client. One such client
-available for free for Windows computers is <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" class="external-link">PuTTY</a>.
-See the reference below for information on installing and using PuTTY,
-using the Windows 10 command-line tool, or installing and using a
-Unix/Linux emulator.</p>
+available for free for Windows computers is [PuTTY][putty]. See the
+reference below for information on installing and using PuTTY, using the
+Windows 10 command-line tool, or installing and using a Unix/Linux
+emulator.</p>
 <p>For advanced users, you may choose one of the following
 alternatives:</p>
-<ul><li>Install the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" class="external-link">Windows
-Subsystem for Linux</a>
-</li>
-<li>Use the Windows <a href="https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7" class="external-link">PowerShell</a>
-</li>
-<li>Read up on <a href="https://www.cygwin.com/" class="external-link">Using a Unix/Linux
-emulator</a> (Cygwin) or Secure Shell (SSH) client (PuTTY)</li>
+<ul><li>Install the [Windows Subsystem for Linux][ms-wsl]</li>
+<li>Use the Windows [PowerShell][ms-shell]</li>
+<li>Read up on [Using a Unix/Linux emulator][unix-emulator] (Cygwin) or
+Secure Shell (SSH) client (PuTTY)</li>
 </ul><p>Commands in the Windows Subsystem for Linux (WSL), PowerShell, or
 Cygwin may differ slightly from those shown in the lesson or presented
 in the workshop. Please ask if you encounter such a mismatch – you’re
 probably not alone.</p>
 </div>
-<div id="nav-tabpanel-1-Mac" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Mac">
+<div id="nav-tabpanel-1-Mac" class="tab-pane" aria-labelledby="nav-tab-1-Mac" role="tabpanel">
 <p>On macOS, the default Unix Shell is accessible by running the
 Terminal program from the <code>/Application/Utilities</code> folder in
 Finder.</p>
@@ -547,10 +541,10 @@ Finder.</p>
 Terminal in the Utilities folder and open it.</li>
 <li>Use the Mac ‘Spotlight’ computer search function. Search for:
 <code>Terminal</code> and press <kbd>Return</kbd>.</li>
-</ul><p>For an introduction, see <a href="https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/" class="external-link">How
-to Use Terminal on a Mac</a>.</p>
+</ul><p>For an introduction, see [How to Use Terminal on a
+Mac][mac-terminal].</p>
 </div>
-<div id="nav-tabpanel-1-Linux" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Linux">
+<div id="nav-tabpanel-1-Linux" class="tab-pane" aria-labelledby="nav-tab-1-Linux" role="tabpanel">
 <p>On most versions of Linux, the default Unix Shell is accessible by
 running the <a href="https://help.gnome.org/users/gnome-terminal/stable/" class="external-link">(Gnome)
 Terminal</a> or <a href="https://konsole.kde.org/" class="external-link">(KDE) Konsole</a> or
@@ -582,49 +576,23 @@ allows us to connect to and use a remote computer as our own.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-Windows" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-Windows">
+<div id="nav-tabpanel-2-Windows" class="tab-pane show active" aria-labelledby="nav-tab-2-Windows" role="tabpanel">
 <p>Git for Windows comes with SSH preinstalled: you do not have to do
 anything.</p>
 <p>If you know that the software you will be running on the cluster
 requires a graphical user interface (a GUI window needs to open for the
 application to run properly), please install <a href="https://mobaxterm.mobatek.net" class="external-link">MobaXterm</a> Home Edition.</p>
 </div>
-<div id="nav-tabpanel-2-Mac" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Mac">
+<div id="nav-tabpanel-2-Mac" class="tab-pane" aria-labelledby="nav-tab-2-Mac" role="tabpanel">
 <p>macOS comes with SSH pre-installed: you do not have to do
 anything.</p>
 <p>If you know that the software you will be running requires a
 graphical user interface, please install <a href="https://www.xquartz.org" class="external-link">XQuartz</a>.</p>
 </div>
-<div id="nav-tabpanel-2-Linux" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Linux">
+<div id="nav-tabpanel-2-Linux" class="tab-pane" aria-labelledby="nav-tab-2-Linux" role="tabpanel">
 <p>Linux comes with SSH and X window support preinstalled: you do not
 have to do anything.</p>
 </div>
-</div>
-</div>
-<div id="callout2" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
-<div class="callout-content">
-<ul><li>
-</li>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
-<li>
-</li>
-</ul></div>
 </div>
 </div>
 <!--
@@ -689,7 +657,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/setup.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/setup.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-04-11",
+  "dateModified": "2025-04-12",
   "datePublished": "2025-04-12"
 }
 
