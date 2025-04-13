@@ -6,6 +6,9 @@ work/*
 *.RDS
 results/siena_fit/*
 out/*
+*.sif
+*.img
+apptainer/*
 *.log
 .nextflow.log*
 .nextflow/*
@@ -14,6 +17,7 @@ out/*
 !out/.gitkeep 
 !results/.gitkeep 
 !results/siena_fit/.gitkeep 
+!apptainer/.gitkeep
 
 !.nextflow/.gitkeep 
 !.nextflow/cache/.gitkeep 
