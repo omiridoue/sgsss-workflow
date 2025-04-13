@@ -61,14 +61,9 @@ myEffects_Network <- setEffect(myEffects_Network, Rate, name = "friends", type =
 myEffects_Network <- includeEffects(myEffects_Network, density, recip, gwespFF, name="friends", type = "eval")
 myEffects_Network <- includeEffects(myEffects_Network, linear, name="smoking", type = "eval")
 
-myEffects_Network <- includeEffects(myEffects_Network, altX, egoX, simX, name="friends", interaction1="gender", type = "eval")
+myEffects_Network <- includeEffects(myEffects_Network, egoX, name="friends", interaction1="gender", type = "eval")
 
 myEffects_Network <- includeEffects(myEffects_Network, effFrom, name="smoking", interaction1="peerselected", type = "eval")
-
-myEffects_Network <- includeEffects(myEffects_Network, avAlt, name= "smoking", interaction1= "friends")
-myEffects_Network <- includeEffects(myEffects_Network, avAltDist2, name= "smoking", interaction1= "friends", fix=TRUE, test=TRUE)
-
-myEffects_Network <- includeInteraction(myEffects_Network, effFrom, avAlt, name = "smoking", interaction1 = c("peerselected", "friends"), fix=TRUE, test=TRUE)
 
 modelOptions <- sienaAlgorithmCreate(MaxDegree=c(friends=6), diagonalize=.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
@@ -84,60 +79,61 @@ for (i in seq_along(cond)) {
 
 
 ans0 <- RSiena::siena07(modelOptions,
-    data = myData,
-    effects = myEffects_Network,
-    batch=TRUE,
-    verbose=FALSE,
-    silent=TRUE,
-    returnThetas=TRUE)
+                        data = myData,
+                        effects = myEffects_Network,
+                        batch=TRUE,
+                        verbose=FALSE,
+                        silent=TRUE,
+                        returnThetas=TRUE)
 
 # # # ===============================================================================
 # 
-#modelOptions_conv <- RSiena::sienaAlgorithmCreate(
-#    MaxDegree = c(friends = 6),
-#    diagonalize = .2,
-#    seed = 786840,
-#    n3 = 10000,
-#) # the seed is for the lab only
-
-# # # ===============================================================================
-myResults <- siena07RunToConvergence(alg=modelOptions_conv,
-   dat = myData,
-   eff = myEffects_Network,
-   thetaB=Inf,
-   ans0 = ans0,
-   modelName = paste0("${school_period}","_A_"),
-    batch=TRUE,
-    verbose=FALSE,
-    silent=TRUE,
-   returnThetas=TRUE,
-   returnChains=FALSE,
-   returnDeps=TRUE,
-    status = NULL)
-
-modelOptions_sim <- RSiena::sienaAlgorithmCreate(
+modelOptions_conv <- RSiena::sienaAlgorithmCreate(
     MaxDegree = c(friends = 6),
     diagonalize = .2,
     seed = 786840,
-    simOnly = TRUE,
-    nsub = 0,
-    n3 = 500
+    n3 = 10000,
+) # the seed is for the lab only
+
+# # # ===============================================================================
+myResults <- siena07RunToConvergence(alg=modelOptions_conv,
+                                     dat = myData,
+                                     eff = myEffects_Network,
+                                     thetaB=Inf,
+                                     ans0 = ans0,
+                                     modelName = paste0("${school_period}","_A_"),
+                                     batch=TRUE,
+                                     verbose=FALSE,
+                                     silent=TRUE,
+                                     returnThetas=TRUE,
+                                     returnChains=FALSE,
+                                     returnDeps=TRUE,
+                                     status = NULL)
+
+modelOptions_sim <- RSiena::sienaAlgorithmCreate(
+  MaxDegree = c(friends = 6),
+  diagonalize = .2,
+  seed = 786840,
+  simOnly = TRUE,
+  nsub = 0,
+  n3 = 500
 ) # the seed is for the lab only
 
 # # # ===============================================================================
 myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
-   dat = myData,
-   eff = myEffects_Network,
-   thetaB=Inf,
-   ans0 = myResults,
-   modelName = paste0("${school_period}","_A_"),
-   batch=TRUE,
-   verbose=FALSE,
-   silent=TRUE,
-   returnThetas=TRUE,
-   returnChains=FALSE,
-   returnDeps=TRUE,
-   status = NULL)
+                                   dat = myData,
+                                   eff = myEffects_Network,
+                                   thetaB=Inf,
+                                   ans0 = myResults,
+                                   #ans0 = ans0,
+                                   modelName = paste0("${school_period}","_A_"),
+                                   batch=TRUE,
+                                   verbose=FALSE,
+                                   silent=TRUE,
+                                   returnThetas=TRUE,
+                                   returnChains=FALSE,
+                                   returnDeps=TRUE,
+                                   status = NULL)
 
 png(filename=paste0("${school_period}","_A_", "gofIndegrees.png"))
 gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
@@ -158,7 +154,7 @@ dev.off()
 
 png(filename=paste0("${school_period}","_A_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
-	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
+                              verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_A_", "gofEgoAlterTable")) 
 dev.off()
 
