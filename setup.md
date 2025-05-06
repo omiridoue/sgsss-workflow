@@ -58,7 +58,8 @@ rm -rf *
 ### Step 3: Download Material Using Git
 
 ```
-git clone git@github.com:omiridoue/sgsss-workflow-scripts.git
+git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
+
 ```
 
 ## Setting up Locally
