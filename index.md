@@ -5,9 +5,9 @@ site: sandpaper::sandpaper_site
 
 ## Introduction
 
-Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
+Computational social science (CSS) brings computational approaches to social science questions. [Nextflow](https://www.nextflow.io/) is a workflow management software which enables the writing of scalable and reproducible scientific workflows. With this half day workshop we will motivate the use of this powerful tool in operationalising reproducible research.
 
-[Nextflow](https://www.nextflow.io/) is workflow management software which enables the writing of scalable and reproducible scientific workflows. It can integrate various software package and environment management systems such as Docker, Singularity, and Conda. It allows for existing pipelines written in common scripting languages, such as R and Python, to be seamlessly coupled together. It simplifies the implementation and running of workflows on cloud or high-performance computing (HPC) infrastructure.
+We will just about scratch the surface of CSS, please see below a bucket list of skills. With the workshop we'll work on the following select skills. You may find it helpful to reflect on what areas you would like to pursue developing.
 
 :::::::::::::::::: checklist
 
@@ -22,40 +22,24 @@ __Core Competencies__
 - [ ] Effective communication and collaborative with both technical and nontechnical colleagues 
 - [ ] Practiced knowledge of quantitative social science paradigms
 - [ ] Engagement with ethical concerns (e.g., privacy protection and algorithmic bias)
+- [ ] Publicly available research projects documented from end to end 
+- [x] Reproducible, efficient, and communicable code via GitHub
 
-**Additional Market-Specific Skills** 
+__Additional Skills__
 
 - [ ] Ability to apply theory and methods to practical aims of a product and/or organization (non-academic)
 - [ ] Proficiency with relational database languages (e.g., SQL) and cloud-based databases (non-academic especially)
-
-__Building a Portfolio__
-
-**Core Competencies**
-
-- [ ] Publicly available research projects documented from end to end 
-- [x] Reproducible, efficient, and communicable code via GitHub
-- [ ] Publish and serve as reviewer for journal publications/conference proceedings
-
-**Additional Market-Specific Skills**
-
 - [ ] Sharing learnings through research notes (non-academic) and tutorials (academic)
 - [x] Connecting with Computational Social Scientists
-
-**Core Competencies**
-
-- [ ] Attend and know how to navigate cross-disciplinary conferences
-
-**Additional Market-Specific Skills**
-
 - [ ] Work with computational social scientists through work with civic, social, and nonprofit organizations (non-academic)
 - [ ] Connect with computational social scientists via online platforms (e.g., LinkedIn and Slack) (non-academic)
+- [ ] Attend and know how to navigate cross-disciplinary conferences
 
 ::::::::::::::::::::::::::::
 
+This lesson motivates the use of Nextflow ad nf-core as development tools for building and sharing reproducible data science workflow. It can integrate various software package and environment management systems such as Docker, Singularity, and Conda. It allows for existing pipelines written in common scripting languages, such as R and Python, to be seamlessly coupled together. It simplifies the implementation and running of workflows on cloud or high-performance computing (HPC) infrastructure.
 
-This lesson motivates the use of Nextflow ad nf-core as development tools for building and sharing reproducible data science workflow.
-
-## lesson objectives
+## Workshop objectives
 
 1. Understand the role of auxiliary tools (Docker/Git) in supporting best practice within  the Open Research framework.
 2. Design and adapt a research project directory to own research objectives.
@@ -75,7 +59,8 @@ This is an introductory lesson to computational workflows. Basic familiarity wit
 material covered in [The Unix Shell](https://swcarpentry.github.io/shell-novice).
 It is helpful to be familiar with using another programming language, to the level of [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder) or
 [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder), although this lesson does not specifically rely on Python or R.
-No previous knowledge of Nextflow, other workflow software, or Groovy required
+
+No previous knowledge of Nextflow, other workflow software, or Groovy required.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -87,7 +72,7 @@ We use it as a training environment because it allows us to provide learners wit
 
 ## Creating a GitHub account
 
-You can create a free GitHub account from the [GitHub home page](https://github.com/).
+You can create a free GitHub account from the [GitHub home page](https://github.com/). You can upgrade your GitHub account to an Education account from the [GitHub Education home page](https://github.com/education) using your affiliate/student email. 
 
 ## Running GitHub Codespaces
 
@@ -102,7 +87,7 @@ You should be presented with a page where you can create a new GitHub Codespace:
 You can click "Change options" to configure the machine used.
 Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
 
-**For our the hands-on component, we recommend using a 4-core machine.**
+**For the hands-on component, we recommend using a 4-core machine.**
 
 The free GitHub plan includes 120 core-hours of Codespaces compute per month, which amounts to 30 hours of a 4-core machine (See below for more information about quotas.)
 
