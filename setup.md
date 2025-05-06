@@ -4,133 +4,112 @@ title: Setup
 root: .
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+## Setting up Remotely [Recommended]
 
-- Understand how to reproduce code.
-- Understand the benefits of containers.
-- Clone a repository on GitHub.
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+### GitHub Codespaces
 
-:::::::::::::::::::::::::::::::::::::::: questions
+GitHub Codespaces is a cloud development environment for teams to develop software efficiently and securely. We use it as a training environment because it allows us to work in a consistent and thoroughly tested environment. It requires connection to Internet and can be accessed through your web browser.
 
-- When should I use a pre-built container?
-- How do I set up code from a GitHub repository?
-- How can I navigate folders in a directory?
+:::::::::::::::  solution
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+### Creating a GitHub account
 
-## Introduction
-Join this half day training to explore resources to support best practice in making your research Findable, Accessible, Interoperable and Reproducible (FAIR). This software carpentry course offers guided and hands-on learning of the building blocks to design your own scalable and reproducible scientific workflow using Nextflow.
+You can create a free GitHub account from the [GitHub home page](https://github.com/). You can upgrade your GitHub account to an Education account from the [GitHub Education home page](https://github.com/education) using your affiliate/student email. 
 
-### Recommended Preparation 
+### Running GitHub Codespaces
 
-Participants will be expected to bring their own devices to be able to follow hands-on training. All participants are required to set up an account with GitHub in advance of the session. Optionally, participants can choose to apply for a GitHub Education account, provided they have used their institutional email at the time of registering.
+You can click on the button shown below from the many pages in the training portal where it is displayed.
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
-:::::::::::::: callout
+Once you are logged in to GitHub, you can open this link in your browser to open the training environment: <https://codespaces.new/nextflow-io/training?quickstart=1&ref=master>.
 
- As an optional alternative I would also recommend creating a GitHub account, [Register an Account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). You can then upgrade your Account to a GitHub Education Account for free (you will need to use your academic email to do this) [GitHub Education](https://github.com/education/students). This is a platform where you'll find plenty of open source material from projects including code and open access data. You can then use your GitHub account to login on to GitHub Codespaces, the free resource access online for 120 hours each month. This is an ideal option if you would prefer to skip any of the set-up instructions to download the software to your own computer but follow along the practical component nevertheless. 
+You should be presented with a page where you can create a new GitHub Codespace. You can click "Change options" to configure the machine used.
 
-::::::::::::::::::::::
+Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
 
-### Step 1: Open GitHub Codespaces
+**For the hands-on component, we recommend using a 4-core machine.**
+
+The free GitHub plan includes 120 core-hours of Codespaces compute per month, which amounts to 30 hours of a 4-core machine. Opening a new GitHub Codespaces environment for the first time can take several minutes. 
+
+### Explore GitHub Codespaces
+
+After GitHub Codespaces has loaded, you should see the welcome page:
+
+![GitHub Codespaces welcome](episodes/fig/codespaces_welcome.png)
+
+This is the interface of the VSCode IDE, a popular code development application that we recommend using for Nextflow development.
+
+- **The sidebar** allows you to customize your GitHub Codespace environment and perform basic tasks (copy, paste, open files, search, git, etc.). You can click the explorer button to see which files are in this repository.
+- **The terminal** allows you to run all the programs in the repository. For example, both `nextflow` and `docker` are installed and can be executed.
+- **The file explorer** allows you to view and edit files. Clicking on a file in the explorer will open it within the main window.
+- **The main editor** showing you a preview of the `README.md` file. When you open code or data files, they will open there.
+
+### Reopening a GitHub Codespaces session
+
+Once you have created an environment, you can easily resume or restart it and continue from where you left off.
+Your environment will time out after 30 minutes of inactivity and will save your changes for up to 2 weeks.
+
+You can reopen an environment from <https://github.com/codespaces/>.
+
+Previous environments will be listed. You can manage these sessions by freezing or removing previous sessions. For the moment you can click a session to resume it, just be mindful of your usage. If you have saved the URL for your previous GitHub Codespaces environment, you can simply open it in your browser.
+
+Alternatively, click the same button that you used to create it in the first place:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
-<p align="center">
-  <a href="https://nextflow.io/">
-    <picture>
-        <source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true">
-        <img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true">
-    </picture>
-  </a>
-</p>
+You should see the previous session, the default option is to resume it:
 
-### Step 2: Clear files
+![Resume a GitHub Codespace](episodes/fig/codespaces_resume.png)
 
-```
-rm -rf *
-```
+### Saving files from GitHub Codespaces to your local machine
 
-### Step 3: Download Material Using Git
+To save any file from the explorer panel, right-click the file and select `Download`.
 
-```
-git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
+### GitHub Codespaces quotas
 
-```
+GitHub Codespaces gives you up to 15 GB-month storage per month, and 120 core-hours per month. This is equivalent to around 60 hours of the default environment runtime using the standard workspace (up to 2 cores, 8 GB RAM, and 32 GB storage).
 
-## Setting up Locally
+GitHub Codespaces environments are configurable. You can create them with more resources, but this will consume your free usage faster and you will have fewer hours of access to this space. 
 
-### Where to Type Commands: How to Open a New Shell
+More information can be found in the GitHub docs:
+[About billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
 
-The shell is a program that enables us to send commands to the computer and
-receive output. It is also referred to as the terminal or command line.
 
-Some computers include a default Unix Shell program. The steps below describe
-some methods for identifying and opening a Unix Shell program if you already
-have one installed. There are also options for identifying and downloading a
-Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell
-on a server.
+:::::::::::::::::::::::::
 
-### Git for Version Control
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Step 1: Set up Coding Environment
 
 ::: group-tab
 
-### Windows
+### GitHub Codespaces
 
-Computers with Windows operating systems do not automatically have a Unix Shell program installed. In this lesson, we encourage you to use an emulator included in Git for Windows, which gives you access to both Bash shell commands and Git.
-If you have attended a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
-Once installed, you can open a terminal by running the program Git Bash from
-the Windows start menu.
+### Local Computer
 
-#### Shell Programs for Windows
+To set up locally you will need to follow the installation steps on [Nextflow Install page](https://www.nextflow.io/docs/stable/install.html). 
 
-* [Git for Windows][git4win] -- *Recommended*
-* [Windows Subsystem for Linux][ms-wsl] -- recommended option for Windows 10 
+### Local Container
 
-#### Alternatives to Git for Windows
-
-> Other solutions are available for running Bash commands on Windows. There is
-> now a Bash shell command-line tool available for Windows 10. Additionally,
-> you can run Bash commands on a remote computer or server that already has a
-> Unix Shell, from your Windows machine. This can usually be done through a
-> Secure Shell (SSH) client. One such client available for free for Windows
-> computers is [PuTTY][putty]. See the reference below for information on
-> installing and using PuTTY, using the Windows 10 command-line tool, or
-> installing and using a Unix/Linux emulator.
-
-> For advanced users, you may choose one of the following alternatives:
-
-> * Install the [Windows Subsystem for Linux][ms-wsl]
-> * Use the Windows [PowerShell][ms-shell]
-> * Read up on [Using a Unix/Linux emulator][unix-emulator] 
->(Cygwin) or Secure
-> Shell (SSH) client (PuTTY)
-
-#### Warning
-> > Commands in the Windows Subsystem for Linux (WSL), PowerShell, or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. Please ask if you encounter such a mismatch -- you're probably not alone.
-
-### Mac
-
-On macOS, the default Unix Shell is accessible by running the Terminal program
-from the `/Application/Utilities` folder in Finder.
-
-To open Terminal, try one or both of the following:
-
-* In Finder, select the Go menu, then select Utilities. Locate Terminal in the
-  Utilities folder and open it.
-* Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and
-  press <kbd>Return</kbd>.
-
-For an introduction, see [How to Use Terminal on a Mac][mac-terminal].
-
-### Linux
-
-On most versions of Linux, the default Unix Shell is accessible by running the
-[(Gnome) Terminal](https://help.gnome.org/users/gnome-terminal/stable/) or
-[(KDE) Konsole](https://konsole.kde.org/) or
-[xterm](https://en.wikipedia.org/wiki/Xterm), which can be found via the
-applications menu or the search bar.
+Alternatively, you can set up locally using VS Code
+[Devcontainer Nextflow](https://training.nextflow.io/latest/envsetup/03_devcontainer/#benefits-of-using-devcontainers).
 
 :::
+
+### Step 2: Clear Template Content
+
+``` bash
+rm -rf *
+
+```
+
+### Step 3: Download Material for Workshop
+
+``` bash
+git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
+
+```
