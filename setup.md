@@ -33,9 +33,6 @@ Participants will be expected to bring their own devices to be able to follow ha
 
 ::::::::::::::::::::::
 
-
-
-
 ### Step 1: Open GitHub Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
