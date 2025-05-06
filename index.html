@@ -207,8 +207,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#introduction">Introduction</a></li>
-<li><a href="#setting-up-locally">Setting up Locally</a></li>
+        <ul><li><a href="#setting-up-remotely-recommended">Setting up Remotely [Recommended]</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -383,145 +382,151 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Setup</h1>
       
 
-<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><p>Computational social science (CSS) brings computational approaches to
+<p>Computational social science (CSS) brings computational approaches to
 social science questions. <a href="https://www.nextflow.io/" class="external-link">Nextflow</a> is a workflow management
 software which enables the writing of scalable and reproducible
 scientific workflows. With this half day workshop we will motivate the
 use of this powerful tool in operationalising reproducible research.</p>
-<p>We will just about scratch the surface of CSS, please see below a
-bucket list of skills. With the workshop we’ll work on the following
-select skills. You may find it helpful to reflect on what areas you
-would like to pursue developing.</p>
-<div id="skills-roadmap" class="callout checklist">
+<p>We will just about scratch the surface of CSS with this workshop so
+we’ll work on a select few skills.</p>
+<div id="workshop-roadmap" class="callout checklist">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check-square"></i>
 </div>
-<div id="skills-roadmap" class="callout-inner">
-<h3 class="callout-title">🗺️ Skills Roadmap</h3>
+<div id="workshop-roadmap" class="callout-inner">
+<h3 class="callout-title">🗺️ Workshop Roadmap</h3>
 <div class="callout-content">
 <p><strong>Core Competencies</strong></p>
 <ul class="task-list"><li><label><input type="checkbox" checked>Ability to design and
 execute research projects from data to report</label></li>
-<li><label><input type="checkbox">Domain expertise</label></li>
-<li><label><input type="checkbox">Programming fluency in R and/or
-Python</label></li>
-<li><label><input type="checkbox">Experience with data
-management</label></li>
-<li><label><input type="checkbox">Effective communication and
-collaborative with both technical and nontechnical
-colleagues</label></li>
-<li><label><input type="checkbox">Practiced knowledge of quantitative
-social science paradigms</label></li>
-<li><label><input type="checkbox">Engagement with ethical concerns
-(e.g., privacy protection and algorithmic bias)</label></li>
-<li><label><input type="checkbox">Publicly available research projects
-documented from end to end</label></li>
-<li><label><input type="checkbox" checked>Reproducible, efficient,
-and communicable code via GitHub</label></li>
+<li><label><input type="checkbox" checked>Navigate reproducible,
+efficient, and communicable code via GitHub</label></li>
 </ul><p><strong>Additional Skills</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Ability to apply theory and methods
-to practical aims of a product and/or organization
-(non-academic)</label></li>
-<li><label><input type="checkbox">Proficiency with relational database
-languages (e.g., SQL) and cloud-based databases (non-academic
-especially)</label></li>
-<li><label><input type="checkbox">Sharing learnings through research
-notes (non-academic) and tutorials (academic)</label></li>
-<li><label><input type="checkbox" checked>Connecting with
+<ul class="task-list"><li><label><input type="checkbox" checked>Connecting with
 Computational Social Scientists</label></li>
-<li><label><input type="checkbox">Work with computational social
-scientists through work with civic, social, and nonprofit organizations
-(non-academic)</label></li>
-<li><label><input type="checkbox">Connect with computational social
-scientists via online platforms (e.g., LinkedIn and Slack)
-(non-academic)</label></li>
-<li><label><input type="checkbox">Attend and know how to navigate
-cross-disciplinary conferences</label></li>
 </ul></div>
 </div>
 </div>
-<p>This lesson motivates the use of Nextflow ad nf-core as development
-tools for building and sharing reproducible data science workflow. It
-can integrate various software package and environment management
-systems such as Docker, Singularity, and Conda. It allows for existing
-pipelines written in common scripting languages, such as R and Python,
-to be seamlessly coupled together. It simplifies the implementation and
-running of workflows on cloud or high-performance computing (HPC)
+<p>The workshop offers an overview to Nextflow. Nextflow integrates
+various software package and environment management systems such as
+Docker, Singularity, and Conda. It allows for existing pipelines written
+in common scripting languages, such as R and Python, to be seamlessly
+coupled together. It simplifies the implementation and running of
+workflows on cloud or high-performance computing (HPC)
 infrastructure.</p>
-</section><section><h2 class="section-heading" id="workshop-objectives">Workshop objectives<a class="anchor" aria-label="anchor" href="#workshop-objectives"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li>Understand the role of auxiliary tools (Docker/Git) in supporting
-best practice within the Open Research framework.</li>
-<li>Design and adapt a research project directory to own research
-objectives.</li>
-<li>Understand the fundamental components of a workflow implemented in
-Nextflow, including channels, processes and operators.</li>
-<li>Learn-by-doing launch a computational workflow using remote
-workspace, GitPod.</li>
-<li>Curate own configurations and settings on a practice workflow to
-ensure portability, scalability, automatic resource management and
-re-entrancy.</li>
-<li>Discuss ways to implement own research directory.</li>
-<li>Explore links to the wider network for computational researchers
-across Scotland.</li>
-</ol><div id="prerequisites" class="callout prereq">
+<div id="objectives" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<div id="objectives" class="callout-inner">
+<h3 class="callout-title">🗺️ Objectives</h3>
+<div class="callout-content">
+<ul class="task-list"><li><label><input type="checkbox" checked>Understand the role of
+auxiliary tools (Docker/Git) in supporting best practice within the Open
+Research framework.</label></li>
+<li><label><input type="checkbox" checked>Design and adapt a
+research project directory to own research objectives.</label></li>
+<li><label><input type="checkbox" checked>Understand the
+fundamental components of a workflow implemented in Nextflow, including
+channels, processes and operators.</label></li>
+<li><label><input type="checkbox" checked>Learn-by-doing launch a
+computational workflow using remote workspace, GitPod.</label></li>
+<li><label><input type="checkbox" checked>Curate own configurations
+and settings on a practice workflow to ensure portability, scalability,
+automatic resource management and re-entrancy.</label></li>
+<li><label><input type="checkbox" checked>Discuss ways to implement
+own research directory.</label></li>
+<li><label><input type="checkbox" checked>Explore links to the
+wider network for computational researchers across
+Scotland.</label></li>
+</ul></div>
+</div>
+</div>
+<div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="prerequisites" class="callout-inner">
 <h3 class="callout-title">Prerequisites</h3>
 <div class="callout-content">
-<p>This is an introductory lesson to computational workflows. Basic
-familiarity with the core materials covered in the <a href="https://software-carpentry.org/lessons/" class="external-link">Software Carpentry
-Lessons</a>. In particular learners need to be familiar with material
-covered in <a href="https://swcarpentry.github.io/shell-novice" class="external-link">The Unix
-Shell</a>. It is helpful to be familiar with using another programming
-language, to the level of <a href="https://swcarpentry.github.io/python-novice-gapminder" class="external-link">Plotting
+<p>This is a student led introductory lesson to computational workflows.
+No previous knowledge of Nextflow, other workflow software is
+required.</p>
+<p>It is helpful to be familiar with using a programming language, to
+the level of <a href="https://swcarpentry.github.io/python-novice-gapminder" class="external-link">Plotting
 and Programming in Python</a> or <a href="https://swcarpentry.github.io/r-novice-gapminder" class="external-link">R for
 Reproducible Scientific Analysis</a>, although this lesson does not
-specifically rely on Python or R.</p>
-<p>No previous knowledge of Nextflow, other workflow software, or Groovy
-required.</p>
+specifically rely on Python or R. A full set of recommended courses and
+resources you can explore is covered in <a href="https://software-carpentry.org/lessons/" class="external-link">Software Carpentry
+Lessons</a>.</p>
+<div class="section level3">
+<h3 id="pre-workshop-checklist">Pre-Workshop Checklist<a class="anchor" aria-label="anchor" href="#pre-workshop-checklist"></a></h3>
+<ul class="task-list"><li><label><input type="checkbox">Bring own device to follow practical
+component</label></li>
+<li><label><input type="checkbox">Set up an account with
+GitHub</label></li>
+<li><label><input type="checkbox">Optionally, upgrade to a GitHub
+Education account</label></li>
+</ul></div>
 </div>
 </div>
 </div>
-</section><div class="section level1">
-<h1 id="github-codespaces">GitHub Codespaces<a class="anchor" aria-label="anchor" href="#github-codespaces"></a></h1>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+
+
+      <section id="setup"><section><h2 class="section-heading" id="setting-up-remotely-recommended">Setting up Remotely [Recommended]<a class="anchor" aria-label="anchor" href="#setting-up-remotely-recommended"></a></h2>
+<hr class="half-width"><div id="github-codespaces" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="github-codespaces" class="callout-inner">
+<h3 class="callout-title">GitHub Codespaces</h3>
+<div class="callout-content">
 <p>GitHub Codespaces is a cloud development environment for teams to
 develop software efficiently and securely. We use it as a training
-environment because it allows us to provide learners with a consistent
-and thoroughly tested environment.</p>
-<div class="section level2">
-<h2 id="creating-a-github-account">Creating a GitHub account<a class="anchor" aria-label="anchor" href="#creating-a-github-account"></a></h2>
+environment because it allows us to work in a consistent and thoroughly
+tested environment. It requires connection to Internet and can be
+accessed through your web browser.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Creating a GitHub account
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>. You can upgrade your
 GitHub account to an Education account from the <a href="https://github.com/education" class="external-link">GitHub Education home page</a> using
 your affiliate/student email.</p>
-</div>
-<div class="section level2">
-<h2 id="running-github-codespaces">Running GitHub Codespaces<a class="anchor" aria-label="anchor" href="#running-github-codespaces"></a></h2>
-<p>Once you are logged in to GitHub, open this link in your browser to
-open the training environment: <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link uri">https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master</a></p>
-<p>Alternatively, you can click on the button shown below from the many
-pages in the training portal where it is displayed.</p>
-<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
+<div class="section level3">
+<h3 id="running-github-codespaces">Running GitHub Codespaces<a class="anchor" aria-label="anchor" href="#running-github-codespaces"></a></h3>
+<p>You can click on the button shown below from the many pages in the
+training portal where it is displayed. <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
+<p>Once you are logged in to GitHub, you can open this link in your
+browser to open the training environment: <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link uri">https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master</a>.</p>
 <p>You should be presented with a page where you can create a new GitHub
-Codespace:</p>
-<p>You can click “Change options” to configure the machine used. Using a
-machine with more cores allows you to take greater advantage of
-Nextflow’s ability to parallelize workflow execution.</p>
+Codespace. You can click “Change options” to configure the machine
+used.</p>
+<p>Using a machine with more cores allows you to take greater advantage
+of Nextflow’s ability to parallelize workflow execution.</p>
 <p><strong>For the hands-on component, we recommend using a 4-core
 machine.</strong></p>
 <p>The free GitHub plan includes 120 core-hours of Codespaces compute
-per month, which amounts to 30 hours of a 4-core machine (See below for
-more information about quotas.)</p>
-<p>Opening a new GitHub Codespaces environment for the first time can
-take several minutes. Just enough time to touch on the rest of this</p>
+per month, which amounts to 30 hours of a 4-core machine. Opening a new
+GitHub Codespaces environment for the first time can take several
+minutes.</p>
 </div>
-<div class="section level2">
-<h2 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h2>
-<p>After GitHub Codespaces has loaded, you should see something similar
-to the following (which may open in light mode depending on your account
-preferences):</p>
+<div class="section level3">
+<h3 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h3>
+<p>After GitHub Codespaces has loaded, you should see the welcome
+page:</p>
 <figure><img src="fig/codespaces_welcome.png" alt="GitHub Codespaces welcome" class="figure mx-auto d-block"><div class="figcaption">GitHub Codespaces welcome</div>
 </figure><p>This is the interface of the VSCode IDE, a popular code development
 application that we recommend using for Nextflow development.</p>
@@ -543,8 +548,8 @@ window.</li>
 <code>README.md</code> file. When you open code or data files, they will
 open there.</li>
 </ul></div>
-<div class="section level2">
-<h2 id="reopening-a-github-codespaces-session">Reopening a GitHub Codespaces session<a class="anchor" aria-label="anchor" href="#reopening-a-github-codespaces-session"></a></h2>
+<div class="section level3">
+<h3 id="reopening-a-github-codespaces-session">Reopening a GitHub Codespaces session<a class="anchor" aria-label="anchor" href="#reopening-a-github-codespaces-session"></a></h3>
 <p>Once you have created an environment, you can easily resume or
 restart it and continue from where you left off. Your environment will
 time out after 30 minutes of inactivity and will save your changes for
@@ -552,204 +557,87 @@ up to 2 weeks.</p>
 <p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>.</p>
 <p>Previous environments will be listed. You can manage these sessions
 by freezing or removing previous sessions. For the moment you can click
-a session to resume it, just be mindful of your usage.</p>
-<figure><img src="fig/codespaces_list.png" alt="List GitHub Codespace sessions" class="figure mx-auto d-block"><div class="figcaption">List GitHub Codespace sessions</div>
-</figure><p>If you have saved the URL for your previous GitHub Codespaces
-environment, you can simply open it in your browser. Alternatively,
-click the same button that you used to create it in the first place:</p>
+a session to resume it, just be mindful of your usage. If you have saved
+the URL for your previous GitHub Codespaces environment, you can simply
+open it in your browser.</p>
+<p>Alternatively, click the same button that you used to create it in
+the first place:</p>
 <p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
 <p>You should see the previous session, the default option is to resume
 it:</p>
 <figure><img src="fig/codespaces_resume.png" alt="Resume a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Resume a GitHub Codespace</div>
 </figure></div>
-<div class="section level2">
-<h2 id="saving-files-from-github-codespaces-to-your-local-machine">Saving files from GitHub Codespaces to your local machine<a class="anchor" aria-label="anchor" href="#saving-files-from-github-codespaces-to-your-local-machine"></a></h2>
+<div class="section level3">
+<h3 id="saving-files-from-github-codespaces-to-your-local-machine">Saving files from GitHub Codespaces to your local machine<a class="anchor" aria-label="anchor" href="#saving-files-from-github-codespaces-to-your-local-machine"></a></h3>
 <p>To save any file from the explorer panel, right-click the file and
 select <code>Download</code>.</p>
 </div>
-<div class="section level2">
-<h2 id="github-codespaces-quotas">GitHub Codespaces quotas<a class="anchor" aria-label="anchor" href="#github-codespaces-quotas"></a></h2>
+<div class="section level3">
+<h3 id="github-codespaces-quotas">GitHub Codespaces quotas<a class="anchor" aria-label="anchor" href="#github-codespaces-quotas"></a></h3>
 <p>GitHub Codespaces gives you up to 15 GB-month storage per month, and
 120 core-hours per month. This is equivalent to around 60 hours of the
 default environment runtime using the standard workspace (up to 2 cores,
 8 GB RAM, and 32 GB storage).</p>
 <p>GitHub Codespaces environments are configurable. You can create them
 with more resources, but this will consume your free usage faster and
-you will have fewer hours of access to this space. Optionally, you can
-purchase access to more resources.</p>
+you will have fewer hours of access to this space.</p>
 <p>More information can be found in the GitHub docs: <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces" class="external-link">About
 billing for GitHub Codespaces</a></p>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
 </div>
-</div>
-
-
-      <section id="setup"><div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul><li>When should I use a pre-built container?</li>
-<li>How do I set up code from a GitHub repository?</li>
-<li>How can I navigate folders in a directory?</li>
-</ul></div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul><li>Understand how to reproduce code.</li>
-<li>Understand the benefits of containers.</li>
-<li>Clone a repository on GitHub.</li>
-</ul></div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="introduction-1">Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"></a></h2>
-<hr class="half-width"><p>Join this half day training to explore resources to support best
-practice in making your research Findable, Accessible, Interoperable and
-Reproducible (FAIR). This software carpentry course offers guided and
-hands-on learning of the building blocks to design your own scalable and
-reproducible scientific workflow using Nextflow.</p>
-<div class="section level3">
-<h3 id="recommended-preparation">Recommended Preparation<a class="anchor" aria-label="anchor" href="#recommended-preparation"></a></h3>
-<p>Participants will be expected to bring their own devices to be able
-to follow hands-on training. All participants are required to set up an
-account with GitHub in advance of the session. Optionally, participants
-can choose to apply for a GitHub Education account, provided they have
-used their institutional email at the time of registering.</p>
-<div id="callout1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
-<div class="callout-content">
-<p>As an optional alternative I would also recommend creating a GitHub
-account, <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" class="external-link">Register
-an Account</a>. You can then upgrade your Account to a GitHub Education
-Account for free (you will need to use your academic email to do this)
-<a href="https://github.com/education/students" class="external-link">GitHub Education</a>.
-This is a platform where you’ll find plenty of open source material from
-projects including code and open access data. You can then use your
-GitHub account to login on to GitHub Codespaces, the free resource
-access online for 120 hours each month. This is an ideal option if you
-would prefer to skip any of the set-up instructions to download the
-software to your own computer but follow along the practical component
-nevertheless.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="step-1-open-github-codespaces">Step 1: Open GitHub Codespaces<a class="anchor" aria-label="anchor" href="#step-1-open-github-codespaces"></a></h3>
-<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
-<p align="center">
-<a href="https://nextflow.io/" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true"><img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true" class="figure"></source></picture></a>
-</p>
-</div>
-<div class="section level3">
-<h3 id="step-2-clear-files">Step 2: Clear files<a class="anchor" aria-label="anchor" href="#step-2-clear-files"></a></h3>
-<pre><code>rm -rf *</code></pre>
-</div>
-<div class="section level3">
-<h3 id="step-3-download-material-using-git">Step 3: Download Material Using Git<a class="anchor" aria-label="anchor" href="#step-3-download-material-using-git"></a></h3>
-<pre><code>git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
-</code></pre>
-</div>
-</section><section><h2 class="section-heading" id="setting-up-locally">Setting up Locally<a class="anchor" aria-label="anchor" href="#setting-up-locally"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="where-to-type-commands-how-to-open-a-new-shell">Where to Type Commands: How to Open a New Shell<a class="anchor" aria-label="anchor" href="#where-to-type-commands-how-to-open-a-new-shell"></a></h3>
-<p>The shell is a program that enables us to send commands to the
-computer and receive output. It is also referred to as the terminal or
-command line.</p>
-<p>Some computers include a default Unix Shell program. The steps below
-describe some methods for identifying and opening a Unix Shell program
-if you already have one installed. There are also options for
-identifying and downloading a Unix Shell program, a Linux/UNIX emulator,
-or a program to access a Unix Shell on a server.</p>
-</div>
-<div class="section level3">
-<h3 id="git-for-version-control">Git for Version Control<a class="anchor" aria-label="anchor" href="#git-for-version-control"></a></h3>
+<h3 id="step-1-set-up-coding-environment">Step 1: Set up Coding Environment<a class="anchor" aria-label="anchor" href="#step-1-set-up-coding-environment"></a></h3>
 <div class="tabs">
 <nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
-<button class="nav-link active" id="nav-tab-1-Windows" name="Windows" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Windows" type="button" role="tab" aria-controls="nav-tabpanel-1-Windows" aria-selected="true">
-  <h3 class="tab-header" id="nav-tab-heading-1-Windows">
-  Windows
+<button class="nav-link active" id="nav-tab-1-GitHubCodespaces" name="GitHubCodespaces" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GitHubCodespaces" type="button" role="tab" aria-controls="nav-tabpanel-1-GitHubCodespaces" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-GitHubCodespaces">
+  GitHub Codespaces
   </h3>
 </button>
-<button class="nav-link" id="nav-tab-1-Mac" name="Mac" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Mac" type="button" role="tab" aria-controls="nav-tabpanel-1-Mac" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Mac">
-  Mac
+<button class="nav-link" id="nav-tab-1-LocalComputer" name="LocalComputer" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-LocalComputer" type="button" role="tab" aria-controls="nav-tabpanel-1-LocalComputer" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-LocalComputer">
+  Local Computer
   </h3>
 </button>
-<button class="nav-link" id="nav-tab-1-Linux" name="Linux" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Linux" type="button" role="tab" aria-controls="nav-tabpanel-1-Linux" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Linux">
-  Linux
+<button class="nav-link" id="nav-tab-1-LocalContainer" name="LocalContainer" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-LocalContainer" type="button" role="tab" aria-controls="nav-tabpanel-1-LocalContainer" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-LocalContainer">
+  Local Container
   </h3>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-Windows" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-Windows">
-<p>Computers with Windows operating systems do not automatically have a
-Unix Shell program installed. In this lesson, we encourage you to use an
-emulator included in Git for Windows, which gives you access to both
-Bash shell commands and Git. If you have attended a Software Carpentry
-workshop session, it is likely you have already received instructions on
-how to install Git for Windows.</p>
-<p>Once installed, you can open a terminal by running the program Git
-Bash from the Windows start menu.</p>
-<ul><li>[Git for Windows][git4win] – <em>Recommended</em>
-</li>
-<li>[Windows Subsystem for Linux][ms-wsl] – recommended option for
-Windows 10</li>
-</ul><p>Other solutions are available for running Bash commands on Windows.
-There is now a Bash shell command-line tool available for Windows 10.
-Additionally, you can run Bash commands on a remote computer or server
-that already has a Unix Shell, from your Windows machine. This can
-usually be done through a Secure Shell (SSH) client. One such client
-available for free for Windows computers is [PuTTY][putty]. See the
-reference below for information on installing and using PuTTY, using the
-Windows 10 command-line tool, or installing and using a Unix/Linux
-emulator.</p>
-<p>For advanced users, you may choose one of the following
-alternatives:</p>
-<ul><li>Install the [Windows Subsystem for Linux][ms-wsl]</li>
-<li>Use the Windows [PowerShell][ms-shell]</li>
-<li>Read up on [Using a Unix/Linux emulator][unix-emulator] (Cygwin) or
-Secure Shell (SSH) client (PuTTY)</li>
-</ul><p>Commands in the Windows Subsystem for Linux (WSL), PowerShell, or
-Cygwin may differ slightly from those shown in the lesson or presented
-in the workshop. Please ask if you encounter such a mismatch – you’re
-probably not alone.</p>
+<div id="nav-tabpanel-1-GitHubCodespaces" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GitHubCodespaces">
+<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
 </div>
-<div id="nav-tabpanel-1-Mac" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Mac">
-<p>On macOS, the default Unix Shell is accessible by running the
-Terminal program from the <code>/Application/Utilities</code> folder in
-Finder.</p>
-<p>To open Terminal, try one or both of the following:</p>
-<ul><li>In Finder, select the Go menu, then select Utilities. Locate
-Terminal in the Utilities folder and open it.</li>
-<li>Use the Mac ‘Spotlight’ computer search function. Search for:
-<code>Terminal</code> and press <kbd>Return</kbd>.</li>
-</ul><p>For an introduction, see [How to Use Terminal on a
-Mac][mac-terminal].</p>
+<div id="nav-tabpanel-1-LocalComputer" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-LocalComputer">
+<p>To set up locally you will need to follow the installation steps on
+<a href="https://www.nextflow.io/docs/stable/install.html" class="external-link">Nextflow
+Install page</a>.</p>
 </div>
-<div id="nav-tabpanel-1-Linux" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Linux">
-<p>On most versions of Linux, the default Unix Shell is accessible by
-running the <a href="https://help.gnome.org/users/gnome-terminal/stable/" class="external-link">(Gnome)
-Terminal</a> or <a href="https://konsole.kde.org/" class="external-link">(KDE) Konsole</a> or
-<a href="https://en.wikipedia.org/wiki/Xterm" class="external-link">xterm</a>, which can be
-found via the applications menu or the search bar.</p>
+<div id="nav-tabpanel-1-LocalContainer" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-LocalContainer">
+<p>Alternatively, you can set up locally using VS Code <a href="https://training.nextflow.io/latest/envsetup/03_devcontainer/#benefits-of-using-devcontainers" class="external-link">Devcontainer
+Nextflow</a>.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="step-2-clear-template-content">Step 2: Clear Template Content<a class="anchor" aria-label="anchor" href="#step-2-clear-template-content"></a></h3>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> <span class="pp">*</span></span></code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="step-3-download-material-for-workshop">Step 3: Download Material for Workshop<a class="anchor" aria-label="anchor" href="#step-3-download-material-for-workshop"></a></h3>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> workflow-scripts <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
 </div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
