@@ -389,119 +389,13 @@
         </div>
 
         
-<section><h2 class="section-heading" id="setting-up-remotely-recommended">Setting up Remotely [Recommended]<a class="anchor" aria-label="anchor" href="#setting-up-remotely-recommended"></a></h2>
-<hr class="half-width"><div id="github-codespaces" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="github-codespaces" class="callout-inner">
-<h3 class="callout-title">GitHub Codespaces</h3>
-<div class="callout-content">
-<p>GitHub Codespaces is a cloud development environment for teams to
-develop software efficiently and securely. We use it as a training
-environment because it allows us to work in a consistent and thoroughly
-tested environment. It requires connection to Internet and can be
-accessed through your web browser.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Creating a GitHub account
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>. You can upgrade your
-GitHub account to an Education account from the <a href="https://github.com/education" class="external-link">GitHub Education home page</a> using
-your affiliate/student email.</p>
-<div class="section level3">
-<h3 id="running-github-codespaces">Running GitHub Codespaces<a class="anchor" aria-label="anchor" href="#running-github-codespaces"></a></h3>
-<p>You can click on the button shown below from the many pages in the
-training portal where it is displayed. <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
-<p>Once you are logged in to GitHub, you can open this link in your
-browser to open the training environment: <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link uri">https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master</a>.</p>
-<p>You should be presented with a page where you can create a new GitHub
-Codespace. You can click “Change options” to configure the machine
-used.</p>
-<p>Using a machine with more cores allows you to take greater advantage
-of Nextflow’s ability to parallelize workflow execution.</p>
-<p><strong>For the hands-on component, we recommend using a 4-core
-machine.</strong></p>
-<p>The free GitHub plan includes 120 core-hours of Codespaces compute
-per month, which amounts to 30 hours of a 4-core machine. Opening a new
-GitHub Codespaces environment for the first time can take several
-minutes.</p>
-</div>
-<div class="section level3">
-<h3 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h3>
-<p>After GitHub Codespaces has loaded, you should see the welcome
-page:</p>
-<figure><img src="fig/codespaces_welcome.png" alt="GitHub Codespaces welcome" class="figure mx-auto d-block"><div class="figcaption">GitHub Codespaces welcome</div>
-</figure><p>This is the interface of the VSCode IDE, a popular code development
-application that we recommend using for Nextflow development.</p>
-<ul><li>
-<strong>The sidebar</strong> allows you to customize your GitHub
-Codespace environment and perform basic tasks (copy, paste, open files,
-search, git, etc.). You can click the explorer button to see which files
-are in this repository.</li>
-<li>
-<strong>The terminal</strong> allows you to run all the programs in
-the repository. For example, both <code>nextflow</code> and
-<code>docker</code> are installed and can be executed.</li>
-<li>
-<strong>The file explorer</strong> allows you to view and edit
-files. Clicking on a file in the explorer will open it within the main
-window.</li>
-<li>
-<strong>The main editor</strong> showing you a preview of the
-<code>README.md</code> file. When you open code or data files, they will
-open there.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="reopening-a-github-codespaces-session">Reopening a GitHub Codespaces session<a class="anchor" aria-label="anchor" href="#reopening-a-github-codespaces-session"></a></h3>
-<p>Once you have created an environment, you can easily resume or
-restart it and continue from where you left off. Your environment will
-time out after 30 minutes of inactivity and will save your changes for
-up to 2 weeks.</p>
-<p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>.</p>
-<p>Previous environments will be listed. You can manage these sessions
-by freezing or removing previous sessions. For the moment you can click
-a session to resume it, just be mindful of your usage. If you have saved
-the URL for your previous GitHub Codespaces environment, you can simply
-open it in your browser.</p>
-<p>Alternatively, click the same button that you used to create it in
-the first place:</p>
-<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
-<p>You should see the previous session, the default option is to resume
-it:</p>
-<figure><img src="fig/codespaces_resume.png" alt="Resume a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Resume a GitHub Codespace</div>
-</figure></div>
-<div class="section level3">
-<h3 id="saving-files-from-github-codespaces-to-your-local-machine">Saving files from GitHub Codespaces to your local machine<a class="anchor" aria-label="anchor" href="#saving-files-from-github-codespaces-to-your-local-machine"></a></h3>
-<p>To save any file from the explorer panel, right-click the file and
-select <code>Download</code>.</p>
-</div>
-<div class="section level3">
-<h3 id="github-codespaces-quotas">GitHub Codespaces quotas<a class="anchor" aria-label="anchor" href="#github-codespaces-quotas"></a></h3>
-<p>GitHub Codespaces gives you up to 15 GB-month storage per month, and
-120 core-hours per month. This is equivalent to around 60 hours of the
-default environment runtime using the standard workspace (up to 2 cores,
-8 GB RAM, and 32 GB storage).</p>
-<p>GitHub Codespaces environments are configurable. You can create them
-with more resources, but this will consume your free usage faster and
-you will have fewer hours of access to this space.</p>
-<p>More information can be found in the GitHub docs: <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces" class="external-link">About
-billing for GitHub Codespaces</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <div class="section level3">
 <h3 id="step-1-set-up-coding-environment">Step 1: Set up Coding Environment<a class="anchor" aria-label="anchor" href="#step-1-set-up-coding-environment"></a></h3>
+<p>To follow along the practical component it is recommended use GitHub
+Codespaces. This will require a stable internet connection. If you are
+not signed in to GitHub, you may be prompted to do so, once you open the
+material in GitHub Codespaces.</p>
 <div class="tabs">
 <nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
 <button class="nav-link active" id="nav-tab-1-GitHubCodespaces" name="GitHubCodespaces" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GitHubCodespaces" type="button" role="tab" aria-controls="nav-tabpanel-1-GitHubCodespaces" aria-selected="true">
@@ -551,12 +445,125 @@ Nextflow</a>.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> workflow-scripts <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
 </div>
+<div id="github-codespaces-1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="github-codespaces-1" class="callout-inner">
+<h3 class="callout-title">GitHub Codespaces</h3>
+<div class="callout-content">
+<p>GitHub Codespaces is a cloud development environment for teams to
+develop software efficiently and securely. We use it as a training
+environment because it allows us to work in a consistent and thoroughly
+tested environment. It requires connection to Internet and can be
+accessed through your web browser.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Creating a GitHub account
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>. You can upgrade your
+GitHub account to an Education account from the <a href="https://github.com/education" class="external-link">GitHub Education home page</a> using
+your affiliate/student email.</p>
+<div class="section level5">
+<h5 id="running-github-codespaces">Running GitHub Codespaces<a class="anchor" aria-label="anchor" href="#running-github-codespaces"></a></h5>
+<p>You can click on the button shown below from the many pages in the
+training portal where it is displayed. <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
+<p>Once you are logged in to GitHub, you can open this link in your
+browser to open the training environment: <a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link uri">https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master</a>.</p>
+<p>You should be presented with a page where you can create a new GitHub
+Codespace. You can click “Change options” to configure the machine
+used.</p>
+<p>Using a machine with more cores allows you to take greater advantage
+of Nextflow’s ability to parallelize workflow execution.</p>
+<p><strong>For the hands-on component, we recommend using a 4-core
+machine.</strong></p>
+<p>The free GitHub plan includes 120 core-hours of Codespaces compute
+per month, which amounts to 30 hours of a 4-core machine. Opening a new
+GitHub Codespaces environment for the first time can take several
+minutes.</p>
+</div>
+<div class="section level5">
+<h5 id="explore-github-codespaces">Explore GitHub Codespaces<a class="anchor" aria-label="anchor" href="#explore-github-codespaces"></a></h5>
+<p>After GitHub Codespaces has loaded, you should see the welcome
+page:</p>
+<figure><img src="fig/codespaces_welcome.png" alt="GitHub Codespaces welcome" class="figure mx-auto d-block"><div class="figcaption">GitHub Codespaces welcome</div>
+</figure><p>This is the interface of the VSCode IDE, a popular code development
+application that we recommend using for Nextflow development.</p>
+<ul><li>
+<strong>The sidebar</strong> allows you to customize your GitHub
+Codespace environment and perform basic tasks (copy, paste, open files,
+search, git, etc.). You can click the explorer button to see which files
+are in this repository.</li>
+<li>
+<strong>The terminal</strong> allows you to run all the programs in
+the repository. For example, both <code>nextflow</code> and
+<code>docker</code> are installed and can be executed.</li>
+<li>
+<strong>The file explorer</strong> allows you to view and edit
+files. Clicking on a file in the explorer will open it within the main
+window.</li>
+<li>
+<strong>The main editor</strong> showing you a preview of the
+<code>README.md</code> file. When you open code or data files, they will
+open there.</li>
+</ul></div>
+<div class="section level5">
+<h5 id="reopening-a-github-codespaces-session">Reopening a GitHub Codespaces session<a class="anchor" aria-label="anchor" href="#reopening-a-github-codespaces-session"></a></h5>
+<p>Once you have created an environment, you can easily resume or
+restart it and continue from where you left off. Your environment will
+time out after 30 minutes of inactivity and will save your changes for
+up to 2 weeks.</p>
+<p>You can reopen an environment from <a href="https://github.com/codespaces/" class="external-link uri">https://github.com/codespaces/</a>.</p>
+<p>Previous environments will be listed. You can manage these sessions
+by freezing or removing previous sessions. For the moment you can click
+a session to resume it, just be mindful of your usage. If you have saved
+the URL for your previous GitHub Codespaces environment, you can simply
+open it in your browser.</p>
+<p>Alternatively, click the same button that you used to create it in
+the first place:</p>
+<p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
+<p>You should see the previous session, the default option is to resume
+it:</p>
+<figure><img src="fig/codespaces_resume.png" alt="Resume a GitHub Codespace" class="figure mx-auto d-block"><div class="figcaption">Resume a GitHub Codespace</div>
+</figure></div>
+<div class="section level5">
+<h5 id="saving-files-from-github-codespaces-to-your-local-machine">Saving files from GitHub Codespaces to your local machine<a class="anchor" aria-label="anchor" href="#saving-files-from-github-codespaces-to-your-local-machine"></a></h5>
+<p>To save any file from the explorer panel, right-click the file and
+select <code>Download</code>.</p>
+</div>
+<div class="section level5">
+<h5 id="github-codespaces-quotas">GitHub Codespaces quotas<a class="anchor" aria-label="anchor" href="#github-codespaces-quotas"></a></h5>
+<p>GitHub Codespaces gives you up to 15 GB-month storage per month, and
+120 core-hours per month. This is equivalent to around 60 hours of the
+default environment runtime using the standard workspace (up to 2 cores,
+8 GB RAM, and 32 GB storage).</p>
+<p>GitHub Codespaces environments are configurable. You can create them
+with more resources, but this will consume your free usage faster and
+you will have fewer hours of access to this space.</p>
+<p>More information can be found in the GitHub docs: <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces" class="external-link">About
+billing for GitHub Codespaces</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </div>
-</section></div> <!-- / div.lesson-content -->
+
+
+
+      </div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
