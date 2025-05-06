@@ -208,7 +208,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
-<li><a href="#lesson-objectives">lesson objectives</a></li>
+<li><a href="#workshop-objectives">Workshop objectives</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -384,17 +384,15 @@
       
 
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><p>Computational social science (CSS), which brings computational
-approaches to social science questions, has been shown to be a powerful
-tool.</p>
-<p><a href="https://www.nextflow.io/" class="external-link">Nextflow</a> is workflow
-management software which enables the writing of scalable and
-reproducible scientific workflows. It can integrate various software
-package and environment management systems such as Docker, Singularity,
-and Conda. It allows for existing pipelines written in common scripting
-languages, such as R and Python, to be seamlessly coupled together. It
-simplifies the implementation and running of workflows on cloud or
-high-performance computing (HPC) infrastructure.</p>
+<hr class="half-width"><p>Computational social science (CSS) brings computational approaches to
+social science questions. <a href="https://www.nextflow.io/" class="external-link">Nextflow</a> is a workflow management
+software which enables the writing of scalable and reproducible
+scientific workflows. With this half day workshop we will motivate the
+use of this powerful tool in operationalising reproducible research.</p>
+<p>We will just about scratch the surface of CSS, please see below a
+bucket list of skills. With the workshop we’ll work on the following
+select skills. You may find it helpful to reflect on what areas you
+would like to pursue developing.</p>
 <div id="skills-roadmap" class="callout checklist">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check-square"></i>
@@ -417,42 +415,41 @@ colleagues</label></li>
 social science paradigms</label></li>
 <li><label><input type="checkbox">Engagement with ethical concerns
 (e.g., privacy protection and algorithmic bias)</label></li>
-</ul><p><strong>Additional Market-Specific Skills</strong></p>
+<li><label><input type="checkbox">Publicly available research projects
+documented from end to end</label></li>
+<li><label><input type="checkbox" checked>Reproducible, efficient,
+and communicable code via GitHub</label></li>
+</ul><p><strong>Additional Skills</strong></p>
 <ul class="task-list"><li><label><input type="checkbox">Ability to apply theory and methods
 to practical aims of a product and/or organization
 (non-academic)</label></li>
 <li><label><input type="checkbox">Proficiency with relational database
 languages (e.g., SQL) and cloud-based databases (non-academic
 especially)</label></li>
-</ul><p><strong>Building a Portfolio</strong></p>
-<p><strong>Core Competencies</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Publicly available research projects
-documented from end to end</label></li>
-<li><label><input type="checkbox" checked>Reproducible, efficient,
-and communicable code via GitHub</label></li>
-<li><label><input type="checkbox">Publish and serve as reviewer for
-journal publications/conference proceedings</label></li>
-</ul><p><strong>Additional Market-Specific Skills</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Sharing learnings through research
+<li><label><input type="checkbox">Sharing learnings through research
 notes (non-academic) and tutorials (academic)</label></li>
 <li><label><input type="checkbox" checked>Connecting with
 Computational Social Scientists</label></li>
-</ul><p><strong>Core Competencies</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Attend and know how to navigate
-cross-disciplinary conferences</label></li>
-</ul><p><strong>Additional Market-Specific Skills</strong></p>
-<ul class="task-list"><li><label><input type="checkbox">Work with computational social
+<li><label><input type="checkbox">Work with computational social
 scientists through work with civic, social, and nonprofit organizations
 (non-academic)</label></li>
 <li><label><input type="checkbox">Connect with computational social
 scientists via online platforms (e.g., LinkedIn and Slack)
 (non-academic)</label></li>
+<li><label><input type="checkbox">Attend and know how to navigate
+cross-disciplinary conferences</label></li>
 </ul></div>
 </div>
 </div>
 <p>This lesson motivates the use of Nextflow ad nf-core as development
-tools for building and sharing reproducible data science workflow.</p>
-</section><section><h2 class="section-heading" id="lesson-objectives">lesson objectives<a class="anchor" aria-label="anchor" href="#lesson-objectives"></a></h2>
+tools for building and sharing reproducible data science workflow. It
+can integrate various software package and environment management
+systems such as Docker, Singularity, and Conda. It allows for existing
+pipelines written in common scripting languages, such as R and Python,
+to be seamlessly coupled together. It simplifies the implementation and
+running of workflows on cloud or high-performance computing (HPC)
+infrastructure.</p>
+</section><section><h2 class="section-heading" id="workshop-objectives">Workshop objectives<a class="anchor" aria-label="anchor" href="#workshop-objectives"></a></h2>
 <hr class="half-width"><ol style="list-style-type: decimal"><li>Understand the role of auxiliary tools (Docker/Git) in supporting
 best practice within the Open Research framework.</li>
 <li>Design and adapt a research project directory to own research
@@ -482,8 +479,9 @@ Shell</a>. It is helpful to be familiar with using another programming
 language, to the level of <a href="https://swcarpentry.github.io/python-novice-gapminder" class="external-link">Plotting
 and Programming in Python</a> or <a href="https://swcarpentry.github.io/r-novice-gapminder" class="external-link">R for
 Reproducible Scientific Analysis</a>, although this lesson does not
-specifically rely on Python or R. No previous knowledge of Nextflow,
-other workflow software, or Groovy required</p>
+specifically rely on Python or R.</p>
+<p>No previous knowledge of Nextflow, other workflow software, or Groovy
+required.</p>
 </div>
 </div>
 </div>
@@ -495,7 +493,9 @@ environment because it allows us to provide learners with a consistent
 and thoroughly tested environment.</p>
 <div class="section level2">
 <h2 id="creating-a-github-account">Creating a GitHub account<a class="anchor" aria-label="anchor" href="#creating-a-github-account"></a></h2>
-<p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>.</p>
+<p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>. You can upgrade your
+GitHub account to an Education account from the <a href="https://github.com/education" class="external-link">GitHub Education home page</a> using
+your affiliate/student email.</p>
 </div>
 <div class="section level2">
 <h2 id="running-github-codespaces">Running GitHub Codespaces<a class="anchor" aria-label="anchor" href="#running-github-codespaces"></a></h2>
@@ -509,7 +509,7 @@ Codespace:</p>
 <p>You can click “Change options” to configure the machine used. Using a
 machine with more cores allows you to take greater advantage of
 Nextflow’s ability to parallelize workflow execution.</p>
-<p><strong>For our the hands-on component, we recommend using a 4-core
+<p><strong>For the hands-on component, we recommend using a 4-core
 machine.</strong></p>
 <p>The free GitHub plan includes 120 core-hours of Codespaces compute
 per month, which amounts to 30 hours of a 4-core machine (See below for
