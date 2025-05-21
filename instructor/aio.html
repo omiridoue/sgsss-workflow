@@ -458,7 +458,7 @@
         
 <section id="aio-00"><p>Content from <a href="00.html">FAIR research software</a></p>
 <hr>
-<p>Last updated on 2025-05-09 |
+<p>Last updated on 2025-05-21 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/00.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -500,61 +500,22 @@ organizations</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="what-is-fair">What is FAIR?<a class="anchor" aria-label="anchor" href="#what-is-fair"></a>
+<section><h2 class="section-heading" id="fair-principles">FAIR principles<a class="anchor" aria-label="anchor" href="#fair-principles"></a>
 </h2>
 <hr class="half-width">
 <p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
 comprises a set of principles designed to increase the visibility and
 usefulness of your research to others. FAIR principles have been applied
 for software, here is a brief concept translation:</p>
-<ul>
-<li>
-<strong>Findable</strong> - software and its associated metadata
-must be easy to discover by humans and machines.</li>
-<li>
-<strong>Accessible</strong> - in order to reuse software, the
-software and its metadata must be retrievable, free and legally
-usable.</li>
-<li>
-<strong>Interoperable</strong> - appropriate scaffolding in place
-for different languages to be used.</li>
-<li>
-<strong>Reusable</strong> - software that can be understood,
-modified, built upon, or incorporated into other software.</li>
-</ul>
-<div id="discussion1" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Discussion</h3>
-<div class="callout-content">
-<p>In practice achieving these goals is not an outcome, but a process in
-itself that will bring you closer to making your research
-reproducible.</p>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="how-do-fair-principles-apply-in-practice">How do FAIR principles apply in practice?<a class="anchor" aria-label="anchor" href="#how-do-fair-principles-apply-in-practice"></a>
-</h2>
-<hr class="half-width">
 <div class="section level3">
 <h3 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a>
 </h3>
 <ul>
 <li>Create a description of your software to make it discoverable by
 search engines and other search tools</li>
-<li>Use standards (such as [CodeMeta][codemeta]) to describe
-interoperable metadata for your software</li>
 <li>Use a unique and persistent identifier (DOI) for your software
 (e.g. by depositing your code on Zenodo, OSF, GitHub)</li>
 </ul>
-<div class="warning">
-<p>Note that depositing your data/code on GitHub and similar software
-repositories may not be enough as they may change their open access
-model or disappear completely in the future, so archiving your code
-means it stands a better chance at being preserved.</p>
-</div>
 </div>
 <div class="section level3">
 <h3 id="accessible">Accessible<a class="anchor" aria-label="anchor" href="#accessible"></a>
@@ -590,16 +551,71 @@ Robust; same data, different analysis. And generalisable; different
 data, different analysis; Research</div>
 </figure><p><em>The Turing Way</em> project illustration by Scriberia. Used under
 a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class="external-link">10.5281/zenodo.3332807</a>.</p>
+<div class="padlet-embed" style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
+<p style="padding: 0; margin: 0;">
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alfn4xpqitna69dtr66ktgv1278zfrys/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+</iframe>
+</p>
 </div>
-</section><section><h2 class="section-heading" id="how-can-files-be-named">How can files be named?<a class="anchor" aria-label="anchor" href="#how-can-files-be-named"></a>
+</div>
+</section><section><h2 class="section-heading" id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a>
 </h2>
 <hr class="half-width">
-<p>There are three principles to naming things; the first two apply to
-all kinds of things and the third is optional but valuable for keeping
-track of your files.</p>
-<p>File names should be: 1. Machine readable 2. Human readable 3.
-Optional: Tap into default ordering 4. Optional: Generate file names
-dynamically</p>
+<p>There is no single way to manage file naming, but consistency is key.
+Here’s a couple of options, and ways you can combineeach of the
+cases:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Case Convention</th>
+<th>Example</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Pascal Case</td>
+<td>PascalCase</td>
+</tr>
+<tr class="even">
+<td>Camel Case</td>
+<td>camelCase</td>
+</tr>
+<tr class="odd">
+<td>Snake Case</td>
+<td>snake_case</td>
+</tr>
+<tr class="even">
+<td>Kebab Case</td>
+<td>kebab-case</td>
+</tr>
+<tr class="odd">
+<td>Flat Case</td>
+<td>flatcase</td>
+</tr>
+<tr class="even">
+<td>Upper Flat Case</td>
+<td>UPPERFLATCASE</td>
+</tr>
+<tr class="odd">
+<td>Pascal Snake Case</td>
+<td>Pascal_Snake_Case</td>
+</tr>
+<tr class="even">
+<td>Camel Snake Case</td>
+<td>camel_Snake_Case</td>
+</tr>
+<tr class="odd">
+<td>Screaming Snake Case</td>
+<td>SCREAMING_SNAKE_CASE</td>
+</tr>
+</tbody>
+</table>
+<p>It’s good practice to mention your file naming convention in your
+data management plan and/or meta data.</p>
+<ol style="list-style-type: decimal">
+<li>Choose a convention and apply it consistently</li>
+<li>Use descriptive names</li>
+<li>Optional: Tap into default ordering</li>
+<li>Optional: Build file naming in your workflow</li>
+</ol>
 <p>Before we dive into the details, let’s look at some examples of
 <em>ok</em> and good file names, note you can come up with other ways to
 make these more clear/functional.</p>
@@ -622,8 +638,8 @@ make these more clear/functional.</p>
 <td><code>school123_period1_A_ITER2_CONVERGED_SIM.RDS</code></td>
 </tr>
 <tr class="odd">
-<td><code>school123_period1_I_goodness_fit_triads.png</code></td>
-<td><code>school123_period1_I_gofTriads.png</code></td>
+<td><code>school123_period1_I_goodness_fit.png</code></td>
+<td><code>school123_period1_I_gof.png</code></td>
 </tr>
 <tr class="even">
 <td><code>school123_period.tex</code></td>
@@ -634,29 +650,24 @@ make these more clear/functional.</p>
 <div class="section level3">
 <h3 id="works-well-with-default-ordering">Works well with default ordering<a class="anchor" aria-label="anchor" href="#works-well-with-default-ordering"></a>
 </h3>
-<p>To create a good default ordering adding a number or date at the
-beginning of the name is often a good idea. This keeps our files sorted
-in ascending order based on file versions or in chronological order.</p>
-<p>To sort them by their date of creation, we can start the file names
-with <code>year-month-day</code> (for example <code>2020-02-21</code>).
-We recommend using something like the <a href="https://en.wikipedia.org/wiki/ISO_8601" class="external-link">ISO 8601 standard:
-YYYY-MM-DD</a> for dates. If you use other numbers, we recommend left
-padding them with zeros, because your computer will order
+<p>To create a default ordering adding a number or date at the beginning
+of the name is sometimes a practical solution. This keeps our files
+sorted in ascending order based on file versions or in chronological
+order. If your file name starts with a number, we recommend left padding
+them with zeros, because your computer will order
 <code>003 &lt; 004 &lt; 020 &lt; 100</code> as opposed to
-<code>100 &lt; 20 &lt; 3 &lt; 4</code>.</p>
-<p>Naming folders according to a logical number can lead to a mess if
-the ordering changes in the future. Try to future proof your work, ex.
-work with a generalisable template to prevent intended order from
-changing.</p>
-<div class="padlet-embed" style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
-<p style="padding: 0; margin: 0;">
-<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alfn4xpqitna69dtr66ktgv1278zfrys/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-</iframe>
-</p>
-</div>
+<code>100 &lt; 20 &lt; 3 &lt; 4</code>. If you need to re-order your
+files at a later point, you may be tempted to re-name all of your files.
+It is best to use a template from the start to avoid running into this
+mess.</p>
+<p>There are certain conventions that apply to file naming, ex. if you
+need to use a date then file names can start with
+<code>year-month-day</code> (for example <code>2020-02-21</code>). We
+recommend using something like the <a href="https://en.wikipedia.org/wiki/ISO_8601" class="external-link">ISO 8601 standard:
+YYYY-MM-DD</a> for dates.</p>
 </div>
 <div class="section level3">
-<h3 id="generated-dynamically">Generated dynamically<a class="anchor" aria-label="anchor" href="#generated-dynamically"></a>
+<h3 id="file-naming-in-your-workflow">File Naming in your workflow<a class="anchor" aria-label="anchor" href="#file-naming-in-your-workflow"></a>
 </h3>
 <p>Output in multiple forms can be generated as part of running a
 computational pipeline. Result files can contain a key identifier or
@@ -669,23 +680,8 @@ assign handy <em>process labels</em> in our workflow with base functions
 like <code>paste0()</code> in <em>R statistical software</em> to
 concatenate literal words or values with ones that depend on the input
 flowing into a process.</p>
-<div id="checklist1" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Checklist</h3>
-<div class="callout-content">
-<p>A little work and time investment early on in project design saves a
-lot of time later when any circumstances arise that demand change. Does
-this apply to my PhD, the answer is ‘yes’. The project design will allow
-you to manage your work well for yourself (see the section: Getting
-Started Checklist).</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="how-does-file-management-help-me">How does file management help me?<a class="anchor" aria-label="anchor" href="#how-does-file-management-help-me"></a>
+</section><section><h2 class="section-heading" id="adapting-a-workflow">Adapting a Workflow<a class="anchor" aria-label="anchor" href="#adapting-a-workflow"></a>
 </h2>
 <hr class="half-width">
 <p>A repository (or a “repo”) is a storage location for your research
@@ -735,7 +731,7 @@ should have, you can download the template for the folder here:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <figure><img src="../fig/repo-boilerplate.png" alt="Workflow manager template folder build your own workflow" class="figure mx-auto d-block"><div class="figcaption">Workflow manager template folder build your own
 workflow</div>
@@ -4373,7 +4369,7 @@ include an output block that captures the different output file
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4550,7 +4546,7 @@ output for the COMBINE_REPS process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4781,7 +4777,7 @@ execution output.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5074,7 +5070,7 @@ to the results folder merged_reps.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6627,7 +6623,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -7969,7 +7965,7 @@ parameter <code>--input 'data/yeast/reads/temp33*'</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8075,7 +8071,7 @@ without having to re-execute it from scratch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -8294,7 +8290,7 @@ associated files.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>An example nextflow clean command with <code>dry-run</code> .</p>
 <div class="codewrapper sourceCode" id="cb14">
