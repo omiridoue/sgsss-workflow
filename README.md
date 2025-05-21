@@ -20,6 +20,16 @@ cloud or high-performance computing (HPC) infrastructure
 
 This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). The course material page was designed based off the [workbench](https://carpentries.github.io/sandpaper-docs/).
 
+### 🗺️ Objectives
+
+- [x] Understand the role of auxiliary tools in supporting best practice within the Open Research framework.
+- [x] Design/adapt a research project directory to own research.
+- [x] Understand the fundamental components of a workflow implemented in Nextflow, including channels, processes and operators.
+- [x] Launch a computational workflow using remote workspace, GitHub Codespaces.
+- [x] Curate own configurations and settings on a practice workflow to ensure portability, scalability, automatic resource management and re-entrancy. 
+- [x] Discuss ways to implement own research directory.
+- [x] Explore links to the wider network for computational researchers across Scotland.
+
 ## Data 
 
 Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
