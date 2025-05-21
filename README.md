@@ -20,7 +20,7 @@ cloud or high-performance computing (HPC) infrastructure
 
 This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). The course material page was designed based off the [workbench](https://carpentries.github.io/sandpaper-docs/).
 
-### 🗺️ Objectives
+## 🗺️ Objectives
 
 - [x] Understand the role of auxiliary tools in supporting best practice within the Open Research framework.
 - [x] Design/adapt a research project directory to own research.
@@ -30,7 +30,7 @@ This training material was based off the training developed and maintained by [S
 - [x] Discuss ways to implement own research directory.
 - [x] Explore links to the wider network for computational researchers across Scotland.
 
-### 🗺️ Workshop Roadmap
+## 🗺️ Skills
 
 - [x] Ability to design and execute research projects from data to report
 - [x] Navigate reproducible, efficient, and communicable code via GitHub
@@ -39,7 +39,6 @@ __Additional Skills__
 
 - [x] Connecting with Computational Social Scientists
 
-
 ## Data 
 
 Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
@@ -47,13 +46,11 @@ Low fidelity means that the data only resembles real-world data in a very basic 
 ## Course materials
 
 The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [PGR Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
-
-Practical Component
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
  
 ### Materials
 
 For the practical we will access: 
+
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
 The training materials can be found in the following folders:
