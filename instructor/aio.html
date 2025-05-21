@@ -824,24 +824,36 @@ any links that you are not going to use.
 <section><h2 class="section-heading" id="workflows">Workflows<a class="anchor" aria-label="anchor" href="#workflows"></a>
 </h2>
 <hr class="half-width">
-<p>Analysing data involves sequence of tasks, including gathering,
+<p>Analysing data involves a sequence of tasks, including gathering,
 cleaning, processing data. This sequence of tasks is called a workflow
-or a pipeline. These workflows typically require executing multiple
-software packages, sometimes running on different computing
-environments, such as desktop or a compute cluster. However, as
-workflows become larger and more complex, the management of the
-programming logic and software becomes difficult.</p>
-<p><em>Workflow Management Systems</em> (WfMS) such as <a href="https://snakemake.readthedocs.io/en/stable/" class="external-link">Snakemake</a>, <a href="https://usegalaxy.org/" class="external-link">Galaxy</a>, and <a href="../nextflow.io">Nextflow</a> have been developed specifically to
-manage computational data-analysis workflows. These systems contain
-multiple features that simplify the development, monitoring, execution
-and sharing of pipelines, such as:</p>
+or a pipeline. These workflows typically require using multiple software
+packages, sometimes running on different computing environments, such as
+desktop or a compute cluster. However, as workflows become larger and
+more complex, the management of the programming logic and software
+becomes difficult. <em>Workflow Management Systems</em> have been
+developed specifically to manage computational data-analysis
+workflows.</p>
+<div id="discussion1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>These systems contain multiple features that simplify the
+development, monitoring, execution and sharing of pipelines, such
+as:</p>
 <ul>
 <li>Run time management</li>
 <li>Software management</li>
 <li>Portability &amp; Interoperability</li>
 <li>Reproducibility</li>
 <li>Re-entrancy</li>
-</ul></section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a>
+</ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a>
 </h2>
 <hr class="half-width">
 <ul>
@@ -892,7 +904,7 @@ input. Since the channel has three elements, three independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
 next process.</p>
-</section><section><h2 class="section-heading" id="workflow-execution">Workflow execution<a class="anchor" aria-label="anchor" href="#workflow-execution"></a>
+</section><section><h2 class="section-heading" id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a>
 </h2>
 <hr class="half-width">
 <p>While a <code>process</code> defines what command or script has to be
@@ -924,7 +936,7 @@ the following code:</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -1056,7 +1068,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -1265,7 +1277,7 @@ pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1343,7 +1355,7 @@ decompressing the <code>tar</code> archive folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1442,7 +1454,7 @@ output publishDir.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1532,7 +1544,7 @@ created parameter file, specifying:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">JSON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1583,7 +1595,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-04"><p>Content from <a href="04.html">Channels</a></p>
 <hr>
-<p>Last updated on 2025-04-06 |
+<p>Last updated on 2025-05-21 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/04.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
@@ -1601,9 +1613,7 @@ any links that you are not going to use.
 <li>How do I move data around in Nextflow?</li>
 <li>How do I handle different types of input, e.g. files and
 parameters?</li>
-<li>How do I create a Nextflow channel?</li>
 <li>How can I use pattern matching to select input files?</li>
-<li>How do I change the way inputs are handled?</li>
 </ul>
 </div>
 </div>
@@ -1614,9 +1624,7 @@ parameters?</li>
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Understand how Nextflow manages data using channels.</li>
-<li>Understand the different types of Nextflow channels.</li>
 <li>Create a value and queue channel using channel factory methods.</li>
-<li>Select files as input based on a glob pattern.</li>
 <li>Edit channel factory arguments to alter how data is read in.</li>
 </ul>
 </div>
@@ -1629,23 +1637,21 @@ parameters?</li>
 <hr class="half-width">
 <p>Earlier we learnt that channels are the way in which Nextflow sends
 data around a workflow. Channels connect processes via their inputs and
-outputs. Channels can store multiple items, such as files (e.g., fastq
-files) or values. The number of items a channel stores determines how
-many times a process will run using that channel as input.<br><em>Note:</em> When the process runs using one item from the input
+outputs. Channels can store multiple items, such as values. The number
+of items a channel stores, determines how many times a process will run,
+using that channel as input.<br><em>Note:</em> When the process runs using one item from the input
 channel, we will call that run a <code>task</code>.</p>
 </section><section><h2 class="section-heading" id="why-use-channels">Why use Channels?<a class="anchor" aria-label="anchor" href="#why-use-channels"></a>
 </h2>
 <hr class="half-width">
 <p>Channels are how Nextflow handles file management, allowing complex
-tasks to be split up, run in parallel, and reduces ‘admin’ required to
-get the right inputs to the right parts of the pipeline.</p>
+tasks to be split up, and run in parallel.</p>
 <figure><img src="../fig/channel-files.png" alt="Channel files" class="figure mx-auto d-block"></figure><p>Channels are asynchronous, which means that outputs from a set of
 processes will not necessarily be produced in the same order as the
 corresponding inputs went in. However, the first element into a channel
 queue is the first out of the queue (First in - First out). This allows
 processes to run as soon as they receive input from a channel. Channels
-only send data in one direction, from a producer (a process/operator),
-to a consumer (another process/operator).</p>
+only send data in one direction.</p>
 </section><section><h2 class="section-heading" id="channel-types">Channel types<a class="anchor" aria-label="anchor" href="#channel-types"></a>
 </h2>
 <hr class="half-width">
@@ -1659,7 +1665,7 @@ up) to make input for a process/operator. Queue channels can be created
 in two ways:</p>
 <ol style="list-style-type: decimal">
 <li>As the outputs of a process.</li>
-<li>Explicitly using channel factory methods such as <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
+<li>Channel factory methods <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
 or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="external-link">Channel.fromPath</a>.</li>
 </ol>
 </div>
@@ -1669,10 +1675,7 @@ or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="ex
 <p>The second type of Nextflow channel is a <code>value</code> channel.
 A <strong>value</strong> channel is bound to a <strong>single</strong>
 value. A value channel can be used an unlimited number times since its
-content is not consumed. This is also useful for processes that need to
-reuse input from a channel, for example, a reference genome sequence
-file that is required by multiple steps within a process, or by more
-than one process.</p>
+content is not consumed.</p>
 <div id="queue-vs-value-channel." class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1694,7 +1697,7 @@ than one process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>A queue channels is used to store multiple values.</li>
@@ -1711,7 +1714,7 @@ with multiple values.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Create a nextflow script called to <code>channel.nf</code> for the
 following examples. Explain that as you are just setting up channels you
@@ -1895,7 +1898,7 @@ contents of the channels.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1982,7 +1985,7 @@ operator. How many lines does the queue and value channel print?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2188,7 +2191,7 @@ to search subdirectories.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2392,7 +2395,7 @@ directory</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5907,7 +5910,7 @@ the remainder of a division.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6047,7 +6050,7 @@ gives the filename. Finally <code>view</code> the channel contents.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6202,7 +6205,7 @@ of the channel.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6464,7 +6467,7 @@ reference each value by its name, as shown in the following example:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6617,7 +6620,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -6690,7 +6693,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-10"><p>Content from <a href="10.html">Nextflow configuration</a></p>
 <hr>
-<p>Last updated on 2025-05-06 |
+<p>Last updated on 2025-05-21 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/10.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 45 minutes</p>
@@ -6705,14 +6708,10 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What is the difference between the workflow implementation and the
-workflow configuration?</li>
 <li>How do I configure a Nextflow workflow?</li>
 <li>How do I assign different resources to different processes?</li>
 <li>How do I separate and provide configuration for different
 computational systems?</li>
-<li>How do I change configuration settings from the default settings
-provided by the workflow?</li>
 </ul>
 </div>
 </div>
@@ -6722,18 +6721,8 @@ provided by the workflow?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Understand the difference between workflow implementation and
-configuration.</li>
-<li>Understand the difference between configuring Nextflow and a
-Nextflow script.</li>
 <li>Create a Nextflow configuration file.</li>
-<li>Understand what a configuration scope is.</li>
 <li>Be able to assign resources to a process.</li>
-<li>Be able to refine configuration settings using process
-selectors.</li>
-<li>Be able to group configurations into profiles for use with different
-computer infrastructures.</li>
-<li>Be able to override existing settings.</li>
 <li>Be able to inspect configuration settings before running a
 workflow.</li>
 </ul>
@@ -7999,7 +7988,7 @@ parameter <code>--input 'data/yeast/reads/temp33*'</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8105,7 +8094,7 @@ without having to re-execute it from scratch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -8324,7 +8313,7 @@ associated files.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>An example nextflow clean command with <code>dry-run</code> .</p>
 <div class="codewrapper sourceCode" id="cb14">

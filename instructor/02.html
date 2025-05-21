@@ -228,7 +228,7 @@
         <ul><li><a href="#workflows">Workflows</a></li>
 <li><a href="#workflow-management-systems">Workflow management systems</a></li>
 <li><a href="#processes-channels-and-workflows">Processes, channels, and workflows</a></li>
-<li><a href="#workflow-execution">Workflow execution</a></li>
+<li><a href="#workflow-implementation">Workflow implementation</a></li>
 <li><a href="#your-first-script">Your first script</a></li>
 <li><a href="#running-nextflow-scripts">Running Nextflow scripts</a></li>
 <li><a href="#quick-recap">Quick recap</a></li>
@@ -438,23 +438,34 @@
 </div>
 </div>
 <section><h2 class="section-heading" id="workflows">Workflows<a class="anchor" aria-label="anchor" href="#workflows"></a></h2>
-<hr class="half-width"><p>Analysing data involves sequence of tasks, including gathering,
+<hr class="half-width"><p>Analysing data involves a sequence of tasks, including gathering,
 cleaning, processing data. This sequence of tasks is called a workflow
-or a pipeline. These workflows typically require executing multiple
-software packages, sometimes running on different computing
-environments, such as desktop or a compute cluster. However, as
-workflows become larger and more complex, the management of the
-programming logic and software becomes difficult.</p>
-<p><em>Workflow Management Systems</em> (WfMS) such as <a href="https://snakemake.readthedocs.io/en/stable/" class="external-link">Snakemake</a>, <a href="https://usegalaxy.org/" class="external-link">Galaxy</a>, and <a href="../nextflow.io">Nextflow</a> have been developed specifically to
-manage computational data-analysis workflows. These systems contain
-multiple features that simplify the development, monitoring, execution
-and sharing of pipelines, such as:</p>
+or a pipeline. These workflows typically require using multiple software
+packages, sometimes running on different computing environments, such as
+desktop or a compute cluster. However, as workflows become larger and
+more complex, the management of the programming logic and software
+becomes difficult. <em>Workflow Management Systems</em> have been
+developed specifically to manage computational data-analysis
+workflows.</p>
+<div id="discussion1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Discussion</h3>
+<div class="callout-content">
+<p>These systems contain multiple features that simplify the
+development, monitoring, execution and sharing of pipelines, such
+as:</p>
 <ul><li>Run time management</li>
 <li>Software management</li>
 <li>Portability &amp; Interoperability</li>
 <li>Reproducibility</li>
 <li>Re-entrancy</li>
-</ul></section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a></h2>
+</ul></div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a></h2>
 <hr class="half-width"><ul><li><p><strong>Reproducibility</strong>: Nextflow supports several
 container technologies, such as <a href="https://www.docker.com/" class="external-link">Docker</a> and <a href="https://sylabs.io/singularity" class="external-link">Singularity</a>, as well as the
 package manager <a href="https://docs.conda.io" class="external-link">Conda</a>. This, along
@@ -498,7 +509,7 @@ input. Since the channel has three elements, three independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
 next process.</p>
-</section><section><h2 class="section-heading" id="workflow-execution">Workflow execution<a class="anchor" aria-label="anchor" href="#workflow-execution"></a></h2>
+</section><section><h2 class="section-heading" id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h2>
 <hr class="half-width"><p>While a <code>process</code> defines what command or script has to be
 executed, the <code>executor</code> determines how that script is
 actually run in the target system. If not otherwise specified, processes
@@ -526,7 +537,7 @@ the following code:</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -655,7 +666,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">

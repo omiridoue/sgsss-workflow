@@ -393,7 +393,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Channels</h1>
-        <p>Last updated on 2025-04-06 |
+        <p>Last updated on 2025-05-21 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/04.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -417,9 +417,7 @@
 <ul><li>How do I move data around in Nextflow?</li>
 <li>How do I handle different types of input, e.g. files and
 parameters?</li>
-<li>How do I create a Nextflow channel?</li>
 <li>How can I use pattern matching to select input files?</li>
-<li>How do I change the way inputs are handled?</li>
 </ul></div>
 </div>
 </div>
@@ -428,9 +426,7 @@ parameters?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul><li>Understand how Nextflow manages data using channels.</li>
-<li>Understand the different types of Nextflow channels.</li>
 <li>Create a value and queue channel using channel factory methods.</li>
-<li>Select files as input based on a glob pattern.</li>
 <li>Edit channel factory arguments to alter how data is read in.</li>
 </ul></div>
 </div>
@@ -440,21 +436,19 @@ parameters?</li>
 <section><h2 class="section-heading" id="channels">Channels<a class="anchor" aria-label="anchor" href="#channels"></a></h2>
 <hr class="half-width"><p>Earlier we learnt that channels are the way in which Nextflow sends
 data around a workflow. Channels connect processes via their inputs and
-outputs. Channels can store multiple items, such as files (e.g., fastq
-files) or values. The number of items a channel stores determines how
-many times a process will run using that channel as input.<br><em>Note:</em> When the process runs using one item from the input
+outputs. Channels can store multiple items, such as values. The number
+of items a channel stores, determines how many times a process will run,
+using that channel as input.<br><em>Note:</em> When the process runs using one item from the input
 channel, we will call that run a <code>task</code>.</p>
 </section><section><h2 class="section-heading" id="why-use-channels">Why use Channels?<a class="anchor" aria-label="anchor" href="#why-use-channels"></a></h2>
 <hr class="half-width"><p>Channels are how Nextflow handles file management, allowing complex
-tasks to be split up, run in parallel, and reduces ‘admin’ required to
-get the right inputs to the right parts of the pipeline.</p>
+tasks to be split up, and run in parallel.</p>
 <figure><img src="../fig/channel-files.png" alt="Channel files" class="figure mx-auto d-block"></figure><p>Channels are asynchronous, which means that outputs from a set of
 processes will not necessarily be produced in the same order as the
 corresponding inputs went in. However, the first element into a channel
 queue is the first out of the queue (First in - First out). This allows
 processes to run as soon as they receive input from a channel. Channels
-only send data in one direction, from a producer (a process/operator),
-to a consumer (another process/operator).</p>
+only send data in one direction.</p>
 </section><section><h2 class="section-heading" id="channel-types">Channel types<a class="anchor" aria-label="anchor" href="#channel-types"></a></h2>
 <hr class="half-width"><p>Nextflow distinguishes between two different kinds of channels:
 <strong>queue</strong> channels and <strong>value</strong> channels.</p>
@@ -464,7 +458,7 @@ to a consumer (another process/operator).</p>
 up) to make input for a process/operator. Queue channels can be created
 in two ways:</p>
 <ol style="list-style-type: decimal"><li>As the outputs of a process.</li>
-<li>Explicitly using channel factory methods such as <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
+<li>Channel factory methods <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
 or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="external-link">Channel.fromPath</a>.</li>
 </ol></div>
 <div class="section level3">
@@ -472,10 +466,7 @@ or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="ex
 <p>The second type of Nextflow channel is a <code>value</code> channel.
 A <strong>value</strong> channel is bound to a <strong>single</strong>
 value. A value channel can be used an unlimited number times since its
-content is not consumed. This is also useful for processes that need to
-reuse input from a channel, for example, a reference genome sequence
-file that is required by multiple steps within a process, or by more
-than one process.</p>
+content is not consumed.</p>
 <div id="queue-vs-value-channel." class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -495,7 +486,7 @@ than one process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>A queue channels is used to store multiple values.</li>
 <li>A value channel is used to store a single value, this can be a list
@@ -510,7 +501,7 @@ with multiple values.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Create a nextflow script called to <code>channel.nf</code> for the
 following examples. Explain that as you are just setting up channels you
@@ -680,7 +671,7 @@ contents of the channels.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -766,7 +757,7 @@ operator. How many lines does the queue and value channel print?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -943,7 +934,7 @@ to search subdirectories.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1110,7 +1101,7 @@ directory</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1215,7 +1206,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/04.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/04.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-04-06",
+  "dateModified": "2025-05-21",
   "datePublished": "2025-05-21"
 }
 
