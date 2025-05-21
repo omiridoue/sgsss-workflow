@@ -30,6 +30,16 @@ This training material was based off the training developed and maintained by [S
 - [x] Discuss ways to implement own research directory.
 - [x] Explore links to the wider network for computational researchers across Scotland.
 
+### 🗺️ Workshop Roadmap
+
+- [x] Ability to design and execute research projects from data to report
+- [x] Navigate reproducible, efficient, and communicable code via GitHub
+
+__Additional Skills__
+
+- [x] Connecting with Computational Social Scientists
+
+
 ## Data 
 
 Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
@@ -38,16 +48,13 @@ Low fidelity means that the data only resembles real-world data in a very basic 
 
 The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [PGR Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
 
-This lesson is a template lesson that uses [The Carpentries Workbench](https://carpentries.org/). Built with [sandpaper (0.16.12)](https://github.com/carpentries/sandpaper/tree/0.16.12), [pegboard (0.7.9)](https://github.com/carpentries/pegboard/tree/0.7.9), and [varnish (1.0.5)](https://github.com/omiridoue/varnish/tree/main).
-
+Practical Component
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
-
-### Programme
-
-The course programme can be viewed here:
  
-
 ### Materials
+
+For the practical we will access: 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
 The training materials can be found in the following folders:
 * [code](episodes/files/scripts) - Jupyter Notebooks and syntax files containing executable Python and R code.
@@ -56,6 +63,8 @@ The training materials can be found in the following folders:
 ## Acknowledgements
 
 I am grateful to the Scottish Graduate School of Social Sciences (SGSSS) for funding and organising this course.
+
+This lesson is a template lesson that uses [The Carpentries Workbench](https://carpentries.org/). Built with [sandpaper (0.16.12)](https://github.com/carpentries/sandpaper/tree/0.16.12), [pegboard (0.7.9)](https://github.com/carpentries/pegboard/tree/0.7.9), and [varnish (1.0.5)](https://github.com/omiridoue/varnish/tree/main).
 
 ## Further information
 
