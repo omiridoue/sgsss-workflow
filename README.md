@@ -10,6 +10,8 @@
 
 Computational social science (CSS) brings computational approaches to social science questions.
 
+This student-led training explores a practical introduction to building computational workflows with [Nextflow](https://www.nextflow.io/).
+
 [Nextflow](https://www.nextflow.io/) is a workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
@@ -18,7 +20,7 @@ written in common scripting languages, such as R and Python, to
 be seamlessly coupled together. It simplifies the implementation and running of workflows on
 cloud or high-performance computing (HPC) infrastructure.
 
-The practical training material is implemented in the code spaces environment developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse any of these materials according to the terms of the license. 
+The guided practical component of the training is implemented in the code spaces environment developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse any of these materials according to the terms of the license. 
 
 The training is based off [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). The course material page was designed using the [workbench](https://carpentries.github.io/sandpaper-docs/).
 
@@ -44,7 +46,7 @@ Low fidelity means that the data only resembles real-world data in a very basic 
 
 ## Course materials
 
-The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(PGR) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
+The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository. The teaching and learning material lives in the following page: [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(PGR) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
  
 ### Materials
 
@@ -64,7 +66,7 @@ This lesson is a template lesson that uses [The Carpentries Workbench](https://c
 
 ## Further information
 
-Please do not hesitate to get in contact if you have queries, criticisms or ideas regarding these materials: [PGR Eleni Omiridou](mailto:2333157o@student.gla.ac.uk)
+Please do not hesitate to get in contact if you have queries, suggestions or corrections regarding the material: [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk)
 
 > Copyright 2025, omiridoue. All examples and descriptions are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
@@ -76,4 +78,4 @@ Please do not hesitate to get in contact if you have queries, criticisms or idea
 
 > Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. https://github.com/carpentries-incubator/workflows-nextflow 2021.
 
->The lesson material was adapted with permission from from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)
+>The lesson material was adapted with permission from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)
