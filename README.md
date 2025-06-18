@@ -41,16 +41,24 @@ This lesson is a template lesson that uses [The Carpentries Workbench][workbench
   </a>
 </p>
 
-### Step 2: Clear files
+### Step 2: Organise Template Files
 
 ```
-rm -rf *
+mkdir templates
+mv * templates/
 ```
 
-### Step 3: Download Material Using Git
+### Step 3: Read in Material Using Git
 
 ```
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
+
+```
+
+### Step 4: Navigate to the new Folder
+
+```
+cd sgsss-workflow
 
 ```
 
