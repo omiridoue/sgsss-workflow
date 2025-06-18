@@ -13,22 +13,6 @@ The friendship adjacency matrices are generated randomly. In terms of fidelity t
 - actors are allowed up to 6 outgoing ties per time point
 - three waves of friendship data 
 
-## Run the Pipeline on GitPod
-
-### Step 1: Click the Button Below to Launch Workspace for this Repo
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/omiridoue/synthetic-rsiena-pipeline)
-
-> This is a pre-built virtual environment. Once you've created the workspace re-launching it won't require much work as any installation will be cached. It just means we'll all be working with the same set-up. Just let it do its thing in the background, make sure you don't close the browser and maintain a stable Internet connection. You won't need to download anything to your computer. I have set up this remote workspace in order to allow you to take a look at the code, you can edit this directly and then commit any changes to the repository. Note you can set up everything locally but it will require you to set up a subsystem for Linux and install nextflow, apptainer and a java distribution. This will take time and effort - which you can skip if you're happy to use the online environment. 
-
-You have 50 hours free work time per month! This is quite generous and means you can make use of it for collaborative projects in the future. 
-
-### Step 2: Sign in with your GitHub Credentials
-
-![alt text](docs/gitpod101.png)
-
-### Step 3: Run the Pipeline
-
 To run the pipeline you will need to type the following command in the terminal (this works with a bash or java terminal): 
 
 ```bash
