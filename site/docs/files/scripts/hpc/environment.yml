@@ -1,5 +1,0 @@
-name: nextflow
-channels:
-  - conda-forge
-dependencies:
-  - openjdk=17.0.10
