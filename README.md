@@ -22,7 +22,9 @@ This training material was based off the training developed and maintained by [S
 
 ## Data 
 
-Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
+Synthetic data was developed for teaching and learning purposes. 
+
+The data has no fidelity to any existing data. It does not resembles real-world data in any way. This type of dataset is helpful as it allows the development and testing of code. The example demonstrates an example from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
 
 ### Step 1: Open GitHub Codespaces
 
