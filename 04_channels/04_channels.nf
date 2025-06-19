@@ -13,14 +13,15 @@ nextflow.enable.dsl=2
 =========================================================== 
 */
 
+params.meta = "07_worfklow_optional/params/meta.csv"
+params.effects = "07_worfklow_optional/params/effects.csv"
+params.subgroup = "07_worfklow_optional/params/subgroup.csv"
+params.school_data = "07_worfklow_optional/data/each_period.tar.gz"
+params.school_info = "07_worfklow_optional/params/school_info.json"
+params.composition_data = "07_worfklow_optional/data/composition_each_period.tar.gz"
 /* 
 * Default pipeline parameters 
 */
-
-//values = file(params.values)
-//if( !values.exists() ) exit 1, "Missing values file: '${params.values}'. Specify the path with --values parameter"
-
-// Create a channel for values 
 
 // Create a channel for values 
 Channel
@@ -77,7 +78,7 @@ workflow {
 
     dataset.view()
     composition.view()
-    
+
 }
 
 

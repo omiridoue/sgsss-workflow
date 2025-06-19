@@ -1,5 +1,5 @@
 
-# Section 05: Processes (optional)
+# Section 05: Modules (optional)
 
 | Teaching  | 30 | Exercises  | 15 | 
 | --------------- | -------------- | -------------- |-------------- |
