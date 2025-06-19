@@ -57,4 +57,7 @@ What type of channel would you use to store the following?
 1. A queue channels is used to store multiple values.
 2. A value channel is used to store a single value, this can be a list with multiple values.
 3. A value channel is used to store a single value.
+
+
+
   

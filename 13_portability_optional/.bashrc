@@ -17,12 +17,12 @@ conda activate nextflow;
 
 # Change file path for these system variables not recommended to hardcode these - but you may find yourself needing to tweak these
 
-#export PATH="$PATH:/users/2333157o/Software"
+#export PATH="$PATH:/users/<username>/Software"
 
-#export NXF_WORK=/mnt/scratch/users/2333157o/assist-pre-advisory/work
+#export NXF_WORK=/mnt/scratch/users/<username>/assist-pre-advisory/work
 # NXF_VER=24.10.2 nextflow info
 
-#export NXF_LOG_FILE=/mnt/scratch/users/2333157o/assist-initial-run/nextflow.log
+#export NXF_LOG_FILE=/mnt/scratch/users/<username>/assist-initial-run/nextflow.log
 
 #export NXF_DISABLE_JOBS_CANCELLATION=true
 
