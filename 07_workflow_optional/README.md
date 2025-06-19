@@ -1,4 +1,8 @@
-# Section 07: Workflow
+# Section 07: Workflow (optional)
+
+| Teaching  | 10 | Exercises  | 20 | 
+| --------------- | -------------- | -------------- |-------------- |
+
 
 ## Brief Summary
 

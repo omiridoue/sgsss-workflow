@@ -1,9 +1,8 @@
 
 # Portability of Workflow
 
-teaching: 20
-exercises: 10
-
+| Teaching  | 20 | Exercises  | 10 | 
+| --------------- | -------------- | -------------- |-------------- |
 
 - Discuss ways to implement own research directory.
 - Explore links to the wider network for computational researchers.
