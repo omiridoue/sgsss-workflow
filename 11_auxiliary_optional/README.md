@@ -17,6 +17,8 @@ If a container image is never updated, created by a random person, and does not 
 
 Much like a cookbook, you can pull out recipes and alter to own taste. This is how you normally get started building your own image, you can start with a base repository, and layer requirements.
 
+For the following image we use a base image from bioconductor, R 4.4.1 and install relevant packages. We also install the RSiena package 1.4.19 from source code. The docker container is then stored onto the online docker hub. 
+
 ``` docker
 
 FROM bioconductor/bioconductor_docker:devel-R-4.4.1
@@ -29,53 +31,19 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 
 ```
 
-### Workflow
+### Using Docker with Local Profile
+
+In the nextflow.config file you will need to toggle docker.enabled to true, within the scope of our local profile.
 
 ``` nextflow.config
 
-docker.enabled = true
-
-```
-
-
-Many container platforms are available, but Apptainer is designed for ease-of-use on shared systems and in high performance computing (HPC) environments. Nextflow can build an immutable image based off a Docker recipe file.
-
-
-### Building an Apptainer Image
-
-``` bash
-singularity pull docker://omiridoue-siena_r:0.8
-
-```
-
-### Workflow Definition
-
-Within our workflow, we can declare a process container, and ensure we enable apptainer. 
-
-
-We can declare a different config file for different compute environments, or profiles. These profiles are stored under the conf sub-folder. 
-
-
-``` nextflow.config
-process.container = 'apptainer/omiridoue-siena_r-0.8.img'
-
-apptainer.cacheDir = "apptainer"
-apptainer.enabled = true
-
-apptainer.autoMounts = true
-
-```
-
-
-### Declare 
-
-```
 profiles {
   awsbatch {
     includeConfig 'conf/awsbatch.config'
   }
   local {
     includeConfig 'conf/local.config'
+    docker.enabled = true
     process.container = 'omiridoue/siena_r:0.8'
   }
   sge {
@@ -83,11 +51,53 @@ profiles {
   }
   slurm {
     includeConfig 'conf/slurm.config'
+    apptainer.enabled = true
+    apptainer.cacheDir = "apptainer"
+    apptainer.enabled = true
+    apptainer.autoMounts = true
+
     process.executor = 'slurm'
-    process.container = 'omiridoue/siena_r:0.8'
+    process.container = 'apptainer/omiridoue-siena_r-0.8.img'
   }
   ci {
     includeConfig 'conf/ci.config'
   }
 }
+
 ```
+
+Many container platforms are available, but Apptainer is designed for ease-of-use on shared systems and in high performance computing (HPC) environments. Nextflow can build an immutable image based off a Docker recipe file.
+
+### Building an Apptainer Image
+
+Once we have a docker image it is straightforward to convert this to an apptainer (former singularity) container with the following command:
+
+``` bash
+singularity pull docker://omiridoue-siena_r:0.8
+
+```
+
+### Using Apptainer for HPC Profile
+
+Within our workflow, we can declare a process container, and ensure we enable apptainer. 
+
+
+We can declare a different config file for different compute environments, or profiles. These profiles are stored under the conf sub-folder. 
+
+``` nextflow.config
+
+
+
+slurm {
+    includeConfig 'conf/slurm.config'
+    apptainer.enabled = true
+
+    apptainer.cacheDir = "apptainer"
+    apptainer.autoMounts = true
+
+    process.executor = 'slurm'
+    process.container = 'omiridoue/siena_r:0.8'
+  }
+
+```
+

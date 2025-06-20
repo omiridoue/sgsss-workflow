@@ -11,17 +11,24 @@
 
 Workflow managers support portability of analysis across compute environments and scale your analysis. This is quite important given the time required to set-up from scratch and work the ropes of using HPC. A good number of HPCs rely on workload managers like Slurm, including the resources I access as a PGR, at the MVLS school, University of Glasgow. Some the following may map on to the resources you can access to support your research. Please contact your HPC administrator team to request support with setting up.
 
-Once you register an account with your HPC resource, the most straightforward way to install Nextflow is by creating a stand-alone 'environment' using the software management tool, conda. To do this you will need to download [environment.yml](https://github.com/omiridoue/sgsss-workflow/blob/main/episodes/files/scripts/hpc/environment.yml) and transfer the file to your HPC user directory. The file stores a set up instructions to download the dependencies for Nextflow and specifying the exact versions.
+Once you register an account with your HPC resource, the most straightforward way to install Nextflow is by creating a stand-alone 'environment' using the software management tool, conda. 
 
 ```
-conda env create --name nextflow --file=environment.yml
+conda create --name nf-env bioconda::nextflow
 
 ```
 
-Replace <my-env> with the name of your environment. I will name this after the software, nextflow.
+Activate the conda environment.
 
 ```
-proceed ([y]/n)? <- When conda asks you to proceed, type y
+conda activate nf-env
+
+```
+
+Install graphviz if you would like to render reports and a timeline for the workflow.
+
+```
+sudo apt install graphviz
 
 ```
 

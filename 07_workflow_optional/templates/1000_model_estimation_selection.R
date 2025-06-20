@@ -79,7 +79,9 @@ ans0 <- RSiena::siena07(modelOptions,
     batch=TRUE,
     verbose=FALSE,
     silent=TRUE,
-    returnThetas=TRUE)
+    returnThetas=TRUE,
+    nbrNodes = 10, 
+    useCluster = TRUE)
 
 # # # ===============================================================================
 # 
@@ -87,22 +89,26 @@ modelOptions_conv <- RSiena::sienaAlgorithmCreate(
     MaxDegree = c(friends = 6),
     diagonalize = .2,
     seed = 786840,
-    n3 = 10000 ) # the seed is for the lab only
+    n3 = 10000,
+    firstg = 0.05
+) # the seed is for the lab only
 
 # # # ===============================================================================
-#myResults <- siena07RunToConvergence(alg = modelOptions_conv,
-#   dat = myData,
-#   eff = myEffects_Network,
-#   thetaB=Inf,
-#   ans0 = ans0,
-#   modelName = paste0("${school_period}","_S_"),
-#   batch=TRUE,
-#    verbose=FALSE,
-#    silent=TRUE,
-#    returnThetas=TRUE,
- #   returnChains=FALSE,
- #   returnDeps=TRUE,
-#    status = NULL)
+myResults <- siena07RunToConvergence(alg=modelOptions_conv,
+   dat = myData,
+   eff = myEffects_Network,
+   thetaB=Inf,
+   ans0 = ans0,
+   modelName = paste0("${school_period}","_S_"),
+    batch=TRUE,
+    verbose=FALSE,
+    silent=TRUE,
+   returnThetas=TRUE,
+   returnChains=FALSE,
+   returnDeps=TRUE,
+    status = NULL,
+    nbrNodes = 10, 
+    useCluster = TRUE)
 
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
     MaxDegree = c(friends = 6),
@@ -110,15 +116,15 @@ modelOptions_sim <- RSiena::sienaAlgorithmCreate(
     seed = 786840,
     simOnly = TRUE,
     nsub = 0,
-    n3 = 500 ) # the seed is for the lab only
+    n3 = 500
+) # the seed is for the lab only
 
 # # # ===============================================================================
 myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    dat = myData,
    eff = myEffects_Network,
    thetaB=Inf,
- #  ans0 = myResults,
-   ans0 = ans0,
+   ans0 = myResults,
    modelName = paste0("${school_period}","_S_"),
    batch=TRUE,
    verbose=FALSE,
@@ -127,6 +133,7 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    returnChains=FALSE,
    returnDeps=TRUE,
    status = NULL)
+
 
 png(filename=paste0("${school_period}","_S_", "gofIndegrees.png"))
 gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
