@@ -4,8 +4,7 @@ process ESTIMATION {
   label 'small_time_cpus'
   
   errorStrategy { task.exitStatus == 140 ? 'retry' : 'ignore' } 
-  time { 24.hour * task.attempt } 
-  maxRetries 2
+  maxRetries 1
 
   publishDir "$params.outdir/siena_fit", pattern: "*.RDS",  mode: "copy", overwrite: true // all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED
   
