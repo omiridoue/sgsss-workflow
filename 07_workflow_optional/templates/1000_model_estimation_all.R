@@ -8,14 +8,16 @@ source(file.path(script_dir, "siena07RunSimOnly.R"))
 source(file.path(script_dir, "EgoAlterTable.R"))
 source(file.path(script_dir, "InfluenceTables.R"))
 
-available_cpu <- detectCores()
-
 # Load Data & Dependencies
 library(RSiena)
 require(network)
 require(sna)
 require(stringr)
 require(dplyr)
+require(parallel)
+
+available_cpu <- detectCores()
+
 
 effects_raw <- "${effects}"
 

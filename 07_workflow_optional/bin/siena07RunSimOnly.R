@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status available_Nodes, ...)  {
+siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, available_Nodes, ...)  {
   numr <- 0 
   ans <- siena07(x = alg, data=dat, effects=eff, prevAns=ans0, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps) # the first run 
   

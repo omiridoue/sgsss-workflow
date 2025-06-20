@@ -6,12 +6,13 @@ source(file.path(script_dir, "siena07RunToConvergence.R"))
 source(file.path(script_dir, "siena07RunSimOnly.R"))
 source(file.path(script_dir, "EgoAlterTable.R"))
 
-available_cpu <- detectCores()
-
 # Load Data & Dependencies
 library(RSiena)
 require(network)
 require(sna)
+require(parallel)
+
+available_cpu <- detectCores()
 
 effects_raw <- "${effects}"
 
