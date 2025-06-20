@@ -15,8 +15,17 @@ In terms of fidelity to the friendship generator the synthetic dataset matches c
 - actors are allowed up to 6 outgoing ties per time point
 - three waves of friendship data 
 
-To run the pipeline you will need to type the following command in the terminal (this works with a bash or java terminal): 
+To run the pipeline on your local machine type the following command in the terminal (this works with a bash or java terminal): 
 
 ```bash
 nextflow run main.nf -profile local
 ```
+
+To run the pipeline on a computer cluster you should first check specifics with your local administrator and check out the section on [portability](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts).  The workflow code in this repository implements a profile using Slurm for demonstration purposes. 
+
+To do this we will swap our local profile to slurm, by specifying `-profile slurm` tag instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
+
+```bash
+sbatch -A none -J "Siena" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users/<username>/ready-set-workflow/main.nf  -profile slurm'
+```
+
