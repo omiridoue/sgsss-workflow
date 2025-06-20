@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, ...)  {
+siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status available_Nodes, ...)  {
   numr <- 0 
   ans <- siena07(x = alg, data=dat, effects=eff, prevAns=ans0, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps) # the first run 
   
@@ -20,7 +20,7 @@ siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, ver
       status <- "_NOTCONVERGED"
       break
       }
-    ans <- siena07(x = alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
+    ans <- siena07(x = alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, nbrNodes=available_Nodes, returnDeps=returnDeps)
     # success 
     #if (tm > 10) {break} # divergence without much hope of returning to good parameter values 
   } 

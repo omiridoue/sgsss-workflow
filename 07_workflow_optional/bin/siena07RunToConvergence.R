@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, ...){
+siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, available_Nodes, useCluster, ...){
   numr <- 0
 
   repeat {
@@ -21,7 +21,7 @@ siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batc
 
     if (isTRUE(numr == 1)) {alg$firstg <- alg$firstg/5}
 
-     ans <- siena07(x = alg, data = dat, effects = eff, thetaBound = thetaB, prevAns = previous_estimation, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=10, useCluster=TRUE)
+     ans <- siena07(x = alg, data = dat, effects = eff, thetaBound = thetaB, prevAns = previous_estimation, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=available_Nodes, useCluster=TRUE)
 
      tconv.max <- ans$tconv.max ## Extract the overall maximum convergence ratio
      tratio.max <- max(abs(ans$tstat[(ans$effects$type != "rate") & (ans$effects$fix == FALSE)])) ## Extract the maximum absolute value of the convergence t-ratios. Don't include the t-ratio for the rate parameter as it is fixed!

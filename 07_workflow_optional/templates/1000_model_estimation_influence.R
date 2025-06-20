@@ -9,6 +9,8 @@ source(file.path(script_dir, "siena07RunSimOnly.R"))
 source(file.path(script_dir, "EgoAlterTable.R"))
 source(file.path(script_dir, "InfluenceTables.R"))
 
+available_cpu <- detectCores()
+
 # Load Data & Dependencies
 library(RSiena)
 require(network)
@@ -82,7 +84,7 @@ ans0 <- RSiena::siena07(modelOptions,
     verbose=FALSE,
     silent=TRUE,
     returnThetas=TRUE,
-    nbrNodes = 10, 
+    nbrNodes = available_cpu, 
     useCluster = TRUE)
 
 # # # ===============================================================================
@@ -109,7 +111,7 @@ myResults <- siena07RunToConvergence(alg=modelOptions_conv,
    returnChains=FALSE,
    returnDeps=TRUE,
     status = NULL,
-    nbrNodes = 10, 
+    available_Nodes = available_cpu, 
     useCluster = TRUE)
 
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
@@ -134,6 +136,7 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    returnThetas=TRUE,
    returnChains=FALSE,
    returnDeps=TRUE,
+    available_Nodes = available_cpu, 
    status = NULL)
 
 png(filename=paste0("${school_period}","_I_", "gofIndegrees.png"))
