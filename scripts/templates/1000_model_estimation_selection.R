@@ -10,6 +10,8 @@ source(file.path(script_dir, "EgoAlterTable.R"))
 library(RSiena)
 require(network)
 require(sna)
+require(parallel)
+availableCores <- detectCores(logical = FALSE)
 
 effects_raw <- "${effects}"
 
@@ -64,23 +66,20 @@ modelOptions <- sienaAlgorithmCreate(MaxDegree=c(friends=6), diagonalize=.2, see
 
 effects_info <- as.logical(effects_info)
 cond <- which(effects_info)
-
-for (i in seq_along(cond)) {
-  if (cond[i] < max(myEffects_Network[, c("effectNumber")])) {
-    myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("fix")] <- TRUE
-    myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("test")] <- TRUE
-  }
-}
-
-
-myResults <- RSiena::siena07(modelOptions,
+# for (i in seq_along(cond)) {
+#   if (cond[i] < max(myEffects_Network[, c("effectNumber")])) {
+#     myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("fix")] <- TRUE
+#     myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("test")] <- TRUE
+#   }
+# }
+ myResults <- RSiena::siena07(modelOptions,
     data = myData,
     effects = myEffects_Network,
     batch=TRUE,
     verbose=FALSE,
     silent=TRUE,
     returnThetas=TRUE,
-    nbrNodes = 2, 
+    nbrNodes = availableCores, 
     useCluster = TRUE)
 
 # # # ===============================================================================
@@ -93,13 +92,13 @@ myResults <- RSiena::siena07(modelOptions,
 #     firstg = 0.05
 # ) # the seed is for the lab only
 
-# # # ===============================================================================
+# # # # ===============================================================================
 # myResults <- siena07RunToConvergence(alg=modelOptions_conv,
 #    dat = myData,
 #    eff = myEffects_Network,
 #    thetaB=Inf,
 #    ans0 = ans0,
-#    modelName = paste0("${school_period}","_S_"),
+#    modelName = paste0("${school_period}","_A_"),
 #     batch=TRUE,
 #     verbose=FALSE,
 #     silent=TRUE,
@@ -109,16 +108,6 @@ myResults <- RSiena::siena07(modelOptions,
 #     status = NULL,
 #     nbrNodes = 10, 
 #     useCluster = TRUE)
-
-# modelOptions_sim <- RSiena::sienaAlgorithmCreate(
-#     MaxDegree = c(friends = 6),
-#     diagonalize = .2,
-#     seed = 786840,
-#     simOnly = TRUE,
-#     nsub = 0,
-#     n3 = 500
-# ) # the seed is for the lab only
-
 # # # ===============================================================================
 myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    dat = myData,
