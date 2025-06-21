@@ -129,11 +129,11 @@ workflow {
         | combine(mapped_params, by: 0) \
         | transpose \
         | groupTuple(by: [1, 5], sort: true) \
-        | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
-        | META_MORAN \
-        | collect \
-        | JOINFILES \
-        | view
+        | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } 
+        //| META_MORAN \ // uncomment for 08 operators
+        //| collect \ // uncomment for 08 operators
+        //| JOINFILES \ // uncomment for 08 operators
+        //| view
         
 }
 
