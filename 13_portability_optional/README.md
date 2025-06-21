@@ -34,12 +34,11 @@ sudo apt install graphviz
 
 You may require support with this step, please get in touch with your HPC support team. You will also require singularity / apptainer - to set up a container to run your project. Check whether this is already installed, if not please request further support from your HPC team. 
 
-![Compute environments and resource supported by Nextflow](episodes/fig/compute.png)
 
 Alas, we can tap into the seamless portability of Nextflow across set ups (ex. local, slurm, azure). You can switch between these compute environments by selecting an appropriate profile to run your pipeline. The appropriate profile in my case was `slurm`, you can tuck away this set-up information by creating a new profile in the `conf/` subfolder (ex. `conf/slurm.config`). Then the command I would use to schedule the launch of the pipeline say using 1 day 1 hour and 10 minutes would involve the following:
 
 ```
-sbatch -A none -J "Siena" --time=01-01:10:00 --wrap 'nextflow run /mnt/scratch/users/2333157o/meta-network-pipeline/main.nf -profile slurm'
+sbatch -A none -J "Siena" --time=01-01:10:00 --wrap 'nextflow run /mnt/scratch/users/<username>/sgsss-workflow-ready-set-workflow/main.nf -profile slurm'
 ```
 
 This is specific to SLURM, the workload manager, and involves a batch job submission. Essentially, this command asks for resource for nextflow to schedule a series of jobs and orchestrate the moving parts of our analysis. 

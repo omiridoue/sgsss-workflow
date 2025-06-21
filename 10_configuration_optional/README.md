@@ -70,34 +70,6 @@ Configuration can be written in either of two ways. The first is using
 dot notation, and the second is using brace notation. Both forms
 of notation can be used in the same configuration file.
 
-An example of dot notation:
-
-```groovy 
-params.outdir = "${baseDir}/results"   // The workflow parameter "outdir" is assigned the value base output directory and './results' subfolder to use by default.
-params.meta = "${baseDir}/params/meta.csv"
-params.effects = "${baseDir}/params/effects.csv"
-params.subgroup = "${baseDir}/params/subgroup.csv"
-params.school_data = "${baseDir}/data/each_period.tar.gz"
-params.school_info = "${baseDir}/params/school_info.json"
-params.composition_data = "${baseDir}/data/composition_each_period.tar.gz"
-```
-
-An example of brace notation:
-
-```groovy 
-params {
-                outdir = "${baseDir}/results"
-                batches = 1
-                meta = "${baseDir}/params/meta.csv"
-                effects = "${baseDir}/params/effects.csv"
-                subgroup = "${baseDir}/params/subgroup.csv"
-                school_data = "${baseDir}/data/each_period.tar.gz"
-                school_info = "${baseDir}/params/school_info.json"
-                composition_data = "${baseDir}/data/composition_each_period.tar.gz"
-}
-
-```
-
 Configuration files can also be separated into multiple files and
 included into another using the `includeConfig` statement.
 

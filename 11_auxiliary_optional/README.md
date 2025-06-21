@@ -38,16 +38,10 @@ In the nextflow.config file you will need to toggle docker.enabled to true, with
 ``` nextflow.config
 
 profiles {
-  awsbatch {
-    includeConfig 'conf/awsbatch.config'
-  }
   local {
     includeConfig 'conf/local.config'
     docker.enabled = true
     process.container = 'omiridoue/siena_r:0.8'
-  }
-  sge {
-    includeConfig 'conf/sge.config'
   }
   slurm {
     includeConfig 'conf/slurm.config'
@@ -58,9 +52,6 @@ profiles {
 
     process.executor = 'slurm'
     process.container = 'apptainer/omiridoue-siena_r-0.8.img'
-  }
-  ci {
-    includeConfig 'conf/ci.config'
   }
 }
 
@@ -83,21 +74,4 @@ Within our workflow, we can declare a process container, and ensure we enable ap
 
 
 We can declare a different config file for different compute environments, or profiles. These profiles are stored under the conf sub-folder. 
-
-``` nextflow.config
-
-
-
-slurm {
-    includeConfig 'conf/slurm.config'
-    apptainer.enabled = true
-
-    apptainer.cacheDir = "apptainer"
-    apptainer.autoMounts = true
-
-    process.executor = 'slurm'
-    process.container = 'omiridoue/siena_r:0.8'
-  }
-
-```
 

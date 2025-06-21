@@ -248,11 +248,48 @@ publishDir "$projectDir/tmp", mode: "copy", overwrite: true
 This would use `publishDir "$projectDir/tmp"` parameter instead of default `publishDir "$projectDir"` and run the pipeline. 
 
 ```bash
-nextflow run read_data_params.nf 
+nextflow run 03_params.nf 
 ```
 
-
 ## Parameter File
+
+Configuration settings for a workflow are often stored in the file
+`nextflow.config` which is in the same directory as the workflow script.
+Configuration can be written in either of two ways. The first is using
+dot notation, and the second is using brace notation. Both forms
+of notation can be used in the same configuration file.
+
+An example of dot notation:
+
+```groovy 
+params.outdir = "${baseDir}/results"   // The workflow parameter "outdir" is assigned the value base output directory and './results' subfolder to use by default.
+params.meta = "${baseDir}/params/meta.csv"
+params.effects = "${baseDir}/params/effects.csv"
+params.subgroup = "${baseDir}/params/subgroup.csv"
+params.school_data = "${baseDir}/data/each_period.tar.gz"
+params.school_info = "${baseDir}/params/school_info.json"
+params.composition_data = "${baseDir}/data/composition_each_period.tar.gz"
+```
+
+An example of brace notation:
+
+```groovy 
+params {
+                outdir = "${baseDir}/results"
+                batches = 1
+                meta = "${baseDir}/params/meta.csv"
+                effects = "${baseDir}/params/effects.csv"
+                subgroup = "${baseDir}/params/subgroup.csv"
+                school_data = "${baseDir}/data/each_period.tar.gz"
+                school_info = "${baseDir}/params/school_info.json"
+                composition_data = "${baseDir}/data/composition_each_period.tar.gz"
+}
+
+```
+
+Configuration files can also be separated into multiple files and
+included into another using the `includeConfig` statement.
+
 
 If we have many parameters to pass to a script it is best to create a
 parameters file. Parameters can be stored in JSON format. JSON is a
@@ -262,20 +299,34 @@ objects and structures, such as the `params` object in a file.
 The `-params-file` option is used to pass the parameters file to the
 script.
 
-For example the file `wc-params.json` contains the parameters `sleep`
-and `input` in JSON format.
+For example the file `school_info.json` contains the `key`
+and `value` dictionnary, with information on the school year size in JSON format.
 
 ```json         
-{
-  "sleep": 5,
-  "input": "data/yeast/reads/etoh60_1*.fq.gz"
-}
+[
+    {
+        "key": "school123",
+        "value": 56
+    },
+    {
+        "key": "school124",
+        "value": 88
+    },
+    {
+        "key": "school125",
+        "value": 55
+    },
+    {
+        "key": "school126",
+        "value": 55
+    }
+]
 ```
 
-Create a file called `wc-params.json` with the above contents.
+A file called `school_info.json` was created under the params/ subfolder with the above contents.
 
 To run the `wc-params.nf` script using these parameters we add the
-option `-params-file` and pass the file `wc-params.json`:
+option `-params-file` and pass the file `school_info.json`:
 
 ```bash         
 $ nextflow run wc-params.nf -params-file wc-params.json
