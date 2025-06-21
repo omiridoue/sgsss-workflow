@@ -51,7 +51,7 @@ gender <- RSiena::coCovar(school[["gender"]], warn=FALSE)
 friends <- sienaDependent(school[["friendship"]])
 
 # Load data objects to Siena model
-myData <- RSiena::sienaDataCreate(friends, smoking, peerselected, gender, compChange)
+myData <- RSiena::sienaDataCreate(friends, smoking, gender, compChange)
 
 myEffects_Network <- RSiena::getEffects(myData)
 
