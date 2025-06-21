@@ -10,9 +10,9 @@ process META_MORAN {
   tuple val(school_period), path(A),  path(I), path(S), path(N), val(schoolsize)
 
   output:
-  tuple val(school_period), path("*"), optional: true
 
-
+  val true
+  
   script:
   template '3000_meta_moran.R'
 

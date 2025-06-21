@@ -113,25 +113,28 @@ workflow {
     return tuple(school_ID, key, file)}
 
     estimation_channel = composition \
-        | combine(dataset, by: 1)
-        | combine(pipe_meta)
-        | map { it -> [it[0], it[5], it[1], it[2], it[0], it[4], it[0].split('_|\\.')[1]]} 
+        | combine(dataset, by: 1) \
+        | combine(pipe_meta) \
+        | map { it -> [it[0], it[5], it[1], it[2], it[0], it[4], it[0].split('_|\\.')[1]]} \
         | combine(pipe_effects, by:[0,1])
 
     mapped_params = map_join(pipe_school_info, 'key', 'value')
     
     estimation_out = ESTIMATION(estimation_channel)
 
-    estimation_out.simulation_ch.combine(mapped_params, by: 0) \
-    | transpose \
-    | groupTuple(by: [1, 5], sort: true) \
-    | view
-    | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
-    | META_MORAN \
-    | view \
-    | JOINFILES
-    
+    mapped_params.view()
 
+    estimation_out.simulation_ch\
+        | map { it -> [it[0].split('_|\\.')[0], it[1], it[2], it[3], it[4]]} \
+        | combine(mapped_params, by: 0) \
+        | transpose \
+        | groupTuple(by: [1, 5], sort: true) \
+        | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
+        | META_MORAN \
+        | collect \
+        | JOINFILES \
+        | view
+        
 }
 
 workflow.onComplete {

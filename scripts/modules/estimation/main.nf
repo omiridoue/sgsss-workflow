@@ -9,10 +9,7 @@ process ESTIMATION {
   publishDir "$params.outdir/siena_fit", pattern: "*.RDS",  mode: "copy", overwrite: true // all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED
   
   publishDir "$params.outdir/siena_sim/$school_period", pattern: "*_SIM.RDS",  mode: "copy", overwrite: true
-  publishDir "$params.outdir/siena_meta/$period", pattern: "*A*_CONVERGED.RDS",  mode: "copy", overwrite: true // only CONVERGED files are copied
-  publishDir "$params.outdir/siena_gof/$period", pattern: "*.png",  mode: "copy", overwrite: true
-  publishDir "$params.outdir/siena_table/$period", pattern: "*.tex",  mode: "copy", overwrite: true
-
+  publishDir "$params.outdir/siena_gof/$school_period", pattern: "*.png",  mode: "copy", overwrite: true
 
   input:
   tuple val(school_period), val(specification), val(school_ID_dat), path(compositionFile_period), val(school_ID), path(STR), val(period), val(effects)
