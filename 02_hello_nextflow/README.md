@@ -62,16 +62,9 @@ Nextflow provides a separation between the pipeline's functional logic and the u
 
 ## Your first script
 
-We are now going to look at a sample Nextflow script that counts the number of lines in a file. Create the file `word_count.nf` in the current directory using your favourite text editor and copy-paste the following code:
+We are now going to look at a sample Nextflow script that counts the number of lines in a file. 
 
-For example, to copy the script for this lesson episode, run the following command:
-
-```bash
-cp sgsss-workflow/workflow/data/* .
-cp sgsss-workflow/introduction/read_data.nf .
-```
-
-The nextflow scripts for each lesson episode are available in the `scripts` directory created during the course setup. You should copy the script into the current directory.
+The nextflow scripts for each lesson episode are available in the `02_hello_nextflow` directory created during the course setup. You should copy the script into the current directory.
 
 ```groovy
 #!/usr/bin/env nextflow
@@ -83,7 +76,7 @@ The nextflow scripts for each lesson episode are available in the `scripts` dire
 ========================================================================================
 */
 
-params.input = "each_period.tar.gz"
+params.input = "data/each_period.tar.gz"
 
 /*
 ========================================================================================

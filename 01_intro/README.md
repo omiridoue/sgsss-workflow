@@ -1,4 +1,4 @@
-# Section 01: Introduction
+# Section 01: Introduction to Workflows
 
 | Teaching  | 15 | Exercises  | 10 | 
 | --------------- | -------------- | -------------- |-------------- |
@@ -6,11 +6,7 @@
 
 - Explain the FAIR research principles in the context of research software
 - Explain how file management helps in being FAIR
-- Understand elements of good naming strategy
-
-- What are the FAIR research principles?
-- How do FAIR principles apply to software?
-- How does folder organisation help me?
+- Understand elements of good file naming strategy
  
 ## FAIR principles
 
@@ -30,10 +26,6 @@ FAIR stands for Findable, Accessible, Interoperable, and Reusable and comprises 
 - Document your software (including its functionality, how to install and run it) so it is both usable (can be executed) 
 and reusable (can be understood, modified, built upon, or incorporated into other software)
 - Give a licence to your software clearly stating how it can be reused
-
-![Grid with the characteristics of: Reproducible; same data, same analysis. Replicable; different data, same analysis. Robust; same data, different analysis. And generalisable; different data, different analysis; Research](episodes/fig/reproducible_replicable.svg)
-
-_The Turing Way_ project illustration by Scriberia. Used under a CC-BY 4.0 licence. DOI: [10.5281/zenodo.3332807](https://doi.org/10.5281/zenodo.3332807).
 
 <div class="padlet-embed" style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'>
   <p style="padding: 0; margin: 0;">
@@ -64,7 +56,7 @@ It's good practice to mention your file naming convention in your data managemen
 3. Optional: Tap into default ordering
 4. Optional: Build file naming in your workflow
 
-Before we dive into the details, let's look at some examples of *ok* and good file names, note you can come up with other ways to make these more clear/functional.
+Before we dive into the details, let's look at some examples of file names that we can improve/adjust. Note you can come up with other ways to make these a lot more clear/functional.
 
 | 🔨 Needs work         | ✔️ Better |
 | -----------------|-------------------------|
@@ -93,7 +85,7 @@ If you are following along, navigate to [repo-boilerplate](https://github.com/om
 ### Example for a Research Project
 A good way to map the organisation of folders within your directory is using a file tree. 
 
-Here are some suggestions on the files and folders your workflow should have, you can download the template for the folder here:
+Here are some suggestions on the files and folders your workflow should have. You can use a template repository like the following folder:
 
 ```
 Project folder
@@ -119,11 +111,11 @@ Project folder
 ![Workflow manager template folder build your own workflow](episodes/fig/repo-boilerplate.png)
 
 
-You can also download the code for the specific branch.
+You can also download code for the specific branch.
 
 ```bash
 
-git clone -b repo-boilerplate --single-branch git@github.com:omiridoue/sgsss-workflow.git
+git clone -b repo-boilerplate --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
 ```
 
@@ -131,8 +123,8 @@ git clone -b repo-boilerplate --single-branch git@github.com:omiridoue/sgsss-wor
 ### Curated Examples of GitHub Repositories
 
 - [Nextflow repository](https://github.com/nextflow-io/nextflow)
-- [Agent Based Model Workflow](https://github.com/Eskimuz/economic_model-zenodo)
 
+### Recap 
 
 - Name your files consistently
 - Keep it short but descriptive
@@ -143,4 +135,3 @@ git clone -b repo-boilerplate --single-branch git@github.com:omiridoue/sgsss-wor
 - Use consistent date formatting, for example ISO 8601: `YYYY-MM-DD` to maintain default order
 - Include a version number when applicable
 - Record a naming convention in your data management plan
-
