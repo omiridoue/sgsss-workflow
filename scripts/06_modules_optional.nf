@@ -90,11 +90,8 @@ include { GENERATE_READS as GENERATE_DAT} from './modules/generate_reads/'
 
 include { ESTIMATION } from './modules/estimation/'
 include { META_MORAN } from './modules/meta_moran/'
-
-//include { TIMETEST } from './modules/time_test/'
 include { JOINFILES } from './modules/join_files/'
-include { META_FISHERS } from './modules/meta_fishers/'
-include { META_REG } from './modules/meta_reg/'
+
 
 def ZipChannel_dat = Channel.fromPath(params.composition_data) // change this to composition_sub whenever data file name changes
 def ZipChannel_RDS = Channel.fromPath(params.school_data) // change this multi_period_sub whenever data file name changes

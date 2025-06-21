@@ -80,25 +80,25 @@ cond <- which(effects_info)
 # }
 
 
-#  myResults <- RSiena::siena07(modelOptions,
-#     data = myData,
-#     effects = myEffects_Network,
-#     batch=TRUE,
-#     verbose=FALSE,
-#     silent=TRUE,
-#     returnThetas=TRUE,
-#     nbrNodes = availableCores, 
-#     useCluster = TRUE)
+ myResults <- RSiena::siena07(modelOptions,
+    data = myData,
+    effects = myEffects_Network,
+    batch=TRUE,
+    verbose=FALSE,
+    silent=TRUE,
+    returnThetas=TRUE,
+    nbrNodes = availableCores,
+    useCluster = TRUE)
 
-# # # ===============================================================================
-# 
-# modelOptions_conv <- RSiena::sienaAlgorithmCreate(
-#     MaxDegree = c(friends = 6),
-#     diagonalize = .2,
-#     seed = 786840,
-#     n3 = 10000,
-#     firstg = 0.05
-# ) # the seed is for the lab only
+# # ===============================================================================
+
+modelOptions_conv <- RSiena::sienaAlgorithmCreate(
+    MaxDegree = c(friends = 6),
+    diagonalize = .2,
+    seed = 786840,
+    n3 = 10000,
+    firstg = 0.05
+) # the seed is for the lab only
 
 # # # # ===============================================================================
 # myResults <- siena07RunToConvergence(alg=modelOptions_conv,
@@ -114,7 +114,7 @@ cond <- which(effects_info)
 #    returnChains=FALSE,
 #    returnDeps=TRUE,
 #     status = NULL,
-#     nbrNodes = 10, 
+#     nbrNodes = 10,
 #     useCluster = TRUE)
 
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
@@ -131,7 +131,7 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    dat = myData,
    eff = myEffects_Network,
    thetaB=Inf,
-   #ans0 = myResults,
+   ans0 = myResults,
    modelName = paste0("${school_period}","_A_"),
    batch=TRUE,
    verbose=FALSE,
@@ -144,23 +144,23 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
 
 png(filename=paste0("${school_period}","_A_", "gofIndegrees.png"))
 gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofIndegrees, main = paste0("${school_period}","_A_", "gofIndegrees")) 
+plot(gofIndegrees, main = paste0("${school_period}","_A_", "gofIndegrees"))
 dev.off()
 
 # goodness of fit for outdegree distribution:
 png(filename=paste0("${school_period}","_A_", "gofOutdegrees.png"))
 gofOutdegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofOutdegrees, main = paste0("${school_period}","_A_", "gofOutdegrees")) 
+plot(gofOutdegrees, main = paste0("${school_period}","_A_", "gofOutdegrees"))
 dev.off()
 
 # goodness of fit for triad census:
 png(filename=paste0("${school_period}","_A_", "gofTriads.png"))
 gofTriads <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
-plot(gofTriads, main = paste0("${school_period}","_","_A_", "gofTriads")) 
+plot(gofTriads, main = paste0("${school_period}","_","_A_", "gofTriads"))
 dev.off()
 
 png(filename=paste0("${school_period}","_A_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
                               verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
-plot(gof.EgoAlterTable, main = paste0("${school_period}","_A_", "gofEgoAlterTable")) 
+plot(gof.EgoAlterTable, main = paste0("${school_period}","_A_", "gofEgoAlterTable"))
 dev.off()

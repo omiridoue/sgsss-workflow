@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
 
-siena07RunSimOnly <- function(alg, dat, eff, thetaB, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, ...)  {
+siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, ...)  {
   numr <- 0 
-  ans <- siena07(x = alg, data=dat, effects=eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps) # the first run 
+  ans <- siena07(x = alg, data=dat, effects=eff, prevAns=ans0, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps) # the first run 
   
   repeat { 
     numr <- numr+1 # count number of repeated runs 

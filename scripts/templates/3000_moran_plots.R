@@ -23,7 +23,7 @@ nacf_OBS_NULL <- readRDS(paste0("${projectDir}","/results/moran/nacf_OBS_NULL.RD
 moran_decomposition <- dat
 colnames(nacf_OBS_NULL) <- colnames(moran_decomposition)
 
-school_info <- readRDS(paste0("${projectDir}","/data/trial_info.RDS"))
+school_info <- readRDS(paste0("${projectDir}","/data/school_factors.RDS"))
 
 ## -----------------------------------------------------------------------------
 ## Clean Variables
@@ -39,99 +39,36 @@ colnames(nacf_OBS_NULL)[27] <- "social_interaction"
 ## -----------------------------------------------------------------------------
 ## Meta-Analysis - MORAN I
 ## -----------------------------------------------------------------------------
-# SUB GROUP ANALYSIS - VALLEY/NON-VALLEY AREAS
-moran_decomposition |> 
-  group_by(valley,school_period) |> 
-  summarise(Group_Mean_Control_M = mean(Trial_Control_M),
-            Group_Mean_PS_M = mean(Trial_PS_M), 
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M), 
-            Group_Mean_Control_M = mean(Trial_Control_M), 
-            Group_Mean_PS_M = mean(Trial_PS_M),
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M)) 
-
-# SUB GROUP ANALYSIS - INTERVENTION/CONTROL ARMS
-moran_decomposition |> 
-  group_by(groupitt,school_period) |> 
-  summarise(Group_Mean_Control_M = mean(Trial_Control_M),
-            Group_Mean_PS_M = mean(Trial_PS_M), 
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M), 
-            Group_Mean_Control_M = mean(Trial_Control_M), 
-            Group_Mean_PS_M = mean(Trial_PS_M),
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M)) 
-
 # SUB GROUP ANALYSIS - SCHOOL SIZE
 moran_decomposition |> 
   group_by(stsize,school_period) |> 
-  summarise(Group_Mean_Control_M = mean(Trial_Control_M),
-            Group_Mean_PS_M = mean(Trial_PS_M), 
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M), 
-            Group_Mean_Control_M = mean(Trial_Control_M), 
-            Group_Mean_PS_M = mean(Trial_PS_M),
-            Group_Mean_PI_M = mean(Trial_PI_M),
-            Group_Mean_Undet_M = mean(Trial_Undetermined_M)) 
-
-## -----------------------------------------------------------------------------
-## Meta-Analysis - GEARY C
-## -----------------------------------------------------------------------------
-# SUB GROUP ANALYSIS - VALLEY/NON-VALLEY AREAS
-moran_decomposition |> 
-  group_by(valley,school_period) |> 
-  summarise(Group_Mean_Control_G = mean(Trial_Control_G),
-            Group_Mean_PS_G = mean(Trial_PS_G), 
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G), 
-            Group_Mean_Control_G = mean(Trial_Control_G), 
-            Group_Mean_PS_G = mean(Trial_PS_G),
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G)) 
-
-# SUB GROUP ANALYSIS - INTERVENTION/CONTROL ARMS
-moran_decomposition |> 
-  group_by(groupitt,school_period) |> 
-  summarise(Group_Mean_Control_G = mean(Trial_Control_G),
-            Group_Mean_PS_G = mean(Trial_PS_G), 
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G), 
-            Group_Mean_Control_G = mean(Trial_Control_G), 
-            Group_Mean_PS_G = mean(Trial_PS_G),
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G)) 
-
-# SUB GROUP ANALYSIS - SCHOOL SIZE
-moran_decomposition |> 
-  group_by(stsize,school_period) |> 
-  summarise(Group_Mean_Control_G = mean(Trial_Control_G),
-            Group_Mean_PS_G = mean(Trial_PS_G), 
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G), 
-            Group_Mean_Control_G = mean(Trial_Control_G), 
-            Group_Mean_PS_G = mean(Trial_PS_G),
-            Group_Mean_PI_G = mean(Trial_PI_G),
-            Group_Mean_Undet_G = mean(Trial_Undetermined_G)) 
+  summarise(Group_Mean_Control_M = mean(School_Control_M),
+            Group_Mean_PS_M = mean(School_PS_M), 
+            Group_Mean_PI_M = mean(School_PI_M),
+            Group_Mean_Undet_M = mean(School_Undetermined_M), 
+            Group_Mean_Control_M = mean(School_Control_M), 
+            Group_Mean_PS_M = mean(School_PS_M),
+            Group_Mean_PI_M = mean(School_PI_M),
+            Group_Mean_Undet_M = mean(School_Undetermined_M)) 
 
 png(filename=paste0("${projectDir}","/results/plots/","moranI_autocorr.png"))
 
 # plot Supplementary Figure S1
 moran_decomposition |> 
   filter(social_interaction %in% "OBS") |> 
-  select(Mean_Moran_Trial,Mean_Moran_Trial_exclPS,Mean_Moran_Trial_exclPI,Mean_Moran_Trial_exclBoth) |> 
+  select(Mean_Moran_School,Mean_Moran_School_exclPS,Mean_Moran_School_exclPI,Mean_Moran_School_exclBoth) |> 
   vioplot::vioplot(list(
-  full=Mean_Moran_Trial,
-  no_sel=Mean_Moran_Trial_exclPS,
-  no_inf=Mean_Moran_Trial_exclPI,
-  neither=Mean_Moran_Trial_exclBoth),
+  full=Mean_Moran_School,
+  no_sel=Mean_Moran_School_exclPS,
+  no_inf=Mean_Moran_School_exclPI,
+  neither=Mean_Moran_School_exclBoth),
   col="lightgrey",
   names= c("Full", "Excluding PS", "Excluding PI", "Excluding PS and PI"))
 
 sim <- nacf_OBS_NULL |> 
   filter(social_interaction %in% "SIM") |> 
-  select(Mean_Moran_Trial) |> 
-  summarise(mean_sim = mean(as.numeric(Mean_Moran_Trial))) |> 
+  select(Mean_Moran_School) |> 
+  summarise(mean_sim = mean(as.numeric(Mean_Moran_School))) |> 
   pull()
   
 # add expected Moran under random allocation of behaviour
@@ -142,16 +79,16 @@ obs1 <- nacf_OBS_NULL |>
   filter(social_interaction %in% "OBS") |>
   mutate(time = str_extract(school_period, "[0-9]+")) |> 
   filter(time %in% 1) |> 
-  select(Mean_Moran_Trial) |> 
-  summarise(mean_sim = mean(as.numeric(Mean_Moran_Trial))) |> 
+  select(Mean_Moran_School) |> 
+  summarise(mean_sim = mean(as.numeric(Mean_Moran_School))) |> 
   pull()
 
 obs2 <- nacf_OBS_NULL |> 
   filter(social_interaction %in% "OBS") |> 
   mutate(time = str_extract(school_period, "[0-9]+")) |> 
   filter(time %in% 2) |> 
-  select(Mean_Moran_Trial) |> 
-  summarise(mean_sim = mean(as.numeric(Mean_Moran_Trial))) |> 
+  select(Mean_Moran_School) |> 
+  summarise(mean_sim = mean(as.numeric(Mean_Moran_School))) |> 
   pull()
 
 # add observed Moran in data set as upper reference line:
