@@ -90,11 +90,8 @@ include { GENERATE_READS as GENERATE_DAT} from './modules/generate_reads/'
 
 include { ESTIMATION } from './modules/estimation/'
 include { META_MORAN } from './modules/meta_moran/'
-
-//include { TIMETEST } from './modules/time_test/'
 include { JOINFILES } from './modules/join_files/'
-include { META_FISHERS } from './modules/meta_fishers/'
-include { META_REG } from './modules/meta_reg/'
+
 
 def ZipChannel_dat = Channel.fromPath(params.composition_data) // change this to composition_sub whenever data file name changes
 def ZipChannel_RDS = Channel.fromPath(params.school_data) // change this multi_period_sub whenever data file name changes
@@ -116,34 +113,28 @@ workflow {
     return tuple(school_ID, key, file)}
 
     estimation_channel = composition \
-        | combine(dataset, by: 1)
-        | combine(pipe_meta)
-        | map { it -> [it[0], it[5], it[1], it[2], it[0], it[4], it[0].split('_|\\.')[1]]} 
+        | combine(dataset, by: 1) \
+        | combine(pipe_meta) \
+        | map { it -> [it[0], it[5], it[1], it[2], it[0], it[4], it[0].split('_|\\.')[1]]} \
         | combine(pipe_effects, by:[0,1])
 
     mapped_params = map_join(pipe_school_info, 'key', 'value')
     
     estimation_out = ESTIMATION(estimation_channel)
 
-    estimation_out.simulation_ch.combine(mapped_params, by: 0) \
-    | transpose \
-    | groupTuple(by: [1, 5], sort: true) \
-    | view
-    | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
-    | META_MORAN \
-    | view \
-    | JOINFILES
-    
-    estimation_out.meta_reg_ch\
-    //| filter { x, y, z, k, path, j, n -> !path.contains("NOT") } \
-    | groupTuple(by: [4], sort: true) \
-    | map { it -> [it[4]]} \
-    | combine(pipe_subgroup) \
-    | META_FISHERS \
-    | collect \
-    | unique //\
-    //| META_REG 
+    mapped_params.view()
 
+    estimation_out.simulation_ch\
+        | map { it -> [it[0].split('_|\\.')[0], it[1], it[2], it[3], it[4]]} \
+        | combine(mapped_params, by: 0) \
+        | transpose \
+        | groupTuple(by: [1, 5], sort: true) \
+        | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
+        | META_MORAN \
+        | collect \
+        | JOINFILES \
+        | view
+        
 }
 
 workflow.onComplete {

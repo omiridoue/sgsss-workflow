@@ -7,8 +7,7 @@ process JOINFILES {
   publishDir "${params.outdir}/plots", mode: "copy", overwrite: true
 
   input:
-  //tuple val(school_period), val(socialinteraction), path("*")
-  tuple val(school_period), path("*")
+  val ready
 
   output:
   path("*")

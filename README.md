@@ -18,6 +18,11 @@ In terms of fidelity to the friendship generator the synthetic dataset matches c
 To run the pipeline on your local machine type the following command in the terminal (this works with a bash or java terminal): 
 
 ```bash
+git clone --branch ready-set-workflow --single-branch https://github.com/omiridoue/sgsss-workflow.git
+
+```
+
+```bash
 nextflow run main.nf -profile local
 ```
 
