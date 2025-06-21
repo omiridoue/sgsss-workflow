@@ -85,7 +85,6 @@ myResults <- RSiena::siena07(modelOptions,
     silent=TRUE,
     returnThetas=TRUE,
     nbrNodes = 2, 
-    modelName = paste0("${school_period}","_A_"),
     useCluster = TRUE)
 
 # # # ===============================================================================
