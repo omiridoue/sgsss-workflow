@@ -47,7 +47,6 @@ behaviour_matrix[behaviour_matrix %in% c(5,6)] <- 3
 smoking <- RSiena::sienaDependent(behaviour_matrix, type = "behavior")
 
 # Constant Covariates over Time
-peerselected <- RSiena::coCovar(school[["covar_PoL"]])
 gender <- RSiena::coCovar(school[["gender"]], warn=FALSE)
 
 friends <- sienaDependent(school[["friendship"]])
