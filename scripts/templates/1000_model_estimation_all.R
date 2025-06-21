@@ -80,15 +80,15 @@ cond <- which(effects_info)
 # }
 
 
- myResults <- RSiena::siena07(modelOptions,
-    data = myData,
-    effects = myEffects_Network,
-    batch=TRUE,
-    verbose=FALSE,
-    silent=TRUE,
-    returnThetas=TRUE,
-    nbrNodes = availableCores, 
-    useCluster = TRUE)
+#  myResults <- RSiena::siena07(modelOptions,
+#     data = myData,
+#     effects = myEffects_Network,
+#     batch=TRUE,
+#     verbose=FALSE,
+#     silent=TRUE,
+#     returnThetas=TRUE,
+#     nbrNodes = availableCores, 
+#     useCluster = TRUE)
 
 # # # ===============================================================================
 # 
@@ -131,7 +131,7 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    dat = myData,
    eff = myEffects_Network,
    thetaB=Inf,
-   ans0 = myResults,
+   #ans0 = myResults,
    modelName = paste0("${school_period}","_A_"),
    batch=TRUE,
    verbose=FALSE,
@@ -164,45 +164,3 @@ gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
                               verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_A_", "gofEgoAlterTable")) 
 dev.off()
-
-name <- "smoking" 
-zname <- "friends" 
-levls <- 1:3
-
-png(filename = paste0("${school_period}","_A_","influenceTable.png" , sep = ""), width = 1000, height = 800) 
-zselect <- influenceTable(myResults, myData, zname, name, levls)
-
-# Create sample data
-x <- levls
-
-y1 <- zselect |> 
-  dplyr::filter(alter == 1) |> 
-  dplyr::select(select) |> 
-  pull()
-
-y2 <- zselect |> 
-  dplyr::filter(alter == 2) |> 
-  dplyr::select(select) |> 
-  pull()
-
-y3 <- zselect |> 
-  dplyr::filter(alter == 3) |> 
-  dplyr::select(select) |> 
-  pull()
-
-# Create an empty plot
-plot(x, y1, type = "n", xlim = c(1, 3), ylim = c(-5, 5), 
-     xlab = "X", ylab = "Y", main = paste0("${school_period}","_A_", "Influence Effect Friendship on Smoking"))
-
-# Plot each line one by one
-lines(x, y1, type = "l", col = "red")
-lines(x, y2, type = "l", col = "blue")
-lines(x, y3, type = "l", col = "green")
-
-# Add a legend
-legend("topright", legend = c("Smoking Value = 1", "Smoking Value = 2", "Smoking Value = 3"), 
-       col = c("red", "blue", "green"), lty = 1, title="Smoking Alter")
-graphics.off()
-
-siena.table(myResults, type="tex", file=paste0("${school_period}","_","A.tex"),
-            vertLine=TRUE, tstatPrint=FALSE, sig=TRUE, d=3, nfirst=NULL)

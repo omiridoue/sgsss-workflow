@@ -72,48 +72,22 @@ cond <- which(effects_info)
 #     myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("test")] <- TRUE
 #   }
 # }
- myResults <- RSiena::siena07(modelOptions,
-    data = myData,
-    effects = myEffects_Network,
-    batch=TRUE,
-    verbose=FALSE,
-    silent=TRUE,
-    returnThetas=TRUE,
-    nbrNodes = availableCores, 
-    useCluster = TRUE)
+ 
+modelOptions_sim <- RSiena::sienaAlgorithmCreate(
+    MaxDegree = c(friends = 6),
+    diagonalize = .2,
+    seed = 786840,
+    simOnly = TRUE,
+    nsub = 0,
+    n3 = 500
+) # the seed is for the lab only
 
-# # # ===============================================================================
-# 
-# modelOptions_conv <- RSiena::sienaAlgorithmCreate(
-#     MaxDegree = c(friends = 6),
-#     diagonalize = .2,
-#     seed = 786840,
-#     n3 = 10000,
-#     firstg = 0.05
-# ) # the seed is for the lab only
-
-# # # # ===============================================================================
-# myResults <- siena07RunToConvergence(alg=modelOptions_conv,
-#    dat = myData,
-#    eff = myEffects_Network,
-#    thetaB=Inf,
-#    ans0 = ans0,
-#    modelName = paste0("${school_period}","_A_"),
-#     batch=TRUE,
-#     verbose=FALSE,
-#     silent=TRUE,
-#    returnThetas=TRUE,
-#    returnChains=FALSE,
-#    returnDeps=TRUE,
-#     status = NULL,
-#     nbrNodes = 10, 
-#     useCluster = TRUE)
 # # # ===============================================================================
 myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    dat = myData,
    eff = myEffects_Network,
    thetaB=Inf,
-   ans0 = myResults,
+   #ans0 = myResults,
    modelName = paste0("${school_period}","_S_"),
    batch=TRUE,
    verbose=FALSE,
@@ -122,7 +96,6 @@ myResults_sim <- siena07RunSimOnly(alg = modelOptions_sim,
    returnChains=FALSE,
    returnDeps=TRUE,
    status = NULL)
-
 
 
 png(filename=paste0("${school_period}","_S_", "gofIndegrees.png"))
@@ -139,11 +112,11 @@ dev.off()
 # goodness of fit for triad census:
 png(filename=paste0("${school_period}","_S_", "gofTriads.png"))
 gofTriads <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
-plot(gofTriads, main = paste0("${school_period}","_S_", "gofTriads")) 
+plot(gofTriads, main = paste0("${school_period}","_","_S_", "gofTriads")) 
 dev.off()
 
 png(filename=paste0("${school_period}","_S_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
-	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
+                              verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_S_", "gofEgoAlterTable")) 
 dev.off()
