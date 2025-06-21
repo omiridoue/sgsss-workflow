@@ -104,7 +104,7 @@ workflow {
     return tuple(school_ID, key, file)}
 
     composition \
-        | view
+    | view
  
 }
 
