@@ -55,8 +55,10 @@ For the practical we will access:
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
 The training materials can be found in the following folders:
-* [code](episodes/files/scripts) - Jupyter Notebooks and syntax files containing executable Python and R code.
-* [installation](https://omiridoue.github.io/sgsss-workflow/) - Guidance on installing software on your own machines.
+* [set-up](https://omiridoue.github.io/sgsss-workflow/) - Instructions to set up the material for the workshop.
+* [code](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts) - Files for the guided practical material on building a workflow.
+* [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
+* [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
 
 ## Acknowledgements
 
