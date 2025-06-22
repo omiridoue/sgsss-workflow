@@ -16,9 +16,20 @@ can integrate various software package and environment management systems
 such as Docker, Singularity, and Conda. It allows for existing pipelines
 written in common scripting languages, such as R and Python, to
 be seamlessly coupled together. It simplifies the implementation and running of workflows on
-cloud or high-performance computing (HPC) infrastructure
+cloud or high-performance computing (HPC) infrastructure. 
 
 This training material was based off the training developed and maintained by [Seqera](https://seqera.io) and released under an open-source license ([CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)) for the benefit of the community. You are welcome to reuse these materials according to the terms of the license. The training includes material from the [carpentries incubator](https://carpentries-incubator.github.io/workflows-nextflow/) and [The Turing Way](http://doi.org/10.5281/zenodo.3233853). 
+
+Follow the link to Nextflow documentation below:
+
+<p align="center">
+  <a href="https://nextflow.io/">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true">
+        <img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true">
+    </picture>
+  </a>
+</p>
 
 ## Data 
 
@@ -33,15 +44,6 @@ The course material for the half day course can be found in the [sgsss-workflow]
 This lesson is a template lesson that uses [The Carpentries Workbench][workbench].
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
-
-<p align="center">
-  <a href="https://nextflow.io/">
-    <picture>
-        <source media="(prefers-color-scheme: dark)" width="350" srcset="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color_darkbg.png?raw=true">
-        <img alt="Nextflow Logo" width="350" src="https://github.com/seqeralabs/logos/blob/master/nextflow/nextflow_logo_color.png?raw=true">
-    </picture>
-  </a>
-</p>
 
 ### Step 2: Organise Template Files
 
