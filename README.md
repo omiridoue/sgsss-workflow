@@ -32,7 +32,7 @@ To run the pipeline on a computer cluster you should first check specifics with 
 To do this we will swap our local profile to slurm, by specifying `-profile slurm` tag instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
 
 ```bash
-sbatch -A none -J "demo" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users/<username>/sgsss-workflow-ready-set-workflow/main.nf  -profile slurm'
+sbatch -A none -J "demo" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users/<username>/sgsss-workflow/main.nf  -profile slurm'
 ```
 
 For the command to work, replace `<username>` with your username, and ensure you first navigate to your shared scratch foloder 
