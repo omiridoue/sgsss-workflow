@@ -296,12 +296,20 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         11. Auxiliary Tools
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#workflow">Workflow</a></li>
+<li><a href="#containers-in-profile">Containers in Profile</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -382,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Auxiliary Tools</h1>
-        <p>Last updated on 2025-05-21 |
+        <p>Last updated on 2025-06-22 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/01.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -402,7 +410,7 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>When should I use a pre-built container?</li>
-<li>How do I set up my own container?</li>
+<li>How can I customise a container?</li>
 <li>What is a remote codespace?</li>
 </ul></div>
 </div>
@@ -413,13 +421,11 @@
 <h3 class="card-title">Objectives</h3>
 <ul><li>Understand how to reproduce code.</li>
 <li>Understand the benefits of containers.</li>
-<li>Clone a repository on GitHub.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<div class="group">
 <div class="section level3">
 <h3 id="browsing-docker-hub">Browsing Docker Hub<a class="anchor" aria-label="anchor" href="#browsing-docker-hub"></a></h3>
 <ul><li>The container image is updated regularly, the latest version should
@@ -437,10 +443,10 @@ container image.</li>
 <div class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
-<p>If a container image is never updated, created by a random person,
-and does not have a lot of metadata, it is probably worth skipping over.
-Even if such a container image is secure, it is not reproducible and not
-a dependable way to run research computations.</p>
+<p>If a container image is never updated, and does not have a lot of
+metadata, it is probably worth skipping over. Even if such a container
+image is secure, it is not reproducible and not a dependable way to run
+research computations.</p>
 </div>
 </div>
 </div>
@@ -448,8 +454,10 @@ a dependable way to run research computations.</p>
 <div class="section level3">
 <h3 id="docker-recipe-file">Docker Recipe File<a class="anchor" aria-label="anchor" href="#docker-recipe-file"></a></h3>
 <p>Much like a cookbook, you can pull out recipes and alter to own
-taste. This is how you normally get started building your own image, you
-can start with a base repository, and layer requirements.</p>
+preference. This is how you normally get started building your own
+image, you can start with a base repository, i.e installation
+instructions for one or more software, and layer requirements, i.e code
+libraries.</p>
 <pre class="docker"><code>
 FROM bioconductor/bioconductor_docker:devel-R-4.4.1
 
@@ -460,29 +468,40 @@ COPY rsiena_1.4.19.tar.gz .
 RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source')"
 </code></pre>
 </div>
-<div class="section level3">
-<h3 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a></h3>
-<pre class="nextflow.config"><code><span></span>
-<span><span class="va">docker.enabled</span> <span class="op">=</span> <span class="va">true</span></span></code></pre>
-</div>
-</div>
-<p>Many container platforms are available, but Apptainer is designed for
+<section><h2 class="section-heading" id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a></h2>
+<hr class="half-width"><p>Within our workflow we can specify the container we want to use, as a
+matter of fact we can specify a container for different processes - the
+possibility is endless! Say for example you would like to write
+interoperable code and use Python for one part of your analysis and R
+for another part, this is possible by defining a different container for
+each process. Another option is to build one container with all the
+software (i.e R and Python) installed.</p>
+<p>Say we work with one container, but would like to make sure the
+pipeline is portable. In this case we work with profiles, which is
+another layer for customisation.</p>
+</section><section><h2 class="section-heading" id="containers-in-profile">Containers in Profile<a class="anchor" aria-label="anchor" href="#containers-in-profile"></a></h2>
+<hr class="half-width"><p>Many container platforms are available, but Apptainer is designed for
 ease-of-use on shared systems and in high performance computing (HPC)
 environments. Nextflow can build an immutable image based off a Docker
 recipe file.</p>
-<div class="group">
 <div class="section level3">
 <h3 id="building-an-apptainer-image">Building an Apptainer Image<a class="anchor" aria-label="anchor" href="#building-an-apptainer-image"></a></h3>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="workflow-definition">Workflow Definition<a class="anchor" aria-label="anchor" href="#workflow-definition"></a></h3>
 <p>Within our workflow, we can declare a process container, and ensure
-we enable apptainer.</p>
+we enable apptainer. Again we don’t want to hard code this decision as
+we’d like to keep options as flexible as possible. This is why we build
+a profile for each our compute environments, in this case for our local
+machine / GitHub codespace we have access to Docker. However, for our
+slurm profile, relevant to a computer cluster with Slurm workload
+manager, we opt for apptainer (former singularity), as docker is not
+available.</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -501,41 +520,22 @@ sub-folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<pre class="nextflow.config"><code><span><span class="va">process.container</span> <span class="op">=</span> <span class="st">'apptainer/omiridoue-siena_r-0.8.img'</span></span>
-<span></span>
-<span><span class="va">apptainer.cacheDir</span> <span class="op">=</span> <span class="st">"apptainer"</span></span>
-<span><span class="va">apptainer.enabled</span> <span class="op">=</span> <span class="va">true</span></span>
-<span></span>
-<span><span class="va">apptainer.autoMounts</span> <span class="op">=</span> <span class="va">true</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="declare">Declare<a class="anchor" aria-label="anchor" href="#declare"></a></h3>
 <pre><code>profiles {
-  awsbatch {
-    includeConfig 'conf/awsbatch.config'
-  }
+
   local {
     includeConfig 'conf/local.config'
     process.container = 'omiridoue/siena_r:0.8'
-  }
-  sge {
-    includeConfig 'conf/sge.config'
   }
   slurm {
     includeConfig 'conf/slurm.config'
     process.executor = 'slurm'
     process.container = 'omiridoue/siena_r:0.8'
   }
-  ci {
-    includeConfig 'conf/ci.config'
-  }
 }</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div id="keypoints1" class="callout keypoints">
@@ -561,10 +561,8 @@ of workflows across environments.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</div>
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="10.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="11.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -622,7 +620,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/01.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/01.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-05-21",
+  "dateModified": "2025-06-22",
   "datePublished": "2025-06-22"
 }
 

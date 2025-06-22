@@ -378,7 +378,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Setup</h1>
-        <p>Last updated on 2025-05-06 |
+        <p>Last updated on 2025-06-22 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/setup.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -392,12 +392,38 @@
 
         
 
-<div class="section level3">
-<h3 id="step-1-set-up-coding-environment">Step 1: Set up Coding Environment<a class="anchor" aria-label="anchor" href="#step-1-set-up-coding-environment"></a></h3>
+<p>The workshop offers an overview to Nextflow. Nextflow integrates
+various software package and environment management systems such as
+Docker, Singularity, and Conda. It allows for existing pipelines written
+in common scripting languages, such as R and Python, to be seamlessly
+coupled together. It simplifies the implementation and running of
+workflows on cloud or high-performance computing (HPC)
+infrastructure.</p>
+<div id="set-up-material" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="set-up-material" class="callout-inner">
+<h3 class="callout-title">Set-up Material</h3>
+<div class="callout-content">
 <p>To follow along the practical component it is recommended use GitHub
 Codespaces. This will require a stable internet connection. If you are
 not signed in to GitHub, you may be prompted to do so, once you open the
 material in GitHub Codespaces.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Set-up Practical Material
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="section level3">
+<h3 id="step-1-set-up-coding-environment">Step 1: Set up Coding Environment<a class="anchor" aria-label="anchor" href="#step-1-set-up-coding-environment"></a></h3>
 <div class="tabs">
 <nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
 <button class="nav-link active" id="nav-tab-1-GitHubCodespaces" name="GitHubCodespaces" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GitHubCodespaces" type="button" role="tab" aria-controls="nav-tabpanel-1-GitHubCodespaces" aria-selected="true">
@@ -417,15 +443,15 @@ material in GitHub Codespaces.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GitHubCodespaces" class="tab-pane show active" aria-labelledby="nav-tab-1-GitHubCodespaces" role="tabpanel">
+<div id="nav-tabpanel-1-GitHubCodespaces" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GitHubCodespaces">
 <p><a href="https://codespaces.new/nextflow-io/training?quickstart=1&amp;ref=master" class="external-link"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="figure"></a></p>
 </div>
-<div id="nav-tabpanel-1-LocalComputer" class="tab-pane" aria-labelledby="nav-tab-1-LocalComputer" role="tabpanel">
+<div id="nav-tabpanel-1-LocalComputer" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-LocalComputer">
 <p>To set up locally you will need to follow the installation steps on
 <a href="https://www.nextflow.io/docs/stable/install.html" class="external-link">Nextflow
 Install page</a>.</p>
 </div>
-<div id="nav-tabpanel-1-LocalContainer" class="tab-pane" aria-labelledby="nav-tab-1-LocalContainer" role="tabpanel">
+<div id="nav-tabpanel-1-LocalContainer" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-LocalContainer">
 <p>Alternatively, you can set up locally using VS Code <a href="https://training.nextflow.io/latest/envsetup/03_devcontainer/#benefits-of-using-devcontainers" class="external-link">Devcontainer
 Nextflow</a>.</p>
 </div>
@@ -437,22 +463,31 @@ Nextflow</a>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> <span class="pp">*</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">mkdir</span> templates</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">mv</span> <span class="pp">*</span> templates/</span></code></pre>
 </div>
 </div>
 <div class="section level3">
-<h3 id="step-3-download-material-for-workshop">Step 3: Download Material for Workshop<a class="anchor" aria-label="anchor" href="#step-3-download-material-for-workshop"></a></h3>
+<h3 id="step-3-load-material-for-workshop">Step 3: Load Material for Workshop<a class="anchor" aria-label="anchor" href="#step-3-load-material-for-workshop"></a></h3>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> workflow-scripts <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> workflow-scripts <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="bu">cd</span> sgsss-workflow</span></code></pre>
 </div>
-<div id="github-codespaces-1" class="callout challenge">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="online-learning-environment" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="github-codespaces-1" class="callout-inner">
-<h3 class="callout-title">GitHub Codespaces</h3>
+<div id="online-learning-environment" class="callout-inner">
+<h3 class="callout-title">Online Learning Environment</h3>
 <div class="callout-content">
 <p>GitHub Codespaces is a cloud development environment for teams to
 develop software efficiently and securely. We use it as a training
@@ -462,14 +497,14 @@ accessed through your web browser.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
   Creating a GitHub account
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>You can create a free GitHub account from the <a href="https://github.com/" class="external-link">GitHub home page</a>. You can upgrade your
 GitHub account to an Education account from the <a href="https://github.com/education" class="external-link">GitHub Education home page</a> using
@@ -561,7 +596,6 @@ billing for GitHub Codespaces</a></p>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 
 
 
@@ -623,7 +657,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/setup.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/setup.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-05-06",
+  "dateModified": "2025-06-22",
   "datePublished": "2025-06-22"
 }
 

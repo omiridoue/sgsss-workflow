@@ -391,7 +391,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>FAIR research software</h1>
-        <p>Last updated on 2025-05-21 |
+        <p>Last updated on 2025-06-22 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/00.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -475,8 +475,7 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 </div>
 </section><section><h2 class="section-heading" id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a></h2>
 <hr class="half-width"><p>There is no single way to manage file naming, but consistency is key.
-Here’s a couple of options, and ways you can combineeach of the
-cases:</p>
+Here’s a couple of options, and ways you can combine approaches:</p>
 <table class="table"><thead><tr class="header"><th>Case Convention</th>
 <th>Example</th>
 </tr></thead><tbody><tr class="odd"><td>Pascal Case</td>
@@ -497,7 +496,14 @@ cases:</p>
 <td>camel_Snake_Case</td>
 </tr><tr class="odd"><td>Screaming Snake Case</td>
 <td>SCREAMING_SNAKE_CASE</td>
-</tr></tbody></table><p>It’s good practice to mention your file naming convention in your
+</tr></tbody></table><div id="file-naming-1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="file-naming-1" class="callout-inner">
+<h3 class="callout-title">File Naming</h3>
+<div class="callout-content">
+<p>It’s good practice to mention your file naming convention in your
 data management plan and/or meta data.</p>
 <ol style="list-style-type: decimal"><li>Choose a convention and apply it consistently</li>
 <li>Use descriptive names</li>
@@ -506,6 +512,24 @@ data management plan and/or meta data.</p>
 </ol><p>Before we dive into the details, let’s look at some examples of
 <em>ok</em> and good file names, note you can come up with other ways to
 make these more clear/functional.</p>
+<table class="table"><thead><tr class="header"><th>🔨 Needs work</th>
+<th>✔️ Better</th>
+</tr></thead><tbody><tr class="odd"><td><code>School123 Period1.RDS</code></td>
+<td></td>
+</tr><tr class="even"><td><code>period1_school123_A_ITER2_CONVERGED_SIM.RDS</code></td>
+<td></td>
+</tr><tr class="odd"><td><code>school123_period1_I_goodness_fit.png</code></td>
+<td></td>
+</tr></tbody></table></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <table class="table"><colgroup><col width="40%"><col width="59%"></colgroup><thead><tr class="header"><th>🔨 Needs work</th>
 <th>✔️ Better</th>
 </tr></thead><tbody><tr class="odd"><td><code>School123 Period1.RDS</code></td>
@@ -514,9 +538,11 @@ make these more clear/functional.</p>
 <td><code>school123_period1_A_ITER2_CONVERGED_SIM.RDS</code></td>
 </tr><tr class="odd"><td><code>school123_period1_I_goodness_fit.png</code></td>
 <td><code>school123_period1_I_gof.png</code></td>
-</tr><tr class="even"><td><code>school123_period.tex</code></td>
-<td><code>school123_period1_A.tex</code></td>
-</tr></tbody></table><div class="section level3">
+</tr></tbody></table></div>
+</div>
+</div>
+</div>
+<div class="section level3">
 <h3 id="works-well-with-default-ordering">Works well with default ordering<a class="anchor" aria-label="anchor" href="#works-well-with-default-ordering"></a></h3>
 <p>To create a default ordering, we can add a number or date at the
 beginning of file names. This keeps our files sorted in ascending order
@@ -561,12 +587,12 @@ this should contain the following files:</p>
 <h3 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a></h3>
 <p>A good way to map the organisation of folders within your directory
 is using a file tree.</p>
-<div id="challenge1" class="callout challenge">
+<div id="repo-boilerplate" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="repo-boilerplate" class="callout-inner">
+<h3 class="callout-title">Repo Boilerplate</h3>
 <div class="callout-content">
 <p>Here are some suggestions on the files and folders your workflow
 should have, you can download the template for the folder here:</p>
@@ -590,12 +616,12 @@ should have, you can download the template for the folder here:</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="fig/repo-boilerplate.png" alt="Workflow manager template folder build your own workflow" class="figure mx-auto d-block"><div class="figcaption">Workflow manager template folder build your own
 workflow</div>
@@ -604,7 +630,7 @@ workflow</div>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> repo-boilerplate <span class="at">--single-branch</span> git@github.com:omiridoue/sgsss-workflow.git</span></code></pre>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> repo-boilerplate <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
 </div>
 </div>
 </div>
@@ -615,8 +641,6 @@ workflow</div>
 <h3 id="curated-examples-of-github-repositories">Curated Examples of GitHub Repositories<a class="anchor" aria-label="anchor" href="#curated-examples-of-github-repositories"></a></h3>
 <ul><li><a href="https://github.com/nextflow-io/nextflow" class="external-link">Nextflow
 repository</a></li>
-<li><a href="https://github.com/Eskimuz/economic_model-zenodo" class="external-link">Agent
-Based Model Workflow</a></li>
 </ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -702,7 +726,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/00.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/00.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-05-21",
+  "dateModified": "2025-06-22",
   "datePublished": "2025-06-22"
 }
 

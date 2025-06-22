@@ -454,7 +454,7 @@
         
 <section id="aio-00"><p>Content from <a href="00.html">FAIR research software</a></p>
 <hr>
-<p>Last updated on 2025-05-21 |
+<p>Last updated on 2025-06-22 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/00.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -552,8 +552,7 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 </h2>
 <hr class="half-width">
 <p>There is no single way to manage file naming, but consistency is key.
-Here’s a couple of options, and ways you can combineeach of the
-cases:</p>
+Here’s a couple of options, and ways you can combine approaches:</p>
 <table class="table">
 <thead><tr class="header">
 <th>Case Convention</th>
@@ -598,6 +597,13 @@ cases:</p>
 </tr>
 </tbody>
 </table>
+<div id="file-naming-1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="file-naming-1" class="callout-inner">
+<h3 class="callout-title">File Naming</h3>
+<div class="callout-content">
 <p>It’s good practice to mention your file naming convention in your
 data management plan and/or meta data.</p>
 <ol style="list-style-type: decimal">
@@ -609,6 +615,36 @@ data management plan and/or meta data.</p>
 <p>Before we dive into the details, let’s look at some examples of
 <em>ok</em> and good file names, note you can come up with other ways to
 make these more clear/functional.</p>
+<table class="table">
+<thead><tr class="header">
+<th>🔨 Needs work</th>
+<th>✔️ Better</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>School123 Period1.RDS</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>period1_school123_A_ITER2_CONVERGED_SIM.RDS</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>school123_period1_I_goodness_fit.png</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <table class="table">
 <colgroup>
 <col width="40%">
@@ -631,12 +667,12 @@ make these more clear/functional.</p>
 <td><code>school123_period1_I_goodness_fit.png</code></td>
 <td><code>school123_period1_I_gof.png</code></td>
 </tr>
-<tr class="even">
-<td><code>school123_period.tex</code></td>
-<td><code>school123_period1_A.tex</code></td>
-</tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="works-well-with-default-ordering">Works well with default ordering<a class="anchor" aria-label="anchor" href="#works-well-with-default-ordering"></a>
 </h3>
@@ -687,12 +723,12 @@ this should contain the following files:</p>
 </h3>
 <p>A good way to map the organisation of folders within your directory
 is using a file tree.</p>
-<div id="challenge1" class="callout challenge">
+<div id="repo-boilerplate" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="repo-boilerplate" class="callout-inner">
+<h3 class="callout-title">Repo Boilerplate</h3>
 <div class="callout-content">
 <p>Here are some suggestions on the files and folders your workflow
 should have, you can download the template for the folder here:</p>
@@ -716,12 +752,12 @@ should have, you can download the template for the folder here:</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <figure><img src="fig/repo-boilerplate.png" alt="Workflow manager template folder build your own workflow" class="figure mx-auto d-block"><div class="figcaption">Workflow manager template folder build your own
 workflow</div>
@@ -730,7 +766,7 @@ workflow</div>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> repo-boilerplate <span class="at">--single-branch</span> git@github.com:omiridoue/sgsss-workflow.git</span></code></pre>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> repo-boilerplate <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
 </div>
 </div>
 </div>
@@ -743,8 +779,6 @@ workflow</div>
 <ul>
 <li><a href="https://github.com/nextflow-io/nextflow" class="external-link">Nextflow
 repository</a></li>
-<li><a href="https://github.com/Eskimuz/economic_model-zenodo" class="external-link">Agent
-Based Model Workflow</a></li>
 </ul>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -1249,7 +1283,7 @@ pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1327,7 +1361,7 @@ decompressing the <code>tar</code> archive folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1426,7 +1460,7 @@ output publishDir.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1516,7 +1550,7 @@ created parameter file, specifying:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">JSON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4303,7 +4337,7 @@ include an output block that captures the different output file
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4480,7 +4514,7 @@ output for the COMBINE_REPS process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4711,7 +4745,7 @@ execution output.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5004,7 +5038,7 @@ to the results folder merged_reps.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5845,7 +5879,7 @@ the remainder of a division.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5985,7 +6019,7 @@ gives the filename. Finally <code>view</code> the channel contents.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6140,7 +6174,7 @@ of the channel.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6402,7 +6436,7 @@ reference each value by its name, as shown in the following example:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6878,7 +6912,7 @@ script <code>print_message.nf</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>‘hello’ - Workflow script uses the value in
@@ -7123,7 +7157,7 @@ for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7384,7 +7418,7 @@ configuration file using the <code>-c</code> option.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7635,7 +7669,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-01"><p>Content from <a href="01.html">Auxiliary Tools</a></p>
 <hr>
-<p>Last updated on 2025-05-21 |
+<p>Last updated on 2025-06-22 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/01.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -7650,7 +7684,7 @@ any links that you are not going to use.
 <h3 class="card-title">Questions</h3>
 <ul>
 <li>When should I use a pre-built container?</li>
-<li>How do I set up my own container?</li>
+<li>How can I customise a container?</li>
 <li>What is a remote codespace?</li>
 </ul>
 </div>
@@ -7663,14 +7697,12 @@ any links that you are not going to use.
 <ul>
 <li>Understand how to reproduce code.</li>
 <li>Understand the benefits of containers.</li>
-<li>Clone a repository on GitHub.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="group">
 <div class="section level3">
 <h3 id="browsing-docker-hub">Browsing Docker Hub<a class="anchor" aria-label="anchor" href="#browsing-docker-hub"></a>
 </h3>
@@ -7691,10 +7723,10 @@ container image.</li>
 <div class="callout-inner">
 <h3 class="callout-title">Discussion</h3>
 <div class="callout-content">
-<p>If a container image is never updated, created by a random person,
-and does not have a lot of metadata, it is probably worth skipping over.
-Even if such a container image is secure, it is not reproducible and not
-a dependable way to run research computations.</p>
+<p>If a container image is never updated, and does not have a lot of
+metadata, it is probably worth skipping over. Even if such a container
+image is secure, it is not reproducible and not a dependable way to run
+research computations.</p>
 </div>
 </div>
 </div>
@@ -7703,8 +7735,10 @@ a dependable way to run research computations.</p>
 <h3 id="docker-recipe-file">Docker Recipe File<a class="anchor" aria-label="anchor" href="#docker-recipe-file"></a>
 </h3>
 <p>Much like a cookbook, you can pull out recipes and alter to own
-taste. This is how you normally get started building your own image, you
-can start with a base repository, and layer requirements.</p>
+preference. This is how you normally get started building your own
+image, you can start with a base repository, i.e installation
+instructions for one or more software, and layer requirements, i.e code
+libraries.</p>
 <pre class="docker"><code>
 FROM bioconductor/bioconductor_docker:devel-R-4.4.1
 
@@ -7715,32 +7749,46 @@ COPY rsiena_1.4.19.tar.gz .
 RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source')"
 </code></pre>
 </div>
-<div class="section level3">
-<h3 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
-</h3>
-<pre class="nextflow.config"><code><span></span>
-<span><span class="va">docker.enabled</span> <span class="op">=</span> <span class="va">true</span></span></code></pre>
-</div>
-</div>
+<section><h2 class="section-heading" id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
+</h2>
+<hr class="half-width">
+<p>Within our workflow we can specify the container we want to use, as a
+matter of fact we can specify a container for different processes - the
+possibility is endless! Say for example you would like to write
+interoperable code and use Python for one part of your analysis and R
+for another part, this is possible by defining a different container for
+each process. Another option is to build one container with all the
+software (i.e R and Python) installed.</p>
+<p>Say we work with one container, but would like to make sure the
+pipeline is portable. In this case we work with profiles, which is
+another layer for customisation.</p>
+</section><section><h2 class="section-heading" id="containers-in-profile">Containers in Profile<a class="anchor" aria-label="anchor" href="#containers-in-profile"></a>
+</h2>
+<hr class="half-width">
 <p>Many container platforms are available, but Apptainer is designed for
 ease-of-use on shared systems and in high performance computing (HPC)
 environments. Nextflow can build an immutable image based off a Docker
 recipe file.</p>
-<div class="group">
 <div class="section level3">
 <h3 id="building-an-apptainer-image">Building an Apptainer Image<a class="anchor" aria-label="anchor" href="#building-an-apptainer-image"></a>
 </h3>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
 </div>
 </div>
 <div class="section level3">
 <h3 id="workflow-definition">Workflow Definition<a class="anchor" aria-label="anchor" href="#workflow-definition"></a>
 </h3>
 <p>Within our workflow, we can declare a process container, and ensure
-we enable apptainer.</p>
+we enable apptainer. Again we don’t want to hard code this decision as
+we’d like to keep options as flexible as possible. This is why we build
+a profile for each our compute environments, in this case for our local
+machine / GitHub codespace we have access to Docker. However, for our
+slurm profile, relevant to a computer cluster with Slurm workload
+manager, we opt for apptainer (former singularity), as docker is not
+available.</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -7759,42 +7807,22 @@ sub-folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<pre class="nextflow.config"><code><span><span class="va">process.container</span> <span class="op">=</span> <span class="st">'apptainer/omiridoue-siena_r-0.8.img'</span></span>
-<span></span>
-<span><span class="va">apptainer.cacheDir</span> <span class="op">=</span> <span class="st">"apptainer"</span></span>
-<span><span class="va">apptainer.enabled</span> <span class="op">=</span> <span class="va">true</span></span>
-<span></span>
-<span><span class="va">apptainer.autoMounts</span> <span class="op">=</span> <span class="va">true</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="declare">Declare<a class="anchor" aria-label="anchor" href="#declare"></a>
-</h3>
 <pre><code>profiles {
-  awsbatch {
-    includeConfig 'conf/awsbatch.config'
-  }
+
   local {
     includeConfig 'conf/local.config'
     process.container = 'omiridoue/siena_r:0.8'
-  }
-  sge {
-    includeConfig 'conf/sge.config'
   }
   slurm {
     includeConfig 'conf/slurm.config'
     process.executor = 'slurm'
     process.container = 'omiridoue/siena_r:0.8'
   }
-  ci {
-    includeConfig 'conf/ci.config'
-  }
 }</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div id="keypoints1" class="callout keypoints">
@@ -7817,7 +7845,13 @@ of workflows across environments.</li>
 </ul>
 </div>
 </div>
-</div></section><section id="aio-11"><p>Content from <a href="11.html">Resuming a Workflow</a></p>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</div>
+</section></section><section id="aio-11"><p>Content from <a href="11.html">Resuming a Workflow</a></p>
 <hr>
 <p>Last updated on 2025-05-06 |
 
