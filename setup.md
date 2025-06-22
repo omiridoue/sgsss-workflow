@@ -7,7 +7,7 @@ root: .
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-To follow along the practical component it is recommended use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so, once you open the material in GitHub Codespaces.
+To follow along the practical component it is recommended to use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so. 
 
 :::::::::::::::  solution
 
