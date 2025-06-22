@@ -32,6 +32,9 @@ To run the pipeline on a computer cluster you should first check specifics with 
 To do this we will swap our local profile to slurm, by specifying `-profile slurm` tag instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
 
 ```bash
+module load apps/miniforge
+module load apps/apptainer
+
 conda activate nf-env
 ```
 
