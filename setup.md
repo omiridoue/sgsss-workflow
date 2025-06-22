@@ -4,9 +4,14 @@ title: Setup
 root: .
 ---
 
-### Step 1: Set up Coding Environment
+
+:::::::::::::::::::::::::::::::::::::::  challenge
 
 To follow along the practical component it is recommended use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so, once you open the material in GitHub Codespaces.
+
+:::::::::::::::  solution
+
+## Step 1: Set up Coding Environment
 
 ::: group-tab
 
@@ -25,23 +30,28 @@ Alternatively, you can set up locally using VS Code
 
 :::
 
-### Step 2: Clear Template Content
+## Step 2: Clear Template Content
 
 ``` bash
-rm -rf *
+mkdir templates
 
+mv * templates/
 ```
 
-### Step 3: Download Material for Workshop
+## Step 3: Download Material for Workshop
 
 ``` bash
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
+cd sgsss-workflow
 ```
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-### GitHub Codespaces
+## GitHub Codespaces
 
 GitHub Codespaces is a cloud development environment for teams to develop software efficiently and securely. We use it as a training environment because it allows us to work in a consistent and thoroughly tested environment. It requires connection to Internet and can be accessed through your web browser.
 

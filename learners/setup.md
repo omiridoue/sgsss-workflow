@@ -1,182 +1,132 @@
 ---
+layout: page
 title: Setup
-permalink: /setup/
+root: .
 ---
- 
-## Setup
-
-A set of options are available to set up your and follow along the practical component:
-
-1. Running locally on your personal computer
-2. Running the exercises in your browser using a remote environment called Gitpod.
-
-## Running locally on your personal computer
 
 
-### Training directory
+The workshop offers an overview to Nextflow. Nextflow integrates various software package and environment management systems such as Docker, Singularity, and Conda. It allows for existing pipelines written in common scripting languages, such as R and Python, to be seamlessly coupled together. It simplifies the implementation and running of workflows on cloud or high-performance computing (HPC) infrastructure. 
 
-Each learner should setup a training folder e.g. `nf-training`
 
-```bash
-mkdir nf-training
-cd nf-training
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Set-up Material
+
+To follow along the practical component it is recommended use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so, once you open the material in GitHub Codespaces.
+
+:::::::::::::::  solution
+
+## Set-up Practical Material
+
+### Step 1: Set up Coding Environment
+
+::: group-tab
+
+### GitHub Codespaces
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+### Local Computer
+
+To set up locally you will need to follow the installation steps on [Nextflow Install page](https://www.nextflow.io/docs/stable/install.html). 
+
+### Local Container
+
+Alternatively, you can set up locally using VS Code
+[Devcontainer Nextflow](https://training.nextflow.io/latest/envsetup/03_devcontainer/#benefits-of-using-devcontainers).
+
+:::
+
+### Step 2: Clear Template Content
+
+``` bash
+mkdir templates
+
+mv * templates/
 ```
 
-There are three items that you need to download:
+### Step 3: Load Material for Workshop
 
+``` bash
+git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
-1. The training software.
-2. The training dataset.
-3. The workshop scripts.
-
-
-
-### Training software
-
-A list of software with version required for this training is listed below:
-
-|Software|Version|
-|--------|-------|
-|Nextflow|20.10.0|
-|nf-core/tools|1.12.1|
-|salmon|1.5|
-|fastqc|0.11|
-|multiqc|1.10|
-|python|3.8|
-
-#### conda
-
-The simplest way to install the software for this course is using conda.
-
-
-To install conda see [here](https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/setup/).
-
-An environment file is provided here [environment.yml](https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml)
-
-```bash
-# You can use either wget or curl to download content from the web via the command line.
-# wget
-wget https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml
-
-# curl 
-curl -L -o environment.yml https://raw.githubusercontent.com/carpentries-incubator/workflows-nextflow/main/episodes/data/environment.yml
+cd sgsss-workflow
 ```
+:::::::::::::::::::::::::
 
-To create the training environment run:
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-```bash
-conda env create -n nf-training -f environment.yml
-```
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-Then activate the environment by running
+## Online Learning Environment
 
-```bash
-conda activate nf-training
-```
+GitHub Codespaces is a cloud development environment for teams to develop software efficiently and securely. We use it as a training environment because it allows us to work in a consistent and thoroughly tested environment. It requires connection to Internet and can be accessed through your web browser.
 
-### Training scripts
+:::::::::::::::  solution
+
+##### Creating a GitHub account
+
+You can create a free GitHub account from the [GitHub home page](https://github.com/). You can upgrade your GitHub account to an Education account from the [GitHub Education home page](https://github.com/education) using your affiliate/student email. 
+
+##### Running GitHub Codespaces
+
+You can click on the button shown below from the many pages in the training portal where it is displayed.
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+Once you are logged in to GitHub, you can open this link in your browser to open the training environment: <https://codespaces.new/nextflow-io/training?quickstart=1&ref=master>.
+
+You should be presented with a page where you can create a new GitHub Codespace. You can click "Change options" to configure the machine used.
+
+Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
+
+**For the hands-on component, we recommend using a 4-core machine.**
+
+The free GitHub plan includes 120 core-hours of Codespaces compute per month, which amounts to 30 hours of a 4-core machine. Opening a new GitHub Codespaces environment for the first time can take several minutes. 
+
+##### Explore GitHub Codespaces
+
+After GitHub Codespaces has loaded, you should see the welcome page:
+
+![GitHub Codespaces welcome](episodes/fig/codespaces_welcome.png)
+
+This is the interface of the VSCode IDE, a popular code development application that we recommend using for Nextflow development.
+
+- **The sidebar** allows you to customize your GitHub Codespace environment and perform basic tasks (copy, paste, open files, search, git, etc.). You can click the explorer button to see which files are in this repository.
+- **The terminal** allows you to run all the programs in the repository. For example, both `nextflow` and `docker` are installed and can be executed.
+- **The file explorer** allows you to view and edit files. Clicking on a file in the explorer will open it within the main window.
+- **The main editor** showing you a preview of the `README.md` file. When you open code or data files, they will open there.
+
+##### Reopening a GitHub Codespaces session
+
+Once you have created an environment, you can easily resume or restart it and continue from where you left off.
+Your environment will time out after 30 minutes of inactivity and will save your changes for up to 2 weeks.
+
+You can reopen an environment from <https://github.com/codespaces/>.
+
+Previous environments will be listed. You can manage these sessions by freezing or removing previous sessions. For the moment you can click a session to resume it, just be mindful of your usage. If you have saved the URL for your previous GitHub Codespaces environment, you can simply open it in your browser.
+
+Alternatively, click the same button that you used to create it in the first place:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+You should see the previous session, the default option is to resume it:
+
+![Resume a GitHub Codespace](episodes/fig/codespaces_resume.png)
+
+##### Saving files from GitHub Codespaces to your local machine
+
+To save any file from the explorer panel, right-click the file and select `Download`.
+
+##### GitHub Codespaces quotas
+
+GitHub Codespaces gives you up to 15 GB-month storage per month, and 120 core-hours per month. This is equivalent to around 60 hours of the default environment runtime using the standard workspace (up to 2 cores, 8 GB RAM, and 32 GB storage).
+
+GitHub Codespaces environments are configurable. You can create them with more resources, but this will consume your free usage faster and you will have fewer hours of access to this space. 
+
+More information can be found in the GitHub docs:
+[About billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
 
 
-To aid in the delivery of the lesson, the scripts mentioned in each episode, can be found in the respective episode folders in the github repository.
-[https://github.com/carpentries-incubator/workflows-nextflow/tree/main/episodes/files/scripts](https://github.com/carpentries-incubator/workflows-nextflow/tree/gh-pages/files/scripts)
+:::::::::::::::::::::::::
 
-To get the scripts associated with each episode you will need to download the scripts folder from the github repository.
-
-Below is a series of commands to download and unpack scripts folder.
-
-```bash
-# get the gitrepo as a zip file
-wget https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip
-
-#or
-curl -L -o main.zip https://github.com//carpentries-incubator/workflows-nextflow/archive/main.zip
-
-# unzip the script file
-unzip main.zip 'workflows-nextflow-main/episodes/files/scripts*' -d  .
-
-# mv the scripts folder to the nf-training folder
-mv workflows-nextflow-main/episodes/files/scripts .
-
-# remove the zip file and the git repo
-rm -r workflows-nextflow-main main.zip
-```
-
-The nextflow scripts for each episode, can be found in the respective episode folders inside this the scripts folder.
-
-
-#### Data
-
-Inside the `nf-training` folder download the workshop dataset from Figshare, [https://figshare.com/articles/dataset/RNA-seq\_training\_dataset/14822481](https://figshare.com/articles/dataset/RNA-seq_training_dataset/14822481)
-
-```bash
-wget --content-disposition https://ndownloader.figshare.com/files/28531743
-
-# or curl
-curl -L -o  data.tar.gz https://ndownloader.figshare.com/files/28531743
-```
-
-Unpack gzipped tar file:
-
-```bash
-tar -xvf  data.tar.gz
-rm data.tar.gz
-```
-
-### Visual Studio Code editor setup
-
-Any text editor can be used to write Nextflow scripts. A recommended  code editor is [Visual Studio Code](https://code.visualstudio.com/).
-
-Go to [Visual Studio Code](https://code.visualstudio.com/) and you should see a download button. The button or buttons should be specific to your platform and the download package should be  installable.
-
-
-#### Nextflow language support in Visual Studio Code
-
-You can add Nextflow language support in Visual Studio Code by clicking the [install](https://marketplace.visualstudio.com/items?itemName=nextflow.nextflow) button on the Nextflow language extension.
-
-
-### Nextflow install without conda
-
-Nextflow can be used on any POSIX-compatible system (Linux, macOS, etc), and on Windows through WSL. It requires Bash 3.2 (or later) and Java 11 (or later, up to 22) to be installed
-
-### Nextflow installation
-
-Install the latest version of Nextflow copy \& pasting the following snippet in a terminal window:
-
-```bash
-# Make sure that Java v11 or later is installed:
-java -version
-
-# Install Nextflow
-curl -s https://get.nextflow.io | bash
-```
-
-### Add Nextflow binary to your user's PATH:
-
-```bash
-mv nextflow ~/bin/
-# OR system-wide installation:
-# sudo mv nextflow /usr/local/bin
-```
-
-Check the correct installation running the following command:
-
-```bash
-nextflow info
-```
-
-### nf-core/tools installation without conda
-
-#### Pip
-
-```bash
-pip install nf-core
-```
-
-## Running exercises remotely in your web-browser through Gitpod.
-
-Gitpod is a cloud-based computing environment that is accessed using your web-browser. You can click the button below to open up a Gitpod instance ready for training. This Gitpod environment comes
-with the tools necessary for the exercises already installed.
-You'll be presented with a VSCode-like interface in your browser,
-which has a file explorer panel on the left, a main panel in which
-to view and edit files, and a panel below that includes a terminal
-in which to run unix commands. 
+::::::::::::::::::::::::::::::::::::::::::::::::::
