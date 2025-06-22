@@ -306,8 +306,8 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#workflow">Workflow</a></li>
-<li><a href="#containers-in-profile">Containers in Profile</a></li>
+        <ul><li><a href="#containers-in-the-workflow">Containers in the workflow</a></li>
+<li><a href="#alternative-platforms-for-the-hpc">Alternative Platforms for the HPC</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -432,8 +432,6 @@
 <h3 id="browsing-docker-hub">Browsing Docker Hub<a class="anchor" aria-label="anchor" href="#browsing-docker-hub"></a></h3>
 <ul><li>The container image is updated regularly, the latest version should
 be available alongside previous versions.</li>
-<li>The container image associated with a well established company,
-community, or other group that is well-known.</li>
 <li>There is a Dockerfile or other listing of what has been installed to
 the container image.</li>
 <li>The container image page has documentation on how to use the
@@ -457,9 +455,44 @@ research computations.</p>
 <h3 id="docker-recipe-file">Docker Recipe File<a class="anchor" aria-label="anchor" href="#docker-recipe-file"></a></h3>
 <p>Much like a cookbook, you can pull out recipes and alter to own
 preference. This is how you normally get started building your own
-image, you can start with a base repository, i.e installation
-instructions for one or more software, and layer requirements, i.e code
-libraries.</p>
+image, you can start with a base repository.</p>
+<div id="docker-file-recipe" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="docker-file-recipe" class="callout-inner">
+<h3 class="callout-title">Docker file Recipe</h3>
+<div class="callout-content">
+<p>In this case we use a base image for R on a Linux machine, from
+bioconductor. We layer requirements, i.e code libraries.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>To do this we evaluate the command <code>install.packages()</code>
+using R. This is possible as we work within the docker container which
+has already installed R. We install packages directly from CRAN, in this
+case the recipe file could be improved on by requesting exact versions
+for packages.</p>
+<p>We also demonstrate installing RSiena version 1.4.19 from source
+code. Note as we build the container, we realise this is a
+self-contained enviroment and so need to manage file paths the same way
+we would with a folder that takes up its own space on our directory. To
+do this we copy the source code into the top level of our container and
+then use option
+<code>install.packages(...,repos = NULL, type= 'source')</code>. The
+next steps involve pushing the local container onto docker hub, under
+the name, <code>siena_r</code> and a version tag number. As this is an
+iterative process, the version tag number we are working with here
+follows the semi-colon <code>siena_r:0.8</code>. In some cases you may
+require a specific version of a container; however, the most recent
+version can also be requested with <code>siena_r:latest</code>.</p>
 <pre class="docker"><code>
 FROM bioconductor/bioconductor_docker:devel-R-4.4.1
 
@@ -470,7 +503,11 @@ COPY rsiena_1.4.19.tar.gz .
 RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source')"
 </code></pre>
 </div>
-<section><h2 class="section-heading" id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a></h2>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="containers-in-the-workflow">Containers in the workflow<a class="anchor" aria-label="anchor" href="#containers-in-the-workflow"></a></h2>
 <hr class="half-width"><p>Within our workflow we can specify the container we want to use, as a
 matter of fact we can specify a container for different processes - the
 possibility is endless! Say for example you would like to write
@@ -481,7 +518,7 @@ software (i.e R and Python) installed.</p>
 <p>Say we work with one container, but would like to make sure the
 pipeline is portable. In this case we work with profiles, which is
 another layer for customisation.</p>
-</section><section><h2 class="section-heading" id="containers-in-profile">Containers in Profile<a class="anchor" aria-label="anchor" href="#containers-in-profile"></a></h2>
+</section><section><h2 class="section-heading" id="alternative-platforms-for-the-hpc">Alternative Platforms for the HPC<a class="anchor" aria-label="anchor" href="#alternative-platforms-for-the-hpc"></a></h2>
 <hr class="half-width"><p>Many container platforms are available, but Apptainer is designed for
 ease-of-use on shared systems and in high performance computing (HPC)
 environments. Nextflow can build an immutable image based off a Docker
@@ -504,7 +541,7 @@ machine / GitHub codespace we have access to Docker. However, for our
 slurm profile, relevant to a computer cluster with Slurm workload
 manager, we opt for apptainer (former singularity), as docker is not
 available.</p>
-<div id="challenge1" class="callout challenge">
+<div id="challenge2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -517,12 +554,12 @@ sub-folder.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>profiles {
 

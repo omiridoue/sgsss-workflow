@@ -531,6 +531,24 @@ number of lines in a file. Create the file <code>word_count.nf</code> in
 the current directory using your favourite text editor and copy-paste
 the following code:</p>
 
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -594,6 +612,10 @@ the following code:</p>
 <span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="st">          """</span></span>
 <span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
 <p>This is a Nextflow script, which contains the following:</p>
 <ol style="list-style-type: decimal"><li>An optional interpreter directive (“Shebang”) line, specifying the
 location of the Nextflow interpreter.</li>
@@ -615,7 +637,7 @@ defines what the process does.</li>
 <code>input</code> to the variable <code>read</code>, and declares that
 it should be interpreted as a file path.</li>
 <li>An <code>output</code> definition block that uses the Linux/Unix
-standard output stream <code>stdout</code> from the script block.</li>
+standard output stream with file path from the script block.</li>
 <li>A script block that contains the bash commands
 <code>printf '${targz}\\t'</code> and <code>tar -xzf $targz</code>.</li>
 </ol></section><section><h2 class="section-heading" id="running-nextflow-scripts">Running Nextflow scripts<a class="anchor" aria-label="anchor" href="#running-nextflow-scripts"></a></h2>
@@ -638,12 +660,12 @@ terminal:</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">

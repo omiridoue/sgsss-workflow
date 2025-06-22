@@ -537,23 +537,43 @@ the following code:</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
-should copy the script into the current directory.</p>
-<p>For example, to copy the script for this lesson episode, run the
-following command:</p>
+should enter this folder by chanding directory. Your terminal will
+display your relative folder path, check your terminal</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">cp</span> sgsss-workflow/workflow/data/<span class="pp">*</span> .</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">cp</span> sgsss-workflow/introduction/read_data.nf .</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">training/sgsss-workflow</span> <span class="at">-</span><span class="op">&gt;</span> </span></code></pre>
+</div>
+<p>Hint: Use the <code>cd</code> command to change directory followed by
+the folder name or relative path you want to navigate to, ex.
+<code>cd sgsss-workflow</code>. If you want to go back to the top level
+of the training directory you can type <code>cd ..</code>.</p>
 </div>
 </div>
 </div>
 </div>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
 </div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -617,6 +637,10 @@ following command:</p>
 <span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="st">          """</span></span>
 <span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
 <p>This is a Nextflow script, which contains the following:</p>
 <ol style="list-style-type: decimal"><li>An optional interpreter directive (“Shebang”) line, specifying the
 location of the Nextflow interpreter.</li>
@@ -638,7 +662,7 @@ defines what the process does.</li>
 <code>input</code> to the variable <code>read</code>, and declares that
 it should be interpreted as a file path.</li>
 <li>An <code>output</code> definition block that uses the Linux/Unix
-standard output stream <code>stdout</code> from the script block.</li>
+standard output stream with file path from the script block.</li>
 <li>A script block that contains the bash commands
 <code>printf '${targz}\\t'</code> and <code>tar -xzf $targz</code>.</li>
 </ol></section><section><h2 class="section-heading" id="running-nextflow-scripts">Running Nextflow scripts<a class="anchor" aria-label="anchor" href="#running-nextflow-scripts"></a></h2>
@@ -661,12 +685,12 @@ terminal:</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
