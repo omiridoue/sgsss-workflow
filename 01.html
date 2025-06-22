@@ -471,15 +471,15 @@ bioconductor. We layer requirements, i.e code libraries.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To do this we evaluate the command <code>install.packages()</code>
 using R. This is possible as we work within the docker container which
 has already installed R. We install packages directly from CRAN, in this
 case the recipe file could be improved on by requesting exact versions
 for packages.</p>
-<p>We also demonstrate installing RSiena version 1.4.19 from source
-code. Note as we build the container, we realise this is a
+<p>We also demonstrate installing RSiena version <code>1.4.19</code>
+from source code. Note as we build the container, we realise this is a
 self-contained enviroment and so need to manage file paths the same way
 we would with a folder that takes up its own space on our directory. To
 do this we copy the source code into the top level of our container and
@@ -557,7 +557,7 @@ sub-folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>profiles {
 

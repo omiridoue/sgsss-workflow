@@ -232,6 +232,7 @@
 <li><a href="#your-first-script">Your first script</a></li>
 <li><a href="#running-nextflow-scripts">Running Nextflow scripts</a></li>
 <li><a href="#quick-recap">Quick recap</a></li>
+<li><a href="#specifying-an-output-directory-in-the-script">Specifying an output directory in the script</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -445,24 +446,6 @@ more complex, the management of the programming logic and software
 becomes difficult. <em>Workflow Management Systems</em> have been
 developed specifically to manage computational data-analysis
 workflows.</p>
-<div id="discussion1" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Discussion</h3>
-<div class="callout-content">
-<p>These systems contain multiple features that simplify the
-development, monitoring, execution and sharing of pipelines, such
-as:</p>
-<ul><li>Run time management</li>
-<li>Software management</li>
-<li>Portability &amp; Interoperability</li>
-<li>Reproducibility</li>
-<li>Re-entrancy</li>
-</ul></div>
-</div>
-</div>
 </section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a></h2>
 <hr class="half-width"><ul><li><p><strong>Reproducibility</strong>: Nextflow supports several
 container technologies, such as <a href="https://www.docker.com/" class="external-link">Docker</a> and <a href="https://sylabs.io/singularity" class="external-link">Singularity</a>, as well as the
@@ -527,10 +510,8 @@ can be defined, and the choice is left to the user, a full list can be
 found <a href="https://www.nextflow.io/docs/latest/executor.html" class="external-link">here</a>.</p>
 </section><section><h2 class="section-heading" id="your-first-script">Your first script<a class="anchor" aria-label="anchor" href="#your-first-script"></a></h2>
 <hr class="half-width"><p>We are now going to look at a sample Nextflow script that counts the
-number of lines in a file. Create the file <code>word_count.nf</code> in
-the current directory using your favourite text editor and copy-paste
-the following code:</p>
-
+number of lines in a file. Create the file
+<code>02_hello_nextflow.nf</code> in the current directory.</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -538,7 +519,19 @@ the following code:</p>
 <div class="callout-inner">
 <h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
-
+<p>The nextflow scripts for each lesson episode are available in the
+<code>scripts</code> directory created during the course setup. You
+should enter this folder by chanding directory. Your terminal will
+display your relative folder path, check your terminal</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">training/sgsss-workflow</span> <span class="at">-</span><span class="op">&gt;</span> </span></code></pre>
+</div>
+<p>Hint: Use the <code>cd</code> command to change directory followed by
+the folder name or relative path you want to navigate to, ex.
+<code>cd sgsss-workflow</code>. If you want to go back to the top level
+of the training directory you can type <code>cd ..</code>.</p>
 </div>
 </div>
 </div>
@@ -663,7 +656,7 @@ terminal:</p>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+  <h4 class="accordion-header" id="headingSolution2"> Output </h4>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
@@ -706,7 +699,97 @@ inputs and outputs, and <em>processes</em> for defining workflow
 tasks.</li>
 <li>You run a Nextflow script using the <code>nextflow run</code>
 command.</li>
-</ul><div id="keypoints1" class="callout keypoints">
+</ul></section><section><h2 class="section-heading" id="specifying-an-output-directory-in-the-script">Specifying an output directory in the script<a class="anchor" aria-label="anchor" href="#specifying-an-output-directory-in-the-script"></a></h2>
+<hr class="half-width"><p>To specify an output directory for a script use the parameter
+<code>publishDir</code> in the definition of a process.</p>
+<div id="change-a-pipelines-output-directory" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="change-a-pipelines-output-directory" class="callout-inner">
+<h3 class="callout-title">Change a pipeline’s output directory</h3>
+<div class="callout-content">
+<p>Let’s make a copy of the <code>02_hello_nextflow.nf</code> script as
+<code>read_data_params.nf</code> and add specify the output directory,
+where we want Nextflow to store data files that were the result of
+decompressing the <code>tar</code> archive folder.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">cp</span> read_data.nf read_data_params.nf</span></code></pre>
+</div>
+<p>The files that are extracted from the archive are stored in the
+folder <code>work</code> that tracks the different tasks that are
+launched as part of the pipeline. If we want a local copy of files that
+are decompressed we can add an output directory in the
+<code>read_data_params.nf</code>:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span></code></pre>
+</div>
+<p><strong>Note:</strong> You should always add a sensible default value
+to the pipeline parameter.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  input<span class="op">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>          path targz</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  output<span class="op">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>          path <span class="st">"*"</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  script<span class="op">:</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>          <span class="st">"""</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="st">          # Print file name</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="st">          """</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Add the output directory <code>"$projectDir/tmp"</code> in place of
+the <code>publishDir</code> specification. Replace the
+<code>"$projectDir"</code> in the process <code>GENERATE_READS</code>
+with <code>"$projectDir/tmp"</code>.</p>
+<p>What output folder would it specify and why?</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/tmp"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+<p>This step, <code>publishDir "$projectDir"</code>, will add a
+directory to output the decompressed files. The set of options that can
+be specified are listed in the <a href="https://www.nextflow.io/docs/latest/reference/stdlib.html" class="external-link">Nextflow
+documentation</a>. To access the value inside the process definition we
+use <code>$parameter</code> syntax e.g. <code>$projectDir</code>.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
