@@ -50,11 +50,11 @@ The course material for the half day course can be found in the [sgsss-workflow]
  
 ### Materials
 
-For the practical we will access: 
+This workshop makes use of an online teaching and learning space. This online environment involves using the GitHub Codespaces training environment:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
-The training materials can be found in the following folders:
+The material and supporting resources can be found in the following folders:
 * [set-up](https://omiridoue.github.io/sgsss-workflow/) - Instructions to set up the material for the workshop.
 * [code](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts) - Files for the guided practical material on building a workflow.
 * [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
