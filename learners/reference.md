@@ -148,10 +148,4 @@ description of Groovy semantics can be found in the [Groovy Documentation](https
 - Here's some details on a nextflow issue relating to cancelling pipelines that are running. [Ability to stop running pipeline](https://github.com/nextflow-io/nextflow/issues/1441).
 - [Groovy Documentation](https://groovy-lang.org/documentation.html)
 
-### Papers
-
-- [Using prototyping to choose a bioinformatics workflow management system](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008622)
-
-
-
 
