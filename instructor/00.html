@@ -206,21 +206,12 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         1. Introduction
         </span>
-      </button>
+      
     </div><!--/div.accordion-header-->
-
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
-      <div class="accordion-body">
-        <ul><li><a href="#fair-principles">FAIR principles</a></li>
-<li><a href="#file-naming">File Naming</a></li>
-<li><a href="#adapting-a-workflow">Adapting a Workflow</a></li>
-        </ul></div><!--/div.accordion-body-->
-    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -391,7 +382,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction</h1>
-        <p>Last updated on 2025-06-22 |
+        <p>Last updated on 2025-06-23 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/00.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -431,31 +422,32 @@ software</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="fair-principles">FAIR principles<a class="anchor" aria-label="anchor" href="#fair-principles"></a></h2>
-<hr class="half-width"><p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
+<div class="section level3">
+<h3 id="fair-principles">FAIR principles<a class="anchor" aria-label="anchor" href="#fair-principles"></a></h3>
+<p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
 comprises a set of principles designed to increase the visibility and
 usefulness of your research to others. FAIR principles have been applied
 for software, here is a brief concept translation:</p>
-<div class="section level3">
-<h3 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a></h3>
+<div class="section level4">
+<h4 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a></h4>
 <ul><li>Create a description of your software to make it discoverable by
 search engines and other search tools</li>
 <li>Use a unique and persistent identifier (DOI) for your software
 (e.g. by depositing your code on Zenodo, OSF, GitHub)</li>
 </ul></div>
-<div class="section level3">
-<h3 id="accessible">Accessible<a class="anchor" aria-label="anchor" href="#accessible"></a></h3>
+<div class="section level4">
+<h4 id="accessible">Accessible<a class="anchor" aria-label="anchor" href="#accessible"></a></h4>
 <ul><li>The code and its description (metadata) has to be available even
 when the software is no longer actively developed (this includes earlier
 versions of the software)</li>
 </ul></div>
-<div class="section level3">
-<h3 id="interoperable">Interoperable<a class="anchor" aria-label="anchor" href="#interoperable"></a></h3>
+<div class="section level4">
+<h4 id="interoperable">Interoperable<a class="anchor" aria-label="anchor" href="#interoperable"></a></h4>
 <ul><li>Use community-agreed standard formats for inputs and outputs of your
 software and its metadata</li>
 </ul></div>
-<div class="section level3">
-<h3 id="reusable">Reusable<a class="anchor" aria-label="anchor" href="#reusable"></a></h3>
+<div class="section level4">
+<h4 id="reusable">Reusable<a class="anchor" aria-label="anchor" href="#reusable"></a></h4>
 <ul><li>Document your software (including its functionality, how to install
 and run it) so it is both usable (can be executed) and reusable (can be
 understood, modified, built upon, or incorporated into other
@@ -475,8 +467,10 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 </p>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a></h2>
-<hr class="half-width"><p>There is no single way to manage file naming, but consistency is key.
+</div>
+<div class="section level3">
+<h3 id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a></h3>
+<p>There is no single way to manage file naming, but consistency is key.
 Here’s a couple of options, and ways you can combine approaches:</p>
 <table class="table"><thead><tr class="header"><th>Case Convention</th>
 <th>Example</th>
@@ -530,7 +524,7 @@ make these more clear/functional.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <table class="table"><colgroup><col width="40%"><col width="59%"></colgroup><thead><tr class="header"><th>🔨 Needs Edits</th>
 <th>✔️ Suggestion</th>
@@ -544,8 +538,8 @@ make these more clear/functional.</p>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="works-well-with-default-ordering">Works well with default ordering<a class="anchor" aria-label="anchor" href="#works-well-with-default-ordering"></a></h3>
+<div class="section level4">
+<h4 id="default-ordering">Default ordering<a class="anchor" aria-label="anchor" href="#default-ordering"></a></h4>
 <p>To create a default ordering, we can add a number or date at the
 beginning of file names. This keeps our files sorted in ascending order
 based on file versions or in chronological order. If your file name
@@ -561,8 +555,8 @@ need to use a date then file names can start with
 recommend using something like the <a href="https://en.wikipedia.org/wiki/ISO_8601" class="external-link">ISO 8601 standard:
 YYYY-MM-DD</a> for dates.</p>
 </div>
-<div class="section level3">
-<h3 id="file-naming-in-your-workflow">File Naming in your workflow<a class="anchor" aria-label="anchor" href="#file-naming-in-your-workflow"></a></h3>
+<div class="section level4">
+<h4 id="dynamically-generated">Dynamically generated<a class="anchor" aria-label="anchor" href="#dynamically-generated"></a></h4>
 <p>Output in multiple forms can be generated as part of running a
 computational pipeline. Result files can contain a key identifier or
 label, depending on your unit of analysis. Workflow managers offer
@@ -575,8 +569,10 @@ like <code>paste0()</code> in <em>R statistical software</em>. This way
 we can concatenate literal words or values with ones that depend on the
 input flowing into a process.</p>
 </div>
-</section><section><h2 class="section-heading" id="adapting-a-workflow">Adapting a Workflow<a class="anchor" aria-label="anchor" href="#adapting-a-workflow"></a></h2>
-<hr class="half-width"><p>A repository (or a “repo”) is a storage location for your research
+</div>
+<div class="section level3">
+<h3 id="adapting-a-workflow">Adapting a Workflow<a class="anchor" aria-label="anchor" href="#adapting-a-workflow"></a></h3>
+<p>A repository (or a “repo”) is a storage location for your research
 project. A repository can contain a range of digital objects and can be
 used to store your project by using online platforms such as GitHub. The
 aim of a repository is to organise your project in such a way that is
@@ -585,8 +581,8 @@ both accessible to others and efficient to use.</p>
 setting up a project repository. If you are following along, navigate to
 <a href="https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate" class="external-link">repo-boilerplate</a>,
 this should contain the following files:</p>
-<div class="section level3">
-<h3 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a></h3>
+<div class="section level4">
+<h4 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a></h4>
 <p>A good way to map the organisation of folders within your directory
 is using a file tree.</p>
 <div id="repo-boilerplate" class="callout challenge">
@@ -623,7 +619,7 @@ should have, you can download the template for the folder here:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <figure><img src="../fig/repo-boilerplate.png" alt="Workflow manager template folder build your own workflow" class="figure mx-auto d-block"><div class="figcaption">Workflow manager template folder build your own
 workflow</div>
@@ -639,8 +635,8 @@ workflow</div>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="curated-examples-of-github-repositories">Curated Examples of GitHub Repositories<a class="anchor" aria-label="anchor" href="#curated-examples-of-github-repositories"></a></h3>
+<div class="section level4">
+<h4 id="example-repositories">Example repositories<a class="anchor" aria-label="anchor" href="#example-repositories"></a></h4>
 <ul><li><a href="https://github.com/nextflow-io/nextflow" class="external-link">Nextflow
 repository</a></li>
 </ul><div id="keypoints1" class="callout keypoints">
@@ -670,7 +666,11 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </div>
-</section></div> <!-- / div.lesson-content -->
+</div>
+
+
+
+      </div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/02.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
@@ -728,7 +728,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/00.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/00.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-22",
+  "dateModified": "2025-06-23",
   "datePublished": "2025-06-23"
 }
 

@@ -215,26 +215,12 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         2. Hello Nextflow
         </span>
-      </button>
+      
     </div><!--/div.accordion-header-->
-
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
-      <div class="accordion-body">
-        <ul><li><a href="#workflows">Workflows</a></li>
-<li><a href="#workflow-management-systems">Workflow management systems</a></li>
-<li><a href="#processes-channels-and-workflows">Processes, channels, and workflows</a></li>
-<li><a href="#workflow-implementation">Workflow implementation</a></li>
-<li><a href="#your-first-script">Your first script</a></li>
-<li><a href="#running-nextflow-scripts">Running Nextflow scripts</a></li>
-<li><a href="#quick-recap">Quick recap</a></li>
-<li><a href="#specifying-an-output-directory-in-the-script">Specifying an output directory in the script</a></li>
-        </ul></div><!--/div.accordion-body-->
-    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -438,8 +424,9 @@
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="workflows">Workflows<a class="anchor" aria-label="anchor" href="#workflows"></a></h2>
-<hr class="half-width"><p>Analysing data involves a sequence of tasks, including gathering,
+<div class="section level3">
+<h3 id="workflows">Workflows<a class="anchor" aria-label="anchor" href="#workflows"></a></h3>
+<p>Analysing data involves a sequence of tasks, including gathering,
 cleaning, processing data. This sequence of tasks is called a workflow
 or a pipeline. These workflows typically require using multiple software
 packages, sometimes running on different computing environments, such as
@@ -448,8 +435,10 @@ more complex, the management of the programming logic and software
 becomes difficult. <em>Workflow Management Systems</em> have been
 developed specifically to manage computational data-analysis
 workflows.</p>
-</section><section><h2 class="section-heading" id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a></h2>
-<hr class="half-width"><ul><li><p><strong>Reproducibility</strong>: Nextflow supports several
+</div>
+<div class="section level3">
+<h3 id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a></h3>
+<ul><li><p><strong>Reproducibility</strong>: Nextflow supports several
 container technologies, such as <a href="https://www.docker.com/" class="external-link">Docker</a> and <a href="https://sylabs.io/singularity" class="external-link">Singularity</a>, as well as the
 package manager <a href="https://docs.conda.io" class="external-link">Conda</a>. This, along
 with the integration of the <a href="https://www.github.com" class="external-link">GitHub</a>
@@ -470,8 +459,10 @@ the intermediate results produced during the pipeline execution are
 automatically tracked. This allows you to resume its execution from the
 last successfully executed step, no matter what the reason was for it
 stopping.</p></li>
-</ul></section><section><h2 class="section-heading" id="processes-channels-and-workflows">Processes, channels, and workflows<a class="anchor" aria-label="anchor" href="#processes-channels-and-workflows"></a></h2>
-<hr class="half-width"><p>Nextflow workflows have three main parts: <em>processes</em>,
+</ul></div>
+<div class="section level3">
+<h3 id="processes-channels-and-workflows">Processes, channels, and workflows<a class="anchor" aria-label="anchor" href="#processes-channels-and-workflows"></a></h3>
+<p>Nextflow workflows have three main parts: <em>processes</em>,
 <em>channels</em>, and <em>workflows</em>.</p>
 <ul><li><p><em>Processes</em> describe a task to be run. A process script
 can be written in any scripting language that can be executed by the
@@ -492,8 +483,10 @@ input. Since the channel has three elements, three independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
 next process.</p>
-</section><section><h2 class="section-heading" id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h2>
-<hr class="half-width"><p>While a <code>process</code> defines what command or script has to be
+</div>
+<div class="section level3">
+<h3 id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h3>
+<p>While a <code>process</code> defines what command or script has to be
 executed, the <code>executor</code> determines how that script is
 actually run in the target system. If not otherwise specified, processes
 are executed on the local computer. The local executor is very useful
@@ -510,17 +503,19 @@ cluster, or the cloud, without modifying the workflow, by defining the
 target platform in a configuration file. Note multiple configurations
 can be defined, and the choice is left to the user, a full list can be
 found <a href="https://www.nextflow.io/docs/latest/executor.html" class="external-link">here</a>.</p>
-</section><section><h2 class="section-heading" id="your-first-script">Your first script<a class="anchor" aria-label="anchor" href="#your-first-script"></a></h2>
-<hr class="half-width"><p>We are now going to look at a sample Nextflow script that extracts a
+</div>
+<div class="section level3">
+<h3 id="your-first-script">Your first script<a class="anchor" aria-label="anchor" href="#your-first-script"></a></h3>
+<p>We are now going to look at a sample Nextflow script that extracts a
 folder with data files. First step involves navigating to the relevant
 script, <code>02_hello_nextflow.nf</code> in the current directory. The
 instructions to set up the code material are listed under <a href="https://omiridoue.github.io/sgsss-workflow/index.html" class="external-link">setup</a>.</p>
-<div id="hello-nextflow" class="callout challenge">
+<div id="task-2.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="hello-nextflow" class="callout-inner">
-<h3 class="callout-title">Hello Nextflow</h3>
+<div id="task-2.1" class="callout-inner">
+<h3 class="callout-title">Task 2.1</h3>
 <div class="callout-content">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -543,7 +538,7 @@ of the training directory you can type <code>cd ..</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -636,15 +631,17 @@ it should be interpreted as a file path.</li>
 standard output stream with file path from the script block.</li>
 <li>A script block that contains the bash commands
 <code>printf '${targz}\\t'</code> and <code>tar -xzf $targz</code>.</li>
-</ol></section><section><h2 class="section-heading" id="running-nextflow-scripts">Running Nextflow scripts<a class="anchor" aria-label="anchor" href="#running-nextflow-scripts"></a></h2>
-<hr class="half-width"><p>To run a Nextflow script use the command
+</ol></div>
+<div class="section level3">
+<h3 id="running-nextflow-scripts">Running Nextflow scripts<a class="anchor" aria-label="anchor" href="#running-nextflow-scripts"></a></h3>
+<p>To run a Nextflow script use the command
 <code>nextflow run &lt;script_name&gt;</code>.</p>
-<div id="run-a-nextflow-script" class="callout challenge">
+<div id="task-2.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="run-a-nextflow-script" class="callout-inner">
-<h3 class="callout-title">Run a Nextflow script</h3>
+<div id="task-2.2" class="callout-inner">
+<h3 class="callout-title">Task 2.2</h3>
 <div class="callout-content">
 <p>Run the script by entering the following command in your
 terminal:</p>
@@ -661,7 +658,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Output </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -692,8 +689,10 @@ operator.</li>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="quick-recap">Quick recap<a class="anchor" aria-label="anchor" href="#quick-recap"></a></h2>
-<hr class="half-width"><ul><li>A workflow is a sequence of tasks that process a set of data, and a
+</div>
+<div class="section level3">
+<h3 id="quick-recap">Quick recap<a class="anchor" aria-label="anchor" href="#quick-recap"></a></h3>
+<ul><li>A workflow is a sequence of tasks that process a set of data, and a
 workflow management system (WfMS) is a computational platform that
 provides an infrastructure for the set-up, execution and monitoring of
 workflows.</li>
@@ -702,20 +701,22 @@ inputs and outputs, and <em>processes</em> for defining workflow
 tasks.</li>
 <li>You run a Nextflow script using the <code>nextflow run</code>
 command.</li>
-</ul></section><section><h2 class="section-heading" id="specifying-an-output-directory-in-the-script">Specifying an output directory in the script<a class="anchor" aria-label="anchor" href="#specifying-an-output-directory-in-the-script"></a></h2>
-<hr class="half-width"><p>To specify an output directory for a script use the parameter
+</ul></div>
+<div class="section level3">
+<h3 id="specifying-an-output-directory-in-the-script">Specifying an output directory in the script<a class="anchor" aria-label="anchor" href="#specifying-an-output-directory-in-the-script"></a></h3>
+<p>To specify an output directory for a script use the parameter
 <code>publishDir</code> in the definition of a process.</p>
-<div id="change-a-pipelines-output-directory" class="callout challenge">
+<div id="task-2.3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="change-a-pipelines-output-directory" class="callout-inner">
-<h3 class="callout-title">Change a pipeline’s output directory</h3>
+<div id="task-2.3" class="callout-inner">
+<h3 class="callout-title">Task 2.3</h3>
 <div class="callout-content">
-<p>Let’s make a copy of the <code>02_hello_nextflow.nf</code> script as
-<code>read_data_params.nf</code> and add specify the output directory,
-where we want Nextflow to store data files that were the result of
-decompressing the <code>tar</code> archive folder.</p>
+<p>Let’s edit the <code>02_hello_nextflow.nf</code> script and add
+specify the output directory, where we want Nextflow to store data files
+that were the result of decompressing the <code>tar</code> archive
+folder.</p>
 </div>
 </div>
 </div>
@@ -724,7 +725,7 @@ decompressing the <code>tar</code> archive folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -734,8 +735,8 @@ decompressing the <code>tar</code> archive folder.</p>
 <p>The files that are extracted from the archive are stored in the
 folder <code>work</code> that tracks the different tasks that are
 launched as part of the pipeline. If we want a local copy of files that
-are decompressed we can add an output directory in the
-<code>read_data_params.nf</code>:</p>
+are decompressed we can add an output directory with the following
+code:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -804,7 +805,11 @@ command.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></div> <!-- / div.lesson-content -->
+</div>
+
+
+
+      </div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/00.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/03.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>

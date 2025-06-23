@@ -487,7 +487,7 @@ content is not consumed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>A queue channels is used to store multiple values.</li>
 <li>A value channel is used to store a single value, this can be a list
@@ -505,7 +505,7 @@ if you have set up on your local computer.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Navigate to the nextflow script called to <code>04_channels.nf</code>
 for the following examples. Explain that as you are just setting up
@@ -621,7 +621,7 @@ operator. How many lines does the queue and value channel print?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -651,10 +651,11 @@ or file names.</p>
 sub directories. This syntax is generally used for matching complete
 paths.</li>
 <li>Braces <code>{}</code> specify a collection of subpatterns. For
-example: <code>{bam,bai}</code> matches “bam” or “bai”</li>
-</ul><p>For example the script below uses the <code>*.fq.gz</code> pattern to
-create a queue channel that contains as many items as there are files
-with <code>.fq.gz</code> extension in the <code>data/yeast/reads</code>
+example: <code>{period1,period2}</code> matches “period1” or
+“period2”</li>
+</ul><p>For example the script below uses the <code>*.tar.gz</code> pattern
+to create a queue channel that contains as many items as there are files
+with <code>.tar.gz</code> extension in the <code>data/</code>
 folder.</p>
 <p><strong>Note</strong> The pattern must contain at least a star
 wildcard character.</p>
@@ -724,7 +725,7 @@ workflow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Channel Definition </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -926,12 +927,10 @@ covered in the operator episode.</p>
 <div id="create-a-channel-containing-groups-of-files" class="callout-inner">
 <h3 class="callout-title">Create a channel containing groups of files</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Create a Nextflow script file <code>channel_fromFilePairs.nf</code>
-.</li>
-<li>Use the <code>fromFilePairs</code> method to create a channel
-containing three tuples. Each tuple will contain the pairs of fastq
-reads for the three temp33 samples in the <code>data/yeast/reads</code>
-directory</li>
+<ol style="list-style-type: decimal"><li>Use the <code>fromFilePairs</code> method to create a channel
+containing four tuples. Each tuple will contain the pairs of data reads
+for the four schools with synthetic data in the <code>data/</code>
+directory.</li>
 </ol></div>
 </div>
 </div>
@@ -940,7 +939,7 @@ directory</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
