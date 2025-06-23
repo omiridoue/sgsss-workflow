@@ -34,11 +34,11 @@ The training is based off [carpentries incubator](https://carpentries-incubator.
 - [x] Discuss ways to implement own research directory.
 - [x] Explore links to the wider network for computational researchers across Scotland.
 
-## 🗺️ Skills
+## 🗺️ Intended learning outcomes
 
-- [x] Ability to design and execute research projects from data to report
-- [x] Navigate reproducible, efficient, and communicable code via GitHub
 - [x] Connecting with researchers in your field
+- [x] Ability to design and implement research projects from data to report
+- [x] Navigate reproducible, efficient, and communicable code via GitHub
 
 ## Synthetic Data 
 
