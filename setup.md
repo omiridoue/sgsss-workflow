@@ -7,9 +7,12 @@ root: .
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
+## Set-up
+
 To follow along the practical component it is recommended to use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so. 
 
 :::::::::::::::  solution
+## Set up Environment
 
 ## Step 1: Set up Coding Environment
 
