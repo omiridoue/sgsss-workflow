@@ -307,6 +307,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#docker-hub">Docker Hub</a></li>
+<li><a href="#git">Git</a></li>
 <li><a href="#containers-in-the-workflow">Containers in the workflow</a></li>
 <li><a href="#alternative-platforms-for-the-hpc">Alternative Platforms for the HPC</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -465,12 +466,12 @@ research computations.</p>
 <p>Much like a cookbook, you can pull out recipes and alter to own
 preference. This is how you normally get started building your own
 image, you can start with a base repository.</p>
-<div id="docker-file-recipe" class="callout challenge">
+<div id="task-12.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="docker-file-recipe" class="callout-inner">
-<h3 class="callout-title">Docker file Recipe</h3>
+<div id="task-12.1" class="callout-inner">
+<h3 class="callout-title">Task 12.1</h3>
 <div class="callout-content">
 <p>In this case we use a base image for R on a Linux machine, from
 bioconductor. We layer requirements, i.e code libraries.</p>
@@ -482,7 +483,7 @@ bioconductor. We layer requirements, i.e code libraries.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To do this we evaluate the command <code>install.packages()</code>
 using R. This is possible as we work within the docker container which
@@ -516,6 +517,36 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 </div>
 </div>
 </div>
+</section><section><h2 class="section-heading" id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h2>
+<hr class="half-width"><div id="task-12.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-12.2" class="callout-inner">
+<h3 class="callout-title">Task 12.2</h3>
+<div class="callout-content">
+<figure><img src="fig/version-control.svg" alt="Arrows indicate users making changes and synchronizing their work with the repository." class="figure mx-auto d-block"><div class="figcaption">Arrows indicate users making changes and
+synchronizing their work with the repository.</div>
+</figure></div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> ready-set-workflow <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="containers-in-the-workflow">Containers in the workflow<a class="anchor" aria-label="anchor" href="#containers-in-the-workflow"></a></h2>
 <hr class="half-width"><p>Within our workflow we can specify the container we want to use, as a
 matter of fact we can specify a container for different processes - the
@@ -534,10 +565,10 @@ environments. Nextflow can build an immutable image based off a Docker
 recipe file.</p>
 <div class="section level3">
 <h3 id="building-an-apptainer-image">Building an Apptainer Image<a class="anchor" aria-label="anchor" href="#building-an-apptainer-image"></a></h3>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -550,12 +581,12 @@ machine / GitHub codespace we have access to Docker. However, for our
 slurm profile, relevant to a computer cluster with Slurm workload
 manager, we opt for apptainer (former singularity), as docker is not
 available.</p>
-<div id="challenge2" class="callout challenge">
+<div id="task-12.3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="task-12.3" class="callout-inner">
+<h3 class="callout-title">Task 12.3</h3>
 <div class="callout-content">
 <p>We can declare a different config file for different compute
 environments, or profiles. These profiles are stored under the conf
@@ -563,12 +594,12 @@ sub-folder.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <pre><code>profiles {
 
