@@ -457,7 +457,7 @@ tasks that can be run at the same time (parallelisation).</p></li>
 <li><p><strong>Continuous checkpoints &amp; re-entrancy</strong>: All
 the intermediate results produced during the pipeline execution are
 automatically tracked. This allows you to resume its execution from the
-last successfully executed step, no matter what the reason was for it
+last successfully implemented step, no matter what the reason was for it
 stopping.</p></li>
 </ul></div>
 <div class="section level3">
@@ -465,9 +465,9 @@ stopping.</p></li>
 <p>Nextflow workflows have three main parts: <em>processes</em>,
 <em>channels</em>, and <em>workflows</em>.</p>
 <ul><li><p><em>Processes</em> describe a task to be run. A process script
-can be written in any scripting language that can be executed by the
+can be written in any scripting language that can be implemented by the
 Linux platform (Bash, Perl, Ruby, Python, R, etc.). Processes spawn a
-task for each complete input set. Each task is executed independently
+task for each complete input set. Each task is implemented independently
 and cannot interact with other tasks. The only way data can be passed
 between process tasks is via asynchronous queues, called
 <em>channels</em>.</p></li>
@@ -487,14 +487,14 @@ next process.</p>
 <div class="section level3">
 <h3 id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h3>
 <p>While a <code>process</code> defines what command or script has to be
-executed, the <code>executor</code> determines how that script is
-actually run in the target system. If not otherwise specified, processes
-are executed on the local computer. The local executor is very useful
-for pipeline development, testing, and small-scale workflows, but for
-large-scale computational pipelines, a High Performance Cluster (HPC) or
-Cloud platform is often required.</p>
+implemented, the <code>runtime profile</code> determines how that script
+is actually run in the target system. If not otherwise specified,
+processes are implemented on the local computer. The local runtime
+profile is very useful for pipeline development, testing, and
+small-scale workflows, but for large-scale computational pipelines, a
+High Performance Cluster (HPC) or Cloud platform is often required.</p>
 <p align="center">
-<img src="fig/executor.png" alt="Diagram of a computational process within a bioinformatics workflow. The image features a large, central, rounded rectangle labeled 'process' with a smaller rectangle inside it labeled 'script', indicating the code or commands that are being executed. Above the script box, there is a smaller inset labeled 'Executors' with three icons: a desktop computer labeled 'Local', a stack of servers labeled 'High Performance Compute Cluster', and a cloud symbol labeled 'Cloud Compute'. These represent the different computing environments where the script can be executed. To the left of the process box is a green left-pointing arrowhead, suggesting input into the process, and to the right is a yellow right-pointing arrowhead, indicating the direction of output from the process." width="350" class="figure"><br><em>Nextflow Executors</em>
+<img src="fig/executor.png" alt="Diagram of a computational process within a bioinformatics workflow. The image features a large, central, rounded rectangle labeled 'process' with a smaller rectangle inside it labeled 'script', indicating the code or commands that are being implemented. Above the script box, there is a smaller inset labeled 'Executors' with three icons: a desktop computer labeled 'Local', a stack of servers labeled 'High Performance Compute Cluster', and a cloud symbol labeled 'Cloud Compute'. These represent the different computing environments where the script can be implemented. To the left of the process box is a green left-pointing arrowhead, suggesting input into the process, and to the right is a yellow right-pointing arrowhead, indicating the direction of output from the process." width="350" class="figure"><br><em>Runtime</em>
 </p>
 <p>Nextflow provides a separation between the pipeline’s functional
 logic and the underlying execution platform. This makes it possible to
@@ -520,16 +520,17 @@ instructions to set up the code material are listed under <a href="https://omiri
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
 should enter this folder by chanding directory. Your terminal will
-display your relative folder path, check your terminal</p>
+display your relative folder path, check that your terminal displays the
+following:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">training/sgsss-workflow</span> <span class="at">-</span><span class="op">&gt;</span> </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">training/sgsss-workflow/scripts</span> <span class="at">-</span><span class="op">&gt;</span> </span></code></pre>
 </div>
 <p>Hint: Use the <code>cd</code> command to change directory followed by
 the folder name or relative path you want to navigate to, ex.
-<code>cd sgsss-workflow</code>. If you want to go back to the top level
-of the training directory you can type <code>cd ..</code>.</p>
+<code>cd sgsss-workflow</code>. If you want to go back up a level or
+folder in your directory, you can type <code>cd ..</code>.</p>
 </div>
 </div>
 </div>
@@ -538,7 +539,7 @@ of the training directory you can type <code>cd ..</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -658,7 +659,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Output </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -676,7 +677,7 @@ executor &gt;  local (1)
 <li>The second line shows the run name <code>frozen_booth</code>
 (adjective and scientist name) and revision id
 <code>8a3d1bb9c7</code>.</li>
-<li>The third line tells you the process has been executed locally
+<li>The third line tells you the process has been implemented locally
 (<code>executor &gt;  local</code>).</li>
 <li>The next line shows the process id <code>52/af3b5c</code>, process
 name, number of cpus, percentage task completion, and how many instances
@@ -725,7 +726,7 @@ folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
