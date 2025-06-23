@@ -643,7 +643,7 @@ make these more clear/functional.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <table class="table">
 <colgroup>
@@ -757,7 +757,7 @@ should have, you can download the template for the folder here:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <figure><img src="fig/repo-boilerplate.png" alt="Workflow manager template folder build your own workflow" class="figure mx-auto d-block"><div class="figcaption">Workflow manager template folder build your own
 workflow</div>
@@ -939,12 +939,12 @@ found <a href="https://www.nextflow.io/docs/latest/executor.html" class="externa
 folder with data files. First step involves navigating to the relevant
 script, <code>02_hello_nextflow.nf</code> in the current directory. The
 instructions to set up the code material are listed under <a href="https://omiridoue.github.io/sgsss-workflow/index.html" class="external-link">setup</a>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="hello-nextflow" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="hello-nextflow" class="callout-inner">
+<h3 class="callout-title">Hello Nextflow</h3>
 <div class="callout-content">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -1203,29 +1203,19 @@ to the pipeline parameter.</p>
 </div>
 </div>
 </div>
-<p>Add the output directory <code>"$projectDir/tmp"</code> in place of
-the <code>publishDir</code> specification. Replace the
-<code>"$projectDir"</code> in the process <code>GENERATE_READS</code>
-with <code>"$projectDir/tmp"</code>.</p>
-<p>What output folder would it specify and why?</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/tmp"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
+<p>Add the output directory <code>"$projectDir"</code> in the process
+<code>GENERATE_READS</code>.</p>
 <p>This step, <code>publishDir "$projectDir"</code>, will add a
 directory to output the decompressed files. The set of options that can
 be specified are listed in the <a href="https://www.nextflow.io/docs/latest/reference/stdlib.html" class="external-link">Nextflow
 documentation</a>. To access the value inside the process definition we
 use <code>$parameter</code> syntax e.g. <code>$projectDir</code>.</p>
+<p>You can also try to tweak the parameter, and specify a sub-folder
+called <code>tmp</code> that will store the output of the process
+<code>"$projectDir/tmp"</code>.</p>
+<p>The new line of code should read:</p>
+<p><code>publishDir "$projectDir/tmp", mode: "copy", overwrite: true</code></p>
+<p>How would this change where the output is stored?</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1392,7 +1382,7 @@ changing the pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1476,7 +1466,7 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Parameters </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
@@ -1623,7 +1613,7 @@ content is not consumed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>A queue channels is used to store multiple values.</li>
@@ -1710,203 +1700,15 @@ examples we have examples of both string and number data types.</p>
 <p>You may see the method <code>Channel.from</code> in older nextflow
 scripts. This performs a similar function but is now deprecated (no
 longer used), and so <code>Channel.of</code> should be used instead.</p>
-</div>
-</div>
-</div>
-<div id="challenge2" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal">
-<li>Navigate to the Nextflow script file called
-<code>04_channels.nf</code> .</li>
-<li>The pre-populated code involves x1 queue channel. Identify the name
-of this channel. Write comments within your script to explain what this
-queue channel involves.</li>
-<li>The pre-populated code also involves x4 Value channels. Identify the
-names of these channels, and write up comments to explain what each
-value channel involves.</li>
-<li>Based on the definition of the channel, add your channel to the
-existing workflow definition.</li>
-<li>Hint: Run the workflow script through the terminal with
-<code>nextflow run</code>.</li>
-<li>Hint: use the <code>.view()</code> operator to print the output of
-the channel. Again type the <code>nextflow run</code> command to run the
-workflow.</li>
-</ol>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Channel Definitions </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>#<span class="op">!</span><span class="st">/usr/</span>bin<span class="op">/</span>env nextflow</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">===========================================================</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"> pipeline for independent models runs for each schools</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"> for each time period, implemented in Siena</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co"> we can then perform a meta-analysis on the results</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"> @authors</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"> Eleni Omiridou &lt;2333157O@student.gla.ac.uk&gt;</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">=========================================================== </span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">/* </span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">* Default pipeline parameters </span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>params<span class="op">.</span>help            <span class="op">=</span> <span class="kw">false</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>params<span class="op">.</span>resume          <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>cleanup <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>debug <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>log<span class="op">.</span><span class="fu">info</span> <span class="st">"""</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="st">====================================================</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="st">PARAMETERS</span></span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="st">====================================================</span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="st">batches                     : </span><span class="ss">${</span>params<span class="op">.</span>batches<span class="ss">}</span></span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="st">model specification         : </span><span class="ss">${</span>params<span class="op">.</span>meta<span class="ss">}</span></span>
-<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="st">school data                 : </span><span class="ss">${</span>params<span class="op">.</span>school_data<span class="ss">}</span></span>
-<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="st">school info                 : </span><span class="ss">${</span>params<span class="op">.</span>school_info<span class="ss">}</span></span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="st">composition data            : </span><span class="ss">${</span>params<span class="op">.</span>composition_data<span class="ss">}</span></span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="st">effects                     : </span><span class="ss">${</span>params<span class="op">.</span>effects<span class="ss">}</span></span>
-<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="st">subgroup                    : </span><span class="ss">${</span>params<span class="op">.</span>subgroup<span class="ss">}</span></span>
-<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>params<span class="op">.</span>help<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>    log<span class="op">.</span><span class="fu">info</span> <span class="st">'This is the the siena pipeline'</span></span>
-<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a>    log<span class="op">.</span><span class="fu">info</span> <span class="st">'</span><span class="sc">\n</span><span class="st">'</span></span>
-<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a>    exit <span class="dv">1</span></span>
-<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="st">/*</span></span>
-<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a><span class="st">    Workflow parameters are written as params.&lt;parameter&gt;</span></span>
-<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="st">    and can be initialised using the `=` operator.</span></span>
-<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="st">*/</span></span>
-<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>ch_value_1 <span class="op">=</span> <span class="bu">Channel</span></span>
-<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>          <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>meta<span class="op">)</span></span>
-<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>          <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sep<span class="op">:</span> <span class="st">'</span><span class="sc">\t</span><span class="st">'</span><span class="op">)</span></span>
-<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a>          <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_meta <span class="op">}</span></span>
-<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a>ch_value_2 <span class="op">=</span> <span class="bu">Channel</span></span>
-<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a>          <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>subgroup<span class="op">)</span></span>
-<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a>          <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sep<span class="op">:</span> <span class="st">'</span><span class="sc">\t</span><span class="st">'</span><span class="op">)</span></span>
-<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a>          <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_subgroup <span class="op">}</span></span>
-<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="dt">def</span> <span class="fu">map_join</span><span class="op">(</span>channel_a<span class="op">,</span> key<span class="op">,</span> value<span class="op">){</span></span>
-<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a>    channel_a</span>
-<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="st">'key'</span><span class="op">],</span> it<span class="op">[</span><span class="st">'value'</span><span class="op">]]</span> <span class="op">}</span></span>
-<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="dt">def</span> <span class="fu">flatten_estimation</span><span class="op">(</span>channel_estimation<span class="op">){</span></span>
-<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a>    channel_estimation</span>
-<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">5</span><span class="op">][</span><span class="dv">1</span><span class="op">]]</span> <span class="op">}</span></span>
-<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="co">// Create a channel for values </span></span>
-<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a>ch_value_3 <span class="op">=</span>  <span class="bu">Channel</span></span>
-<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>          <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>effects<span class="op">)</span>    </span>
-<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a>          <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">)</span></span>
-<span id="cb2-73"><a href="#cb2-73" tabindex="-1"></a>          <span class="op">.</span><span class="fu">map</span> <span class="op">{</span> row <span class="op">-&gt;</span> <span class="op">[</span>row<span class="op">[</span><span class="dv">0</span><span class="op">],</span> row<span class="op">[</span><span class="dv">1</span><span class="op">],</span> row<span class="op">[</span><span class="fl">2.</span><span class="op">.-</span><span class="dv">1</span><span class="op">]]</span> <span class="op">}</span></span>
-<span id="cb2-74"><a href="#cb2-74" tabindex="-1"></a>          <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_effects <span class="op">}</span></span>
-<span id="cb2-75"><a href="#cb2-75" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" tabindex="-1"></a>ch_value_4 <span class="op">=</span> <span class="bu">Channel</span></span>
-<span id="cb2-77"><a href="#cb2-77" tabindex="-1"></a>          <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>school_info<span class="op">)</span></span>
-<span id="cb2-78"><a href="#cb2-78" tabindex="-1"></a>          <span class="op">.</span><span class="fu">splitJson</span><span class="op">()</span></span>
-<span id="cb2-79"><a href="#cb2-79" tabindex="-1"></a>          <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_school_info <span class="op">}</span></span>
-<span id="cb2-80"><a href="#cb2-80" tabindex="-1"></a><span class="st">/*</span></span>
-<span id="cb2-81"><a href="#cb2-81" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-82"><a href="#cb2-82" tabindex="-1"></a><span class="st">    Input data is received through channels</span></span>
-<span id="cb2-83"><a href="#cb2-83" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-84"><a href="#cb2-84" tabindex="-1"></a><span class="st">*/</span></span>
-<span id="cb2-85"><a href="#cb2-85" tabindex="-1"></a></span>
-<span id="cb2-86"><a href="#cb2-86" tabindex="-1"></a><span class="co">//import modules </span></span>
-<span id="cb2-87"><a href="#cb2-87" tabindex="-1"></a></span>
-<span id="cb2-88"><a href="#cb2-88" tabindex="-1"></a><span class="dt">def</span> ZipChannel_dat <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>composition_data<span class="op">)</span> <span class="co">// change this to composition_sub whenever data file name changes</span></span>
-<span id="cb2-89"><a href="#cb2-89" tabindex="-1"></a></span>
-<span id="cb2-90"><a href="#cb2-90" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb2-92"><a href="#cb2-92" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-93"><a href="#cb2-93" tabindex="-1"></a><span class="co">   Main Workflow</span></span>
-<span id="cb2-94"><a href="#cb2-94" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-95"><a href="#cb2-95" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb2-96"><a href="#cb2-96" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb2-98"><a href="#cb2-98" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_READS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span> </span>
-<span id="cb2-100"><a href="#cb2-100" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
-<span id="cb2-101"><a href="#cb2-101" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span> </span>
-<span id="cb2-102"><a href="#cb2-102" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb2-103"><a href="#cb2-103" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb2-104"><a href="#cb2-104" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span>
-<span id="cb2-105"><a href="#cb2-105" tabindex="-1"></a>    </span>
-<span id="cb2-106"><a href="#cb2-106" tabindex="-1"></a>    <span class="co">// pipe_meta.view()</span></span>
-<span id="cb2-107"><a href="#cb2-107" tabindex="-1"></a>    <span class="co">// pipe_school_info.view()</span></span>
-<span id="cb2-108"><a href="#cb2-108" tabindex="-1"></a>    <span class="co">// pipe_effects.view()</span></span>
-<span id="cb2-109"><a href="#cb2-109" tabindex="-1"></a>    <span class="co">// pipe_subgroup.view()</span></span>
-<span id="cb2-110"><a href="#cb2-110" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" tabindex="-1"></a></span>
-<span id="cb2-112"><a href="#cb2-112" tabindex="-1"></a>    composition<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
-<span id="cb2-113"><a href="#cb2-113" tabindex="-1"></a> </span>
-<span id="cb2-114"><a href="#cb2-114" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-115"><a href="#cb2-115" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" tabindex="-1"></a><span class="st">/*</span></span>
-<span id="cb2-117"><a href="#cb2-117" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-118"><a href="#cb2-118" tabindex="-1"></a><span class="st">    A Nextflow process block. Process names are written, by convention, in uppercase.</span></span>
-<span id="cb2-119"><a href="#cb2-119" tabindex="-1"></a><span class="st">    This convention is used to enhance workflow readability.</span></span>
-<span id="cb2-120"><a href="#cb2-120" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-121"><a href="#cb2-121" tabindex="-1"></a><span class="st">*/</span></span>
-<span id="cb2-122"><a href="#cb2-122" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" tabindex="-1"></a>process GENERATE_READS<span class="op">{</span></span>
-<span id="cb2-124"><a href="#cb2-124" tabindex="-1"></a></span>
-<span id="cb2-125"><a href="#cb2-125" tabindex="-1"></a>  input<span class="op">:</span></span>
-<span id="cb2-126"><a href="#cb2-126" tabindex="-1"></a>          path targz</span>
-<span id="cb2-127"><a href="#cb2-127" tabindex="-1"></a></span>
-<span id="cb2-128"><a href="#cb2-128" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/tmp"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb2-129"><a href="#cb2-129" tabindex="-1"></a></span>
-<span id="cb2-130"><a href="#cb2-130" tabindex="-1"></a>  output<span class="op">:</span></span>
-<span id="cb2-131"><a href="#cb2-131" tabindex="-1"></a>          path <span class="st">"*"</span></span>
-<span id="cb2-132"><a href="#cb2-132" tabindex="-1"></a></span>
-<span id="cb2-133"><a href="#cb2-133" tabindex="-1"></a>  script<span class="op">:</span></span>
-<span id="cb2-134"><a href="#cb2-134" tabindex="-1"></a>          <span class="st">"""</span></span>
-<span id="cb2-135"><a href="#cb2-135" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span></span>
-<span id="cb2-136"><a href="#cb2-136" tabindex="-1"></a><span class="st">          # Print file name</span></span>
-<span id="cb2-137"><a href="#cb2-137" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
-<span id="cb2-138"><a href="#cb2-138" tabindex="-1"></a><span class="st">          """</span></span>
-<span id="cb2-139"><a href="#cb2-139" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-140"><a href="#cb2-140" tabindex="-1"></a></span></code></pre>
-</div>
-<p>Run the code using the following command on the terminal:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 04_channels.nf</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="section level3">
 <h3 id="the-fromlist-channel-factory">The <strong>fromList</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromlist-channel-factory"></a>
 </h3>
 <p>You can use the <code>Channel.fromList</code> method to create a
 queue channel from a list object.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="channel.fromlist-vs-channel.of" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1928,8 +1730,7 @@ channel would run once.</p>
 <div id="creating-channels-from-a-list" class="callout-inner">
 <h3 class="callout-title">Creating channels from a list</h3>
 <div class="callout-content">
-<p>Write a Nextflow script that creates both a <code>queue</code> and
-<code>value</code> channel.</p>
+<p>Write a Nextflow script that creates <code>value</code> channel.</p>
 <p>Then print the contents of the channels using the <code>view</code>
 operator. How many lines does the queue and value channel print?</p>
 <p><strong>Hint:</strong> Use the <code>fromList()</code> and
@@ -1937,12 +1738,12 @@ operator. How many lines does the queue and value channel print?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1964,8 +1765,6 @@ directories.</p>
 <p>The file path can be a relative path (path to the file from the
 current directory), or an absolute path (path to the file from the
 system root directory - starts with <code>/</code>).</p>
-<p>The script below creates a queue channel with a single file as its
-content.</p>
 <p>Use the glob syntax to specify pattern-matching behaviour for files.
 A glob pattern is specified as a string and is matched against directory
 or file names.</p>
@@ -2047,35 +1846,187 @@ exist. This is likely not what we want.</p>
 <p>Add the argument <code>checkIfExists</code> with the value
 <code>true</code>.</p>
 <p>This will give an error as there is no data/chicken directory.</p>
-<div id="using-channel.frompath" class="callout challenge">
+<div id="challenge3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="using-channel.frompath" class="callout-inner">
-<h3 class="callout-title">Using Channel.fromPath</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal">
-<li>Create a Nextflow script <code>channel_fromPath.nf</code>
-</li>
-<li>Use the <code>Channel.fromPath</code> method to create a channel
-containing all files in the <code>data/yeast/</code> directory,
-including the subdirectories.</li>
-<li>Add the parameter to include any hidden files.</li>
-<li>Then print all file names using the <code>view</code> operator.</li>
+<li>Navigate to the Nextflow script file called
+<code>04_channels.nf</code> .</li>
+<li>The pre-populated code involves x5 queue channels. Identify the name
+of each of these channels. Write comments within your script to explain
+what this queue channel involves.</li>
+<li>The workflow is pre-populated with one queue channel. Make sure to
+include all 5 channels in the workflow.</li>
+<li>Hint: Run the workflow script through the terminal with
+<code>nextflow run</code>.</li>
+<li>Hint: use the <code>.view()</code> operator to print the output of
+the channel. Again type the <code>nextflow run</code> command to run the
+workflow.</li>
 </ol>
-<p><strong>Hint:</strong> You need two asterisks, i.e. <code>**</code>,
-to search subdirectories.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Channel Definition </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>#<span class="op">!</span><span class="st">/usr/</span>bin<span class="op">/</span>env nextflow</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">===========================================================</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"> pipeline for independent models runs for each schools</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"> for each time period, implemented in Siena</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co"> we can then perform a meta-analysis on the results</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"> @authors</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"> Eleni Omiridou &lt;2333157O@student.gla.ac.uk&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">===========================================================</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">* Default pipeline parameters</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>params<span class="op">.</span>help            <span class="op">=</span> <span class="kw">false</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>params<span class="op">.</span>resume          <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>cleanup <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>debug <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>log<span class="op">.</span><span class="fu">info</span> <span class="st">"""</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="st">====================================================</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="st">PARAMETERS</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="st">====================================================</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="st">batches                     : </span><span class="ss">${</span>params<span class="op">.</span>batches<span class="ss">}</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="st">model specification         : </span><span class="ss">${</span>params<span class="op">.</span>meta<span class="ss">}</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="st">school data                 : </span><span class="ss">${</span>params<span class="op">.</span>school_data<span class="ss">}</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="st">school info                 : </span><span class="ss">${</span>params<span class="op">.</span>school_info<span class="ss">}</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="st">composition data            : </span><span class="ss">${</span>params<span class="op">.</span>composition_data<span class="ss">}</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="st">effects                     : </span><span class="ss">${</span>params<span class="op">.</span>effects<span class="ss">}</span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="st">subgroup                    : </span><span class="ss">${</span>params<span class="op">.</span>subgroup<span class="ss">}</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>params<span class="op">.</span>help<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>    log<span class="op">.</span><span class="fu">info</span> <span class="st">'This is the the siena pipeline'</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a>    log<span class="op">.</span><span class="fu">info</span> <span class="st">'</span><span class="sc">\n</span><span class="st">'</span></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a>    exit <span class="dv">1</span></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="st">/*</span></span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a><span class="st">    Workflow parameters are written as params.&lt;parameter&gt;</span></span>
+<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="st">    and can be initialised using the `=` operator.</span></span>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="st">*/</span></span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a><span class="bu">Channel</span></span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>    <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>meta<span class="op">)</span></span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>    <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sep<span class="op">:</span> <span class="st">'</span><span class="sc">\t</span><span class="st">'</span><span class="op">)</span></span>
+<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_meta <span class="op">}</span></span>
+<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a><span class="bu">Channel</span></span>
+<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a>    <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>subgroup<span class="op">)</span></span>
+<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a>    <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sep<span class="op">:</span> <span class="st">'</span><span class="sc">\t</span><span class="st">'</span><span class="op">)</span></span>
+<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_subgroup <span class="op">}</span></span>
+<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="dt">def</span> <span class="fu">map_join</span><span class="op">(</span>channel_a<span class="op">,</span> key<span class="op">,</span> value<span class="op">){</span></span>
+<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a>    channel_a</span>
+<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="st">'key'</span><span class="op">],</span> it<span class="op">[</span><span class="st">'value'</span><span class="op">]]</span> <span class="op">}</span></span>
+<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="dt">def</span> <span class="fu">flatten_estimation</span><span class="op">(</span>channel_estimation<span class="op">){</span></span>
+<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a>    channel_estimation</span>
+<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">5</span><span class="op">][</span><span class="dv">1</span><span class="op">]]</span> <span class="op">}</span></span>
+<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="co">// Create a channel for values</span></span>
+<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a><span class="bu">Channel</span></span>
+<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>    <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>effects<span class="op">)</span></span>
+<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a>    <span class="op">.</span><span class="fu">splitCsv</span><span class="op">(</span>header<span class="op">:</span> <span class="kw">false</span><span class="op">)</span></span>
+<span id="cb2-73"><a href="#cb2-73" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span> <span class="op">{</span> row <span class="op">-&gt;</span> <span class="op">[</span>row<span class="op">[</span><span class="dv">0</span><span class="op">],</span> row<span class="op">[</span><span class="dv">1</span><span class="op">],</span> row<span class="op">[</span><span class="fl">2.</span><span class="op">.-</span><span class="dv">1</span><span class="op">]]</span> <span class="op">}</span></span>
+<span id="cb2-74"><a href="#cb2-74" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_effects <span class="op">}</span></span>
+<span id="cb2-75"><a href="#cb2-75" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" tabindex="-1"></a><span class="bu">Channel</span></span>
+<span id="cb2-77"><a href="#cb2-77" tabindex="-1"></a>    <span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>school_info<span class="op">)</span></span>
+<span id="cb2-78"><a href="#cb2-78" tabindex="-1"></a>    <span class="op">.</span><span class="fu">splitJson</span><span class="op">()</span></span>
+<span id="cb2-79"><a href="#cb2-79" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span><span class="op">{</span> pipe_school_info <span class="op">}</span></span>
+<span id="cb2-80"><a href="#cb2-80" tabindex="-1"></a><span class="st">/*</span></span>
+<span id="cb2-81"><a href="#cb2-81" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-82"><a href="#cb2-82" tabindex="-1"></a><span class="st">    Input data is received through channels</span></span>
+<span id="cb2-83"><a href="#cb2-83" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-84"><a href="#cb2-84" tabindex="-1"></a><span class="st">*/</span></span>
+<span id="cb2-85"><a href="#cb2-85" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" tabindex="-1"></a><span class="co">//import modules</span></span>
+<span id="cb2-87"><a href="#cb2-87" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" tabindex="-1"></a><span class="dt">def</span> ZipChannel_dat <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>composition_data<span class="op">)</span> <span class="co">// change this to composition_sub whenever data file name changes</span></span>
+<span id="cb2-89"><a href="#cb2-89" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb2-92"><a href="#cb2-92" tabindex="-1"></a><span class="co">========================================================================================</span></span>
+<span id="cb2-93"><a href="#cb2-93" tabindex="-1"></a><span class="co">   Main Workflow</span></span>
+<span id="cb2-94"><a href="#cb2-94" tabindex="-1"></a><span class="co">========================================================================================</span></span>
+<span id="cb2-95"><a href="#cb2-95" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb2-96"><a href="#cb2-96" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb2-98"><a href="#cb2-98" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_READS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span></span>
+<span id="cb2-100"><a href="#cb2-100" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
+<span id="cb2-101"><a href="#cb2-101" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span></span>
+<span id="cb2-102"><a href="#cb2-102" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb2-103"><a href="#cb2-103" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb2-104"><a href="#cb2-104" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span>
+<span id="cb2-105"><a href="#cb2-105" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" tabindex="-1"></a>    pipe_meta<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
+<span id="cb2-108"><a href="#cb2-108" tabindex="-1"></a>    <span class="co">// pipe_school_info.view()</span></span>
+<span id="cb2-109"><a href="#cb2-109" tabindex="-1"></a>    <span class="co">// pipe_effects.view()</span></span>
+<span id="cb2-110"><a href="#cb2-110" tabindex="-1"></a>    <span class="co">// pipe_subgroup.view()</span></span>
+<span id="cb2-111"><a href="#cb2-111" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" tabindex="-1"></a>    <span class="co">// composition.view()</span></span>
+<span id="cb2-114"><a href="#cb2-114" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-116"><a href="#cb2-116" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" tabindex="-1"></a><span class="st">/*</span></span>
+<span id="cb2-118"><a href="#cb2-118" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-119"><a href="#cb2-119" tabindex="-1"></a><span class="st">    A Nextflow process block. Process names are written, by convention, in uppercase.</span></span>
+<span id="cb2-120"><a href="#cb2-120" tabindex="-1"></a><span class="st">    This convention is used to enhance workflow readability.</span></span>
+<span id="cb2-121"><a href="#cb2-121" tabindex="-1"></a><span class="st">========================================================================================</span></span>
+<span id="cb2-122"><a href="#cb2-122" tabindex="-1"></a><span class="st">*/</span></span>
+<span id="cb2-123"><a href="#cb2-123" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" tabindex="-1"></a>process GENERATE_READS<span class="op">{</span></span>
+<span id="cb2-125"><a href="#cb2-125" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" tabindex="-1"></a>  input<span class="op">:</span></span>
+<span id="cb2-127"><a href="#cb2-127" tabindex="-1"></a>          path targz</span>
+<span id="cb2-128"><a href="#cb2-128" tabindex="-1"></a></span>
+<span id="cb2-129"><a href="#cb2-129" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/tmp"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb2-130"><a href="#cb2-130" tabindex="-1"></a></span>
+<span id="cb2-131"><a href="#cb2-131" tabindex="-1"></a>  output<span class="op">:</span></span>
+<span id="cb2-132"><a href="#cb2-132" tabindex="-1"></a>          path <span class="st">"*"</span></span>
+<span id="cb2-133"><a href="#cb2-133" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" tabindex="-1"></a>  script<span class="op">:</span></span>
+<span id="cb2-135"><a href="#cb2-135" tabindex="-1"></a>          <span class="st">"""</span></span>
+<span id="cb2-136"><a href="#cb2-136" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span></span>
+<span id="cb2-137"><a href="#cb2-137" tabindex="-1"></a><span class="st">          # Print file name</span></span>
+<span id="cb2-138"><a href="#cb2-138" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
+<span id="cb2-139"><a href="#cb2-139" tabindex="-1"></a><span class="st">          """</span></span>
+<span id="cb2-140"><a href="#cb2-140" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+<p>Run the code using the following command on the terminal:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 04_channels.nf</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -2144,12 +2095,12 @@ directory</li>
 </div>
 </div>
 </div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -2306,7 +2257,7 @@ process <code>COUNT_BASES</code> that runs the command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 
 </div>
@@ -2481,7 +2432,7 @@ terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -2690,7 +2641,7 @@ input.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -2753,7 +2704,7 @@ combines two input channels</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -2790,7 +2741,7 @@ running the process for each value.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -3774,7 +3725,7 @@ the remainder of a division.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3880,7 +3831,7 @@ gives the filename. Finally <code>view</code> the channel contents.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -3946,7 +3897,7 @@ of the channel.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -4079,7 +4030,7 @@ reference each value by its name, as shown in the following example:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -4210,7 +4161,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -4502,7 +4453,7 @@ script <code>print_message.nf</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4678,7 +4629,7 @@ for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4939,7 +4890,7 @@ configuration file using the <code>-c</code> option.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5497,7 +5448,7 @@ parameter <code>--input 'data/yeast/reads/temp33*'</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You will see that the execution of the process <code>NUMLINES</code>
 is actually skipped (cached text appears), and the results are retrieved
@@ -5567,7 +5518,7 @@ without having to re-execute it from scratch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <p>As you changed the timestamp on one file it will only re-run that
@@ -5669,7 +5620,7 @@ entries for runs before the run.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>

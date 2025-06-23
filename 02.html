@@ -513,12 +513,12 @@ found <a href="https://www.nextflow.io/docs/latest/executor.html" class="externa
 folder with data files. First step involves navigating to the relevant
 script, <code>02_hello_nextflow.nf</code> in the current directory. The
 instructions to set up the code material are listed under <a href="https://omiridoue.github.io/sgsss-workflow/index.html" class="external-link">setup</a>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="hello-nextflow" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="hello-nextflow" class="callout-inner">
+<h3 class="callout-title">Hello Nextflow</h3>
 <div class="callout-content">
 <p>The nextflow scripts for each lesson episode are available in the
 <code>scripts</code> directory created during the course setup. You
@@ -767,29 +767,19 @@ to the pipeline parameter.</p>
 </div>
 </div>
 </div>
-<p>Add the output directory <code>"$projectDir/tmp"</code> in place of
-the <code>publishDir</code> specification. Replace the
-<code>"$projectDir"</code> in the process <code>GENERATE_READS</code>
-with <code>"$projectDir/tmp"</code>.</p>
-<p>What output folder would it specify and why?</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/tmp"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
+<p>Add the output directory <code>"$projectDir"</code> in the process
+<code>GENERATE_READS</code>.</p>
 <p>This step, <code>publishDir "$projectDir"</code>, will add a
 directory to output the decompressed files. The set of options that can
 be specified are listed in the <a href="https://www.nextflow.io/docs/latest/reference/stdlib.html" class="external-link">Nextflow
 documentation</a>. To access the value inside the process definition we
 use <code>$parameter</code> syntax e.g. <code>$projectDir</code>.</p>
+<p>You can also try to tweak the parameter, and specify a sub-folder
+called <code>tmp</code> that will store the output of the process
+<code>"$projectDir/tmp"</code>.</p>
+<p>The new line of code should read:</p>
+<p><code>publishDir "$projectDir/tmp", mode: "copy", overwrite: true</code></p>
+<p>How would this change where the output is stored?</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
