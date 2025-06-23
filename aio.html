@@ -547,11 +547,7 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 </iframe>
 </p>
 </div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a>
-</h3>
+<p><strong>File Naming</strong></p>
 <p>There is no single way to manage file naming, but consistency is key.
 Here’s a couple of options, and ways you can combine approaches:</p>
 <table class="table">
@@ -598,12 +594,12 @@ Here’s a couple of options, and ways you can combine approaches:</p>
 </tr>
 </tbody>
 </table>
-<div id="file-naming-1" class="callout challenge">
+<div id="task-1.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="file-naming-1" class="callout-inner">
-<h3 class="callout-title">File Naming</h3>
+<div id="task-1.1" class="callout-inner">
+<h3 class="callout-title">Task 1.1</h3>
 <div class="callout-content">
 <p>It’s good practice to mention your file naming convention in your
 data management plan and/or meta data.</p>
@@ -644,7 +640,7 @@ make these more clear/functional.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <table class="table">
 <colgroup>
@@ -674,9 +670,7 @@ make these more clear/functional.</p>
 </div>
 </div>
 </div>
-<div class="section level4">
-<h4 id="default-ordering">Default ordering<a class="anchor" aria-label="anchor" href="#default-ordering"></a>
-</h4>
+<p><strong>Default ordering</strong></p>
 <p>To create a default ordering, we can add a number or date at the
 beginning of file names. This keeps our files sorted in ascending order
 based on file versions or in chronological order. If your file name
@@ -691,10 +685,7 @@ need to use a date then file names can start with
 <code>year-month-day</code> (for example <code>2020-02-21</code>). We
 recommend using something like the <a href="https://en.wikipedia.org/wiki/ISO_8601" class="external-link">ISO 8601 standard:
 YYYY-MM-DD</a> for dates.</p>
-</div>
-<div class="section level4">
-<h4 id="dynamically-generated">Dynamically generated<a class="anchor" aria-label="anchor" href="#dynamically-generated"></a>
-</h4>
+<p><strong>Dynamically generated</strong></p>
 <p>Output in multiple forms can be generated as part of running a
 computational pipeline. Result files can contain a key identifier or
 label, depending on your unit of analysis. Workflow managers offer
@@ -706,31 +697,26 @@ assign handy <em>process labels</em> in our workflow with base functions
 like <code>paste0()</code> in <em>R statistical software</em>. This way
 we can concatenate literal words or values with ones that depend on the
 input flowing into a process.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="adapting-a-workflow">Adapting a Workflow<a class="anchor" aria-label="anchor" href="#adapting-a-workflow"></a>
-</h3>
+<p><strong>Adapting a Workflow</strong></p>
 <p>A repository (or a “repo”) is a storage location for your research
 project. A repository can contain a range of digital objects and can be
 used to store your project by using online platforms such as GitHub. The
 aim of a repository is to organise your project in such a way that is
 both accessible to others and efficient to use.</p>
-<p>So far, we saw the key documents that one should add when starting or
+<figure><img src="fig/file-management.jgp" alt="File management system" class="figure mx-auto d-block"><div class="figcaption">File management system</div>
+</figure><p>So far, we saw the key documents that one should add when starting or
 setting up a project repository. If you are following along, navigate to
 <a href="https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate" class="external-link">repo-boilerplate</a>,
 this should contain the following files:</p>
-<div class="section level4">
-<h4 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a>
-</h4>
+<p><strong>Example for a Research Project</strong></p>
 <p>A good way to map the organisation of folders within your directory
 is using a file tree.</p>
-<div id="repo-boilerplate" class="callout challenge">
+<div id="task-1.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="repo-boilerplate" class="callout-inner">
-<h3 class="callout-title">Repo Boilerplate</h3>
+<div id="task-1.2" class="callout-inner">
+<h3 class="callout-title">Task 1.2</h3>
 <div class="callout-content">
 <p>Here are some suggestions on the files and folders your workflow
 should have, you can download the template for the folder here:</p>
@@ -759,7 +745,7 @@ should have, you can download the template for the folder here:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can navigate to repo-boilerplate branch:</p>
 <p>Step 1: <a href="https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate" class="external-link">repo-boilerplate</a></p>
@@ -1669,7 +1655,7 @@ content is not consumed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>A queue channels is used to store multiple values.</li>
@@ -1791,7 +1777,7 @@ operator. How many lines does the queue and value channel print?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1921,7 +1907,7 @@ workflow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Channel Definition </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2136,7 +2122,7 @@ directory.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 
 </div>
@@ -2292,7 +2278,7 @@ process <code>COUNT_BASES</code> that runs the command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -2467,7 +2453,7 @@ terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -2676,7 +2662,7 @@ input.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -2739,7 +2725,7 @@ combines two input channels</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 
 </div>
@@ -2776,7 +2762,7 @@ running the process for each value.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -2939,7 +2925,7 @@ include an output block that captures the different output file
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 
 </div>
@@ -2986,7 +2972,7 @@ output for the COMBINE_REPS process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -3072,7 +3058,7 @@ execution output.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -3177,7 +3163,7 @@ to the results folder merged_reps.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -4196,7 +4182,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -5737,10 +5723,10 @@ researchers.</li>
 environments and scale your analysis. This is quite important given the
 time required to set-up from scratch and work the ropes of using HPC. A
 good number of HPCs rely on workload managers like Slurm, including the
-resources I access as a PGR, at the MVLS school, University of Glasgow.
-Some the following may map on to the resources you can access to support
-your research. Please contact your HPC administrator team to request
-support with setting up.</p>
+resources I access as a PGR student, at the MVLS school, University of
+Glasgow. Some the following may map on to the resources you can access
+to support your research. Please contact your HPC administrator team to
+request support with setting up.</p>
 <figure><img src="fig/image.png" alt="Archie West, Institutions University of Glasgow, University of Edinburgh, University of St. Andrews, University of Strathclyde, eDRIS Public Health Scotland, Research Data Scotland" class="figure mx-auto d-block"><div class="figcaption">Archie West, Institutions University of Glasgow,
 University of Edinburgh, University of St. Andrews, University of
 Strathclyde, eDRIS Public Health Scotland, Research Data Scotland</div>
@@ -5751,14 +5737,12 @@ straightforward way to install Nextflow is by creating a stand-alone
 HPC support team. You will also require singularity / apptainer - to set
 up a container to run your project. Check whether this is already
 installed, if not please request further support from your HPC team.</p>
-<figure><img src="fig/compute.png" alt="Compute environments and resource supported by Nextflow" class="figure mx-auto d-block"><div class="figcaption">Compute environments and resource supported by
-Nextflow</div>
-</figure><div id="task-13.2" class="callout challenge">
+<div id="task-13.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-13.2" class="callout-inner">
-<h3 class="callout-title">Task 13.2</h3>
+<div id="task-13.1" class="callout-inner">
+<h3 class="callout-title">Task 13.1</h3>
 <div class="callout-content">
 <p>Installing Nextflow is required to run the pipeline. Note this is a
 different level of abstratction to the auxiliary tools you may are
@@ -5773,9 +5757,7 @@ software.</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Conda
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
@@ -5801,9 +5783,32 @@ command line. The default, i.e no environment is (base).</p>
 HPC support team. You will also require singularity / apptainer - to set
 up a container to run your project. Check whether this is already
 installed, if not please request further support from your HPC team.</p>
-<section><h2 class="section-heading" id="nextflow-scheduler">Nextflow Scheduler<a class="anchor" aria-label="anchor" href="#nextflow-scheduler"></a>
-</h2>
-<hr class="half-width">
+<div id="task-13.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-13.2" class="callout-inner">
+<h3 class="callout-title">Task 13.2</h3>
+<div class="callout-content">
+<p>This is specific to SLURM, the workload manager, and involves a batch
+job submission. Essentially, this command asks for resource for nextflow
+to schedule a series of jobs and orchestrate the moving parts of our
+analysis.</p>
+<figure><img src="fig/nf-executors.png" alt="Nextflow workflow managers supporting multiple compute environments including local computers, high performance computing clusters with Slurm, and cloud services such as AWS and Google Cloud." class="figure mx-auto d-block"><div class="figcaption">Nextflow workflow managers supporting multiple
+compute environments including local computers, high performance
+computing clusters with Slurm, and cloud services such as AWS and Google
+Cloud.</div>
+</figure>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
 <p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute
 environments by selecting an appropriate profile to run your pipeline.
@@ -5811,12 +5816,24 @@ The appropriate profile in my case was <code>slurm</code>, you can tuck
 away this set-up information by creating a new profile in the
 <code>conf/</code> subfolder (ex. <code>conf/slurm.config</code>). Then
 the command I would use to schedule the launch of the pipeline say using
-1 day 1 hour and 10 minutes would involve the following:</p>
+2 hours and 5 minutes would involve the following:</p>
 <pre><code>sbatch -A none -J "demo" --time=02:05:00 --wrap 'nextflow run /mnt/scratch/users/&lt;username&gt;/sgsss-workflow/main.nf -profile slurm'</code></pre>
-<p>This is specific to SLURM, the workload manager, and involves a batch
-job submission. Essentially, this command asks for resource for nextflow
-to schedule a series of jobs and orchestrate the moving parts of our
-analysis.</p>
+<p>Hint: replace the file path to your sgsss-workflow/main.nf file with
+the appropriate directory on your computer cluster.</p>
+<p>An important detail to note is, the time we request to run our batch
+job submission is not necessarily the time required to run the entire
+pipeline. The reason for this is that <code>sbatch</code> schedules our
+jobs to run via nextflow. This means you can max out time permitted to
+run your batch submission, to ensure all jobs are submitted within this
+time frame. For any jobs submitted within the timeframe but not
+scheduled to complete, there is no problem you can prevent a possible
+‘time-out’ by specifying
+<code>export NXF_DISABLE_JOBS_CANCELLATION=true</code> to add this to
+your system variables.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -5836,12 +5853,7 @@ have been successfully executed.</li>
 </ul>
 </div>
 </div>
-</div>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
-</section></section>
+</div></section>
 </div>
     </main>
 </div>

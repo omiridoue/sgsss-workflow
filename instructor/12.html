@@ -314,19 +314,12 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         13. Portability of Workflow
         </span>
-      </button>
+      
     </div><!--/div.accordion-header-->
-
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
-      <div class="accordion-body">
-        <ul><li><a href="#nextflow-scheduler">Nextflow Scheduler</a></li>
-        </ul></div><!--/div.accordion-body-->
-    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -430,10 +423,10 @@ researchers.</li>
 environments and scale your analysis. This is quite important given the
 time required to set-up from scratch and work the ropes of using HPC. A
 good number of HPCs rely on workload managers like Slurm, including the
-resources I access as a PGR, at the MVLS school, University of Glasgow.
-Some the following may map on to the resources you can access to support
-your research. Please contact your HPC administrator team to request
-support with setting up.</p>
+resources I access as a PGR student, at the MVLS school, University of
+Glasgow. Some the following may map on to the resources you can access
+to support your research. Please contact your HPC administrator team to
+request support with setting up.</p>
 <figure><img src="../fig/image.png" alt="Archie West, Institutions University of Glasgow, University of Edinburgh, University of St. Andrews, University of Strathclyde, eDRIS Public Health Scotland, Research Data Scotland" class="figure mx-auto d-block"><div class="figcaption">Archie West, Institutions University of Glasgow,
 University of Edinburgh, University of St. Andrews, University of
 Strathclyde, eDRIS Public Health Scotland, Research Data Scotland</div>
@@ -444,14 +437,12 @@ straightforward way to install Nextflow is by creating a stand-alone
 HPC support team. You will also require singularity / apptainer - to set
 up a container to run your project. Check whether this is already
 installed, if not please request further support from your HPC team.</p>
-<figure><img src="../fig/compute.png" alt="Compute environments and resource supported by Nextflow" class="figure mx-auto d-block"><div class="figcaption">Compute environments and resource supported by
-Nextflow</div>
-</figure><div id="task-13.2" class="callout challenge">
+<div id="task-13.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-13.2" class="callout-inner">
-<h3 class="callout-title">Task 13.2</h3>
+<div id="task-13.1" class="callout-inner">
+<h3 class="callout-title">Task 13.1</h3>
 <div class="callout-content">
 <p>Installing Nextflow is required to run the pipeline. Note this is a
 different level of abstratction to the auxiliary tools you may are
@@ -466,9 +457,7 @@ software.</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Conda
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
@@ -494,20 +483,56 @@ command line. The default, i.e no environment is (base).</p>
 HPC support team. You will also require singularity / apptainer - to set
 up a container to run your project. Check whether this is already
 installed, if not please request further support from your HPC team.</p>
-<section><h2 class="section-heading" id="nextflow-scheduler">Nextflow Scheduler<a class="anchor" aria-label="anchor" href="#nextflow-scheduler"></a></h2>
-<hr class="half-width"><p>Alas, we can tap into the seamless portability of Nextflow across set
+<div id="task-13.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-13.2" class="callout-inner">
+<h3 class="callout-title">Task 13.2</h3>
+<div class="callout-content">
+<p>This is specific to SLURM, the workload manager, and involves a batch
+job submission. Essentially, this command asks for resource for nextflow
+to schedule a series of jobs and orchestrate the moving parts of our
+analysis.</p>
+<figure><img src="../fig/nf-executors.png" alt="Nextflow workflow managers supporting multiple compute environments including local computers, high performance computing clusters with Slurm, and cloud services such as AWS and Google Cloud." class="figure mx-auto d-block"><div class="figcaption">Nextflow workflow managers supporting multiple
+compute environments including local computers, high performance
+computing clusters with Slurm, and cloud services such as AWS and Google
+Cloud.</div>
+</figure></div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute
 environments by selecting an appropriate profile to run your pipeline.
 The appropriate profile in my case was <code>slurm</code>, you can tuck
 away this set-up information by creating a new profile in the
 <code>conf/</code> subfolder (ex. <code>conf/slurm.config</code>). Then
 the command I would use to schedule the launch of the pipeline say using
-1 day 1 hour and 10 minutes would involve the following:</p>
+2 hours and 5 minutes would involve the following:</p>
 <pre><code>sbatch -A none -J "demo" --time=02:05:00 --wrap 'nextflow run /mnt/scratch/users/&lt;username&gt;/sgsss-workflow/main.nf -profile slurm'</code></pre>
-<p>This is specific to SLURM, the workload manager, and involves a batch
-job submission. Essentially, this command asks for resource for nextflow
-to schedule a series of jobs and orchestrate the moving parts of our
-analysis.</p>
+<p>Hint: replace the file path to your sgsss-workflow/main.nf file with
+the appropriate directory on your computer cluster.</p>
+<p>An important detail to note is, the time we request to run our batch
+job submission is not necessarily the time required to run the entire
+pipeline. The reason for this is that <code>sbatch</code> schedules our
+jobs to run via nextflow. This means you can max out time permitted to
+run your batch submission, to ensure all jobs are submitted within this
+time frame. For any jobs submitted within the timeframe but not
+scheduled to complete, there is no problem you can prevent a possible
+‘time-out’ by specifying
+<code>export NXF_DISABLE_JOBS_CANCELLATION=true</code> to add this to
+your system variables.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -530,7 +555,10 @@ have been successfully executed.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></div> <!-- / div.lesson-content -->
+
+
+
+      </div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/11.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>

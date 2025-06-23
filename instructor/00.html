@@ -466,10 +466,7 @@ a CC-BY 4.0 licence. DOI: <a href="https://doi.org/10.5281/zenodo.3332807" class
 </iframe>
 </p>
 </div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="file-naming">File Naming<a class="anchor" aria-label="anchor" href="#file-naming"></a></h3>
+<p><strong>File Naming</strong></p>
 <p>There is no single way to manage file naming, but consistency is key.
 Here’s a couple of options, and ways you can combine approaches:</p>
 <table class="table"><thead><tr class="header"><th>Case Convention</th>
@@ -492,12 +489,12 @@ Here’s a couple of options, and ways you can combine approaches:</p>
 <td>camel_Snake_Case</td>
 </tr><tr class="odd"><td>Screaming Snake Case</td>
 <td>SCREAMING_SNAKE_CASE</td>
-</tr></tbody></table><div id="file-naming-1" class="callout challenge">
+</tr></tbody></table><div id="task-1.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="file-naming-1" class="callout-inner">
-<h3 class="callout-title">File Naming</h3>
+<div id="task-1.1" class="callout-inner">
+<h3 class="callout-title">Task 1.1</h3>
 <div class="callout-content">
 <p>It’s good practice to mention your file naming convention in your
 data management plan and/or meta data.</p>
@@ -524,7 +521,7 @@ make these more clear/functional.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <table class="table"><colgroup><col width="40%"><col width="59%"></colgroup><thead><tr class="header"><th>🔨 Needs Edits</th>
 <th>✔️ Suggestion</th>
@@ -538,8 +535,7 @@ make these more clear/functional.</p>
 </div>
 </div>
 </div>
-<div class="section level4">
-<h4 id="default-ordering">Default ordering<a class="anchor" aria-label="anchor" href="#default-ordering"></a></h4>
+<p><strong>Default ordering</strong></p>
 <p>To create a default ordering, we can add a number or date at the
 beginning of file names. This keeps our files sorted in ascending order
 based on file versions or in chronological order. If your file name
@@ -554,9 +550,7 @@ need to use a date then file names can start with
 <code>year-month-day</code> (for example <code>2020-02-21</code>). We
 recommend using something like the <a href="https://en.wikipedia.org/wiki/ISO_8601" class="external-link">ISO 8601 standard:
 YYYY-MM-DD</a> for dates.</p>
-</div>
-<div class="section level4">
-<h4 id="dynamically-generated">Dynamically generated<a class="anchor" aria-label="anchor" href="#dynamically-generated"></a></h4>
+<p><strong>Dynamically generated</strong></p>
 <p>Output in multiple forms can be generated as part of running a
 computational pipeline. Result files can contain a key identifier or
 label, depending on your unit of analysis. Workflow managers offer
@@ -568,29 +562,26 @@ assign handy <em>process labels</em> in our workflow with base functions
 like <code>paste0()</code> in <em>R statistical software</em>. This way
 we can concatenate literal words or values with ones that depend on the
 input flowing into a process.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="adapting-a-workflow">Adapting a Workflow<a class="anchor" aria-label="anchor" href="#adapting-a-workflow"></a></h3>
+<p><strong>Adapting a Workflow</strong></p>
 <p>A repository (or a “repo”) is a storage location for your research
 project. A repository can contain a range of digital objects and can be
 used to store your project by using online platforms such as GitHub. The
 aim of a repository is to organise your project in such a way that is
 both accessible to others and efficient to use.</p>
-<p>So far, we saw the key documents that one should add when starting or
+<figure><img src="../fig/file-management.jgp" alt="File management system" class="figure mx-auto d-block"><div class="figcaption">File management system</div>
+</figure><p>So far, we saw the key documents that one should add when starting or
 setting up a project repository. If you are following along, navigate to
 <a href="https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate" class="external-link">repo-boilerplate</a>,
 this should contain the following files:</p>
-<div class="section level4">
-<h4 id="example-for-a-research-project">Example for a Research Project<a class="anchor" aria-label="anchor" href="#example-for-a-research-project"></a></h4>
+<p><strong>Example for a Research Project</strong></p>
 <p>A good way to map the organisation of folders within your directory
 is using a file tree.</p>
-<div id="repo-boilerplate" class="callout challenge">
+<div id="task-1.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="repo-boilerplate" class="callout-inner">
-<h3 class="callout-title">Repo Boilerplate</h3>
+<div id="task-1.2" class="callout-inner">
+<h3 class="callout-title">Task 1.2</h3>
 <div class="callout-content">
 <p>Here are some suggestions on the files and folders your workflow
 should have, you can download the template for the folder here:</p>
@@ -619,7 +610,7 @@ should have, you can download the template for the folder here:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can navigate to repo-boilerplate branch:</p>
 <p>Step 1: <a href="https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate" class="external-link">repo-boilerplate</a></p>
