@@ -3,9 +3,9 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-Computational social science (CSS) brings computational approaches to social science questions. [Nextflow](https://www.nextflow.io/) is a workflow management software which enables the writing of scalable and reproducible scientific workflows. With this half day workshop we will motivate the use of this powerful tool in operationalising reproducible research.
+Computational social science (CSS) brings computational approaches to social science questions. [Nextflow](https://www.nextflow.io/) is a workflow management software which enables the writing of scalable and reproducible scientific workflows. With this half day workshop we will motivate the use of this tool in operationalising reproducible social science research.
 
-This is a student led introductory lesson to computational workflows. No previous knowledge of Nextflow, other workflow software is required.
+This is a student led introductory lesson to computational workflows. No previous knowledge of Nextflow, or other workflow software is required.
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
