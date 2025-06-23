@@ -40,9 +40,9 @@ The training is based off [carpentries incubator](https://carpentries-incubator.
 - [x] Navigate reproducible, efficient, and communicable code via GitHub
 - [x] Connecting with researchers in your field
 
-## Data 
+## Synthetic Data 
 
-Low fidelity means that the data only resembles real-world data in a very basic way. This type of dataset can be useful for teaching students, or helping programmers to plan code for things like health applications.
+The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
 
 ## Course materials
 
@@ -69,6 +69,8 @@ This lesson is a template lesson that uses [The Carpentries Workbench](https://c
 ## Further information
 
 Please do not hesitate to get in contact if you have queries, suggestions or corrections regarding the material: [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk)
+
+Any errors, omissions or inaccuracies are my own.
 
 > Copyright 2025, omiridoue. All examples and descriptions are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
