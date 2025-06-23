@@ -247,7 +247,6 @@
 <li><a href="#why-use-channels">Why use Channels?</a></li>
 <li><a href="#channel-types">Channel types</a></li>
 <li><a href="#creating-channels-using-channel-factories">Creating Channels using Channel factories</a></li>
-<li><a href="#queue-channel-factory">Queue channel factory</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -453,17 +452,14 @@ only send data in one direction.</p>
 </section><section><h2 class="section-heading" id="channel-types">Channel types<a class="anchor" aria-label="anchor" href="#channel-types"></a></h2>
 <hr class="half-width"><p>Nextflow distinguishes between two different kinds of channels:
 <strong>queue</strong> channels and <strong>value</strong> channels.</p>
-<div class="section level3">
-<h3 id="queue-channel">Queue channel<a class="anchor" aria-label="anchor" href="#queue-channel"></a></h3>
+<p><strong>Queue channel</strong></p>
 <p>Queue channels are a type of channel in which data is consumed (used
 up) to make input for a process/operator. Queue channels can be created
 in two ways:</p>
 <ol style="list-style-type: decimal"><li>As the outputs of a process.</li>
 <li>Channel factory methods <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
 or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="external-link">Channel.fromPath</a>.</li>
-</ol></div>
-<div class="section level3">
-<h3 id="value-channels">Value channels<a class="anchor" aria-label="anchor" href="#value-channels"></a></h3>
+</ol><p><strong>Value channels</strong></p>
 <p>The second type of Nextflow channel is a <code>value</code> channel.
 A <strong>value</strong> channel is bound to a <strong>single</strong>
 value. A value channel can be used an unlimited number times since its
@@ -520,7 +516,6 @@ channels you do not need to add any processes or a workflow block.</p>
 </div>
 </div>
 </div>
-</div>
 </section><section><h2 class="section-heading" id="creating-channels-using-channel-factories">Creating Channels using Channel factories<a class="anchor" aria-label="anchor" href="#creating-channels-using-channel-factories"></a></h2>
 <hr class="half-width"><p>Channel factories are used to explicitly create channels. In
 programming, factory methods (functions) are a programming design
@@ -530,8 +525,7 @@ represent more generalised concepts, such as a <code>Channel</code>.</p>
 <p>Channel factories are called using the
 <code>Channel.&lt;method&gt;</code> syntax, and return a specific
 instance of a <code>Channel</code>.</p>
-<div class="section level3">
-<h3 id="the-value-channel-factory">The value Channel factory<a class="anchor" aria-label="anchor" href="#the-value-channel-factory"></a></h3>
+<p><strong>The value Channel factory</strong></p>
 <p>The <code>value</code> factory method is used to create a value
 channel. Values are put inside parentheses <code>()</code> to assign
 them to a channel.</p>
@@ -552,16 +546,14 @@ by commas.</li>
 </ul><p>To view the contents of a value channel, use the <code>view</code>
 operator. We will learn more about channel operators in a later
 section.</p>
-</div>
-</section><section><h2 class="section-heading" id="queue-channel-factory">Queue channel factory<a class="anchor" aria-label="anchor" href="#queue-channel-factory"></a></h2>
-<hr class="half-width"><p>Queue (consumable) channels can be created using the following
+<p><strong>Queue channel factory</strong></p>
+<p>Queue (consumable) channels can be created using the following
 channel factory methods.</p>
 <ul><li><code>Channel.of</code></li>
 <li><code>Channel.fromList</code></li>
 <li><code>Channel.fromPath</code></li>
 <li><code>Channel.fromFilePairs</code></li>
-</ul><div class="section level3">
-<h3 id="the-of-channel-factory">The <strong>of</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-of-channel-factory"></a></h3>
+</ul><p><strong>The <strong>of</strong> Channel factory</strong></p>
 <p>When you want to create a channel containing multiple values you can
 use the channel factory <code>Channel.of</code>. <code>Channel.of</code>
 allows the creation of a <code>queue</code> channel with the values
@@ -579,8 +571,8 @@ examples we have examples of both string and number data types.</p>
 <p>You may see the method <code>Channel.from</code> in older nextflow
 scripts. This performs a similar function but is now deprecated (no
 longer used), and so <code>Channel.of</code> should be used instead.</p>
-<div class="section level3">
-<h3 id="the-fromlist-channel-factory">The <strong>fromList</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromlist-channel-factory"></a></h3>
+<div class="section level4">
+<h4 id="the-fromlist-channel-factory">The <strong>fromList</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromlist-channel-factory"></a></h4>
 <p>You can use the <code>Channel.fromList</code> method to create a
 queue channel from a list object.</p>
 </div>
@@ -628,9 +620,7 @@ operator. How many lines does the queue and value channel print?</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="the-frompath-channel-factory">The <strong>fromPath</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-frompath-channel-factory"></a></h3>
+<p><strong>The <strong>fromPath</strong> Channel factory</strong></p>
 <p>The previous channel factory methods dealt with sending general
 values in a channel. A special channel factory method
 <code>fromPath</code> is used when wanting to pass files.</p>
@@ -881,9 +871,8 @@ workflow.</li>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="the-fromfilepairs-channel-factory">The <strong>fromFilePairs</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromfilepairs-channel-factory"></a></h3>
+<p><strong>The <strong>fromFilePairs</strong> Channel
+factory</strong></p>
 <p>We have seen how to process files individually using
 <code>fromPath</code>.</p>
 <p>A <code>tuple</code> is a grouping of data, represented as a Groovy
@@ -895,9 +884,7 @@ filenames (i.e., the <code>*</code> part of the glob pattern).</li>
 of the glob pattern (i.e., the <code>*each_period.tar.gz</code>
 pattern). This will include any sets of data that involve compressed
 folders.</li>
-</ol></div>
-<div class="section level3">
-<h3 id="what-if-you-want-to-capture-more-than-a-pair">What if you want to capture more than a pair?<a class="anchor" aria-label="anchor" href="#what-if-you-want-to-capture-more-than-a-pair"></a></h3>
+</ol><p><strong>What if you want to capture more than a pair?</strong></p>
 <p>If you want to capture more than two files for a pattern you will
 need to change the default <code>size</code> argument (the default value
 is 2) to the number of expected matching files.</p>
@@ -971,7 +958,6 @@ behaviour of a channel.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/03.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>

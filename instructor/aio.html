@@ -1635,9 +1635,7 @@ only send data in one direction.</p>
 <hr class="half-width">
 <p>Nextflow distinguishes between two different kinds of channels:
 <strong>queue</strong> channels and <strong>value</strong> channels.</p>
-<div class="section level3">
-<h3 id="queue-channel">Queue channel<a class="anchor" aria-label="anchor" href="#queue-channel"></a>
-</h3>
+<p><strong>Queue channel</strong></p>
 <p>Queue channels are a type of channel in which data is consumed (used
 up) to make input for a process/operator. Queue channels can be created
 in two ways:</p>
@@ -1646,10 +1644,7 @@ in two ways:</p>
 <li>Channel factory methods <a href="https://www.nextflow.io/docs/latest/channel.html#of" class="external-link">Channel.of</a>
 or <a href="https://www.nextflow.io/docs/latest/channel.html#frompath" class="external-link">Channel.fromPath</a>.</li>
 </ol>
-</div>
-<div class="section level3">
-<h3 id="value-channels">Value channels<a class="anchor" aria-label="anchor" href="#value-channels"></a>
-</h3>
+<p><strong>Value channels</strong></p>
 <p>The second type of Nextflow channel is a <code>value</code> channel.
 A <strong>value</strong> channel is bound to a <strong>single</strong>
 value. A value channel can be used an unlimited number times since its
@@ -1710,7 +1705,6 @@ channels you do not need to add any processes or a workflow block.</p>
 </div>
 </div>
 </div>
-</div>
 </section><section><h2 class="section-heading" id="creating-channels-using-channel-factories">Creating Channels using Channel factories<a class="anchor" aria-label="anchor" href="#creating-channels-using-channel-factories"></a>
 </h2>
 <hr class="half-width">
@@ -1722,9 +1716,7 @@ represent more generalised concepts, such as a <code>Channel</code>.</p>
 <p>Channel factories are called using the
 <code>Channel.&lt;method&gt;</code> syntax, and return a specific
 instance of a <code>Channel</code>.</p>
-<div class="section level3">
-<h3 id="the-value-channel-factory">The value Channel factory<a class="anchor" aria-label="anchor" href="#the-value-channel-factory"></a>
-</h3>
+<p><strong>The value Channel factory</strong></p>
 <p>The <code>value</code> factory method is used to create a value
 channel. Values are put inside parentheses <code>()</code> to assign
 them to a channel.</p>
@@ -1749,10 +1741,7 @@ by commas.</li>
 <p>To view the contents of a value channel, use the <code>view</code>
 operator. We will learn more about channel operators in a later
 section.</p>
-</div>
-</section><section><h2 class="section-heading" id="queue-channel-factory">Queue channel factory<a class="anchor" aria-label="anchor" href="#queue-channel-factory"></a>
-</h2>
-<hr class="half-width">
+<p><strong>Queue channel factory</strong></p>
 <p>Queue (consumable) channels can be created using the following
 channel factory methods.</p>
 <ul>
@@ -1761,9 +1750,7 @@ channel factory methods.</p>
 <li><code>Channel.fromPath</code></li>
 <li><code>Channel.fromFilePairs</code></li>
 </ul>
-<div class="section level3">
-<h3 id="the-of-channel-factory">The <strong>of</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-of-channel-factory"></a>
-</h3>
+<p><strong>The <strong>of</strong> Channel factory</strong></p>
 <p>When you want to create a channel containing multiple values you can
 use the channel factory <code>Channel.of</code>. <code>Channel.of</code>
 allows the creation of a <code>queue</code> channel with the values
@@ -1781,9 +1768,9 @@ examples we have examples of both string and number data types.</p>
 <p>You may see the method <code>Channel.from</code> in older nextflow
 scripts. This performs a similar function but is now deprecated (no
 longer used), and so <code>Channel.of</code> should be used instead.</p>
-<div class="section level3">
-<h3 id="the-fromlist-channel-factory">The <strong>fromList</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromlist-channel-factory"></a>
-</h3>
+<div class="section level4">
+<h4 id="the-fromlist-channel-factory">The <strong>fromList</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromlist-channel-factory"></a>
+</h4>
 <p>You can use the <code>Channel.fromList</code> method to create a
 queue channel from a list object.</p>
 </div>
@@ -1831,10 +1818,7 @@ operator. How many lines does the queue and value channel print?</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="the-frompath-channel-factory">The <strong>fromPath</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-frompath-channel-factory"></a>
-</h3>
+<p><strong>The <strong>fromPath</strong> Channel factory</strong></p>
 <p>The previous channel factory methods dealt with sending general
 values in a channel. A special channel factory method
 <code>fromPath</code> is used when wanting to pass files.</p>
@@ -2113,10 +2097,8 @@ workflow.</li>
 </div>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="the-fromfilepairs-channel-factory">The <strong>fromFilePairs</strong> Channel factory<a class="anchor" aria-label="anchor" href="#the-fromfilepairs-channel-factory"></a>
-</h3>
+<p><strong>The <strong>fromFilePairs</strong> Channel
+factory</strong></p>
 <p>We have seen how to process files individually using
 <code>fromPath</code>.</p>
 <p>A <code>tuple</code> is a grouping of data, represented as a Groovy
@@ -2130,10 +2112,7 @@ of the glob pattern (i.e., the <code>*each_period.tar.gz</code>
 pattern). This will include any sets of data that involve compressed
 folders.</li>
 </ol>
-</div>
-<div class="section level3">
-<h3 id="what-if-you-want-to-capture-more-than-a-pair">What if you want to capture more than a pair?<a class="anchor" aria-label="anchor" href="#what-if-you-want-to-capture-more-than-a-pair"></a>
-</h3>
+<p><strong>What if you want to capture more than a pair?</strong></p>
 <p>If you want to capture more than two files for a pattern you will
 need to change the default <code>size</code> argument (the default value
 is 2) to the number of expected matching files.</p>
@@ -2211,7 +2190,6 @@ behaviour of a channel.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></section><section id="aio-05"><p>Content from <a href="05.html">Processes</a></p>
 <hr>
 <p>Last updated on 2025-06-22 |
@@ -2996,7 +2974,7 @@ include an output block that captures the different output file
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -3043,7 +3021,7 @@ output for the COMBINE_REPS process.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -3129,7 +3107,7 @@ execution output.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -3234,7 +3212,7 @@ to the results folder merged_reps.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 
 </div>
@@ -3819,7 +3797,7 @@ the remainder of a division.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3925,7 +3903,7 @@ gives the filename. Finally <code>view</code> the channel contents.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -3991,7 +3969,7 @@ of the channel.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -4124,7 +4102,7 @@ reference each value by its name, as shown in the following example:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -5335,7 +5313,7 @@ bioconductor. We layer requirements, i.e code libraries.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To do this we evaluate the command <code>install.packages()</code>
 using R. This is possible as we work within the docker container which
@@ -5427,7 +5405,7 @@ sub-folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>profiles {
 
@@ -5560,7 +5538,7 @@ parameter <code>--input 'data/yeast/reads/temp33*'</code>:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You will see that the execution of the process <code>NUMLINES</code>
 is actually skipped (cached text appears), and the results are retrieved
@@ -5630,7 +5608,7 @@ without having to re-execute it from scratch.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <p>As you changed the timestamp on one file it will only re-run that
@@ -5732,7 +5710,7 @@ entries for runs before the run.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
