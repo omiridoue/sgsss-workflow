@@ -33,7 +33,7 @@ Alternatively, you can set up locally using VS Code
 
 :::
 
-## Step 2: Clear Template Content
+## Step 2: Make a template folder
 
 ``` bash
 mkdir templates
