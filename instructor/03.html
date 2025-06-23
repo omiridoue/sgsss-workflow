@@ -461,11 +461,28 @@ input for our parameter. Note variables can be specified through the
 command line using two dashes, any other options would normally be
 specified using a single dash, this includes the <code>-resume</code>
 tag which we can come back to at a later point.</p>
+<div id="task-3.1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-3.1" class="callout-inner">
+<h3 class="callout-title">Task 3.1</h3>
+<div class="callout-content">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'multi_period.tar.gz'</span></span></code></pre>
 </div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -481,18 +498,39 @@ executor &gt;  local (1)
 /workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school125.RDS,
 /workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school126.RDS]</code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
 <p>We can also use wild cards to specify multiple input files (This will
 be covered in the channels episode). In the example below we use the
 <code>*</code> to match any sequence of characters before
 <code>multi_period.tar.gz</code>. <strong>Note:</strong> If you use wild
 card characters on the command line you must enclose the value in
 quotes.</p>
+<div id="task-3.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-3.2" class="callout-inner">
+<h3 class="callout-title">Task 3.2</h3>
+<div class="callout-content">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*multi_period.tar.gz'</span></span></code></pre>
 </div>
-<p>This runs the process NUM_LINES twice, once for each file it
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>This runs the process GENERATE_DAT twice, once for each file it
 matches.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -514,12 +552,16 @@ executor &gt;  local (2)
 /workspaces/training/sgsss-workflow/scripts/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school126.RDS]
 </code></pre>
 </div>
-<div id="change-a-pipelines-input-using-a-parameter" class="callout challenge">
+</div>
+</div>
+</div>
+</div>
+<div id="task-3.3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="change-a-pipelines-input-using-a-parameter" class="callout-inner">
-<h3 class="callout-title">Change a pipeline’s input using a parameter</h3>
+<div id="task-3.3" class="callout-inner">
+<h3 class="callout-title">Task 3.3</h3>
 <div class="callout-content">
 <p>Re-run the Nextflow script <code>02_hello_nextflow.nf</code> by
 changing the pipeline input to all files in the directory that end with
@@ -527,12 +569,12 @@ changing the pipeline input to all files in the directory that end with
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -583,12 +625,12 @@ executor &gt;  local (2)
 parameters file. Parameters can be stored in JSON format. JSON is a data
 serialization language, that is a way of storing data objects and
 structures, such as the <code>params</code> object in a file.</p>
-<div id="create-and-use-a-parameter-file." class="callout challenge">
+<div id="task-3.4" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="create-and-use-a-parameter-file." class="callout-inner">
-<h3 class="callout-title">Create and use a Parameter file.</h3>
+<div id="task-3.4" class="callout-inner">
+<h3 class="callout-title">Task 3.4</h3>
 <div class="callout-content">
 <p>Create a parameter file <code>params.config</code> for the workflow,
 and run the Nextflow script using the created parameter file,
@@ -609,12 +651,12 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Parameters </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Parameters </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
