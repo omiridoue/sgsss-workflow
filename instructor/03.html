@@ -455,6 +455,12 @@ in the <code>02_hello_nextflow.nf</code> script we would run:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> scripts</span></code></pre>
 </div>
+<p>The input for data has can be passed with the
+<code>--variable_name</code> convention. In this case we used named
+input for our parameter. Note variables can be specified through the
+command line using two dashes, any other options would normally be
+specified using a single dash, this includes the <code>-resume</code>
+tag which we can come back to at a later point.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -610,6 +616,9 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
+<p>Here we use the nextflow environment variable <code>baseDir</code>
+which is resolved by the workflow at runtime. The path to the data and
+params folder is specified through use of relative file paths.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -639,8 +648,6 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <code>params</code> to a variable name, separated by dot character.</li>
 <li>To specify a pipeline parameter on the command line for a Nextflow
 run use <code>--variable_name</code> syntax.</li>
-<li>You can add parameters to a JSON formatted file and pass them to the
-script using option <code>-params-file</code>.</li>
 </ul></div>
 </div>
 </div>
