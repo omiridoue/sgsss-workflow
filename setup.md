@@ -73,7 +73,7 @@ Once you are logged in to GitHub, you can open this link in your browser to open
 
 You should be presented with a page where you can create a new GitHub Codespace. You can click "Change options" to configure the machine used.
 
-Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
+Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelise workflow execution.
 
 **For the hands-on component, we recommend using a 4-core machine.**
 
