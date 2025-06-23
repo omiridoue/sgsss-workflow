@@ -495,6 +495,9 @@ with multiple values.</li>
 </div>
 </div>
 </div>
+<p>Navigate to the nextflow file by changing directory to
+training/sgsss-workflow/scripts/. Again this will likely look different
+if you have set up on your local computer.</p>
 
 </div>
 </section><section><h2 class="section-heading" id="creating-channels-using-channel-factories">Creating Channels using Channel factories<a class="anchor" aria-label="anchor" href="#creating-channels-using-channel-factories"></a></h2>
@@ -527,7 +530,7 @@ object</a> is similar, but with <code>key:value pairs</code> separated
 by commas.</li>
 </ul><p>To view the contents of a value channel, use the <code>view</code>
 operator. We will learn more about channel operators in a later
-episode.</p>
+section.</p>
 </div>
 </section><section><h2 class="section-heading" id="queue-channel-factory">Queue channel factory<a class="anchor" aria-label="anchor" href="#queue-channel-factory"></a></h2>
 <hr class="half-width"><p>Queue (consumable) channels can be created using the following
@@ -565,18 +568,21 @@ longer used), and so <code>Channel.of</code> should be used instead.</p>
 <div id="create-a-value-and-queue-and-view-channel-contents" class="callout-inner">
 <h3 class="callout-title">Create a value and Queue and view Channel contents</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Create a Nextflow script file called <code>channel.nf</code> .</li>
-<li>Create a Value channel <code>ch_vl</code> containing the String
-<code>'GRCh38'</code>.</li>
-<li>Create a Queue channel <code>ch_qu</code> containing the values 1 to
-4.</li>
+<ol style="list-style-type: decimal"><li>Navigate to the Nextflow script file called
+<code>04_channels.nf</code> .</li>
+<li>Identify an appropriate use for a Value channel and define a new
+channel using <code>ch_vl</code>.</li>
+<li>Identify an appropriate use for a Queue channel and define a new
+channel using <code>ch_qu</code>.</li>
+<li>Based on the definition of the channel, add your channel to the
+existing workflow definition.</li>
 <li>Use <code>.view()</code> operator on the channel objects to view the
 contents of the channels.</li>
-<li>Run the code using</li>
+<li>Run the code using the following command on the terminal:</li>
 </ol><div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> nextflow run channel.nf</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 04_channels.nf</span></code></pre>
 </div>
 </div>
 </div>
@@ -620,7 +626,7 @@ channel would run once.</p>
 <h3 class="callout-title">Creating channels from a list</h3>
 <div class="callout-content">
 <p>Write a Nextflow script that creates both a <code>queue</code> and
-<code>value</code> channel for the list</p>
+<code>value</code> channel.</p>
 <p>Then print the contents of the channels using the <code>view</code>
 operator. How many lines does the queue and value channel print?</p>
 <p><strong>Hint:</strong> Use the <code>fromList()</code> and
