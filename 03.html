@@ -390,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Parameters</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/03.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -446,19 +446,6 @@ parameter name with a <strong>double dash</strong> character, e.g.,
 <p>In the script <code>02_hello_nextflow.nf</code> the pipeline
 parameter <code>params.input</code> was specified with a value of
 <code>"each_period.tar.gz"</code>.</p>
-<p>To process a different file, e.g. <code>multi_period.tar.gz</code>,
-in the <code>02_hello_nextflow.nf</code> script we would run:</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> scripts</span></code></pre>
-</div>
-<p>The input for data has can be passed with the
-<code>--variable_name</code> convention. In this case we used named
-input for our parameter. Note variables can be specified through the
-command line using two dashes, any other options would normally be
-specified using a single dash, this includes the <code>-resume</code>
-tag which we can come back to at a later point.</p>
 <div id="task-3.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -466,10 +453,18 @@ tag which we can come back to at a later point.</p>
 <div id="task-3.1" class="callout-inner">
 <h3 class="callout-title">Task 3.1</h3>
 <div class="callout-content">
-<div class="codewrapper sourceCode" id="cb2">
+<p>The input for data has can be passed with the
+<code>--variable_name</code> convention. In this case we used named
+input for our parameter. Note variables can be specified through the
+command line using two dashes, any other options would normally be
+specified using a single dash, this includes the <code>-resume</code>
+tag which we can come back to at a later point.</p>
+<p>To process a different file, e.g. <code>multi_period.tar.gz</code>,
+in the <code>02_hello_nextflow.nf</code> script we would run:</p>
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'multi_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'multi_period.tar.gz'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -513,10 +508,10 @@ quotes.</p>
 <div id="task-3.2" class="callout-inner">
 <h3 class="callout-title">Task 3.2</h3>
 <div class="callout-content">
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*multi_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*multi_period.tar.gz'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -574,10 +569,10 @@ changing the pipeline input to all files in the directory that end with
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*each_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*each_period.tar.gz'</span></span></code></pre>
 </div>
 <p>The string specified on the command line will override the default
 value of the parameter in the script. The output will look like
@@ -659,19 +654,19 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
 params folder is specified through use of relative file paths.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>params <span class="op">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>params <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -753,7 +748,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/03.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/03.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-23",
+  "dateModified": "2025-06-25",
   "datePublished": "2025-06-25"
 }
 
