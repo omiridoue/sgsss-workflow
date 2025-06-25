@@ -317,7 +317,6 @@
       <div class="accordion-body">
         <ul><li><a href="#resume">Resume</a></li>
 <li><a href="#how-does-resume-work">How does resume work?</a></li>
-<li><a href="#the-work-directory">The Work directory</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -391,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Resuming a Workflow</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/11.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -435,57 +434,23 @@ from the last successfully executed process. Re-entrancy enables time
 consuming successfully completed steps, such as index creation, to be
 skipped when adding more data to a pipeline. This in turn leads to
 faster prototyping and development of workflows, and faster analyses of
-additional data. Nextflow achieves re-entrancy by automatically keeping
-track of all the processes executed in your pipeline via caching and
+additional data.</p>
+<p>Nextflow achieves re-entrancy by automatically keeping track of all
+the processes executed in your pipeline via caching and
 checkpointing.</p>
 <section><h2 class="section-heading" id="resume">Resume<a class="anchor" aria-label="anchor" href="#resume"></a></h2>
 <hr class="half-width"><p>To restart from the last successfully executed process we add the
 command line option <code>-resume</code> to the Nextflow command.</p>
 <p>For example, the command below would resume the
-<code>word_count.nf</code> script from the last successful process.</p>
+<code>06_modules_optional.nf</code> script from the last successful
+process.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> nextflow run word_count.nf <span class="at">--input</span> <span class="st">'data/yeast/reads/ref1*.fq.gz'</span> <span class="at">-resume</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 06_modules_optional.nf <span class="at">-resume</span></span></code></pre>
 </div>
-<p>We can see in the output that the results from the process
-<code>NUM_LINES</code> has been retrieved from the cache.</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Launching `word_count.nf` [condescending_dalembert] - revision: fede04a544
-[c9/2597d5] process &gt; NUM_LINES (1) [100%] 2 of 2, cached: 2 ✔
-ref1_1.fq.gz 58708
-
-ref1_2.fq.gz 58708</code></pre>
-</div>
-<div id="resume-a-pipeline" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="resume-a-pipeline" class="callout-inner">
-<h3 class="callout-title">Resume a pipeline</h3>
-<div class="callout-content">
-<p>Resume the Nextflow script <code>word_count.nf</code> by re-running
-the command and adding the parameter <code>-resume</code> and the
-parameter <code>--input 'data/yeast/reads/temp33*'</code>:</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>You will see that the execution of the process <code>NUMLINES</code>
-is actually skipped (cached text appears), and the results are retrieved
-from the cache.</p>
-</div>
-</div>
-</div>
-</div>
+<p>We can see in the output that the results from the processes have
+been retrieved from the cache.</p>
 </section><section><h2 class="section-heading" id="how-does-resume-work">How does resume work?<a class="anchor" aria-label="anchor" href="#how-does-resume-work"></a></h2>
 <hr class="half-width"><p>Nextflow stores all intermediate files and task results during the
 execution of a workflow is <code>work</code> directory. It acts as a
@@ -522,49 +487,20 @@ that are actually changed.</p>
 <p>The execution of the processes that are not changed will be skipped
 and the cached result used instead.</p>
 <p>This helps a lot when testing or modifying part of your pipeline
-without having to re-execute it from scratch.</p>
-<div id="modify-nextflow-script-and-re-run." class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="modify-nextflow-script-and-re-run." class="callout-inner">
-<h3 class="callout-title">Modify Nextflow script and re-run.</h3>
-<div class="callout-content">
-<p>Alter the timestamp on the file temp33_3_2.fq.gz using the UNIX
-<code>touch</code> command.</p>
-<p>How many processes will be cached and how many will run ?</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>The output will look similar to this:</p>
-<p>As you changed the timestamp on one file it will only re-run that
-process. The results for the other 5 processes are retrieved from the
-cache.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="the-work-directory">The Work directory<a class="anchor" aria-label="anchor" href="#the-work-directory"></a></h2>
-<hr class="half-width"><p>By default the pipeline results are cached in the directory
+without having to re-run it from scratch.</p>
+<p><strong>The Work directory</strong></p>
+<p>By default the pipeline results are cached in the directory
 <code>work</code> where the pipeline is launched.</p>
 <p>We can use the Bash <code>tree</code> command to list the contents of
 the work directory. <strong>Note:</strong> By default tree does not
 print hidden files (those beginning with a dot <code>.</code>). Use the
 <code>-a</code> to view all files.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span> work</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span> work</span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="task-execution-directory">Task execution directory<a class="anchor" aria-label="anchor" href="#task-execution-directory"></a></h3>
+<p><strong>Task execution directory</strong></p>
 <p>Within the <code>work</code> directory there are multiple task
 execution directories. There is one directory for each time a process is
 executed. These task directories are identified by the process execution
@@ -594,23 +530,19 @@ This file is used to capture and store the exit status of the process
 that was run by the .command.sh script.</p></li>
 <li><p>Any task input files (symlinks)</p></li>
 <li><p>Any task output files</p></li>
-</ul></div>
-<div class="section level3">
-<h3 id="specifying-another-work-directory">Specifying another work directory<a class="anchor" aria-label="anchor" href="#specifying-another-work-directory"></a></h3>
+</ul><p><strong>Specifying another work directory</strong></p>
 <p>Depending on your script, this work folder can take a lot of disk
 space. You can specify another work directory using the command line
 option <code>-w</code>. <strong>Note</strong> Using a different work
 directory will mean that any jobs will need to re-run from the
 beginning.</p>
-</div>
-<div class="section level3">
-<h3 id="clean-the-work-directory">Clean the work directory<a class="anchor" aria-label="anchor" href="#clean-the-work-directory"></a></h3>
+<p><strong>Clean the work directory</strong></p>
 <p>If you are sure you won’t resume your pipeline execution, clean this
 folder periodically using the command <code>nextflow clean</code>.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> nextflow clean [run_name<span class="kw">|</span><span class="ex">session_id]</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nextflow clean [run_name<span class="kw">|</span><span class="ex">session_id]</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span></code></pre>
 </div>
 <p>Supply the option <code>-n</code> to print names of files to be
 removed without deleting them, or <code>-f</code> to force the removal
@@ -620,29 +552,6 @@ Multiple runs can be cleaned with the options, <code>-before</code>,
 <code>-after</code> or <code>-but</code> before the run name. For
 example, the command below would remove all the temporary files and log
 entries for runs before the run.</p>
-<div id="remove-a-nextflow-run." class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="remove-a-nextflow-run." class="callout-inner">
-<h3 class="callout-title">Remove a Nextflow run.</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
-
-</div>
-</div>
-</div>
-</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -665,7 +574,6 @@ have been successfully executed.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -724,8 +632,8 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/11.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/11.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-23",
-  "datePublished": "2025-06-24"
+  "dateModified": "2025-06-25",
+  "datePublished": "2025-06-25"
 }
 
   </script><script>

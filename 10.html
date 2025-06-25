@@ -395,7 +395,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Nextflow configuration</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/10.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -457,12 +457,6 @@ scripting</a>), for example, strings, booleans, or other variables. It
 is also possible to access any variable defined in the host environment
 such as <code>$PATH</code>, <code>$HOME</code>, <code>$PWD</code>,
 etc.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>my_home_dir <span class="op">=</span> <span class="st">"</span><span class="ss">$HOME</span><span class="st">"</span></span></code></pre>
-</div>
 <div id="accessing-variables-in-your-configuration-file" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -475,13 +469,6 @@ are not accessible from the workflow script. Only variables defined
 using the <code>params</code> scope and the <code>env</code> scope
 (without <code>env</code> prefix) can be accessed from the workflow
 script.</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    <span class="fu">MY_PROCESS</span><span class="op">(</span> params<span class="op">.</span>input <span class="op">)</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -497,54 +484,54 @@ workflow script. Configuration can be written in either of two ways. The
 first is using dot notation, and the second is using brace notation.
 Both forms of notation can be used in the same configuration file.</p>
 <p>An example of dot notation:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>params<span class="op">.</span>outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span>   <span class="co">// The workflow parameter "outdir" is assigned the value base output directory and './results' subfolder to use by default.</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>params<span class="op">.</span>meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>params<span class="op">.</span>effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>params<span class="op">.</span>subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>params<span class="op">.</span>school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>params<span class="op">.</span>school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>params<span class="op">.</span>composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>params<span class="op">.</span>outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span>   <span class="co">// The workflow parameter "outdir" is assigned the value base output directory and './results' subfolder to use by default.</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>params<span class="op">.</span>meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>params<span class="op">.</span>effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>params<span class="op">.</span>subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>params<span class="op">.</span>school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>params<span class="op">.</span>school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>params<span class="op">.</span>composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span></code></pre>
 </div>
 <p>An example of brace notation:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>params <span class="op">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>params <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>Configuration files can also be separated into multiple files and
 included into another using the <code>includeConfig</code>
 statement.</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>params <span class="op">{</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    input  <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    outdir <span class="op">=</span> <span class="st">'./results'</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>includeConfig <span class="st">'system_resources.config'</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>params <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    input  <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    outdir <span class="op">=</span> <span class="st">'./results'</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>includeConfig <span class="st">'system_resources.config'</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">// system_resources.config</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">1</span>    <span class="co">// default cpu usage</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    time <span class="op">=</span> <span class="st">'1h'</span> <span class="co">// default time limit</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">// system_resources.config</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">1</span>    <span class="co">// default cpu usage</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    time <span class="op">=</span> <span class="st">'1h'</span> <span class="co">// default time limit</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="how-configuration-files-are-combined">How configuration files are combined<a class="anchor" aria-label="anchor" href="#how-configuration-files-are-combined"></a></h2>
 <hr class="half-width"><p>Configuration settings can be spread across several files. This also
@@ -591,30 +578,6 @@ within a configuration file, such as
 </div>
 </div>
 </div>
-<div id="determine-script-output" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="determine-script-output" class="callout-inner">
-<h3 class="callout-title">Determine script output</h3>
-<div class="callout-content">
-<p>Determine the outcome of the following script executions. Given the
-script <code>print_message.nf</code>:</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-
-</div>
-</div>
-</div>
-</div>
 </section><section><h2 class="section-heading" id="configuring-process-behaviour">Configuring process behaviour<a class="anchor" aria-label="anchor" href="#configuring-process-behaviour"></a></h2>
 <hr class="half-width"><p>Earlier we saw that <code>process</code> directives allow the
 specification of settings for the task execution such as
@@ -626,16 +589,19 @@ process configuration settings into another file.</p>
 <p>The <code>process</code> configuration scope allows the setting of
 any process directives in the Nextflow configuration file.</p>
 <p>For example:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    memory <span class="op">=</span> <span class="fl">8.</span>GB</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    time <span class="op">=</span> <span class="st">'1 hour'</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    publishDir <span class="op">=</span> <span class="op">[</span> path<span class="op">:</span> params<span class="op">.</span>outdir<span class="op">,</span> mode<span class="op">:</span> <span class="st">'copy'</span> <span class="op">]</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>params <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <div id="unit-values" class="callout">
 <div class="callout-square">
@@ -672,12 +638,6 @@ process selector can be used to apply the configuration to a specific
 process or group of processes.</p>
 <div class="section level3">
 <h3 id="process-selectors">Process selectors<a class="anchor" aria-label="anchor" href="#process-selectors"></a></h3>
-<p>The resources for a specific process can be defined using
-<code>withName:</code> followed by the process name e.g.,
-<code>'FASTQC'</code>, and the directives within curly braces. For
-example, we can specify different <code>cpus</code> and
-<code>memory</code> resources for the processes <code>INDEX</code> and
-<code>FASTQC</code> as follows:</p>
 <p>When a workflow has many processes, it is inconvenient to specify
 directives for all processes individually, especially if directives are
 repeated for groups of processes. A helpful strategy is to annotate the
@@ -725,64 +685,64 @@ specifying different <code>cpus</code> and <code>memory</code> resources
 for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
 <code>P2</code> (cpus 2 and memory 1.GB), where <code>P1</code> and
 <code>P2</code> are defined as follows:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">// process-selector.nf</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>process P1 <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    echo <span class="kw">true</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="st">    echo P1: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>process P2 <span class="op">{</span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    echo <span class="kw">true</span></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a><span class="st">    echo P2: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
-<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>   <span class="fu">P1</span><span class="op">()</span></span>
-<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>   <span class="fu">P2</span><span class="op">()</span></span>
-<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">// process-selector.nf</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>process P1 <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    echo <span class="kw">true</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="st">    echo P1: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>process P2 <span class="op">{</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>    echo <span class="kw">true</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="st">    echo P2: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>   <span class="fu">P1</span><span class="op">()</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>   <span class="fu">P2</span><span class="op">()</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">// process-selector.config</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>    withName<span class="op">:</span> P1 <span class="op">{</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">2.</span>GB</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    withName<span class="op">:</span> P2 <span class="op">{</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">1.</span>GB</span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">// process-selector.config</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    withName<span class="op">:</span> P1 <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">2.</span>GB</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    withName<span class="op">:</span> P2 <span class="op">{</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">1.</span>GB</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> nextflow run process-selector.nf <span class="at">-c</span> process-selector.config <span class="at">-process.debug</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> nextflow run process-selector.nf <span class="at">-c</span> process-selector.config <span class="at">-process.debug</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -810,31 +770,31 @@ data being processed. Such settings can be dynamically expressed using a
 closure. For example, we can specify the <code>memory</code> required as
 a multiple of the number of <code>cpus</code>. Similarly, we can publish
 results to a subfolder based on the sample name.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>process FASTQC <span class="op">{</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    input<span class="op">:</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    tuple <span class="fu">val</span><span class="op">(</span>sample<span class="op">),</span> <span class="fu">path</span><span class="op">(</span>reads<span class="op">)</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="st">    fastqc -t </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> </span><span class="ss">$reads</span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>process FASTQC <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    input<span class="op">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    tuple <span class="fu">val</span><span class="op">(</span>sample<span class="op">),</span> <span class="fu">path</span><span class="op">(</span>reads<span class="op">)</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="st">    fastqc -t </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> </span><span class="ss">$reads</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>GB <span class="op">*</span> task<span class="op">.</span>cpus <span class="op">}</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>        publishDir <span class="op">=</span> <span class="op">{</span> <span class="st">"fastqc/</span><span class="ss">$sample</span><span class="st">"</span> <span class="op">}</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>GB <span class="op">*</span> task<span class="op">.</span>cpus <span class="op">}</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>        publishDir <span class="op">=</span> <span class="op">{</span> <span class="st">"fastqc/</span><span class="ss">$sample</span><span class="st">"</span> <span class="op">}</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -854,14 +814,14 @@ Computing, PBS Works, Kubernetes, and Amazon Web Services.</div>
 For example, in the config below we specify the executor as Sun Grid
 Engine, <code>sge</code> and the number of tasks the executor will
 handle in a parallel manner (<code>queueSize</code>) to 10.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>executor <span class="op">{</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>executor <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>The <code>process.executor</code> directive allows you to override
 the executor to be used by a specific process. This can be useful, for
@@ -871,19 +831,19 @@ best practice use of your execution system). Other process directives
 such as <code>process.clusterOptions</code>, <code>process.queue</code>,
 and <code>process.machineType</code> can be also be used to further
 configure processes depending on the executor used.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>executor <span class="op">{</span></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    withLabel<span class="op">:</span> <span class="st">'short'</span> <span class="op">{</span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>        executor <span class="op">=</span> <span class="st">'local'</span></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>executor <span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    withLabel<span class="op">:</span> <span class="st">'short'</span> <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>        executor <span class="op">=</span> <span class="st">'local'</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="configuring-software-requirements">Configuring software requirements<a class="anchor" aria-label="anchor" href="#configuring-software-requirements"></a></h2>
 <hr class="half-width"><p>An important feature of Nextflow is the ability to manage software
@@ -914,18 +874,18 @@ YAML).</li>
 <code>&lt;channel&gt;::&lt;package_name&gt;=&lt;version&gt;</code>
 syntax (separated by spaces), which then builds the Conda environment
 when the process is run.</li>
-</ul><div class="codewrapper sourceCode" id="cb16">
+</ul><div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>    conda <span class="op">=</span> <span class="st">"/home/user/miniconda3/envs/my_conda_env"</span></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"environment.yml"</span></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>    withName<span class="op">:</span> SALMON <span class="op">{</span></span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::salmon=1.5.2"</span></span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>    conda <span class="op">=</span> <span class="st">"/home/user/miniconda3/envs/my_conda_env"</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"environment.yml"</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>    withName<span class="op">:</span> SALMON <span class="op">{</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::salmon=1.5.2"</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>There is an optional <code>conda</code> scope which allows you to
 control the creation of a Conda environment by the Conda package
@@ -975,56 +935,56 @@ syntax
 e.g. <code>bioconda::salmon=1.5.2</code></p>
 <ol start="3" style="list-style-type: decimal"><li>Run the Nextflow script <code>configure_fastp.nf</code> with the
 configuration file using the <code>-c</code> option.</li>
-</ol><div class="codewrapper sourceCode" id="cb17">
+</ol><div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co">// configuration_fastp.nf</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>nextflow<span class="op">.</span>enable<span class="op">.</span>dsl <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>params<span class="op">.</span>input <span class="op">=</span> <span class="st">"data/yeast/reads/ref1_1.fq.gz"</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>    <span class="fu">FASTP</span><span class="op">(</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span> params<span class="op">.</span>input <span class="op">)</span> <span class="op">).</span><span class="fu">view</span><span class="op">()</span></span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>process FASTP <span class="op">{</span></span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a>   input<span class="op">:</span></span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>   path read</span>
-<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a></span>
-<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a>   output<span class="op">:</span></span>
-<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a>   stdout</span>
-<span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a>   script<span class="op">:</span></span>
-<span id="cb17-19"><a href="#cb17-19" tabindex="-1"></a>   <span class="st">"""</span></span>
-<span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a><span class="st">   fastp -A -i </span><span class="ss">${</span>read<span class="ss">}</span><span class="st"> -o out.fq 2&gt;&amp;1</span></span>
-<span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a><span class="st">   """</span></span>
-<span id="cb17-22"><a href="#cb17-22" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">// configuration_fastp.nf</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>nextflow<span class="op">.</span>enable<span class="op">.</span>dsl <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>params<span class="op">.</span>input <span class="op">=</span> <span class="st">"data/yeast/reads/ref1_1.fq.gz"</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    <span class="fu">FASTP</span><span class="op">(</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span> params<span class="op">.</span>input <span class="op">)</span> <span class="op">).</span><span class="fu">view</span><span class="op">()</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>process FASTP <span class="op">{</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>   input<span class="op">:</span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>   path read</span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>   output<span class="op">:</span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>   stdout</span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>   script<span class="op">:</span></span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>   <span class="st">"""</span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="st">   fastp -A -i </span><span class="ss">${</span>read<span class="ss">}</span><span class="st"> -o out.fq 2&gt;&amp;1</span></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="st">   """</span></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co">// fastp.config</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>    withName<span class="op">:</span> <span class="st">'FASTP'</span> <span class="op">{</span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::fastp=0.12.4-0"</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co">// fastp.config</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    withName<span class="op">:</span> <span class="st">'FASTP'</span> <span class="op">{</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::fastp=0.12.4-0"</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">nextflow</span> run configure_fastp.nf <span class="at">-c</span> fastp.config</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">nextflow</span> run configure_fastp.nf <span class="at">-c</span> fastp.config</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1086,12 +1046,12 @@ specify the user and group IDs (UID and GID) that the container should
 use when running. This option ensures that the processes inside the
 container run with the same UID and GID as the user executing the Docker
 command on the host system.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'quay.io/biocontainers/salmon:1.5.2--h84f40af_0'</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>docker<span class="op">.</span>runOptions <span class="op">=</span> <span class="st">'-u $(id -u):$(id -g)'</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'quay.io/biocontainers/salmon:1.5.2--h84f40af_0'</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>docker<span class="op">.</span>runOptions <span class="op">=</span> <span class="st">'-u $(id -u):$(id -g)'</span></span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -1106,11 +1066,11 @@ values for <code>process.container</code>.</p>
 <p>Singularity is enabled in a similar manner to Docker. A container
 image path must be provided using <code>process.container</code> and
 singularity enabled using <code>singularity.enabled = true</code>.</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'https://depot.galaxyproject.org/singularity/salmon:1.5.2--h84f40af_0'</span></span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>singularity<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'https://depot.galaxyproject.org/singularity/salmon:1.5.2--h84f40af_0'</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>singularity<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span></code></pre>
 </div>
 <div id="container-protocols" class="callout">
 <div class="callout-square">
@@ -1151,33 +1111,33 @@ called with a short invocation,
 <p>Configuration profiles are defined in the <code>profiles</code>
 scope, which group the attributes that belong to the same profile using
 a common prefix.</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co">//configuration_profiles.config</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>profiles <span class="op">{</span></span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>    standard <span class="op">{</span></span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/local/path/ref.fasta'</span></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'local'</span></span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>    cluster <span class="op">{</span></span>
-<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
-<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>        process<span class="op">.</span>queue <span class="op">=</span> <span class="st">'long'</span></span>
-<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a>        process<span class="op">.</span>memory <span class="op">=</span> <span class="st">'10GB'</span></span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a>        process<span class="op">.</span>conda <span class="op">=</span> <span class="st">'/some/path/env.yml'</span></span>
-<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>    cloud <span class="op">{</span></span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
-<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'awsbatch'</span></span>
-<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>        process<span class="op">.</span>container <span class="op">=</span> <span class="st">'cbcrg/imagex'</span></span>
-<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>        docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a></span>
-<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co">//configuration_profiles.config</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>profiles <span class="op">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>    standard <span class="op">{</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/local/path/ref.fasta'</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'local'</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a>    cluster <span class="op">{</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'sge'</span></span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>        process<span class="op">.</span>queue <span class="op">=</span> <span class="st">'long'</span></span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>        process<span class="op">.</span>memory <span class="op">=</span> <span class="st">'10GB'</span></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>        process<span class="op">.</span>conda <span class="op">=</span> <span class="st">'/some/path/env.yml'</span></span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>    cloud <span class="op">{</span></span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
+<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'awsbatch'</span></span>
+<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a>        process<span class="op">.</span>container <span class="op">=</span> <span class="st">'cbcrg/imagex'</span></span>
+<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a>        docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>This configuration defines three different profiles:
 <code>standard</code>, <code>cluster</code> and <code>cloud</code> that
@@ -1186,10 +1146,10 @@ execution platform. By convention the standard profile is implicitly
 used when no other profile is specified by the user. To enable a
 specific profile use <code>-profile</code> option followed by the
 profile name:</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile cluster</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile cluster</span></code></pre>
 </div>
 <div id="configuration-order" class="callout">
 <div class="callout-square">
@@ -1208,16 +1168,16 @@ This is because the setting is evaluated before Nextflow knows about the
 moved to after the <code>profiles</code> scope, then
 <code>publishDir</code> will use the correct value of
 <code>params.results</code>.</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>params<span class="op">.</span>results <span class="op">=</span> <span class="st">'results'</span></span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>process<span class="op">.</span>publishDir <span class="op">=</span> params<span class="op">.</span>results</span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>    hpc <span class="op">{</span></span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>        params<span class="op">.</span>results <span class="op">=</span> <span class="st">'/long/term/storage/results'</span></span>
-<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>params<span class="op">.</span>results <span class="op">=</span> <span class="st">'results'</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>process<span class="op">.</span>publishDir <span class="op">=</span> params<span class="op">.</span>results</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>    hpc <span class="op">{</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        params<span class="op">.</span>results <span class="op">=</span> <span class="st">'/long/term/storage/results'</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1308,8 +1268,8 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/10.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/10.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-23",
-  "datePublished": "2025-06-24"
+  "dateModified": "2025-06-25",
+  "datePublished": "2025-06-25"
 }
 
   </script><script>
