@@ -46,7 +46,8 @@ mv * templates/
 ``` bash
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
-cd sgsss-workflow
+cd sgsss-workflow/scripts
+
 ```
 :::::::::::::::::::::::::
 
@@ -66,10 +67,8 @@ You can create a free GitHub account from the [GitHub home page](https://github.
 
 ##### Running GitHub Codespaces
 
-You can click on the button shown below from the many pages in the training portal where it is displayed.
+Once you are logged in to GitHub in your browser, you can open you can click on the button shown below from the many pages in the training portal where it is displayed.
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
-
-Once you are logged in to GitHub, you can open this link in your browser to open the training environment: <https://codespaces.new/nextflow-io/training?quickstart=1&ref=master>.
 
 You should be presented with a page where you can create a new GitHub Codespace. You can click "Change options" to configure the machine used.
 
