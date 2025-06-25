@@ -46,7 +46,8 @@ mv * templates/
 ``` bash
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
-cd sgsss-workflow
+cd sgsss-workflow/scripts
+
 ```
 :::::::::::::::::::::::::
 
