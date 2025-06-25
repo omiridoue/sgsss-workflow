@@ -255,7 +255,6 @@
         <ul><li><a href="#processes">Processes</a></li>
 <li><a href="#process-definition">Process definition</a></li>
 <li><a href="#script">Script</a></li>
-<li><a href="#associated-scripts">Associated scripts</a></li>
 <li><a href="#inputs">Inputs</a></li>
 <li><a href="#input-repeaters">Input repeaters</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -394,7 +393,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Processes</h1>
-        <p>Last updated on 2025-06-22 |
+        <p>Last updated on 2025-06-25 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/05.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -437,13 +436,12 @@ processes.</p>
 <p>A <code>process</code> is the way Nextflow executes commands you
 would run on the command line or custom scripts.</p>
 <p>A process can be thought of as a particular step in a workflow,
-e.g. an alignment step in RNA-seq analysis. Processes are independent of
-each other (don’t require any another process to execute) and can not
+e.g. data wrangling for analysis. Processes are independent of each
+other (don’t require any another process to execute) and can not
 communicate/write to each other. Data is passed between processes via
 input and output Channels.</p>
 <p>For example, below is the command you would run to count the number
-of sequence records in a FASTA format file such as the yeast
-transcriptome:</p>
+of data schools:</p>
 <div id="format" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -512,7 +510,7 @@ process <code>COUNT_BASES</code> that runs the command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -585,31 +583,23 @@ declaration. For example:</p>
 better fit a particular job. However, for large chunks of code it is
 suggested to save them into separate files and invoke them from the
 process script.</p>
-</section><section><h2 class="section-heading" id="associated-scripts">Associated scripts<a class="anchor" aria-label="anchor" href="#associated-scripts"></a></h2>
-<hr class="half-width"><p>Scripts such as the one in the example below,
-<code>process_reads.py</code>, can be stored in a <code>bin</code>
-folder at the same directory level as the Nextflow workflow script that
-invokes them, and given execute permission. Nextflow will automatically
-add this folder to the <code>PATH</code> environment variable. To invoke
-the script in a Nextflow process, simply use its filename on its own
-rather than invoking the interpreter e.g. <code>process_reads.py</code>
-instead of <code>python process_reads.py</code>. <strong>Note</strong>
-The script <code>process_reads.py</code> must be executable to run.</p>
-<div id="associated-scripts-1" class="callout">
+<div id="associated-scripts" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="associated-scripts-1" class="callout-inner">
+<div id="associated-scripts" class="callout-inner">
 <h3 class="callout-title">Associated scripts</h3>
 <div class="callout-content">
 <p>Scripts such as the one in the example above,
-<code>process_reads.py</code>, can be stored in a <code>bin</code>
+<code>siena07RunSimOnly.R</code>, can be stored in a <code>bin</code>
 folder at the same directory level as the Nextflow workflow script that
 invokes them, and given execute permission. Nextflow will automatically
 add this folder to the <code>PATH</code> environment variable. To invoke
 the script in a Nextflow process, simply use its filename on its own
-rather than invoking the interpreter e.g. <code>process_reads.py</code>
-instead of <code>python process_reads.py</code>.</p>
+rather than invoking the interpreter
+e.g. <code>siena07RunSimOnly.R</code> instead of
+<code>R siena07RunSimOnly.R</code>. <strong>Note</strong> The script
+<code>siena07RunSimOnly.R</code> must be executable to run.</p>
 </div>
 </div>
 </div>
@@ -663,11 +653,6 @@ workflow have two hyphens <code>--</code>.</p>
 <div id="script-parameters-1" class="callout-inner">
 <h3 class="callout-title">Script parameters</h3>
 <div class="callout-content">
-<p>For the Nextflow script below.</p>
-<p>Add a parameter <code>params.base</code> to the script and uses the
-variable <code>${param.base}</code> insides the script. Run the pipeline
-using a base value of <code>C</code> using the <code>--base</code>
-command line option.</p>
 <p><strong>Note:</strong> The Nextflow option
 <code>-process.debug</code> will print the process’ stdout to the
 terminal.</p>
@@ -679,9 +664,23 @@ terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+[school123_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school123_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school123_period2.dat]]
+[school124_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school124_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school124_period2.dat]]
+[school126_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school126_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school126_period1.dat]]
+[school124_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school124_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school124_period1.dat]]
+[school125_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school125_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school125_period1.dat]]
+[school123_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school123_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school123_period1.dat]]
+[school126_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school126_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school126_period2.dat]]
+[school125_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school125_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school125_period2.dat]]
+composition_each_period.tar.gz
+</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -721,18 +720,18 @@ boolean value <code>true</code> or <code>false</code>.</p>
 <h3 id="if-statement">If statement<a class="anchor" aria-label="anchor" href="#if-statement"></a></h3>
 <p>The <code>if</code> statement uses the same syntax common to other
 programming languages such Java, C, JavaScript, etc.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span> <span class="op">&lt;</span> <span class="dt">boolean</span> expression <span class="op">&gt;</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    <span class="co">// true branch</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span> <span class="op">&lt;</span> <span class="dt">boolean</span> expression <span class="op">&gt;</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="co">// true branch</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="co">// false branch</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span> <span class="op">&lt;</span> <span class="dt">boolean</span> expression <span class="op">&gt;</span> <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="co">// true branch</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span> <span class="op">&lt;</span> <span class="dt">boolean</span> expression <span class="op">&gt;</span> <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="co">// true branch</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="co">// false branch</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>For example, the Nextflow script below will use the <code>if</code>
 statement to change what the COUNT process counts depending on the
@@ -750,11 +749,11 @@ process executes.</p>
 </figure><p>You can only define one input block at a time and it must contain one
 or more input declarations.</p>
 <p>The input block follows the syntax shown below:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>input<span class="op">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="op">&lt;</span>input qualifier<span class="op">&gt;</span> <span class="op">&lt;</span>input name<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>input<span class="op">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="op">&lt;</span>input qualifier<span class="op">&gt;</span> <span class="op">&lt;</span>input name<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>The input qualifier declares the type of data to be received.</p>
 <div id="input-qualifiers" class="callout">
@@ -875,7 +874,7 @@ input.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -936,7 +935,7 @@ combines two input channels</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 
 </div>
@@ -971,7 +970,7 @@ running the process for each value.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1059,7 +1058,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/05.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/05.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-22",
+  "dateModified": "2025-06-25",
   "datePublished": "2025-06-25"
 }
 
