@@ -874,16 +874,16 @@ any links that you are not going to use.
 <h3 id="workflows">Workflows<a class="anchor" aria-label="anchor" href="#workflows"></a>
 </h3>
 <p>Analysing data involves a sequence of tasks, including gathering,
-cleaning, processing data. This is what we refer to as data wrangling.
-This is an important part of research and something that should be
-documented. The sequence of tasks that picks up from the point that the
-data is ready to work with is a workflow or a pipeline. These workflows
-typically require using multiple software packages, sometimes running on
-different computing environments, such as desktop or a compute cluster.
-However, as workflows become larger and more complex, the management of
-the programming logic and software becomes difficult. <em>Workflow
-Management Systems</em> have been developed specifically to manage
-computational data-analysis workflows.</p>
+cleaning, and processing data. This is what we refer to as data
+wrangling. This is an important part of research and something that
+should be documented. The sequence of tasks that picks up from the point
+that the data is ready to work with is a workflow or a pipeline. These
+workflows typically require using multiple software packages, sometimes
+running on different computing environments, such as desktop or a
+compute cluster. However, as workflows become larger and more complex,
+the management of the programming logic and software becomes difficult.
+<em>Workflow Management Systems</em> have been developed specifically to
+manage computational data-analysis workflows.</p>
 </div>
 <div class="section level3">
 <h3 id="workflow-management-systems">Workflow management systems<a class="anchor" aria-label="anchor" href="#workflow-management-systems"></a>
@@ -986,7 +986,7 @@ displays the following:</p>
 <p>Hint: Use the <code>cd</code> command to change directory followed by
 the folder name or relative path you want to navigate to, ex.
 <code>cd sgsss-workflow</code>. If you want to go back up a level or
-folder in your directory, you can type <code>cd ..</code>.</p>
+folder in your directory, you can type <code>cd ..</code> .</p>
 </div>
 </div>
 </div>
@@ -1126,7 +1126,7 @@ terminal:</p>
 </h3>
 <pre class="output" tabindex="0"><code> N E X T F L O W   ~  version 24.10.4
 
-Launching `01_read_data.nf` [frozen_booth] DSL2 - revision: 8a3d1bb9c7
+Launching `02_hello_nextflow.nf` [frozen_booth] DSL2 - revision: 8a3d1bb9c7
 
 executor &gt;  local (1)
 [52/af3b5c] GENERATE_READS (1) [100%] 1 of 1 ✔
@@ -1355,7 +1355,7 @@ in the <code>02_hello_nextflow.nf</code> script we would run:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1402,7 +1402,7 @@ quotes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This runs the process GENERATE_DAT twice, once for each file it
 matches.</p>
@@ -1448,7 +1448,7 @@ changing the pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1532,7 +1532,7 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Parameters </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
@@ -4276,7 +4276,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -4705,7 +4705,7 @@ for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4888,7 +4888,7 @@ where the Conda environments are stored. By default this is in
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>This following exercise necessitates the installation of conda, a
 package and environment management software, on your system for
@@ -4980,7 +4980,7 @@ configuration file using the <code>-c</code> option.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5768,7 +5768,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>conda create --name nf-env bioconda::nextflow
 </code></pre>
@@ -5816,7 +5816,7 @@ Cloud.</div>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute
