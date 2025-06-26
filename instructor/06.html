@@ -563,17 +563,34 @@ conditional statements?</p>
 <div class="accordion-body">
 <p>The input variable name is <code>specification</code> this takes on
 character values so we need to use the == statement.</p>
-<p>process ESTIMATION { . . . input: tuple val(school_period),
-val(specification), val(school_ID_dat), path(compositionFile_period),
-val(school_ID), path(STR), val(period), val(effects)</p>
-<p>output: . . .</p>
-<p>script:</p>
-<p>if (specification == “all”) template ‘1000_model_estimation_all.R’
-else if (specification == “influence”) template
-‘1000_model_estimation_influence.R’ else if (specification == “none”)
-template ‘1000_model_estimation_no.R’ else template
-‘1000_model_estimation_selection.R’</p>
-<p>}</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a> input<span class="op">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  tuple <span class="fu">val</span><span class="op">(</span>school_period<span class="op">),</span> <span class="fu">val</span><span class="op">(</span>specification<span class="op">),</span> <span class="fu">val</span><span class="op">(</span>school_ID_dat<span class="op">),</span> <span class="fu">path</span><span class="op">(</span>compositionFile_period<span class="op">),</span> <span class="fu">val</span><span class="op">(</span>school_ID<span class="op">),</span> <span class="fu">path</span><span class="op">(</span>STR<span class="op">),</span> <span class="fu">val</span><span class="op">(</span>period<span class="op">),</span> <span class="fu">val</span><span class="op">(</span>effects<span class="op">)</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  </span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  output<span class="op">:</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>script<span class="op">:</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>specification <span class="op">==</span> <span class="st">"all"</span><span class="op">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>      template <span class="st">'1000_model_estimation_all.R'</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>specification <span class="op">==</span> <span class="st">"influence"</span><span class="op">)</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>      template <span class="st">'1000_model_estimation_influence.R'</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>specification <span class="op">==</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>      template <span class="st">'1000_model_estimation_no.R'</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>      template <span class="st">'1000_model_estimation_selection.R'</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -621,14 +638,18 @@ defined in the process?</p>
 <div class="accordion-body">
 <p>The directive used to label and distinguish tasks for each run of the
 <code>ESTIMATION</code> process is <code>school_period</code>.</p>
-<p>process ESTIMATION {</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a> <span class="ex">tag{school_period}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>     tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-<p>. . .</p>
-<p>}</p>
 </div>
 </div>
 </div>
@@ -669,19 +690,27 @@ purpose of each one is.</p>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> solution </h4>
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<p>process ESTIMATION {</p>
-<p>tag{school_period}</p>
-<p>label ‘small_time_cpus’ // process label allocating resources</p>
-<p>errorStrategy { task.exitStatus == 140 ? ‘retry’ : ‘ignore’ } // if a
-task happens to fail, ask nextflow to carry on with the rest of the
-tasks, otherwise it’ll stop all processes maxRetries 1 // specify the
-number of times to a process is to be rescheduled once it fails . .
-.</p>
-<p>}</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span> <span class="co">// process label allocating resources </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> <span class="co">// if a task happens to fail, ask nextflow to carry on with the rest of the tasks, otherwise it'll stop all processes</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  maxRetries <span class="dv">1</span> <span class="co">// specify the number of times to a process is to be rescheduled once it fails</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -703,7 +732,11 @@ output directory specified using the <code>directive</code>
 directory in the <code>publishDir</code> directive while forgetting to
 specify the files you want to include in the <code>output</code>
 block.</p>
-<pre><code>publishDir &lt;directory&gt;, parameter: value, parameter2: value ...</code></pre>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>publishDir <span class="op">&lt;</span>directory<span class="op">&gt;,</span> parameter<span class="op">:</span> value<span class="op">,</span> parameter2<span class="op">:</span> value <span class="op">...</span></span></code></pre>
+</div>
 <p>For example if we want to capture the results of the
 <code>ESTIMATION</code> process in a
 <code>results/siena_sim/$school_period</code> output directory we need
@@ -778,16 +811,26 @@ output directories are specified by this single process ?</p>
 </button>
 <div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<p>process ESTIMATION {</p>
-<p>. . .</p>
-<p>publishDir “$params.outdir/siena_fit”, pattern: “*.RDS”, mode:
-“copy”, overwrite: true // all file outputs are copied to this directory
-- i.e CONVERGED / NOT CONVERGED</p>
-<p>publishDir “<span class="math inline">\(params.outdir/siena_sim/\)</span>school_period”,
-pattern: “*_SIM.RDS”, mode: “copy”, overwrite: true publishDir “<span class="math inline">\(params.outdir/siena_gof/\)</span>school_period”,
-pattern: “*.png”, mode: “copy”, overwrite: true</p>
-<p>. . .</p>
-<p>}</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_fit"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span> <span class="co">// all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  </span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_sim/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*_SIM.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_gof/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.png"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="op">}</span> </span></code></pre>
+</div>
 </div>
 </div>
 </div>

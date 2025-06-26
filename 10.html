@@ -699,14 +699,7 @@ results to a subfolder based on the sample name.</p>
 <hr class="half-width"><p>Nextflow supports a wide range of execution platforms, from running
 locally, to running on HPC clusters or cloud infrastructures. See <a href="https://www.nextflow.io/docs/latest/executor.html" class="external-link">https://www.nextflow.io/docs/latest/executor.html</a>
 for the full list of supported executors.</p>
-<figure><img src="fig/nf-executors.png" title="digram of different nextflow-executors" alt="A diagram illustrating the different executors available in Nextflow. The diagram shows a configuration file feeding into Nextflow, which has both local and grid executors. The local executor connects to the Local OS and a standalone computer, while the grid executor connects to a batch scheduler and NFS, which further connects to various computing resources such as UNIVA, SLURM, Platform Computing, PBS Works, Kubernetes, and Amazon Web Services." class="figure mx-auto d-block"><div class="figcaption">A diagram illustrating the different executors
-available in Nextflow. The diagram shows a configuration file feeding
-into Nextflow, which has both local and grid executors. The local
-executor connects to the Local OS and a standalone computer, while the
-grid executor connects to a batch scheduler and NFS, which further
-connects to various computing resources such as UNIVA, SLURM, Platform
-Computing, PBS Works, Kubernetes, and Amazon Web Services.</div>
-</figure><p>The <code>process.executor</code> directive allows you to override
+<p>The <code>process.executor</code> directive allows you to override
 the executor to be used by a specific process. This can be useful, for
 example, when there are short running tasks that can be run locally, and
 are unsuitable for submission to HPC executors (check for guidelines on

@@ -497,7 +497,7 @@ many times is the process used in the workflow?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Essentially this stores the process definition for
 <code>GENERATE_READS</code>. Note previously we defined the process in
@@ -689,7 +689,7 @@ the terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -870,7 +870,7 @@ outputs do the channels <code>composition</code> and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>The names for the two queue channels are <code>ZipChannel_dat</code>
 and <code>ZipChannel_RDS</code> and are defined with the following
@@ -927,7 +927,7 @@ replicate the combination of a pair of channels?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>The channel operator <strong>combine</strong> is used to combine the
 main process output <code>dataset</code> and the process output
@@ -939,8 +939,17 @@ rather than 1.</p>
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a> estimation_channel <span class="op">=</span> composition \</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>dataset<span class="op">,</span> by<span class="op">:</span> <span class="dv">1</span><span class="op">)</span></span></code></pre>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    estimation_channel <span class="op">=</span> composition \</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>dataset<span class="op">,</span> by<span class="op">:</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
