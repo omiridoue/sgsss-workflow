@@ -459,7 +459,7 @@ module.</p>
 followed by module name, in this case <code>GENERATE_READS</code>, and
 finally the module <code>body</code> delimited by curly brackets
 <code>{}</code>. The module body must contain a string which represents
-the command or, more generally, a script that is implementd by it.</p>
+the command or, more generally, a script that is implemented by it.</p>
 <div id="implicit-variables" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -469,7 +469,7 @@ the command or, more generally, a script that is implementd by it.</p>
 <div class="callout-content">
 <p>We use the Nextflow implicit variable <code>${projectDir}</code> to
 specify the directory where the main script is located. This is
-important as Nextflow scripts are implementd in a separate working
+important as Nextflow scripts are implemented in a separate working
 directory. A full list of implicit variables can be found <a href="https://www.nextflow.io/docs/latest/script.html?highlight=implicit%20variables#implicit-variables" class="external-link">here</a>.</p>
 </div>
 </div>
@@ -499,7 +499,7 @@ many times is the process used in the workflow?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Essentially this stores the process definition for
 <code>GENERATE_READS</code>. Note previously we defined the process in
@@ -547,7 +547,7 @@ come handy as we can separate each set of code.</p>
 <h3 id="definition-blocks">Definition blocks<a class="anchor" aria-label="anchor" href="#definition-blocks"></a></h3>
 <p>The previous example was a simple <code>module</code> with no defined
 inputs and outputs that ran only once. To control inputs, outputs and
-how a command is implementd a module may contain five definition
+how a command is implemented a module may contain five definition
 blocks:</p>
 <ol style="list-style-type: decimal"><li>
 <strong>directives - 0, 1, or more</strong>: allow the definition of
@@ -557,7 +557,7 @@ allocated.</li>
 <li>
 <strong>inputs - 0, 1, or more</strong>: Define the input
 dependencies, usually channels, which determines the number of times a
-module is implementd.</li>
+module is implemented.</li>
 <li>
 <strong>outputs - 0, 1, or more</strong>: Defines the output
 channels used by the module to send results/data produced by the
@@ -567,8 +567,8 @@ module.</li>
 condition that must be verified in order to implement the module.</li>
 <li>
 <strong>script block - required</strong>: A statement within quotes
-that defines the commands that are implementd by the module to carry out
-its task.</li>
+that defines the commands that are implemented by the module to carry
+out its task.</li>
 </ol><p>The syntax is defined as follows:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -582,7 +582,7 @@ its task.</li>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  when<span class="op">:</span>                 </span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  <span class="op">&lt;</span> condition <span class="op">&gt;</span></span>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  <span class="op">[</span>script<span class="op">|</span>shell<span class="op">|</span>exec<span class="op">]:</span>  </span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  <span class="op">&lt;</span> user script to be implementd <span class="op">&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  <span class="op">&lt;</span> user script to be implemented <span class="op">&gt;</span></span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
@@ -590,7 +590,7 @@ its task.</li>
 <hr class="half-width"><p>At minimum a module block must contain a <code>script</code>
 block.</p>
 <p>The <code>script</code> block is a String “statement” that defines
-the command that is implementd by the module to carry out its task.
+the command that is implemented by the module to carry out its task.
 These are normally the commands you would run on a terminal.</p>
 <p>A module contains only one <code>script</code> block, and it must be
 the last statement when the module contains <code>input</code> and
@@ -605,7 +605,7 @@ in triple quotes <code>"""</code>.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The following section on python is meant to be run by the instructor
 not the learners. It is meant to be a demonstration of the different
@@ -632,10 +632,10 @@ module script.</p>
 <p>Scripts such as the one in the example above,
 <code>siena07RunSimOnly.R</code>, can be stored in a <code>bin</code>
 folder at the same directory level as the Nextflow workflow script that
-invokes them, and given implement permission. Nextflow will
-automatically add this folder to the <code>PATH</code> environment
-variable. To invoke the script in a Nextflow module, simply use its
-filename on its own rather than invoking the interpreter
+invokes them, and permission to run files. Nextflow will automatically
+add this folder to the <code>PATH</code> environment variable. To invoke
+the script in a Nextflow module, simply use its filename on its own
+rather than invoking the interpreter
 e.g. <code>siena07RunSimOnly.R</code> instead of
 <code>R siena07RunSimOnly.R</code>. <strong>Note</strong> The script
 <code>siena07RunSimOnly.R</code> must be executable to run.</p>
@@ -704,7 +704,7 @@ the terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -788,7 +788,7 @@ the input collection. A complete list of inputs can be found <a href="https://ww
 <p>The <code>val</code> qualifier allows you to receive value data as
 input. It can be accessed in the module script by using the specified
 input name, as shown in the following example:</p>
-<p>In the above example the module is implementd 1 time; each time a
+<p>In the above example the module is implemented 1 time; each time a
 value is received from the queue channel <code>composition</code> it is
 used to run the module.</p>
 <div id="channel-order" class="callout">
@@ -799,7 +799,7 @@ used to run the module.</p>
 <h3 class="callout-title">Channel order</h3>
 <div class="callout-content">
 <p>The channel guarantees that items are delivered in the same order as
-they have been sent, but since the module is implementd in a parallel
+they have been sent, but since the module is implemented in a parallel
 manner, there is no guarantee on the order.</p>
 </div>
 </div>
@@ -885,7 +885,7 @@ outputs do the channels <code>composition</code> and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>The names for the two queue channels are <code>ZipChannel_dat</code>
 and <code>ZipChannel_RDS</code> and are defined with the following
@@ -942,7 +942,7 @@ replicate the combination of a pair of channels?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The channel operator <strong>combine</strong> is used to combine the
 main process output <code>dataset</code> and the process output
@@ -978,8 +978,8 @@ until one or more queue channels have no more content. The module then
 stops.</p>
 <p>What happens when not all channels have the same number of
 elements?</p>
-<p>In the above example the module is implementd only two times, because
-when a queue channel has no more data, it stops the module
+<p>In the above example the module is implemented only two times,
+because when a queue channel has no more data, it stops the module
 execution.</p>
 </div>
 <div class="section level3">
@@ -1002,18 +1002,29 @@ whenever it operates on the combined output of the dataset and auxiliary
 data channels. ::::::::::::::: solution</p>
 <div class="section level2">
 <h2 id="solution-4">Solution<a class="anchor" aria-label="anchor" href="#solution-4"></a></h2>
-<p>// 05_modules.nf . . . def map_join(channel_a, key, value){ channel_a
-.map{ it -&gt; [it[‘key’], it[‘value’]] } } . . . workflow {</p>
 <div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">estimation_channel.view()</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="ex">mapped_params</span> = map_join<span class="er">(</span><span class="ex">pipe_school_info,</span> <span class="st">'key'</span>, <span class="st">'value'</span><span class="kw">)</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">mapped_params.view()</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">// 05_modules.nf</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="dt">def</span> <span class="fu">map_join</span><span class="op">(</span>channel_a<span class="op">,</span> key<span class="op">,</span> value<span class="op">){</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    channel_a</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="st">'key'</span><span class="op">],</span> it<span class="op">[</span><span class="st">'value'</span><span class="op">]]</span> <span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="fu">workflow</span> <span class="op">{</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>    estimation_channel<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>    mapped_params <span class="op">=</span> <span class="fu">map_join</span><span class="op">(</span>pipe_school_info<span class="op">,</span> <span class="st">'key'</span><span class="op">,</span> <span class="st">'value'</span><span class="op">)</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>    mapped_params<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-<p>}</p>
 </div>
 </div>
 </div>
