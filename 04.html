@@ -256,7 +256,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05.html">5. Processes</a>
+        <a href="05.html">5. Modules</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -265,7 +265,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06.html">6. Processes Part 2</a>
+        <a href="06.html">6. Modules Part 2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -386,7 +386,7 @@
           Previous: Parameters
         </a>
         <a class="chapter-link float-end" href="05.html" rel="next">
-          Next: Processes...
+          Next: Modules...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -588,28 +588,33 @@ differences do you notice?</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
+<p>Notice we’ve added the following code to <code>04_channels.nf</code>,
+building on the previous workflow definition:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_READS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    composition \</span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="op">|</span> view</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="dt">def</span> meta_verbose_ch <span class="op">=</span> <span class="op">[</span><span class="st">"all"</span><span class="op">,</span><span class="st">"influence"</span><span class="op">,</span><span class="st">"selection"</span><span class="op">,</span> <span class="st">"none"</span><span class="op">]</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_READS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    <span class="bu">Channel</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>meta_verbose_ch<span class="op">)</span> \</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    composition \</span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>    <span class="op">|</span> view</span>
 <span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>    <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromList</span><span class="op">(</span>meta_verbose_ch<span class="op">)</span> \</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>    <span class="bu">Channel</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>meta_verbose_ch<span class="op">)</span> \</span>
 <span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>    <span class="op">|</span> view</span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>    <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromList</span><span class="op">(</span>meta_verbose_ch<span class="op">)</span> \</span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>    <span class="op">|</span> view</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -914,27 +919,22 @@ covered in the operator episode.</p>
 </div>
 </div>
 </div>
-<div id="create-a-channel-containing-groups-of-files" class="callout challenge">
+<div id="task-4.3-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="create-a-channel-containing-groups-of-files" class="callout-inner">
-<h3 class="callout-title">Create a channel containing groups of files</h3>
+<div id="task-4.3-1" class="callout-inner">
+<h3 class="callout-title">Task 4.3</h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Use the <code>fromFilePairs</code> method to create a channel
+<p>Use the <code>fromFilePairs</code> method to create a channel
 containing four tuples. Each tuple will contain the pairs of data reads
 for the four schools with synthetic data in the <code>tmp/</code>
-directory. Make sure you have previously completed Task 3.3</li>
-</ol></div>
-</div>
-</div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
-</button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
-<div class="accordion-body">
+directory. Make sure you have previously completed Task 3.3, or check
+you <code>tmp/</code> folder contains both data files,
+<code>.RDS</code>, as well as auxiliary data files,
+<code>.dat</code>.</p>
+<div class="section level2">
+<h2 id="solution-1">Solution<a class="anchor" aria-label="anchor" href="#solution-1"></a></h2>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -946,6 +946,31 @@ directory. Make sure you have previously completed Task 3.3</li>
 <span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    <span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+[school123_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school123_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school123_period2.dat]]
+[school124_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school124_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school124_period2.dat]]
+[school126_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school126_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school126_period1.dat]]
+[school124_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school124_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school124_period1.dat]]
+[school125_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school125_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school125_period1.dat]]
+[school123_period1, [/workspaces/training/sgsss-workflow/scripts/tmp/school123_period1.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school123_period1.dat]]
+[school126_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school126_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school126_period2.dat]]
+[school125_period2, [/workspaces/training/sgsss-workflow/scripts/tmp/school125_period2.RDS, /workspaces/training/sgsss-workflow/scripts/tmp/school125_period2.dat]]
+</code></pre>
 </div>
 </div>
 </div>
@@ -988,7 +1013,7 @@ any links that you are not going to use.
           Previous: Parameters
         </a>
         <a class="chapter-link float-end" href="05.html" rel="next">
-          Next: Processes...
+          Next: Modules...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>

@@ -242,7 +242,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05.html">5. Processes</a>
+        <a href="05.html">5. Modules</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -251,7 +251,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06.html">6. Processes Part 2</a>
+        <a href="06.html">6. Modules Part 2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -381,7 +381,7 @@
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="06.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Processes Part 2
+          Previous: Modules Part 2
         </a>
         <a class="chapter-link float-end" href="08.html" rel="next">
           Next: Operators...
@@ -390,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Workflow</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-26 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/07.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -459,31 +459,18 @@ information can be found in the official documentation <a href="https://www.next
 <p>As seen previously, a <code>process</code> is invoked as a function
 in the <code>workflow</code> scope, passing the expected input channels
 as arguments as it if were.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> sgsss-workflow</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> workflow</span></code></pre>
-</div>
 <p>To combined multiple processes invoke them in the order they would
 appear in a workflow. When invoking a process with multiple inputs,
 provide them in the same order in which they are declared in the
 <code>input</code> block of the process.</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">nextflow</span> run main.nf <span class="at">-profile</span> local</span></code></pre>
-</div>
-<p>For example:</p>
 </div>
 <div class="section level3">
 <h3 id="process-outputs">Process outputs<a class="anchor" aria-label="anchor" href="#process-outputs"></a></h3>
-<p>In the previous example we assigned the process output to a Nextflow
-variable <code>fastqc_obj</code>.</p>
 <p>A process output can also be accessed directly using the
 <code>out</code> attribute for the respective
-<code>process object</code>.</p>
-<p>For example:</p>
+<code>process object</code>. Remember this is what we did in the Hello
+Nextflow episode when we specified
+<code>GENERATE_READS.out.view()</code> in the workflow definition.</p>
 <p>When a process defines two or more output channels, each of them can
 be accessed using the list element operator e.g. <code>out[0]</code>,
 <code>out[1]</code>, or using named outputs.</p>
@@ -495,29 +482,16 @@ are multiple outputs.</p>
 <p>The process <code>output</code> definition allows the use of the
 <code>emit:</code> option to define a named identifier that can be used
 to reference the channel in the external scope.</p>
-</div>
-<div class="section level3">
-<h3 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a></h3>
-<p>A workflow component can access any variable and parameter defined in
-the outer scope:</p>
-<p>For example:</p>
-<p>In this example <code>params.reads</code>, defined outside the
-workflow scope, can be accessed inside the <code>workflow</code>
-scope.</p>
-<div id="workflow-1" class="callout challenge">
+<div id="task-7.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="workflow-1" class="callout-inner">
-<h3 class="callout-title">Workflow</h3>
+<div id="task-7.1" class="callout-inner">
+<h3 class="callout-title">Task 7.1</h3>
 <div class="callout-content">
-<p>Connect the output of the process <code>FASTQC</code> to
-<code>PARSEZIP</code> in the Nextflow script
-<code>workflow_exercise.nf</code>.</p>
-<p><strong>Note:</strong> You will need to pass the
-<code>read_pairs_ch</code> as an argument to FASTQC and you will need to
-use the <code>collect</code> operator to gather the items in the FASTQC
-channel output to a single List item.</p>
+<p>Inspect the code for the <code>ESTIMATION</code> module. Can you
+identify the named output that is used in the workflow in the
+<code>main.nf</code> file?</p>
 </div>
 </div>
 </div>
@@ -528,8 +502,72 @@ channel output to a single List item.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<p>If you only have two lines it might mean that you did not use
-<code>collect()</code> operator on the FASTC output channel.</p>
+<p>The named out channel involves <code>simulation_ch</code> after
+implementing the ESTIMATION moderator.</p>
+<p>workflow{ . . . estimation_out = ESTIMATION(estimation_channel)</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">estimation_out.simulation_ch</span></span></code></pre>
+</div>
+<p>}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a></h3>
+<p>A workflow component can access any variable and parameter defined in
+the outer scope.</p>
+<p>In this example <code>pipe_meta</code> or <code>pipe_effects</code>,
+are defined outside the workflow scope, but are accessed inside the
+<code>workflow</code> scope.</p>
+<div id="task-7.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-7.2" class="callout-inner">
+<h3 class="callout-title">Task 7.2</h3>
+<div class="callout-content">
+<p>Open the <code>main.nf</code> file and identify at which stage of the
+workflow is the output of the process <code>META_MORAN</code> being
+connected to <code>JOINFILES</code> process in the workflow
+definition.</p>
+<p><strong>Note:</strong> You will need to use the <code>collect</code>
+operator to gather the items in the simulatio_ch to a single List item.
+The reason for this is the <code>JOINFILES</code> module combines output
+into a figure summarising model comparison statistics.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    estimation_out<span class="op">.</span>simulation_ch\</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">split</span><span class="op">(</span><span class="st">'_|</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">]]}</span> \</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>mapped_params<span class="op">,</span> by<span class="op">:</span> <span class="dv">0</span><span class="op">)</span> \</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>        <span class="op">|</span> transpose \</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">groupTuple</span><span class="op">(</span>by<span class="op">:</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">],</span> sort<span class="op">:</span> <span class="kw">true</span><span class="op">)</span> \</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">5</span><span class="op">]]</span>  <span class="op">}</span> \</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>        <span class="op">|</span> META_MORAN \</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>        <span class="op">|</span> collect \</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>        <span class="op">|</span> JOINFILES \</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>        <span class="op">|</span> view</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="op">}</span>        </span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -569,7 +607,7 @@ any links that you are not going to use.
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="06.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Processes Part 2
+          Previous: Modules Part 2
         </a>
         <a class="chapter-link float-end" href="08.html" rel="next">
           Next: Operators...
@@ -618,7 +656,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/07.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/07.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-23",
+  "dateModified": "2025-06-26",
   "datePublished": "2025-06-26"
 }
 

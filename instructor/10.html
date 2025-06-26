@@ -242,7 +242,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05.html">5. Processes</a>
+        <a href="05.html">5. Modules</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -251,7 +251,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06.html">6. Processes Part 2</a>
+        <a href="06.html">6. Modules Part 2</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -395,7 +395,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Nextflow configuration</h1>
-        <p>Last updated on 2025-06-25 |
+        <p>Last updated on 2025-06-26 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/10.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -454,8 +454,7 @@ implementation, into a configuration file.</p>
 <hr class="half-width"><p>Settings in a configuration file are sets of name-value pairs
 (<code>name = value</code>). The <code>name</code> is a specific
 property to set, while the <code>value</code> can be anything you can
-assign to a variable (see <a href="02-nextflow_scripting.html">nextflow
-scripting</a>), for example, strings, booleans, or other variables. It
+assign to a variable (for ex. strings, booleans, or other variables). It
 is also possible to access any variable defined in the host environment
 such as <code>$PATH</code>, <code>$HOME</code>, <code>$PWD</code>,
 etc.</p>
@@ -513,28 +512,8 @@ Both forms of notation can be used in the same configuration file.</p>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>Configuration files can also be separated into multiple files and
-included into another using the <code>includeConfig</code>
-statement.</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>params <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    input  <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    outdir <span class="op">=</span> <span class="st">'./results'</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>includeConfig <span class="st">'system_resources.config'</span></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">// system_resources.config</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">1</span>    <span class="co">// default cpu usage</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    time <span class="op">=</span> <span class="st">'1h'</span> <span class="co">// default time limit</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
+included into another using the
+<code>includeConfig "params.config"</code> statement.</p>
 </section><section><h2 class="section-heading" id="how-configuration-files-are-combined">How configuration files are combined<a class="anchor" aria-label="anchor" href="#how-configuration-files-are-combined"></a></h2>
 <hr class="half-width"><p>Configuration settings can be spread across several files. This also
 allows settings to be overridden by other configuration files. The
@@ -556,9 +535,6 @@ script to be run is located).</li>
 </ol><p>If configuration is provided by more than one of these methods,
 configuration is merged giving higher priority to configuration provided
 higher in the list.</p>
-<p>Existing configuration can be completely ignored by using
-<code>-C &lt;custom.config&gt;</code> to use only configuration provided
-in the <code>custom.config</code> file.</p>
 <div id="configuring-nextflow-vs-configuring-a-nextflow-workflow" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -566,11 +542,6 @@ in the <code>custom.config</code> file.</p>
 <div id="configuring-nextflow-vs-configuring-a-nextflow-workflow" class="callout-inner">
 <h3 class="callout-title">Configuring Nextflow vs Configuring a Nextflow workflow</h3>
 <div class="callout-content">
-<p>Parameters starting with a single dash <code>-</code> (e.g.,
-<code>-c my_config.config</code>) are configuration options for
-<code>nextflow</code>, while parameters starting with a double dash
-<code>--</code> (e.g., <code>--outdir</code>) are workflow parameters
-defined in the <code>params</code> scope.</p>
 <p>The majority of Nextflow configuration settings must be provided on
 the command-line, however a handful of settings can also be provided
 within a configuration file, such as
@@ -589,21 +560,32 @@ small workflow script, however this ties the configuration to the
 workflow, making it less portable. A good practice is to separate the
 process configuration settings into another file.</p>
 <p>The <code>process</code> configuration scope allows the setting of
-any process directives in the Nextflow configuration file.</p>
-<p>For example:</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>params <span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>                outdir <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/results"</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>                batches <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>                meta <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/meta.csv"</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>                effects <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/effects.csv"</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>                subgroup <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/subgroup.csv"</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>                school_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/each_period.tar.gz"</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>                school_info <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/params/school_info.json"</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>                composition_data <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>baseDir<span class="ss">}</span><span class="st">/data/composition_each_period.tar.gz"</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+any process directives in the <code>conf/</code> directory.</p>
+<div id="task-10.1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-10.1" class="callout-inner">
+<h3 class="callout-title">Task 10.1</h3>
+<div class="callout-content">
+<p>Navigate to the <code>conf</code> folder and open the local.config
+file. What qualifier is being used to allocate resources to the process,
+and how many resources does this involve?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>process { withLabel: small_time_cpus { executor = ‘local’
+cache=‘lenient’ cpus = 2 } }</p>
+</div>
+</div>
+</div>
 </div>
 <div id="unit-values" class="callout">
 <div class="callout-square">
@@ -653,16 +635,15 @@ regular expressions to apply the same configuration to all processes
 matching a pattern. Regular expressions must be quoted, unlike simple
 process names or labels.</p>
 <ul><li>The <code>|</code> matches either-or, e.g.,
-<code>withName: 'INDEX|FASTQC'</code> applies the configuration to any
-process matching the name <code>INDEX</code> or
-<code>FASTQC</code>.</li>
+<code>withName: 'small_time_cpus|big_mem'</code> applies the
+configuration to any process matching the name
+<code>small_time_cpus</code> or <code>big_mem</code>.</li>
 <li>The <code>!</code> inverts a selector, e.g.,
-<code>withLabel: '!small_mem'</code> applies the configuration to any
-process without the <code>small_mem</code> label.</li>
+<code>withLabel: '!big_mem'</code> applies the configuration to any
+process without the <code>big_mem</code> label.</li>
 <li>The <code>.*</code> matches any number of characters, e.g.,
-<code>withName: 'NFCORE_RNASEQ:RNA_SEQ:BAM_SORT:.*'</code> matches all
-processes of the workflow
-<code>NFCORE_RNASEQ:RNA_SEQ:BAM_SORT</code>.</li>
+<code>withName: 'small_time_cpus:big_mem:.*'</code> matches all
+processes of the workflow <code>small_time_cpus:big_mem</code>.</li>
 </ul><p>A regular expression cheat-sheet can be found <a href="https://www.jrebel.com/system/files/regular-expressions-cheat-sheet.pdf" class="external-link">here</a>
 if you would like to write more expressive expressions.</p>
 <div class="section level4">
@@ -675,96 +656,7 @@ following priority rules are applied (from highest to lowest):</p>
 <code>withLabel</code> selector definition.</li>
 <li>Process specific directive defined in the workflow script.</li>
 <li>Process generic <code>process</code> configuration.</li>
-</ol><div id="process-selectors-1" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="process-selectors-1" class="callout-inner">
-<h3 class="callout-title">Process selectors</h3>
-<div class="callout-content">
-<p>Create a Nextflow config, <code>process-selector.config</code>,
-specifying different <code>cpus</code> and <code>memory</code> resources
-for the two processes <code>P1</code> (cpus 1 and memory 2.GB) and
-<code>P2</code> (cpus 2 and memory 1.GB), where <code>P1</code> and
-<code>P2</code> are defined as follows:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">// process-selector.nf</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>process P1 <span class="op">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    echo <span class="kw">true</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="st">    echo P1: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>process P2 <span class="op">{</span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>    echo <span class="kw">true</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="st">    echo P2: Using </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> cpus and </span><span class="ss">$task</span><span class="op">.</span><span class="ss">memory</span><span class="st"> memory.</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>   <span class="fu">P1</span><span class="op">()</span></span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>   <span class="fu">P2</span><span class="op">()</span></span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">// process-selector.config</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    withName<span class="op">:</span> P1 <span class="op">{</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">2.</span>GB</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    withName<span class="op">:</span> P2 <span class="op">{</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>        memory <span class="op">=</span> <span class="fl">1.</span>GB</span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> nextflow run process-selector.nf <span class="at">-c</span> process-selector.config <span class="at">-process.debug</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>N E X T F L O W  ~  version 21.04.0
-
-Launching `process-selector.nf` [clever_borg] -
-revision: e765b9e62d
-executor &gt;  local (2)
-[de/86cef0] process &gt; P1 [100%] 1 of 1 ✔
-[bf/8b332e] process &gt; P2 [100%] 1 of 1 ✔
-P2: Using 2 cpus and 1 GB memory.
-
-P1: Using 1 cpus and 2 GB memory.</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</ol></div>
 <div class="section level4">
 <h4 id="dynamic-expressions">Dynamic expressions<a class="anchor" aria-label="anchor" href="#dynamic-expressions"></a></h4>
 <p>A common scenario is that configuration settings may depend on the
@@ -772,31 +664,36 @@ data being processed. Such settings can be dynamically expressed using a
 closure. For example, we can specify the <code>memory</code> required as
 a multiple of the number of <code>cpus</code>. Similarly, we can publish
 results to a subfolder based on the sample name.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>process FASTQC <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    input<span class="op">:</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    tuple <span class="fu">val</span><span class="op">(</span>sample<span class="op">),</span> <span class="fu">path</span><span class="op">(</span>reads<span class="op">)</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    script<span class="op">:</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    <span class="st">"""</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="st">    fastqc -t </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> </span><span class="ss">$reads</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>        cpus <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>        memory <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>GB <span class="op">*</span> task<span class="op">.</span>cpus <span class="op">}</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>        publishDir <span class="op">=</span> <span class="op">{</span> <span class="st">"fastqc/</span><span class="ss">$sample</span><span class="st">"</span> <span class="op">}</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> </span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  maxRetries <span class="dv">1</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -811,21 +708,7 @@ executor connects to the Local OS and a standalone computer, while the
 grid executor connects to a batch scheduler and NFS, which further
 connects to various computing resources such as UNIVA, SLURM, Platform
 Computing, PBS Works, Kubernetes, and Amazon Web Services.</div>
-</figure><p>The default executor configuration is defined within the
-<code>executor</code> scope (<a href="https://www.nextflow.io/docs/latest/config.html#scope-executor" class="external-link">https://www.nextflow.io/docs/latest/config.html#scope-executor</a>).
-For example, in the config below we specify the executor as Sun Grid
-Engine, <code>sge</code> and the number of tasks the executor will
-handle in a parallel manner (<code>queueSize</code>) to 10.</p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">// nextflow.config</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>executor <span class="op">{</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-<p>The <code>process.executor</code> directive allows you to override
+</figure><p>The <code>process.executor</code> directive allows you to override
 the executor to be used by a specific process. This can be useful, for
 example, when there are short running tasks that can be run locally, and
 are unsuitable for submission to HPC executors (check for guidelines on
@@ -833,212 +716,28 @@ best practice use of your execution system). Other process directives
 such as <code>process.clusterOptions</code>, <code>process.queue</code>,
 and <code>process.machineType</code> can be also be used to further
 configure processes depending on the executor used.</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>executor <span class="op">{</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    queueSize <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    withLabel<span class="op">:</span> <span class="st">'short'</span> <span class="op">{</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>        executor <span class="op">=</span> <span class="st">'local'</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">//conf/slurm.config</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    withLabel<span class="op">:</span> big_mem <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=15:00 --mem=7G --partition=nodes --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 "</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    withLabel<span class="op">:</span> big_time_cpus <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=10:00 --mem=1G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="configuring-software-requirements">Configuring software requirements<a class="anchor" aria-label="anchor" href="#configuring-software-requirements"></a></h2>
-<hr class="half-width"><p>An important feature of Nextflow is the ability to manage software
-using different technologies. It supports the Conda package management
-system, and container engines such as Docker, Singularity, Podman,
-Charliecloud, and Shifter. These technologies allow one to package tools
-and their dependencies into a software environment such that the tools
-will always work as long as the environment can be loaded. This
-facilitates portable and reproducible workflows. Software environment
-specification is managed from the <code>process</code> scope, allowing
-the use of process selectors to manage which processes load which
-software environment. Each technology also has its own scope to provide
-further technology specific configuration settings.</p>
-<div class="section level3">
-<h3 id="software-configuration-using-conda">Software configuration using Conda<a class="anchor" aria-label="anchor" href="#software-configuration-using-conda"></a></h3>
-<p>Conda is a software package and environment management system that
-runs on Linux, Windows, and Mac OS. Software packages are bundled into
-Conda environments along with their dependencies for a particular
-operating system (Not all software is supported on all operating
-systems). Software packages are tied to conda channels, for example,
-bioinformatic software packages are found and installed from the
-BioConda channel.</p>
-<p>A Conda environment can be configured in several ways:</p>
-<ul><li>Provide a path to an existing Conda environment.</li>
-<li>Provide a path to a Conda environment specification file (written in
-YAML).</li>
-<li>Specify the software package(s) using the
-<code>&lt;channel&gt;::&lt;package_name&gt;=&lt;version&gt;</code>
-syntax (separated by spaces), which then builds the Conda environment
-when the process is run.</li>
-</ul><div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>    conda <span class="op">=</span> <span class="st">"/home/user/miniconda3/envs/my_conda_env"</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    withName<span class="op">:</span> FASTQC <span class="op">{</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"environment.yml"</span></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>    withName<span class="op">:</span> SALMON <span class="op">{</span></span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::salmon=1.5.2"</span></span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-<p>There is an optional <code>conda</code> scope which allows you to
-control the creation of a Conda environment by the Conda package
-manager. For example, <code>conda.cacheDir</code> specifies the path
-where the Conda environments are stored. By default this is in
-<code>conda</code> folder of the <code>work</code> directory.</p>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
-</button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
-<div class="accordion-body">
-<p>This following exercise necessitates the installation of conda, a
-package and environment management software, on your system for
-downloading and installing the FASTP software. If conda is not
-installed, then this exercise should be omitted.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="define-a-software-requirement-in-the-configuration-file-using-conda" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="define-a-software-requirement-in-the-configuration-file-using-conda" class="callout-inner">
-<h3 class="callout-title">Define a software requirement in the configuration file using conda</h3>
-<div class="callout-content">
-<p>We are going to define a software requirement using the “conda”
-directive.</p>
-<p>The software we are going to uses is <code>fastp</code>, a tool used
-for fast processing of next-generation sequencing data (like RNA or DNA
-sequences).</p>
-<p>Each time the <code>process</code> is called we are going to run
-<code>fastp -A -i ${read} -o out.fq 2&gt;&amp;1</code></p>
-<ul><li>
-<code>fastp</code> is the main command that invokes the fastp
-program.</li>
-<li>-A: option tells fastp to automatically detect and trim adapters.
-Adapters are short, artificially added sequences used in sequencing that
-are not part of the target DNA or RNA. -i ${read}:</li>
-<li>The <code>-i</code> flag specifies the input file.
-<code>${read}</code> represents a nextflow variable that contains the
-path to the sequencing reads.</li>
-<li>
-<code>-o</code>: The <code>-o</code> flag specifies the output file.
-In this case, the processed sequencing data will be written to a file
-named <code>out.fq</code>.</li>
-<li>
-<code>2&gt;&amp;1</code>: This is a shell redirection command, it
-means that both the regular output and error messages will be sent to
-the console.</li>
-</ul><ol style="list-style-type: decimal"><li><p>Create a config file for the Nextflow script
-<code>configuration_fastp.nf</code>.</p></li>
-<li><p>Add a conda directive for the process name <code>FASTP</code>
-that includes the bioconda package <code>fastp</code>, version
-0.12.4-0.</p></li>
-</ol><p><strong>Hint</strong> You can specify the conda packages using the
-syntax
-<code>&lt;channel&gt;::&lt;package_name&gt;=&lt;version&gt;</code>
-e.g. <code>bioconda::salmon=1.5.2</code></p>
-<ol start="3" style="list-style-type: decimal"><li>Run the Nextflow script <code>configure_fastp.nf</code> with the
-configuration file using the <code>-c</code> option.</li>
-</ol><div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">// configuration_fastp.nf</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>nextflow<span class="op">.</span>enable<span class="op">.</span>dsl <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>params<span class="op">.</span>input <span class="op">=</span> <span class="st">"data/yeast/reads/ref1_1.fq.gz"</span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    <span class="fu">FASTP</span><span class="op">(</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span> params<span class="op">.</span>input <span class="op">)</span> <span class="op">).</span><span class="fu">view</span><span class="op">()</span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>process FASTP <span class="op">{</span></span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>   input<span class="op">:</span></span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>   path read</span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>   output<span class="op">:</span></span>
-<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>   stdout</span>
-<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>   script<span class="op">:</span></span>
-<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>   <span class="st">"""</span></span>
-<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="st">   fastp -A -i </span><span class="ss">${</span>read<span class="ss">}</span><span class="st"> -o out.fq 2&gt;&amp;1</span></span>
-<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="st">   """</span></span>
-<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb16">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co">// fastp.config</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    withName<span class="op">:</span> <span class="st">'FASTP'</span> <span class="op">{</span></span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>        conda <span class="op">=</span> <span class="st">"bioconda::fastp=0.12.4-0"</span></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb17">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">nextflow</span> run configure_fastp.nf <span class="at">-c</span> fastp.config</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>N E X T F L O W  ~  version 21.04.0
-Launching `configuration_fastp.nf` [berserk_jepsen] - revision: 28fadd2486
-executor &gt;  local (1)
-[c1/c207d5] process &gt; FASTP (1) [100%] 1 of 1 ✔
-Creating Conda env: bioconda::fastp=0.12.4-0 [cache /home/training/work/conda/env-a7a3a0d820eb46bc41ebf4f72d955e5f]
-ref1_1.fq.gz 58708
-Read1 before filtering:
-total reads: 14677
-total bases: 1482377
-
-Q20 bases: 1466210(98.9094%)
-Q30 bases: 1415997(95.5221%)
-
-Read1 after filtering:
-total reads: 14671
-total bases: 1481771
-Q20 bases: 1465900(98.9289%)
-Q30 bases: 1415769(95.5457%)
-
-Filtering result:
-reads passed filter: 14671
-reads failed due to low quality: 6
-reads failed due to too many N: 0
-reads failed due to too short: 0
-
-JSON report: fastp.json
-HTML report: fastp.html</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level3">
+<hr class="half-width"><div class="section level3">
 <h3 id="software-configuration-using-docker">Software configuration using Docker<a class="anchor" aria-label="anchor" href="#software-configuration-using-docker"></a></h3>
 <p>Docker is a container technology. Container images are lightweight,
 standalone, executable package of software that includes everything
@@ -1054,24 +753,11 @@ task.</p>
 docker scope, <code>docker.enabled = true</code>. A container image path
 takes the form
 <code>(protocol://)registry/repository/image:version--build</code>. By
-default, Docker containers run software using a privileged user. This
-can cause issues, and so it is also a good idea to supply your user and
-group via the <code>docker.runOptions</code>.</p>
-<p>The Docker run option <code>-u $(id -u):$(id -g)</code> is used to
-specify the user and group IDs (UID and GID) that the container should
-use when running. This option ensures that the processes inside the
-container run with the same UID and GID as the user executing the Docker
-command on the host system.</p>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'quay.io/biocontainers/salmon:1.5.2--h84f40af_0'</span></span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>docker<span class="op">.</span>runOptions <span class="op">=</span> <span class="st">'-u $(id -u):$(id -g)'</span></span></code></pre>
-</div>
+default, Docker containers run software using a privileged user. This is
+where Apptainer is preferred for computer cluster.</p>
 </div>
 <div class="section level3">
-<h3 id="software-configuration-using-singularity">Software configuration using Singularity<a class="anchor" aria-label="anchor" href="#software-configuration-using-singularity"></a></h3>
+<h3 id="software-configuration-using-apptainer-former-singularity">Software configuration using Apptainer (former Singularity)<a class="anchor" aria-label="anchor" href="#software-configuration-using-apptainer-former-singularity"></a></h3>
 <p>Singularity is another container technology, commonly used on HPC
 clusters. It is different to Docker in several ways. The primary
 differences are that processes are run as the user, and certain
@@ -1081,13 +767,8 @@ images from Docker images, allowing Docker image paths to be used as
 values for <code>process.container</code>.</p>
 <p>Singularity is enabled in a similar manner to Docker. A container
 image path must be provided using <code>process.container</code> and
-singularity enabled using <code>singularity.enabled = true</code>.</p>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>process<span class="op">.</span>container <span class="op">=</span> <span class="st">'https://depot.galaxyproject.org/singularity/salmon:1.5.2--h84f40af_0'</span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>singularity<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span></code></pre>
-</div>
+singularity enabled using <code>apptainer.enabled = true</code>.</p>
+<p>See episode 12 for more information on Auxiliary tools.</p>
 <div id="container-protocols" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1105,9 +786,6 @@ Singularity Library service.</li>
 <li>
 <code>shub://</code>: download the container image from the
 Singularity Hub.</li>
-<li>
-<code>docker-daemon://</code>: pull the container image from a local
-Docker installation and convert it to a Singularity image file.</li>
 <li>
 <code>https://</code>: download the singularity image from the given
 URL.</li>
@@ -1127,76 +805,39 @@ called with a short invocation,
 <p>Configuration profiles are defined in the <code>profiles</code>
 scope, which group the attributes that belong to the same profile using
 a common prefix.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co">//configuration_profiles.config</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>profiles <span class="op">{</span></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>    standard <span class="op">{</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/local/path/ref.fasta'</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'local'</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a>    cluster <span class="op">{</span></span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
-<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'sge'</span></span>
-<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>        process<span class="op">.</span>queue <span class="op">=</span> <span class="st">'long'</span></span>
-<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>        process<span class="op">.</span>memory <span class="op">=</span> <span class="st">'10GB'</span></span>
-<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>        process<span class="op">.</span>conda <span class="op">=</span> <span class="st">'/some/path/env.yml'</span></span>
-<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>    cloud <span class="op">{</span></span>
-<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a>        params<span class="op">.</span>genome <span class="op">=</span> <span class="st">'/data/stared/ref.fasta'</span></span>
-<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a>        process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'awsbatch'</span></span>
-<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a>        process<span class="op">.</span>container <span class="op">=</span> <span class="st">'cbcrg/imagex'</span></span>
-<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a>        docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a></span>
-<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  local <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    includeConfig <span class="st">'conf/local.config'</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  slurm <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>    includeConfig <span class="st">'conf/slurm.config'</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>    apptainer<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>    apptainer<span class="op">.</span>cacheDir <span class="op">=</span> <span class="st">"apptainer"</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>    apptainer<span class="op">.</span>autoMounts <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>    process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>This configuration defines three different profiles:
-<code>standard</code>, <code>cluster</code> and <code>cloud</code> that
-set different process configuration strategies depending on the target
-execution platform. By convention the standard profile is implicitly
-used when no other profile is specified by the user. To enable a
-specific profile use <code>-profile</code> option followed by the
-profile name:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<code>local</code>, and <code>slurm</code> that set different process
+configuration strategies depending on the target execution platform. By
+convention the standard profile is implicitly used when no other profile
+is specified by the user. To enable a specific profile use
+<code>-profile</code> option followed by the profile name:</p>
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile cluster</span></code></pre>
-</div>
-<div id="configuration-order" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="configuration-order" class="callout-inner">
-<h3 class="callout-title">Configuration order</h3>
-<div class="callout-content">
-<p>Settings from profiles will override general settings in the
-configuration file. However, it is also important to remember that
-configuration is evaluated in the order it is read in. For example, in
-the following example, the <code>publishDir</code> directive will always
-take the value ‘results’ even when the profile <code>hpc</code> is used.
-This is because the setting is evaluated before Nextflow knows about the
-<code>hpc</code> profile. If the <code>publishDir</code> directive is
-moved to after the <code>profiles</code> scope, then
-<code>publishDir</code> will use the correct value of
-<code>params.results</code>.</p>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>params<span class="op">.</span>results <span class="op">=</span> <span class="st">'results'</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>process<span class="op">.</span>publishDir <span class="op">=</span> params<span class="op">.</span>results</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>    hpc <span class="op">{</span></span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        params<span class="op">.</span>results <span class="op">=</span> <span class="st">'/long/term/storage/results'</span></span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-</div>
-</div>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile local</span></code></pre>
 </div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -1284,7 +925,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/10.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/10.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-25",
+  "dateModified": "2025-06-26",
   "datePublished": "2025-06-26"
 }
 
