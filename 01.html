@@ -466,12 +466,12 @@ research computations.</p>
 <p>Much like a cookbook, you can pull out recipes and alter to own
 preference. This is how you normally get started building your own
 image, you can start with a base repository.</p>
-<div id="task-12.1" class="callout challenge">
+<div id="task-11.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-12.1" class="callout-inner">
-<h3 class="callout-title">Task 12.1</h3>
+<div id="task-11.1" class="callout-inner">
+<h3 class="callout-title">Task 11.1</h3>
 <div class="callout-content">
 <p>In this case we use a base image for R on a Linux machine, from
 bioconductor. We layer requirements, i.e code libraries.</p>
@@ -518,12 +518,12 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 </div>
 </div>
 </section><section><h2 class="section-heading" id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h2>
-<hr class="half-width"><div id="task-12.2" class="callout challenge">
+<hr class="half-width"><div id="task-11.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-12.2" class="callout-inner">
-<h3 class="callout-title">Task 12.2</h3>
+<div id="task-11.2" class="callout-inner">
+<h3 class="callout-title">Task 11.2</h3>
 <div class="callout-content">
 <figure><img src="fig/version-control.svg" alt="Arrows indicate users making changes and synchronizing their work with the repository." class="figure mx-auto d-block"><div class="figcaption">Arrows indicate users making changes and
 synchronizing their work with the repository.</div>
@@ -563,13 +563,11 @@ another layer for customisation.</p>
 ease-of-use on shared systems and in high performance computing (HPC)
 environments. Nextflow can build an immutable image based off a Docker
 recipe file.</p>
-<div class="section level3">
-<h3 id="building-an-apptainer-image">Building an Apptainer Image<a class="anchor" aria-label="anchor" href="#building-an-apptainer-image"></a></h3>
+<p><strong>Building an Apptainer Image</strong></p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
-</div>
 </div>
 <div class="section level3">
 <h3 id="workflow-definition">Workflow Definition<a class="anchor" aria-label="anchor" href="#workflow-definition"></a></h3>
@@ -581,12 +579,12 @@ machine / GitHub codespace we have access to Docker. However, for our
 slurm profile, relevant to a computer cluster with Slurm workload
 manager, we opt for apptainer (former singularity), as docker is not
 available.</p>
-<div id="task-12.3" class="callout challenge">
+<div id="task-11.3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-12.3" class="callout-inner">
-<h3 class="callout-title">Task 12.3</h3>
+<div id="task-11.3" class="callout-inner">
+<h3 class="callout-title">Task 11.3</h3>
 <div class="callout-content">
 <p>We can declare a different config file for different compute
 environments, or profiles. These profiles are stored under the conf

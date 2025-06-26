@@ -479,11 +479,28 @@ are governed from the <code>params</code> scope, while process
 directives are governed from the <code>process</code> scope. A full list
 of the available scopes can be found in the <a href="https://www.nextflow.io/docs/latest/config.html#config-scopes" class="external-link">documentation</a>.
 It is also possible to define your own scope.</p>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
 <p>Configuration settings for a workflow are often stored in the file
 <code>nextflow.config</code> which is in the same directory as the
 workflow script. Configuration can be written in either of two ways. The
 first is using dot notation, and the second is using brace notation.
 Both forms of notation can be used in the same configuration file.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <p>An example of dot notation:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -514,6 +531,10 @@ Both forms of notation can be used in the same configuration file.</p>
 <p>Configuration files can also be separated into multiple files and
 included into another using the
 <code>includeConfig "params.config"</code> statement.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="how-configuration-files-are-combined">How configuration files are combined<a class="anchor" aria-label="anchor" href="#how-configuration-files-are-combined"></a></h2>
 <hr class="half-width"><p>Configuration settings can be spread across several files. This also
 allows settings to be overridden by other configuration files. The
@@ -574,15 +595,24 @@ and how many resources does this involve?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<p>process { withLabel: small_time_cpus { executor = ‘local’
-cache=‘lenient’ cpus = 2 } }</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>	withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>		executor <span class="op">=</span> <span class="st">'local'</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    	cache<span class="op">=</span><span class="st">'lenient'</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>		cpus <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>	<span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -661,39 +691,61 @@ following priority rules are applied (from highest to lowest):</p>
 <h4 id="dynamic-expressions">Dynamic expressions<a class="anchor" aria-label="anchor" href="#dynamic-expressions"></a></h4>
 <p>A common scenario is that configuration settings may depend on the
 data being processed. Such settings can be dynamically expressed using a
-closure. For example, we can specify the <code>memory</code> required as
-a multiple of the number of <code>cpus</code>. Similarly, we can publish
+closure.</p>
+<div id="challenge3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>For example, we can specify the <code>memory</code> required as a
+multiple of the number of <code>cpus</code>. Similarly, we can publish
 results to a subfolder based on the sample name.</p>
-<div class="codewrapper sourceCode" id="cb3">
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    </span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  </span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> </span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  maxRetries <span class="dv">1</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="op">.</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="op">.</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  <span class="op">.</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  maxRetries <span class="dv">1</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  <span class="op">.</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -701,6 +753,13 @@ results to a subfolder based on the sample name.</p>
 <hr class="half-width"><p>Nextflow supports a wide range of execution platforms, from running
 locally, to running on HPC clusters or cloud infrastructures. See <a href="https://www.nextflow.io/docs/latest/executor.html" class="external-link">https://www.nextflow.io/docs/latest/executor.html</a>
 for the full list of supported executors.</p>
+<div id="challenge4" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
 <p>The <code>process.executor</code> directive allows you to override
 the executor to be used by a specific process. This can be useful, for
 example, when there are short running tasks that can be run locally, and
@@ -709,25 +768,39 @@ best practice use of your execution system). Other process directives
 such as <code>process.clusterOptions</code>, <code>process.queue</code>,
 and <code>process.machineType</code> can be also be used to further
 configure processes depending on the executor used.</p>
-<div class="codewrapper sourceCode" id="cb4">
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">//conf/slurm.config</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>process <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    withLabel<span class="op">:</span> big_mem <span class="op">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=15:00 --mem=7G --partition=nodes --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 "</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>    withLabel<span class="op">:</span> big_time_cpus <span class="op">{</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=10:00 --mem=1G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">//conf/slurm.config</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    withLabel<span class="op">:</span> big_mem <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=15:00 --mem=7G --partition=nodes --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 "</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    withLabel<span class="op">:</span> small_time_cpus <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>    time   <span class="op">=</span> <span class="op">{</span> <span class="fl">2.</span>h   <span class="op">*</span> task<span class="op">.</span>attempt <span class="op">}</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --mem=20G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>    withLabel<span class="op">:</span> big_time_cpus <span class="op">{</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>    clusterOptions <span class="op">=</span> <span class="st">"--account=none --time=10:00 --mem=1G --partition=nodes --nodes=1 --cpus-per-task=10"</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="configuring-software-requirements">Configuring software requirements<a class="anchor" aria-label="anchor" href="#configuring-software-requirements"></a></h2>
 <hr class="half-width"><div class="section level3">
@@ -795,31 +868,52 @@ predefine multiple configurations or <code>profiles</code> for different
 execution platforms. This allows a group of predefined settings to be
 called with a short invocation,
 <code>-profile &lt;profile name&gt;</code>.</p>
+<div id="challenge5" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
 <p>Configuration profiles are defined in the <code>profiles</code>
 scope, which group the attributes that belong to the same profile using
 a common prefix.</p>
-<div class="codewrapper sourceCode" id="cb5">
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  local <span class="op">{</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    includeConfig <span class="st">'conf/local.config'</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  slurm <span class="op">{</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>    includeConfig <span class="st">'conf/slurm.config'</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>    apptainer<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>    apptainer<span class="op">.</span>cacheDir <span class="op">=</span> <span class="st">"apptainer"</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>    apptainer<span class="op">.</span>autoMounts <span class="op">=</span> <span class="kw">true</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>    process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'slurm'</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">//nextflow.config</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>profiles <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  local <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    includeConfig <span class="st">'conf/local.config'</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    docker<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  slurm <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    includeConfig <span class="st">'conf/slurm.config'</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    apptainer<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    apptainer<span class="op">.</span>cacheDir <span class="op">=</span> <span class="st">"apptainer"</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>    apptainer<span class="op">.</span>autoMounts <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>    process<span class="op">.</span>executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>    process<span class="op">.</span>container <span class="op">=</span> <span class="st">'omiridoue/siena_r:0.8'</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <p>This configuration defines three different profiles:
 <code>local</code>, and <code>slurm</code> that set different process
@@ -827,10 +921,10 @@ configuration strategies depending on the target execution platform. By
 convention the standard profile is implicitly used when no other profile
 is specified by the user. To enable a specific profile use
 <code>-profile</code> option followed by the profile name:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile local</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">nextflow</span> run <span class="op">&lt;</span>your script<span class="op">&gt;</span> -profile local</span></code></pre>
 </div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
