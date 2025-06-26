@@ -431,7 +431,7 @@
 </div>
 <p>In the first episode we ran the Nextflow script,
 <code>02_hello_nextflow.nf</code>, from the command line and it
-de-compressed the archive folder that contained data on 6 individual
+de-compressed the archive folder that contained data on 4 individual
 schools for two time points <code>each_period.tar.gz</code>. To change
 the input to script we can make use of pipeline parameters.</p>
 <section><h2 class="section-heading" id="pipeline-parameters">Pipeline parameters<a class="anchor" aria-label="anchor" href="#pipeline-parameters"></a></h2>
@@ -446,8 +446,8 @@ variable name e.g., <code>params.input</code>.</p>
 parameter name with a <strong>double dash</strong> character, e.g.,
 <code>--input</code>.</p>
 <p>In the script <code>02_hello_nextflow.nf</code> the pipeline
-parameter <code>params.input</code> was specified with a value of
-<code>"each_period.tar.gz"</code>.</p>
+parameter <code>params.input</code> was specified with the file path
+<code>"data/each_period.tar.gz"</code>.</p>
 <div id="task-3.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -461,12 +461,13 @@ input for our parameter. Note variables can be specified through the
 command line using two dashes, any other options would normally be
 specified using a single dash, this includes the <code>-resume</code>
 tag which we can come back to at a later point.</p>
-<p>To process a different file, e.g. <code>multi_period.tar.gz</code>,
-in the <code>02_hello_nextflow.nf</code> script we would run:</p>
+<p>To process a different file,
+e.g. <code>data/multi_period.tar.gz</code>, in the
+<code>02_hello_nextflow.nf</code> script we would run:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'multi_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'data/multi_period.tar.gz'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -500,8 +501,8 @@ executor &gt;  local (1)
 <p>We can also use wild cards to specify multiple input files (This will
 be covered in the channels episode). In the example below we use the
 <code>*</code> to match any sequence of characters before
-<code>multi_period.tar.gz</code>. <strong>Note:</strong> If you use wild
-card characters on the command line you must enclose the value in
+<code>data/multi_period.tar.gz</code>. <strong>Note:</strong> If you use
+wild card characters on the command line you must enclose the value in
 quotes.</p>
 <div id="task-3.2" class="callout challenge">
 <div class="callout-square">
@@ -513,7 +514,7 @@ quotes.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*multi_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'data/*multi_period.tar.gz'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -574,7 +575,7 @@ changing the pipeline input to all files in the directory that end with
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'*each_period.tar.gz'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">--input</span> <span class="st">'data/*each_period.tar.gz'</span></span></code></pre>
 </div>
 <p>The string specified on the command line will override the default
 value of the parameter in the script. The output will look like
@@ -629,7 +630,9 @@ level of our workflow folder and for this to be named
 <div class="callout-content">
 <p>Create a parameter file <code>params.config</code> for the workflow.
 We’ll try to reverse engineer, based on the following output, what
-parameters would we specify in our Nextflow parameter file?</p>
+parameters would we specify in our Nextflow parameter file? Notice we
+want to rename our params.input to params.school_data to make our script
+more specific and clear.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -674,6 +677,17 @@ params folder is specified through use of relative file paths. Open the
 <p>To point Nextflow to this <code>params.config</code> file, we include
 the following code <code>includeConfig "params.config"</code>, in our
 workflow configuration file.<code>nextflow.config</code>.</p>
+<p>Open the <code>03_params.nf</code> and check the syntax, notice we
+abstract the parameterisation of the workflow from the workflow
+definition. This means we no longer need to define a parameter in our
+main workflow file, so long as we use the <code>params.config</code>
+file.</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>nextflow run <span class="er">03</span>_params<span class="op">.</span>nf </span></code></pre>
+</div>
 </div>
 </div>
 </div>
