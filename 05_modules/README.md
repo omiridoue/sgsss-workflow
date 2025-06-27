@@ -32,7 +32,7 @@ We use the Nextflow implicit variable `${projectDir}` to specify the directory w
 
 To add the module to a workflow, add a `workflow` block, and call the module like a function. We will learn more about the `workflow` block in the workflow episode. We can now run the module:
 
-**Note** We need to add the Nextflow run option `-module.debug` to print the output to the terminal.
+**Note** We need to add the Nextflow run option `--module.debug` to print the output to the terminal.
 
 ## Task 5.1
 
