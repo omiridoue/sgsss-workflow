@@ -289,8 +289,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#nextflow-log">Nextflow log</a></li>
-<li><a href="#report">Report</a></li>
-<li><a href="#timeline">Timeline</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -391,7 +389,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Reporting</h1>
-        <p>Last updated on 2025-06-23 |
+        <p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/09.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -450,12 +448,12 @@ information for all pipelines run. By default, included in the summary,
 are the date and time it ran, how long it ran for, the run name, run
 status, a revision ID, the session id and the command run on the command
 line.</p>
-<div id="show-execution-log" class="callout challenge">
+<div id="task-9.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="show-execution-log" class="callout-inner">
-<h3 class="callout-title">Show Execution Log</h3>
+<div id="task-9.1" class="callout-inner">
+<h3 class="callout-title">Task 9.1</h3>
 <div class="callout-content">
 <p>Listing the execution logs of previous invocations of all pipelines
 in a directory.</p>
@@ -472,7 +470,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -485,11 +483,27 @@ in a directory.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="report">Report<a class="anchor" aria-label="anchor" href="#report"></a></h2>
-<hr class="half-width"><p>If we want to get more information about a timeline we can request a
+<p>If we want to get more information about a timeline we can request a
 timeline or report to be outputted to the <code>docs/</code> folder in
 our repository.</p>
-<p>For example:</p>
+<div id="task-9.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-9.2" class="callout-inner">
+<h3 class="callout-title">Task 9.2</h3>
+<div class="callout-content">
+<p>Output a report.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -501,14 +515,35 @@ our repository.</p>
 <span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  file <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>projectDir<span class="ss">}</span><span class="st">/docs/report.html"</span></span>
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
 <p>This will list the set of tasks and the time and memory resources
 these required to be completed. Additionally, further information is
 included on the command used to launch the pipeline, the output
 directory, and the status of each job submission, i.e whether this was
 Cached (run previously), Succeeded or Failed.</p>
-</section><section><h2 class="section-heading" id="timeline">Timeline<a class="anchor" aria-label="anchor" href="#timeline"></a></h2>
-<hr class="half-width"><p>Information is included on the timeline of tasks scheduled as part of
+<p>Information is included on the timeline of tasks scheduled as part of
 the pipeline.</p>
+<div id="task-9.3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-9.3" class="callout-inner">
+<h3 class="callout-title">Task 9.3</h3>
+<div class="callout-content">
+<p>Output a timeline.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -518,6 +553,10 @@ the pipeline.</p>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  overwrite <span class="op">=</span> <span class="kw">true</span></span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  file <span class="op">=</span> <span class="st">"</span><span class="ss">${</span>projectDir<span class="ss">}</span><span class="st">/docs/timeline.html"</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -595,7 +634,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/09.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/09.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-23",
+  "dateModified": "2025-06-27",
   "datePublished": "2025-06-27"
 }
 
