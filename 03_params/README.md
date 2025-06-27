@@ -1,4 +1,4 @@
-# Section 03: Workflow Parameterisation
+# Section 03: Parameters
 
 | Teaching  | 20 | Exercises  | 15 | 
 | --------------- | -------------- | -------------- |-------------- |
