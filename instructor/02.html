@@ -382,7 +382,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Hello Nextflow</h1>
-        <p>Last updated on 2025-06-26 |
+        <p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/02.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -479,12 +479,11 @@ next.</p></li>
 <li><p>The interaction between processes, and ultimately the pipeline
 execution flow itself, is then explicitly defined in a <em>workflow</em>
 section.</p></li>
-</ul><p>In the following example we have a channel containing three elements,
-e.g., three data files. We have a process that takes the channel as
-input. Since the channel has three elements, three independent instances
+</ul><p>A process that takes the channel as input. Independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
-next process.</p>
+next process. We’ll figure out how this works in practice with some of
+the practice examples in the section.</p>
 </div>
 <div class="section level3">
 <h3 id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h3>
@@ -540,7 +539,7 @@ folder in your directory, you can type <code>cd ..</code> .</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -660,7 +659,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Output </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -727,7 +726,7 @@ folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The files that are extracted from the archive are stored in the
 folder <code>work</code> that tracks the different tasks that are
@@ -864,7 +863,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/02.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/02.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-26",
+  "dateModified": "2025-06-27",
   "datePublished": "2025-06-27"
 }
 

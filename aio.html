@@ -826,7 +826,7 @@ any links that you are not going to use.
 </div>
 </div></section><section id="aio-02"><p>Content from <a href="02.html">Hello Nextflow</a></p>
 <hr>
-<p>Last updated on 2025-06-26 |
+<p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/02.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -926,12 +926,11 @@ next.</p></li>
 execution flow itself, is then explicitly defined in a <em>workflow</em>
 section.</p></li>
 </ul>
-<p>In the following example we have a channel containing three elements,
-e.g., three data files. We have a process that takes the channel as
-input. Since the channel has three elements, three independent instances
+<p>A process that takes the channel as input. Independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
-next process.</p>
+next process. We’ll figure out how this works in practice with some of
+the practice examples in the section.</p>
 </div>
 <div class="section level3">
 <h3 id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a>
@@ -989,7 +988,7 @@ folder in your directory, you can type <code>cd ..</code> .</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1112,7 +1111,7 @@ terminal:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Output </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You should see output similar to the text shown below:</p>
 <div class="codewrapper">
@@ -1185,7 +1184,7 @@ folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The files that are extracted from the archive are stored in the
 folder <code>work</code> that tracks the different tasks that are
@@ -1264,7 +1263,7 @@ any links that you are not going to use.
  -->
 </div></section><section id="aio-03"><p>Content from <a href="03.html">Parameters</a></p>
 <hr>
-<p>Last updated on 2025-06-26 |
+<p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/03.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1301,8 +1300,8 @@ any links that you are not going to use.
 </div>
 <p>In the first episode we ran the Nextflow script,
 <code>02_hello_nextflow.nf</code>, from the command line and it
-de-compressed the archive folder that contained data on 4 individual
-schools for two time points <code>each_period.tar.gz</code>. To change
+de-compressed the archive folder <code>each_period.tar.gz</code> that
+contained data on 4 individual schools for two time points. To change
 the input to script we can make use of pipeline parameters.</p>
 <section><h2 class="section-heading" id="pipeline-parameters">Pipeline parameters<a class="anchor" aria-label="anchor" href="#pipeline-parameters"></a>
 </h2>
@@ -1349,7 +1348,7 @@ e.g. <code>data/multi_period.tar.gz</code>, in the
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1396,7 +1395,7 @@ quotes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This runs the process GENERATE_DAT twice, once for each file it
 matches.</p>
@@ -1442,7 +1441,7 @@ changing the pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1528,7 +1527,7 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Parameters </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
@@ -1685,7 +1684,7 @@ content is not consumed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>A queue channels is used to store multiple values.</li>
@@ -1801,7 +1800,7 @@ differences do you notice?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Notice we’ve added the following code to <code>04_channels.nf</code>,
 building on the previous workflow definition:</p>
@@ -1972,7 +1971,7 @@ workflow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2198,7 +2197,7 @@ you <code>tmp/</code> folder contains both data files,
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2710,8 +2709,8 @@ and can be referenced by that name in the script block.</p>
 elements must be file objects, i.e. created with the path helper
 function from the file specific channel factories,
 e.g. <code>Channel.fromPath</code> or
-<code>Channel.fromFilePairs</code>. We saw examples for this in the
-previous Episode 3.</p>
+<code>Channel.fromFilePairs</code>. We saw examples for this in a
+previous <a href="https://omiridoue.github.io/sgsss-workflow/03.html" class="external-link">episode</a>.</p>
 </div>
 </div>
 </div>
@@ -2998,9 +2997,9 @@ one or more output declarations.</p>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="op">&lt;</span>output qualifier<span class="op">&gt;</span> <span class="op">&lt;</span>output name<span class="op">&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="op">...</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="output-values">Output values<a class="anchor" aria-label="anchor" href="#output-values"></a>
-</h3>
+<div class="section level4">
+<h4 id="output-values">Output values<a class="anchor" aria-label="anchor" href="#output-values"></a>
+</h4>
 <p>Like the input, the type of output data is defined using type
 qualifiers.</p>
 <p>The <code>val</code> qualifier allows us to output a value defined in
@@ -3010,9 +3009,9 @@ we want to share a value output of one process as input to another
 process, we would need to define that value in the output declaration
 block.</p>
 </div>
-<div class="section level3">
-<h3 id="output-files">Output files<a class="anchor" aria-label="anchor" href="#output-files"></a>
-</h3>
+<div class="section level4">
+<h4 id="output-files">Output files<a class="anchor" aria-label="anchor" href="#output-files"></a>
+</h4>
 <p>If we want to capture a file instead of a value as output we can use
 the <code>path</code> qualifier that can capture one or more files
 produced by the process, over the specified channel.</p>
@@ -3028,9 +3027,9 @@ the task is completed that file is sent over the output channel.</p>
 <code>process</code> declaring the same channel as input will be able to
 receive it.</p>
 </div>
-<div class="section level3">
-<h3 id="multiple-output-files">Multiple output files<a class="anchor" aria-label="anchor" href="#multiple-output-files"></a>
-</h3>
+<div class="section level4">
+<h4 id="multiple-output-files">Multiple output files<a class="anchor" aria-label="anchor" href="#multiple-output-files"></a>
+</h4>
 <p>When an output file name contains a <code>*</code> or <code>?</code>
 metacharacter it is interpreted as a pattern match. This allows us to
 capture multiple files into a list and output them as a one item
@@ -3045,9 +3044,9 @@ subdirectories, only file paths are matched i.e. directories are not
 included in the result list.</li>
 </ul>
 </div>
-<div class="section level3">
-<h3 id="grouped-inputs-and-outputs">Grouped inputs and outputs<a class="anchor" aria-label="anchor" href="#grouped-inputs-and-outputs"></a>
-</h3>
+<div class="section level4">
+<h4 id="grouped-inputs-and-outputs">Grouped inputs and outputs<a class="anchor" aria-label="anchor" href="#grouped-inputs-and-outputs"></a>
+</h4>
 <p>So far we have seen how to declare multiple input and output
 channels, but each channel was handling only one value at time. However
 Nextflow can handle groups of values using the <code>tuple</code>
@@ -3062,17 +3061,17 @@ followed by definition of each item in the tuple.</p>
 be declared using the <code>tuple</code> qualifier following by the
 definition of each tuple element in the tuple.</p>
 </div>
-<div class="section level3">
-<h3 id="conditional-script-execution">Conditional script execution<a class="anchor" aria-label="anchor" href="#conditional-script-execution"></a>
-</h3>
+<div class="section level4">
+<h4 id="conditional-script-execution">Conditional script execution<a class="anchor" aria-label="anchor" href="#conditional-script-execution"></a>
+</h4>
 <p>Sometimes you want to change how a module is run depending on some
 condition. In Nextflow scripts we can use conditional statements such as
 the <code>if</code> statement or any other expression evaluating to
 boolean value <code>true</code> or <code>false</code>.</p>
 </div>
-<div class="section level3">
-<h3 id="if-statement">If statement<a class="anchor" aria-label="anchor" href="#if-statement"></a>
-</h3>
+<div class="section level4">
+<h4 id="if-statement">If statement<a class="anchor" aria-label="anchor" href="#if-statement"></a>
+</h4>
 <p>The <code>if</code> statement uses the same syntax common to other
 programming languages such Java, C, JavaScript, etc.</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -3155,9 +3154,9 @@ expression that evaluates a boolean value; <code>true</code> or
 <code>false</code>.</p>
 <p>It is useful to enable/disable the process execution depending on the
 state of various inputs and parameters.</p>
-</section><section><h2 class="section-heading" id="directives">Directives<a class="anchor" aria-label="anchor" href="#directives"></a>
-</h2>
-<hr class="half-width">
+<div class="section level4">
+<h4 id="directives">Directives<a class="anchor" aria-label="anchor" href="#directives"></a>
+</h4>
 <p>Directive declarations allow the definition of optional settings,
 like the number of <code>cpus</code> and amount of <code>memory</code>,
 that affect the execution of the current process without affecting the
@@ -3269,9 +3268,10 @@ purpose of each one is.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="organising-outputs">Organising outputs<a class="anchor" aria-label="anchor" href="#organising-outputs"></a>
-</h2>
-<hr class="half-width">
+</div>
+<div class="section level4">
+<h4 id="organising-outputs">Organising outputs<a class="anchor" aria-label="anchor" href="#organising-outputs"></a>
+</h4>
 <p><strong>PublishDir directive</strong></p>
 <p>Nextflow manages intermediate results from the pipeline’s expected
 outputs independently.</p>
@@ -3320,9 +3320,10 @@ value.</p>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="publishdir-parameters">publishDir parameters<a class="anchor" aria-label="anchor" href="#publishdir-parameters"></a>
-</h3>
+</div>
+<div class="section level4">
+<h4 id="publishdir-parameters">publishDir parameters<a class="anchor" aria-label="anchor" href="#publishdir-parameters"></a>
+</h4>
 <p>The <code>publishDir</code> directive can take optional parameters,
 for example the <code>mode</code> parameter can take the value
 <code>"copy"</code> to specify that you wish to copy the file to output
@@ -3333,9 +3334,9 @@ for results files. The default mode (symlink) is helpful for checking
 intermediate files which are not needed in the long term.</p>
 <p>Full list <a href="https://www.nextflow.io/docs/latest/process.html#publishdir" class="external-link">here</a>.</p>
 </div>
-<div class="section level3">
-<h3 id="manage-semantic-sub-directories">Manage semantic sub-directories<a class="anchor" aria-label="anchor" href="#manage-semantic-sub-directories"></a>
-</h3>
+<div class="section level4">
+<h4 id="manage-semantic-sub-directories">Manage semantic sub-directories<a class="anchor" aria-label="anchor" href="#manage-semantic-sub-directories"></a>
+</h4>
 <p>You can use more than one <code>publishDir</code> to keep different
 outputs in separate directories. To specify which files to put in which
 output directory use the parameter <code>pattern</code> with the a glob
@@ -3498,9 +3499,9 @@ information can be found in the official documentation <a href="https://www.next
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="invoking-processes-with-a-workflow">Invoking processes with a workflow<a class="anchor" aria-label="anchor" href="#invoking-processes-with-a-workflow"></a>
-</h3>
+<div class="section level4">
+<h4 id="invoking-processes-with-a-workflow">Invoking processes with a workflow<a class="anchor" aria-label="anchor" href="#invoking-processes-with-a-workflow"></a>
+</h4>
 <p>As seen previously, a <code>process</code> is invoked as a function
 in the <code>workflow</code> scope, passing the expected input channels
 as arguments as it if were.</p>
@@ -3509,9 +3510,9 @@ appear in a workflow. When invoking a process with multiple inputs,
 provide them in the same order in which they are declared in the
 <code>input</code> block of the process.</p>
 </div>
-<div class="section level3">
-<h3 id="process-outputs">Process outputs<a class="anchor" aria-label="anchor" href="#process-outputs"></a>
-</h3>
+<div class="section level4">
+<h4 id="process-outputs">Process outputs<a class="anchor" aria-label="anchor" href="#process-outputs"></a>
+</h4>
 <p>A process output can also be accessed directly using the
 <code>out</code> attribute for the respective
 <code>process object</code>. Remember this is what we did in the Hello
@@ -3521,9 +3522,9 @@ Nextflow episode when we specified
 be accessed using the list element operator e.g. <code>out[0]</code>,
 <code>out[1]</code>, or using named outputs.</p>
 </div>
-<div class="section level3">
-<h3 id="process-named-output">Process named output<a class="anchor" aria-label="anchor" href="#process-named-output"></a>
-</h3>
+<div class="section level4">
+<h4 id="process-named-output">Process named output<a class="anchor" aria-label="anchor" href="#process-named-output"></a>
+</h4>
 <p>It can be useful to name the output of a process, especially if there
 are multiple outputs.</p>
 <p>The process <code>output</code> definition allows the use of the
@@ -3547,7 +3548,7 @@ identify the named output that is used in the workflow in the
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The named out channel involves <code>simulation_ch</code> after
 implementing the ESTIMATION moderator.</p>
@@ -3569,9 +3570,9 @@ implementing the ESTIMATION moderator.</p>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a>
-</h3>
+<div class="section level4">
+<h4 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a>
+</h4>
 <p>A workflow component can access any variable and parameter defined in
 the outer scope.</p>
 <p>In this example <code>pipe_meta</code> or <code>pipe_effects</code>,
@@ -3600,7 +3601,7 @@ into a figure summarising model comparison statistics.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3761,7 +3762,7 @@ for readability.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3805,7 +3806,7 @@ all remaining columns into a single list of parameters.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3873,7 +3874,7 @@ inspect the processs output using the <code>.view()</code> operator.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Note we specify a regular expression <code>.split("_|\\.")</code>
 within the function in order to split the string based on the underscore
@@ -3942,7 +3943,7 @@ transform a channel.</p>
 <code>it</code> to a more meaningful name <code>file</code> using
 <code>-&gt;</code>. When we have multiple parameters we can specify the
 keywords at the start of the closure,
-e.g. <code>file, numreads -&gt;</code>.</p>
+e.g. <code>file, key -&gt;</code>.</p>
 <div id="task-8.4" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -3964,7 +3965,7 @@ operator to inspect the channel contents.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The simulation_ch output emits a tuple of elements as part of the
 simulation output from the <code>ESTIMATION</code> process. The map
@@ -4049,7 +4050,7 @@ channel contents.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4189,7 +4190,7 @@ reference each value by its name, as shown in the following example:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Each row of the csv is read as a separate input. The closure using
 the map operator organises inputs by indexing the column order. The
@@ -4533,7 +4534,7 @@ Both forms of notation can be used in the same configuration file.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>An example of dot notation:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -4640,7 +4641,7 @@ and how many resources does this involve?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4771,7 +4772,7 @@ results to a subfolder based on the sample name.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4839,7 +4840,7 @@ configure processes depending on the executor used.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4957,7 +4958,7 @@ a common prefix.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5123,7 +5124,7 @@ bioconductor. We layer requirements, i.e code libraries.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To do this we evaluate the command <code>install.packages()</code>
 using R. This is possible as we work within the docker container which
@@ -5178,7 +5179,7 @@ synchronizing their work with the repository.</div>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5245,7 +5246,7 @@ sub-folder.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <pre><code>profiles {
 

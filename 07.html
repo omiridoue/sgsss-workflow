@@ -454,8 +454,8 @@ information can be found in the official documentation <a href="https://www.next
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="invoking-processes-with-a-workflow">Invoking processes with a workflow<a class="anchor" aria-label="anchor" href="#invoking-processes-with-a-workflow"></a></h3>
+<div class="section level4">
+<h4 id="invoking-processes-with-a-workflow">Invoking processes with a workflow<a class="anchor" aria-label="anchor" href="#invoking-processes-with-a-workflow"></a></h4>
 <p>As seen previously, a <code>process</code> is invoked as a function
 in the <code>workflow</code> scope, passing the expected input channels
 as arguments as it if were.</p>
@@ -464,8 +464,8 @@ appear in a workflow. When invoking a process with multiple inputs,
 provide them in the same order in which they are declared in the
 <code>input</code> block of the process.</p>
 </div>
-<div class="section level3">
-<h3 id="process-outputs">Process outputs<a class="anchor" aria-label="anchor" href="#process-outputs"></a></h3>
+<div class="section level4">
+<h4 id="process-outputs">Process outputs<a class="anchor" aria-label="anchor" href="#process-outputs"></a></h4>
 <p>A process output can also be accessed directly using the
 <code>out</code> attribute for the respective
 <code>process object</code>. Remember this is what we did in the Hello
@@ -475,8 +475,8 @@ Nextflow episode when we specified
 be accessed using the list element operator e.g. <code>out[0]</code>,
 <code>out[1]</code>, or using named outputs.</p>
 </div>
-<div class="section level3">
-<h3 id="process-named-output">Process named output<a class="anchor" aria-label="anchor" href="#process-named-output"></a></h3>
+<div class="section level4">
+<h4 id="process-named-output">Process named output<a class="anchor" aria-label="anchor" href="#process-named-output"></a></h4>
 <p>It can be useful to name the output of a process, especially if there
 are multiple outputs.</p>
 <p>The process <code>output</code> definition allows the use of the
@@ -500,7 +500,7 @@ identify the named output that is used in the workflow in the
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The named out channel involves <code>simulation_ch</code> after
 implementing the ESTIMATION moderator.</p>
@@ -522,8 +522,8 @@ implementing the ESTIMATION moderator.</p>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a></h3>
+<div class="section level4">
+<h4 id="accessing-script-parameters">Accessing script parameters<a class="anchor" aria-label="anchor" href="#accessing-script-parameters"></a></h4>
 <p>A workflow component can access any variable and parameter defined in
 the outer scope.</p>
 <p>In this example <code>pipe_meta</code> or <code>pipe_effects</code>,
@@ -552,7 +552,7 @@ into a figure summarising model comparison statistics.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>

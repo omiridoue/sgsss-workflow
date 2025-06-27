@@ -263,8 +263,6 @@
       <div class="accordion-body">
         <ul><li><a href="#outputs">Outputs</a></li>
 <li><a href="#conditional-execution-of-a-process">Conditional execution of a process</a></li>
-<li><a href="#directives">Directives</a></li>
-<li><a href="#organising-outputs">Organising outputs</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -454,8 +452,8 @@ one or more output declarations.</p>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="op">&lt;</span>output qualifier<span class="op">&gt;</span> <span class="op">&lt;</span>output name<span class="op">&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="op">...</span></span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="output-values">Output values<a class="anchor" aria-label="anchor" href="#output-values"></a></h3>
+<div class="section level4">
+<h4 id="output-values">Output values<a class="anchor" aria-label="anchor" href="#output-values"></a></h4>
 <p>Like the input, the type of output data is defined using type
 qualifiers.</p>
 <p>The <code>val</code> qualifier allows us to output a value defined in
@@ -465,8 +463,8 @@ we want to share a value output of one process as input to another
 process, we would need to define that value in the output declaration
 block.</p>
 </div>
-<div class="section level3">
-<h3 id="output-files">Output files<a class="anchor" aria-label="anchor" href="#output-files"></a></h3>
+<div class="section level4">
+<h4 id="output-files">Output files<a class="anchor" aria-label="anchor" href="#output-files"></a></h4>
 <p>If we want to capture a file instead of a value as output we can use
 the <code>path</code> qualifier that can capture one or more files
 produced by the process, over the specified channel.</p>
@@ -482,8 +480,8 @@ the task is completed that file is sent over the output channel.</p>
 <code>process</code> declaring the same channel as input will be able to
 receive it.</p>
 </div>
-<div class="section level3">
-<h3 id="multiple-output-files">Multiple output files<a class="anchor" aria-label="anchor" href="#multiple-output-files"></a></h3>
+<div class="section level4">
+<h4 id="multiple-output-files">Multiple output files<a class="anchor" aria-label="anchor" href="#multiple-output-files"></a></h4>
 <p>When an output file name contains a <code>*</code> or <code>?</code>
 metacharacter it is interpreted as a pattern match. This allows us to
 capture multiple files into a list and output them as a one item
@@ -496,8 +494,8 @@ behaviour:</p>
 subdirectories, only file paths are matched i.e. directories are not
 included in the result list.</li>
 </ul></div>
-<div class="section level3">
-<h3 id="grouped-inputs-and-outputs">Grouped inputs and outputs<a class="anchor" aria-label="anchor" href="#grouped-inputs-and-outputs"></a></h3>
+<div class="section level4">
+<h4 id="grouped-inputs-and-outputs">Grouped inputs and outputs<a class="anchor" aria-label="anchor" href="#grouped-inputs-and-outputs"></a></h4>
 <p>So far we have seen how to declare multiple input and output
 channels, but each channel was handling only one value at time. However
 Nextflow can handle groups of values using the <code>tuple</code>
@@ -512,15 +510,15 @@ followed by definition of each item in the tuple.</p>
 be declared using the <code>tuple</code> qualifier following by the
 definition of each tuple element in the tuple.</p>
 </div>
-<div class="section level3">
-<h3 id="conditional-script-execution">Conditional script execution<a class="anchor" aria-label="anchor" href="#conditional-script-execution"></a></h3>
+<div class="section level4">
+<h4 id="conditional-script-execution">Conditional script execution<a class="anchor" aria-label="anchor" href="#conditional-script-execution"></a></h4>
 <p>Sometimes you want to change how a module is run depending on some
 condition. In Nextflow scripts we can use conditional statements such as
 the <code>if</code> statement or any other expression evaluating to
 boolean value <code>true</code> or <code>false</code>.</p>
 </div>
-<div class="section level3">
-<h3 id="if-statement">If statement<a class="anchor" aria-label="anchor" href="#if-statement"></a></h3>
+<div class="section level4">
+<h4 id="if-statement">If statement<a class="anchor" aria-label="anchor" href="#if-statement"></a></h4>
 <p>The <code>if</code> statement uses the same syntax common to other
 programming languages such Java, C, JavaScript, etc.</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -601,8 +599,9 @@ expression that evaluates a boolean value; <code>true</code> or
 <code>false</code>.</p>
 <p>It is useful to enable/disable the process execution depending on the
 state of various inputs and parameters.</p>
-</section><section><h2 class="section-heading" id="directives">Directives<a class="anchor" aria-label="anchor" href="#directives"></a></h2>
-<hr class="half-width"><p>Directive declarations allow the definition of optional settings,
+<div class="section level4">
+<h4 id="directives">Directives<a class="anchor" aria-label="anchor" href="#directives"></a></h4>
+<p>Directive declarations allow the definition of optional settings,
 like the number of <code>cpus</code> and amount of <code>memory</code>,
 that affect the execution of the current process without affecting the
 task itself.</p>
@@ -713,8 +712,10 @@ purpose of each one is.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="organising-outputs">Organising outputs<a class="anchor" aria-label="anchor" href="#organising-outputs"></a></h2>
-<hr class="half-width"><p><strong>PublishDir directive</strong></p>
+</div>
+<div class="section level4">
+<h4 id="organising-outputs">Organising outputs<a class="anchor" aria-label="anchor" href="#organising-outputs"></a></h4>
+<p><strong>PublishDir directive</strong></p>
 <p>Nextflow manages intermediate results from the pipeline’s expected
 outputs independently.</p>
 <p>Files created by a <code>process</code> are stored in a task specific
@@ -762,8 +763,9 @@ value.</p>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="publishdir-parameters">publishDir parameters<a class="anchor" aria-label="anchor" href="#publishdir-parameters"></a></h3>
+</div>
+<div class="section level4">
+<h4 id="publishdir-parameters">publishDir parameters<a class="anchor" aria-label="anchor" href="#publishdir-parameters"></a></h4>
 <p>The <code>publishDir</code> directive can take optional parameters,
 for example the <code>mode</code> parameter can take the value
 <code>"copy"</code> to specify that you wish to copy the file to output
@@ -774,8 +776,8 @@ for results files. The default mode (symlink) is helpful for checking
 intermediate files which are not needed in the long term.</p>
 <p>Full list <a href="https://www.nextflow.io/docs/latest/process.html#publishdir" class="external-link">here</a>.</p>
 </div>
-<div class="section level3">
-<h3 id="manage-semantic-sub-directories">Manage semantic sub-directories<a class="anchor" aria-label="anchor" href="#manage-semantic-sub-directories"></a></h3>
+<div class="section level4">
+<h4 id="manage-semantic-sub-directories">Manage semantic sub-directories<a class="anchor" aria-label="anchor" href="#manage-semantic-sub-directories"></a></h4>
 <p>You can use more than one <code>publishDir</code> to keep different
 outputs in separate directories. To specify which files to put in which
 output directory use the parameter <code>pattern</code> with the a glob
