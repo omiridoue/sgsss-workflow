@@ -1,29 +1,331 @@
-
-# Section 05: Modules (optional)
+# Section 05: Modules
 
 | Teaching  | 30 | Exercises  | 15 | 
 | --------------- | -------------- | -------------- |-------------- |
 
+- Understand how Nextflow uses modulees to implement tasks.
+- Create a Nextflow module.
+- Define inputs to a module.
 
-- Understand how Nextflow uses processes to execute tasks.
-- Create a Nextflow process.
-- Define inputs to a process.
+- How do I run tasks/modulees in Nextflow?
+- How do I get data, files and values, into a module?
 
-- How do I run tasks/processes in Nextflow?
-- How do I get data, files and values, into a processes?
+## Modules
 
-## Processes
+We now know how to create and use Channels to send data around a workflow. We will now see how to run tasks within a workflow using modulees. Modules are nextflow scripts that can include definitions (workflows, processes, and functions).
 
-We now know how to create and use Channels to send data around a workflow. We will now see how to run tasks within a workflow using processes.
+A `module` is the way Nextflow implements commands you would run on the command line or custom scripts.
 
-A `process` is the way Nextflow executes commands you would run on the command line or custom scripts.
+Here we focus on how defining processes within a module. A process can be thought of as a particular step in a workflow, e.g. data wrangling for analysis. Modules are independent of each other (don't require any another module to implement) and can not communicate/write to each other. Data is passed between modulees via input and output Channels.
 
-A process can be thought of as a particular step in a workflow, e.g. an alignment step in RNA-seq analysis. Processes are independent of each other (don't require any another process to execute) and can not communicate/write to each other. Data is passed between processes via input and output Channels.
+For example, we previously saw the process `GENERATE_READS` can accept multiple files as inputs. In the previous episodes we saw examples of combinations of inputs, `each_period.tar.gz` and `comopsition_each_period.tar.gz`. Specifically in Task 4.3 we used the `channel.fromFilePairs()` to generate tuples of inputs with file names, including both data and auxiliary data files.
 
-For example, below is the command you would run to count the number of sequence records in a FASTA format file such as the yeast transcriptome:
+Now we will show how to convert this into a simple Nextflow module.
 
-- A Nextflow process is an independent step in a workflow.
-- Processes contain up to five definition blocks including: directives, inputs, outputs, when clause and finally a script block.
+## Process definition
+
+The module definition starts with keyword `module`, followed by module name, in this case `GENERATE_READS`, and finally the module `body` delimited by curly brackets `{}`. The module body must contain a string which represents the command or, more generally, a script that is implemented by it.
+
+## Implicit variables
+
+We use the Nextflow implicit variable `${projectDir}` to specify the directory where the main script is located. This is important as Nextflow scripts are implemented in a separate working directory. A full list of implicit variables can be found [here](https://www.nextflow.io/docs/latest/script.html?highlight=implicit%20variables#implicit-variables).
+
+To add the module to a workflow, add a `workflow` block, and call the module like a function. We will learn more about the `workflow` block in the workflow episode. We can now run the module:
+
+**Note** We need to add the Nextflow run option `-module.debug` to print the output to the terminal.
+
+## Task 5.1
+
+Open the Nextflow script `05_modules.nf` navigate to the module definition section. You notice there is now a references to a module `GENERATE_READS`. Where is the process defined? How many times is the process used in the workflow?
+
+## Solution
+
+Essentially this stores the process definition for `GENERATE_READS`. Note previously we defined the process in the same file as our workflow, without having to fall back on a module. It is generally good practice to organise code into modules, and store these in the same folder. This is really helpful whenever we re-use a process for a different purpose. Generally we can only use a process once, if we need to repurpose a process, we'll need to make sure to assign an alias to each instance we refer to this. This is where modules come handy as we can separate each set of code.
+
+```groovy
+
+//import modules 
+include { GENERATE_READS as GENERATE_RDS} from './modules/generate_reads/'
+include { GENERATE_READS as GENERATE_DAT} from './modules/generate_reads/'
+
+
+def ZipChannel_dat = Channel.fromPath(params.composition_data) // change this to composition_sub whenever data file name changes
+def ZipChannel_RDS = Channel.fromPath(params.school_data) // change this multi_period_sub whenever data file name changes
+
+workflow {
+    
+    dataset =  GENERATE_DAT(ZipChannel_RDS) \
+    | flatten \
+    | map { file ->
+    def key = file.name.toString().split('\\.')[0]
+    def school_ID = file.name.toString().split("_|\\.")[0]
+    return tuple(school_ID, key, file)}
+    
+    composition = GENERATE_RDS(ZipChannel_dat) 
+    | flatten \
+    | map { file -> 
+    def key = file.name.toString().split('\\.')[0]
+    def school_ID = file.name.toString().split("_|\\.")[0]
+    return tuple(school_ID, key, file)}
+}
+```
+
+### Definition blocks
+
+The previous example was a simple `module` with no defined inputs and outputs that ran only once. To control inputs, outputs and how a command is implemented a module may contain five definition blocks:
+
+1. **directives - 0, 1, or more**: allow the definition of optional settings that affect the execution of the current module e.g. the number of cpus a task uses and the amount of memory allocated.
+1. **inputs - 0, 1, or more**: Define the input dependencies, usually channels, which determines the number of times a module is implemented.
+1. **outputs - 0, 1, or more**: Defines the output channels used by the module to send results/data produced by the module.
+1. **when clause - optional**: Allows you to define a condition that must be verified in order to implement the module.
+1. **script block - required**: A statement within quotes that defines the commands that are implemented by the module to carry out its task.
+
+The syntax is defined as follows:
+
+```groovy
+module < NAME > {
+  [ directives ]        
+  input:                
+  < module inputs >
+  output:               
+  < module outputs >
+  when:                 
+  < condition >
+  [script|shell|exec]:  
+  < user script to be implemented >
+}
+```
+
+
+## Script
+
+At minimum a module block must contain a `script` block.
+
+The `script` block is a String "statement" that defines the command that is implemented by the module to carry out its task. These are normally the commands you would run on a terminal.
+
+A module contains only one `script` block, and it must be the last statement when the module contains `input` and `output` declarations.
+
+The `script` block can be a simple one line string in quotes e.g.
+
+Or, for commands that span multiple lines you can encase the command in  triple quotes `"""`.
+
+The following section on python  is meant to be run by the instructor not the learners. 
+It is meant to be a demonstration of the different ways to run a module.
+This can be skipped for time.
+
+By default the module command is interpreted as a **Bash** script. However, any other scripting language can be used just simply starting the script with the corresponding [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) declaration.
+
+
+This allows the use of a different programming languages which may better fit a particular job. However, for large chunks of code it is suggested to save them into separate files and invoke them from the module script.
+
+## Associated scripts
+
+Scripts such as the one in the example above, `siena07RunSimOnly.R`, can be stored in a `bin` folder at the same directory level as the Nextflow workflow script that invokes them, and permission to run files. Nextflow will automatically add this folder to the `PATH` environment variable. To invoke the script in a Nextflow module, simply use its filename on its own rather than invoking the interpreter e.g. `siena07RunSimOnly.R` instead of `R siena07RunSimOnly.R`. **Note** The script `siena07RunSimOnly.R` must be executable to run.
+
+### Script parameters
+
+The command in the `script` block can be defined dynamically using Nextflow variables e.g. `${projectDir}`.
+To reference a variable in the script block you can use the `$` in front of the Nextflow variable name, and additionally you can add `{}` around the variable name e.g. `${projectDir}`.
+
+##  Variable substitutions
+
+Similar to bash scripting Nextflow uses the `$` character to introduce variable substitutions. The variable name to be expanded may be enclosed in braces `{variable_name}`, which are optional but serve to protect the variable to be expanded from characters immediately following it which could be interpreted as part of the name. It is a good rule of thumb to always use the `{}` syntax because it enhances readability and clarity, ensures correct variable interpretation, and prevents potential syntax errors in complex expressions. Note the `$` symbol is reserved for Nextflow variables, if you use this in e.g your R script code, you will either need to escape the reserved character with `\$` or preferably use different syntax to index a variable. 
+
+We saw in [epsiode Hello Nextflow](https://omiridoue.github.io/sgsss-workflow/02.html) most cases we do not want to hard code parameter values. We saw in the parameter episode the use of a special Nextflow variable `params` that can be used to assign values from the command line. You would do this by adding a key name to the params variable and specifying a value, like `params.keyname = value`
+
+**Note:** parameters to the workflow can be specified through the command line with two hyphens `--`.
+
+## Task 5.2 
+
+```bash
+nextflow run 05_modules.nf --module.debug
+```
+
+**Note:** The Nextflow option `--module.debug` will print the module's standard output to the terminal.
+
+## Solution
+
+```output
+
+executor >  local (2)
+[1b/fac7c3] process > GENERATE_DAT (1) [100%] 1 of 1 ✔
+[cc/96a9e1] process > GENERATE_RDS (1) [100%] 1 of 1 ✔
+[school123, 56]
+[school124, 88]
+[school125, 55]
+[school126, 55]
+Pipeline completed!
+Started at  2025-06-26T12:42:32.047860197Z
+Finished at 2025-06-26T12:42:35.178956448Z
+Time elapsed: 3.1s
+Execution status: OK
+
+```
+
+### Bash variables
+
+Nextflow uses the same Bash syntax for variable substitutions, `$variable`, in strings.
+However, Bash variables need to be escaped using `\` character in front of `\$variable` name.
+
+## Inputs
+
+Modules are isolated from each other but can communicate by sending values and files via Nextflow channels from `input` and into `output` blocks.
+
+The `input` block defines which channels the module is expecting to receive input from.
+The number of elements in input channels determines the module dependencies and the number of times a module is run.
+
+![Process Flow](../fig/channel-process.png)
+
+You can only define one input block at a time and it must contain one or more input declarations.
+
+The input block follows the syntax shown below:
+
+```groovy
+input:
+  <input qualifier> <input name>
+```
+
+The input qualifier declares the type of data to be received.
+
+## Input qualifiers
+* `val`: Lets you access the received input value by its name as a variable in the module script.
+* `env`: Lets you use the input value to set an environment variable named as the specified input name.
+* `path`: Lets you handle the received value as a file, staging the file properly in the execution context.
+* `stdin`: Lets you forward the received value to the module stdin special file.
+* `tuple`: Lets you handle a group of input values having one of the above qualifiers.
+* `each`: Lets you implement the module for each entry in the input collection.
+A complete list of inputs can be found [here](https://www.nextflow.io/docs/latest/module.html#inputs).
+
+### Input values
+
+The `val` qualifier allows you to receive value data as input. It can be accessed in the module script by using the specified input name, as shown in the following example:
+
+In the above example the module is implemented 1 time; each time a value is received from the queue channel `composition` it is used to run the module.
+
+## Channel order
+
+The channel guarantees that items are delivered in the same order as they have been sent, but since the module is implemented in a parallel manner, there is no guarantee on the order.
+
+### Input files
+
+When you need to handle files as input, you need the `path` qualifier. Using the `path` qualifier means that Nextflow will stage it in the module directory, and it can be accessed in the script by using the name specified in the input declaration.
+
+The input file name can be defined dynamically by defining the input name as a Nextflow variable and referenced in the script using the `$variable_name` syntax.
+
+For example, in the script below, we assign the variable name `read` to the input files using the `path` qualifier. 
+
+In this way we can use a `shell` block definition instead of `script`, for a trivial process such as extracting files from a folder. When using the `shell` statement Bash variables are referenced in the normal way `$my_bash_variable`. However, the `shell` statement uses a different syntax for Nextflow variable substitutions: `!{nextflow_variable}`, which is needed to use both Nextflow and Bash variables in the same script.
+
+In the `GENERATE_READS` module definition file we set a bash variable `$targz`. The variable was used to reference the input file path. Previously, in [episode Parameters](https://omiridoue.github.io/sgsss-workflow/03.html), we also printed the file path using `printf '${targz}\\t'` in our script block. 
+
+Recall the example in the script `03_params.nf` demonstrated use of a Bash variable, `${targz}`. 
+
+The input name can also be defined as a user-specified filename inside quotes.
+For example, in the script below, the name of the file is specified as `'each_period.tar.gz'` in the input definition and can be referenced by that name in the script block.
+
+## File Objects as inputs
+When a module declares an input file, the corresponding channel elements must be file objects, i.e. created with the path helper function from the file specific channel factories, e.g. `Channel.fromPath` or `Channel.fromFilePairs`. We saw examples for this in a previous [episode](https://omiridoue.github.io/sgsss-workflow/03.html).
+
+## Task 5.3
+For the script `05_modules.nf`:
+
+1. Identify the names of the Channels using `fromPath` for the `params.school_data` and `params.composition_data`. By definition are these queue or value channels?
+2. Explain the role of the map closure `{}`, how many outputs do the channels `composition` and `dataset` *return* ?
+
+#### Solution
+
+1. The names for the two queue channels are `ZipChannel_dat` and `ZipChannel_RDS` and are defined with the following code:
+
+``` groovy
+def ZipChannel_dat = Channel.fromPath(params.composition_data) 
+def ZipChannel_RDS = Channel.fromPath(params.school_data)
+```
+
+2. The map closure is a type of function operating on the output of a Channel. Just like a function you return select values using the return statement at the end of the function. In this case we return a tuple with three self-explanatory items, the first two involve values and the third is a file path, `tuple(school_ID, key, file)`. A close alternative is the `Channel.fromFilePairs()` which is a good option for combining two separate data types.
+
+``` groovy
+    composition = GENERATE_RDS(ZipChannel_dat)
+    | flatten \
+    | map { file ->
+    def key = file.name.toString().split('\\.')[0]
+    def school_ID = file.name.toString().split("_|\\.")[0]
+    return tuple(school_ID, key, file)}
+```
+
+### Combining input channels
+
+A key feature of modulees is the ability to handle inputs from multiple channels. However, it’s important to understand how the number of items within the multiple channels affect the execution of a module.
+
+## Task 5.4 
+
+How is the output from either channel wrangled in the queue channel? Could you think of an alternative channel definition that could replicate the combination of a pair of channels?
+
+ The channel operator **combine** is used to combine the main process output `dataset` and the process output `composition`. We combine, or merge the two based on the second item in the tuple, i.e `key`. It is important to note that the counter for indexing tuples or lists in Nextflow starts from 0 rather than 1. 
+
+``` groovy 
+
+workflow {
+   .
+   .
+   .
+    estimation_channel = composition \
+        | combine(dataset, by: 1)
+
+   .
+   .
+   .
+}
+
+```
+
+What is happening is that the module waits until it receives an input value from all the queue channels declared as input.
+
+When this condition is verified, it uses up the input values coming from the respective queue channels, runs the task. This logic repeats until one or more queue channels have no more content. The module then stops.
+
+What happens when not all channels have the same number of elements?
+
+In the above example the module is implemented only two times, because when a queue channel has no more data, it stops the module execution.
+
+### Value channels and module termination
+
+**Note** however that value channels, `Channel.value`, do not affect the module termination.
+
+To better understand this behaviour, compare the previous example with the following one:
+
+##  Task 5.5
+
+Open the nextflow script `05_modules.nf` that combines two input channels.
+
+Identify the map_join closure and inspect the output of this returns whenever it operates on the combined output of the dataset and auxiliary data channels.
+
+``` groovy
+// 05_modules.nf
+.
+.
+.
+def map_join(channel_a, key, value){
+    channel_a
+        .map{ it -> [it['key'], it['value']] }
+}
+.
+.
+.
+workflow {
+
+    estimation_channel.view()
+
+    mapped_params = map_join(pipe_school_info, 'key', 'value')
+
+    mapped_params.view()
+}
+```
+
+## Input repeaters
+
+We saw previously that by default the number of times a module runs is defined by the queue channel with the fewest items. However, the `each` qualifier allows you to repeat a module for each item in a list or a queue channel, every time new data is received. The material here simply motivates there is a sufficient number of options to wrangle the inputs and outputs of a process to suit objectives. Explore more information in the [Nextflow documentation](https://nextflow.io/docs/latest/process.html).
+
+- A Nextflow module is an independent step in a workflow.
+- Modules contain up to five definition blocks including: directives, inputs, outputs, when clause and finally a script block.
 - The script block contains the commands you would like to run.
-- A process should have a script but the other four blocks are optional.
+- A module should have a script but the other four blocks are optional.
 - Inputs are defined in the input block with a type qualifier and a name.
