@@ -1,4 +1,4 @@
-# Reporting 
+# Section 09: Reporting (Optional) 
 
 | Teaching  | 20 | Exercises  | 05 | 
 | --------------- | -------------- | -------------- |-------------- |
@@ -19,25 +19,15 @@ Similar to an electronic lab book, this means you have a record of all processin
 
 You can print Nextflow's execution history and log information using the `nextflow log` command.
 
-```bash
-$ nextflow log
-```
-
-```output 
-TIMESTAMP          	DURATION	RUN NAME               	STATUS	REVISION ID	SESSION ID                          	COMMAND
-```
-
 This will print a summary of the executions log and runtime information for all pipelines run. By default, included in the summary, are the date and time it ran, how long it ran for, the run name, run status, a revision ID, the session id and the command run on the command line.
 
-## Show Execution Log
+## Task 9.1
 
 Listing the execution logs of previous invocations of all pipelines in a directory.
 
 ```bash
 $ nextflow log
 ```
-
-:::::::::::::::  solution
 
 ## Solution
 
@@ -48,11 +38,11 @@ TIMESTAMP               DURATION        RUN NAME                STATUS  REVISION
 2025-04-12 17:56:01     3.2s            disturbed_bartik        OK      8a3d1bb9c7      09de2950-9894-4463-b55b-4afa4268a3e2    nextflow run read_data.nf 
 ```
 
-## Report
-
 If we want to get more information about a timeline we can request a timeline or report to be outputted to the `docs/` folder in our repository.
 
-For example:
+## Task 9.2
+
+Output a report.
 
 ```groovy
 
@@ -67,9 +57,12 @@ report {
 
 This will list the set of tasks and the time and memory resources these required to be completed. Additionally, further information is included on the command used to launch the pipeline, the output directory, and the status of each job submission, i.e whether this was Cached (run previously), Succeeded or Failed.
 
-## Timeline
 
 Information is included on the timeline of tasks scheduled as part of the pipeline.
+
+## Task 9.3
+
+Output a timeline.
 
 ```groovy
 
