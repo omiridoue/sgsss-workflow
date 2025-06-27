@@ -298,7 +298,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#nextflow-configuration">Nextflow configuration</a></li>
-<li><a href="#configuration-files">Configuration files</a></li>
 <li><a href="#how-configuration-files-are-combined">How configuration files are combined</a></li>
 <li><a href="#configuring-process-behaviour">Configuring process behaviour</a></li>
 <li><a href="#configuring-execution-platforms">Configuring execution platforms</a></li>
@@ -395,7 +394,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Nextflow configuration</h1>
-        <p>Last updated on 2025-06-26 |
+        <p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/10.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -448,20 +447,19 @@ specific configuration settings. Similarly, we have also provided
 parameters to our workflow which are parameter configuration settings.
 These configuration settings can be separated from the workflow
 implementation, into a configuration file.</p>
-</section><section><h2 class="section-heading" id="configuration-files">Configuration files<a class="anchor" aria-label="anchor" href="#configuration-files"></a></h2>
-<hr class="half-width"><p>Settings in a configuration file are sets of name-value pairs
+<p>Settings in a configuration file are sets of name-value pairs
 (<code>name = value</code>). The <code>name</code> is a specific
 property to set, while the <code>value</code> can be anything you can
 assign to a variable (for ex. strings, booleans, or other variables). It
 is also possible to access any variable defined in the host environment
 such as <code>$PATH</code>, <code>$HOME</code>, <code>$PWD</code>,
 etc.</p>
-<div id="accessing-variables-in-your-configuration-file" class="callout">
+<div id="configuration-file" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="accessing-variables-in-your-configuration-file" class="callout-inner">
-<h3 class="callout-title">Accessing variables in your configuration file</h3>
+<div id="configuration-file" class="callout-inner">
+<h3 class="callout-title">Configuration file</h3>
 <div class="callout-content">
 <p>Generally, variables and functions defined in a configuration file
 are not accessible from the workflow script. Only variables defined
@@ -497,7 +495,7 @@ Both forms of notation can be used in the same configuration file.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>An example of dot notation:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -598,7 +596,7 @@ and how many resources does this involve?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -708,7 +706,7 @@ results to a subfolder based on the sample name.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -774,7 +772,7 @@ configure processes depending on the executor used.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -884,7 +882,7 @@ a common prefix.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1010,7 +1008,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/10.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/10.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-26",
+  "dateModified": "2025-06-27",
   "datePublished": "2025-06-27"
 }
 
