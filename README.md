@@ -62,7 +62,7 @@ git clone --branch workflow-scripts --single-branch https://github.com/omiridoue
 ### Step 4: Navigate to the new Folder
 
 ```
-cd sgsss-workflow
+cd sgsss-workflow/scripts
 
 ```
 
