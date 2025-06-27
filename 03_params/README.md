@@ -12,14 +12,11 @@
 - How can I parameterise a workflow?
 - How can I add my parameters to a file?
 
-
-In the first episode we ran the Nextflow script, `read_data.nf`, from the
-command line and it de-compressed the archive folder that contained data on 6 individual schools for two time points
-`each_period.tar.gz`. To change the input to script we can make use of pipeline parameters.
+In the first episode we ran the Nextflow script, `02_hello_nextflow.nf`, from the command line and it de-compressed the archive folder `each_period.tar.gz` that contained data on 4 individual schools for two time points. To change the input to script we can make use of pipeline parameters.
 
 ## Pipeline parameters
 
-The Nextflow `read_data.nf` script defines a pipeline parameter `params.input`.
+The Nextflow `02_hello_nextflow.nf` script defines a pipeline parameter `params.input`.
 Pipeline parameters enable you to change the input to the workflow at
 runtime, via the command line or a configuration file, so they are not
 hard-coded into the script.
@@ -31,79 +28,79 @@ e.g., `params.input`.
 Their value can be specified on the command line by prefixing the
 parameter name with a **double dash** character, e.g., `--input`.
 
-In the script `read_data.nf` the pipeline parameter `params.input` was
-specified with a value of `"each_period.tar.gz"`.
+In the script `02_hello_nextflow.nf` the pipeline parameter `params.input` was
+specified with the file path `"data/each_period.tar.gz"`. 
 
-To process a different file, e.g. `multi_period.tar.gz`, in
-the `read_data.nf` script we would run:
+
+## Task 3.1
+
+The input for data has can be passed with the `--variable_name` convention. In this case we used named input for our parameter. Note variables can be specified through the command line using two dashes, any other options would normally be specified using a single dash, this includes the `-resume` tag which we can come back to at a later point.
+
+To process a different file, e.g. `data/multi_period.tar.gz`, in
+the `02_hello_nextflow.nf` script we would run:
 
 ``` bash
-nextflow run read_data.nf --input 'multi_period.tar.gz'
+nextflow run 02_hello_nextflow.nf --input 'data/multi_period.tar.gz'
 ```
+
 
 ``` output
  N E X T F L O W   ~  version 24.10.4
 
-Launching `read_data.nf` [loving_brenner] DSL2 - revision: 8a3d1bb9c7
+Launching `02_hello_nextflow.nf` [loving_brenner] DSL2 - revision: 8a3d1bb9c7
 
 executor >  local (1)
 executor >  local (1)
 [49/214249] process > GENERATE_READS (1) [100%] 1 of 1 ✔
-[/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school123.RDS, 
-/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school124.RDS, 
-/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school125.RDS, 
-/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school126.RDS, 
-/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school127.RDS, 
-/workspaces/training/work/49/21424945038a3a509a67cf9d092711/school128.RDS]
+[/workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school123.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school124.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school125.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/49/21424945038a3a509a67cf9d092711/school126.RDS]
 ```
+
 
 We can also use wild cards to specify multiple input files (This will be
 covered in the channels episode). In the example below we use the `*` to
-match any sequence of characters before `multi_period.tar.gz`. **Note:**
+match any sequence of characters before `data/multi_period.tar.gz`. **Note:**
 If you use wild card characters on the command line you must enclose the
 value in quotes.
 
+## Task 3.2
+
 ``` bash
-nextflow run read_data.nf --input '*multi_period.tar.gz'
+nextflow run 02_hello_nextflow.nf --input 'data/*multi_period.tar.gz'
 ```
 
-This runs the process NUM_LINES twice, once for each file it matches.
+This runs the process GENERATE_DAT twice, once for each file it matches.
 
 ``` output
  N E X T F L O W   ~  version 24.10.4
 
-Launching `read_data.nf` [grave_hopper] DSL2 - revision: 8a3d1bb9c7
+Launching `02_hello_nextflow.nf` [grave_hopper] DSL2 - revision: 8a3d1bb9c7
 
 executor >  local (2)
 [5f/7df89f] process > GENERATE_READS (2) [100%] 2 of 2 ✔
-[/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school123.dat, 
-/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school124.dat, 
-/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school125.dat, 
-/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school126.dat, 
-/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school127.dat, 
-/workspaces/training/work/df/253fc08b9b2941144e0e67c8e3c213/school128.dat]
+[/workspaces/training/sgsss-workflow/scripts/work/df/253fc08b9b2941144e0e67c8e3c213/school123.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/df/253fc08b9b2941144e0e67c8e3c213/school124.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/df/253fc08b9b2941144e0e67c8e3c213/school125.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/df/253fc08b9b2941144e0e67c8e3c213/school126.dat]
 
-[/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school123.RDS, 
-/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school124.RDS, 
-/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school125.RDS, 
-/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school126.RDS, 
-/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school127.RDS, 
-/workspaces/training/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school128.RDS]
+[/workspaces/training/sgsss-workflow/scripts/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school123.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school124.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school125.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/5f/7df89f35cb0de22fe9eb6c91e833ed/school126.RDS]
 
 ```
 
+## Task 3.3
 
-## Change a pipeline's input using a parameter
-
-Re-run the Nextflow script `read_data.nf` by changing the pipeline input to all
-files in the directory that end
-with `each_period.tar.gz`:
-
+Re-run the Nextflow script `02_hello_nextflow.nf` by changing the pipeline input to all
+files in the directory that end with `each_period.tar.gz`:
 
 ## Solution
 
 ``` bash
-nextflow run read_data.nf --input '*each_period.tar.gz'
+nextflow run 02_hello_nextflow.nf --input 'data/*each_period.tar.gz'
 ```
 
 The string specified on the command line will override the default value
@@ -113,167 +110,65 @@ of the parameter in the script. The output will look like this:
 
  N E X T F L O W   ~  version 24.10.4
 
-Launching `read_data.nf` [lethal_cajal] DSL2 - revision: 8a3d1bb9c7
+Launching `02_hello_nextflow.nf` [lethal_cajal] DSL2 - revision: 8a3d1bb9c7
 
 executor >  local (2)
 [05/8e0aa0] process > GENERATE_READS (1) [100%] 2 of 2 ✔
-[/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school123_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school123_period2.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school124_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school124_period2.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school125_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school125_period2.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school126_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school126_period2.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school127_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school127_period2.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school128_period1.dat, 
-/workspaces/training/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school128_period2.dat]
+[/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school123_period1.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school123_period2.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school124_period1.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school124_period2.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school125_period1.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school125_period2.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school126_period1.dat, 
+/workspaces/training/sgsss-workflow/scripts/work/05/8e0aa09cc3795d1a3fc2ed1384adf7/school126_period2.dat]
 
 executor >  local (2)
 [05/8e0aa0] process > GENERATE_READS (1) [100%] 2 of 2 ✔
 
-[/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school123_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school123_period2.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school124_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school124_period2.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school125_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school125_period2.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school126_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school126_period2.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school127_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school127_period2.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school128_period1.RDS, 
-/workspaces/training/work/07/303a7d7f5a8a582db4d9df86d68a08/school128_period2.RDS]
+[/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school123_period1.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school123_period2.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school124_period1.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school124_period2.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school125_period1.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school125_period2.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school126_period1.RDS, 
+/workspaces/training/sgsss-workflow/scripts/work/07/303a7d7f5a8a582db4d9df86d68a08/school126_period2.RDS]
 
-```
-
-
-## Specifying an output directory in the script
-
-To specify an output directory for a script use the parameter `publishDir` in the definition of a process.
-
-
-## Change a pipeline's output directory 
-
-Let's make a copy of the `read_data.nf` script as `read_data_params.nf` and add specify the output directory, where we want Nextflow to store data files that were the result of decompressing the `tar` archive folder.
-
-
-``` bash
-cp read_data.nf read_data_params.nf
-```
-
-The files that are extracted from the archive are stored in the folder `work` that tracks the different tasks that are launched as part of the pipeline. If we want a local copy of files that are decompressed we can add an output directory in the `read_data_params.nf`:
-
-``` groovy
-
-  publishDir "$projectDir", mode: "copy", overwrite: true
-
-```
-
-**Note:** You should always add a sensible default value to the pipeline
-parameter. 
-
-``` groovy
-process GENERATE_READS {
-
-  input:
-          path targz
-
-  publishDir "$projectDir", mode: "copy", overwrite: true
-
-  output:
-          path "*"
-
-  script:
-          """
-          tar -xzf $targz
-          # Print file name
-          printf '${targz}\\t'
-          """
-}
-```
-
-This step, `publishDir "$projectDir"`, will add a directory to output the decompressed files. The set of options that can be specified are listed in the [Nextflow documentation](https://www.nextflow.io/docs/latest/reference/stdlib.html). To access the value inside the process definition we use `$parameter` syntax e.g. `$projectDir`.
-
-We can now change the sleep parameter from the command line. 
-Example:
-
-``` groovy
-process GENERATE_READS {
-.
-.
-.
-publishDir "$projectDir", mode: "copy", overwrite: true
-.
-.
-.
-}
-```
-
-## Add a pipeline parameter
-
-If you haven't already make a copy of the `read_data.nf` as `read_data_params.nf`.
-
-```bash
-$ cp read_data.nf read_data_params.nf
-```
-
-Add the output directory `"$projectDir/tmp"` in place of the `publishDir` specification. 
-Replace the `"$projectDir"` in the process `GENERATE_READS` with `"$projectDir/tmp"`.
-
-Run the new script `read_data_params.nf` changing the output publishDir.
-
-```bash
-mkdir tmp
-```
-
-What output folder would it specify and why?
-
-
-## Solution
-
-``` groovy
-process GENERATE_READS {
-.
-.
-.
-publishDir "$projectDir/tmp", mode: "copy", overwrite: true
-.
-.
-.
-}
-```
-
-This would use `publishDir "$projectDir/tmp"` parameter instead of default `publishDir "$projectDir"` and run the pipeline. 
-
-```bash
-nextflow run 03_params.nf 
 ```
 
 ## Parameter File
 
-Configuration settings for a workflow are often stored in the file
-`nextflow.config` which is in the same directory as the workflow script.
-Configuration can be written in either of two ways. The first is using
-dot notation, and the second is using brace notation. Both forms
-of notation can be used in the same configuration file.
+If we have many parameters to pass to a script it is best to create a
+parameters file. The convention is for the file to be placed on the 
+top level of our workflow folder and for this to be named `params.config`.
 
-An example of dot notation:
 
-```groovy 
-params.outdir = "${baseDir}/results"   // The workflow parameter "outdir" is assigned the value base output directory and './results' subfolder to use by default.
-params.meta = "${baseDir}/params/meta.csv"
-params.effects = "${baseDir}/params/effects.csv"
-params.subgroup = "${baseDir}/params/subgroup.csv"
-params.school_data = "${baseDir}/data/each_period.tar.gz"
-params.school_info = "${baseDir}/params/school_info.json"
-params.composition_data = "${baseDir}/data/composition_each_period.tar.gz"
+## Task 3.4
+
+Create a parameter file `params.config` for the workflow. We'll try to reverse engineer,
+based on the following output, what parameters would we specify in our Nextflow parameter file?
+Notice we want to rename our params.input to params.school_data to make our script more specific and clear.
+
+``` output
+
+batches                     : 1
+model specification         : /workspaces/training/sgsss-workflow/scripts/params/meta.csv
+school data                 : /workspaces/training/sgsss-workflow/scripts/data/each_period.tar.gz
+school info                 : /workspaces/training/sgsss-workflow/scripts/params/school_info.json
+composition data            : /workspaces/training/sgsss-workflow/scripts/data/composition_each_period.tar.gz
+effects                     : /workspaces/training/sgsss-workflow/scripts/params/effects.csv
+subgroup                    : /workspaces/training/sgsss-workflow/scripts/params/subgroup.csv
+
 ```
 
-An example of brace notation:
+## Parameters
 
-```groovy 
+Here we use the nextflow environment variable `baseDir` which is resolved by the workflow at runtime. 
+The path to the data and params folder is specified through use of relative file paths. Open the
+`params.config` file to inspect the following:
+
+```groovy
 params {
                 outdir = "${baseDir}/results"
                 batches = 1
@@ -284,94 +179,20 @@ params {
                 school_info = "${baseDir}/params/school_info.json"
                 composition_data = "${baseDir}/data/composition_each_period.tar.gz"
 }
-
 ```
 
-Configuration files can also be separated into multiple files and
-included into another using the `includeConfig` statement.
+To point Nextflow to this `params.config` file, we include the following code `includeConfig "params.config"`,
+in our workflow configuration file.`nextflow.config`.
 
+Open the `03_params.nf` and check the syntax, notice we abstract the parameterisation of the workflow from the 
+workflow definition. This means we no longer need to define a parameter in our main workflow file, so long as 
+we point nextflow to the `params.config` file.
 
-If we have many parameters to pass to a script it is best to create a
-parameters file. Parameters can be stored in JSON format. JSON is a
-data serialization language, that is a way of storing data
-objects and structures, such as the `params` object in a file.
+```groovy
 
-The `-params-file` option is used to pass the parameters file to the
-script.
+nextflow run 03_params.nf 
 
-For example the file `school_info.json` contains the `key`
-and `value` dictionnary, with information on the school year size in JSON format.
-
-```json         
-[
-    {
-        "key": "school123",
-        "value": 56
-    },
-    {
-        "key": "school124",
-        "value": 88
-    },
-    {
-        "key": "school125",
-        "value": 55
-    },
-    {
-        "key": "school126",
-        "value": 55
-    }
-]
-```
-
-A file called `school_info.json` was created under the params/ subfolder with the above contents.
-
-To run the `wc-params.nf` script using these parameters we add the
-option `-params-file` and pass the file `school_info.json`:
-
-```bash         
-$ nextflow run wc-params.nf -params-file wc-params.json
-```
-
-
-
-```output         
-N E X T F L O W  ~  version 21.04.0
-Launching `wc-params.nf` [nostalgic_northcutt] - revision: 2f86c9ac7e
-executor >  local (2)
-[b4/747eaa] process > NUM_LINES (1) [100%] 2 of 2 ✔
-etoh60_1_2.fq.gz 87348
-
-etoh60_1_1.fq.gz 87348
-```
-
-## Create and use a Parameter file.
-
-Create a parameter file `params.json` for the Nextflow file
-`wc-params.nf`, and run the Nextflow script using the created
-parameter file, specifying:
-
--   sleep as 10
--   input as `data/yeast/reads/ref3_1.fq.gz`
-
-## Solution
-
-```json         
-{
-"sleep": 10,
-"input": "data/yeast/reads/ref3_1.fq.gz"
-}
-```
-```bash
-$ nextflow run wc-params.nf -params-file params.json 
-```
-
-```output
-N E X T F L O W 
- version 21.04.0 Launching `wc-params.nf` [small_wiles] - revision:
-f5ef7b7a01 executor \> local (1) [f3/4fa480] process \> NUM_LINES
-(1) [100%] 1 of 1 ✔ ref3_1.fq.gz 52592 
 ```
 
 - Pipeline parameters are specified by prepending the prefix `params` to a variable name, separated by dot character.
 - To specify a pipeline parameter on the command line for a Nextflow run use `--variable_name` syntax.
-- You can add parameters to a JSON formatted file and pass them to the script using option `-params-file`.
