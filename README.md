@@ -48,9 +48,7 @@ sbatch -A none -J "demo" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users
 For the command to work, replace `<username>` with your username, and ensure you first navigate to your shared scratch foloder 
 before downloading the material 
 
-```
-Hint: cd /mnt/scratch/users/<username>
-```
+`Hint: cd /mnt/scratch/users/<username>`
 
 ## Citations 
 
