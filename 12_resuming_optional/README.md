@@ -1,4 +1,4 @@
-# Resuming a Workflow
+# Section 12: Resuming a Workflow (Optional)
 
 | Teaching  | 20 | Exercises  | 10 | 
 | --------------- | -------------- | -------------- |-------------- |
