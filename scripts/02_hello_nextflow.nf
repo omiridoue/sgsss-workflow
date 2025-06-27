@@ -7,7 +7,7 @@
 ========================================================================================
 */
 
-params.school_data = "${launchDir}/data/each_period.tar.gz"
+params.input = "${launchDir}/data/each_period.tar.gz"
 
 /*
 ========================================================================================
@@ -15,7 +15,7 @@ params.school_data = "${launchDir}/data/each_period.tar.gz"
 ========================================================================================
 */
 
-input_ch = Channel.fromPath(params.school_data)
+input_ch = Channel.fromPath(params.input)
 
 /*
 ========================================================================================
