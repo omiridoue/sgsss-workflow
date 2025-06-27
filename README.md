@@ -9,7 +9,7 @@ The synthetic data was generated using GitHub Co-Pilot AI and Python. The purpos
 
 - no correspondence to school level characteristics like school size 
 - school IDs have no correspondence to schools
-- variable names do not match 
+- variable names do not match, reflect or convey any known existing dataset 
 
 >  My project uses social network methods to study the evolution of friendships and smoking over time. Social network data can be structured in many forms, the example here involves friendship adjacency matrices. The 'friedship generator' questions refer to the questionnaire section where students are asked to name, nominate, peers as friends. 
 
