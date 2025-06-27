@@ -77,6 +77,9 @@ Channel
     .fromPath(params.school_info)
     .splitJson()
     .set{ pipe_school_info }
+
+def meta_verbose_ch = ["all","influence","selection", "none"]
+
 /*
 ========================================================================================
     Input data is received through channels
@@ -105,7 +108,12 @@ workflow {
 
     composition \
     | view
- 
+
+    Channel.of(meta_verbose_ch) \
+    | view
+
+    Channel.fromList(meta_verbose_ch) \
+    | view
 }
 
 /*
