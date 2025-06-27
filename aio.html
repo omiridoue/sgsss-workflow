@@ -980,83 +980,18 @@ displays the following:</p>
 the folder name or relative path you want to navigate to, ex.
 <code>cd sgsss-workflow</code>. If you want to go back up a level or
 folder in your directory, you can type <code>cd ..</code> .</p>
+<p>Open the <code>02_hello_nextflow.nf</code> script and consider each
+section of the script.</p>
 </div>
 </div>
 </div>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Nextflow script </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>#<span class="op">!</span><span class="st">/usr/</span>bin<span class="op">/</span>env nextflow</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">    Workflow parameters are written as params.&lt;parameter&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">    and can be initialised using the `=` operator.</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>params<span class="op">.</span>input <span class="op">=</span> <span class="st">"data/each_period.tar.gz"</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">    Input data is received through channels</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">========================================================================================</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>input_ch <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>input<span class="op">)</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="st">/*</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="st">   Main Workflow</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="st">*/</span></span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>    <span class="co">//  The script to execute is called by it's process name, and input is provided between brackets.</span></span>
-<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>    <span class="fu">GENERATE_READS</span><span class="op">(</span>input_ch<span class="op">)</span></span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>    <span class="st">/*  Process output is accessed using the `out` channel.</span></span>
-<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="st">        The channel operator view() is used to print process output to the terminal. */</span></span>
-<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a>   GENERATE_READS<span class="op">.</span>out<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="st">/*</span></span>
-<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="st">    A Nextflow process block. Process names are written, by convention, in uppercase.</span></span>
-<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="st">    This convention is used to enhance workflow readability.</span></span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="st">========================================================================================</span></span>
-<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="st">*/</span></span>
-<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
-<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a>  input<span class="op">:</span></span>
-<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a>          path targz</span>
-<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>    </span>
-<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>  output<span class="op">:</span></span>
-<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>          path <span class="st">"*"</span></span>
-<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a>  </span>
-<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a>  script<span class="op">:</span></span>
-<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a>          <span class="st">"""</span></span>
-<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span><span class="st"> </span></span>
-<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a><span class="st">          # Print file name</span></span>
-<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
-<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="st">          """</span></span>
-<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="op">}</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 <p>This is a Nextflow script, which contains the following:</p>
 <ol style="list-style-type: decimal">
 <li>An optional interpreter directive (“Shebang”) line, specifying the
@@ -1084,6 +1019,10 @@ standard output stream with file path from the script block.</li>
 <code>printf '${targz}\\t'</code> and <code>tar -xzf $targz</code>.</li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="running-nextflow-scripts">Running Nextflow scripts<a class="anchor" aria-label="anchor" href="#running-nextflow-scripts"></a>
 </h3>
@@ -1098,10 +1037,10 @@ standard output stream with file path from the script block.</li>
 <div class="callout-content">
 <p>Run the script by entering the following command in your
 terminal:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 02_hello_nextflow.nf</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 02_hello_nextflow.nf</span></code></pre>
 </div>
 </div>
 </div>
@@ -1191,34 +1130,34 @@ folder <code>work</code> that tracks the different tasks that are
 launched as part of the pipeline. If we want a local copy of files that
 are decompressed we can add an output directory with the following
 code:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span></code></pre>
 </div>
 <p><strong>Note:</strong> You should always add a sensible default value
 to the pipeline parameter.</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  input<span class="op">:</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>          path targz</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  output<span class="op">:</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>          path <span class="st">"*"</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>  script<span class="op">:</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>          <span class="st">"""</span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="st">          # Print file name</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="st">          """</span></span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>process GENERATE_READS <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  input<span class="op">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>          path targz</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$projectDir</span><span class="st">"</span><span class="op">,</span> mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  output<span class="op">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>          path <span class="st">"*"</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  script<span class="op">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>          <span class="st">"""</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="st">          tar -xzf </span><span class="ss">$targz</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="st">          # Print file name</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="st">          printf '</span><span class="ss">${</span>targz<span class="ss">}</span><span class="sc">\\</span><span class="st">t'</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="st">          """</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1684,7 +1623,7 @@ content is not consumed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>A queue channels is used to store multiple values.</li>
@@ -1800,7 +1739,7 @@ differences do you notice?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Notice we’ve added the following code to <code>04_channels.nf</code>,
 building on the previous workflow definition:</p>
@@ -1971,7 +1910,7 @@ workflow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2197,7 +2136,7 @@ you <code>tmp/</code> folder contains both data files,
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2352,7 +2291,7 @@ many times is the process used in the workflow?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Essentially this stores the process definition for
 <code>GENERATE_READS</code>. Note previously we defined the process in
@@ -2549,7 +2488,7 @@ the terminal.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2739,7 +2678,7 @@ outputs do the channels <code>composition</code> and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The names for the two queue channels are <code>ZipChannel_dat</code>
@@ -2801,7 +2740,7 @@ replicate the combination of a pair of channels?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>The channel operator <strong>combine</strong> is used to combine the
 main process output <code>dataset</code> and the process output
@@ -2868,7 +2807,7 @@ data channels.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3108,7 +3047,7 @@ conditional statements?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The input variable name is <code>specification</code> this takes on
 character values so we need to use the == statement.</p>
@@ -3187,7 +3126,7 @@ defined in the process?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The directive used to label and distinguish tasks for each run of the
 <code>ESTIMATION</code> process is <code>school_period</code>.</p>
@@ -3245,7 +3184,7 @@ purpose of each one is.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3366,7 +3305,7 @@ output directories are specified by this single process ?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4323,7 +4262,7 @@ in a directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The output will look similar to this:</p>
 <div class="codewrapper">
@@ -4355,7 +4294,7 @@ our repository.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4395,7 +4334,7 @@ the pipeline.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5600,7 +5539,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>conda create --name nf-env bioconda::nextflow
 </code></pre>
@@ -5648,7 +5587,7 @@ Cloud.</div>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute
