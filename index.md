@@ -32,4 +32,4 @@ The workshop offers an overview to Nextflow. Nextflow integrates various softwar
 
 #### Explore the Material
 
-![Screenshot of the workshop website navigation interface showing a sidebar menu with links to different sections such as Introduction, Prerequisites, and Explore the Material. The main content area displays instructions for navigating the material. The environment is clean and organized, designed to help users easily find and access workshop resources. The tone is neutral and instructional. Visible text includes section titles and navigation labels.](episodes/fig/navigating-material.png)
+![Screenshot of the workshop website navigation interface showing a sidebar menu with links to different sections such as Introduction, Prerequisites, and Explore the Material. The main content area displays instructions for navigating the material.](episodes/fig/navigating_material.png)
