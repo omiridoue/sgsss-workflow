@@ -1,4 +1,4 @@
-# Section 03: Workflow Parameterisation
+# Section 04: Channels
 
 | Teaching  | 30 | Exercises  | 15 | 
 | --------------- | -------------- | -------------- |-------------- |
