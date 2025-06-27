@@ -298,10 +298,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#nextflow-configuration">Nextflow configuration</a></li>
-<li><a href="#how-configuration-files-are-combined">How configuration files are combined</a></li>
-<li><a href="#configuring-process-behaviour">Configuring process behaviour</a></li>
-<li><a href="#configuring-execution-platforms">Configuring execution platforms</a></li>
-<li><a href="#configuring-software-requirements">Configuring software requirements</a></li>
 <li><a href="#configuration-profiles">Configuration profiles</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -533,8 +529,9 @@ included into another using the
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="how-configuration-files-are-combined">How configuration files are combined<a class="anchor" aria-label="anchor" href="#how-configuration-files-are-combined"></a></h2>
-<hr class="half-width"><p>Configuration settings can be spread across several files. This also
+<div class="section level4">
+<h4 id="how-configuration-files-are-combined">How configuration files are combined<a class="anchor" aria-label="anchor" href="#how-configuration-files-are-combined"></a></h4>
+<p>Configuration settings can be spread across several files. This also
 allows settings to be overridden by other configuration files. The
 priority of a setting is determined by the following order, ranked from
 highest to lowest.</p>
@@ -570,8 +567,10 @@ within a configuration file, such as
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="configuring-process-behaviour">Configuring process behaviour<a class="anchor" aria-label="anchor" href="#configuring-process-behaviour"></a></h2>
-<hr class="half-width"><p>Earlier we saw that <code>process</code> directives allow the
+</div>
+<div class="section level4">
+<h4 id="configuring-process-behaviour">Configuring process behaviour<a class="anchor" aria-label="anchor" href="#configuring-process-behaviour"></a></h4>
+<p>Earlier we saw that <code>process</code> directives allow the
 specification of settings for the task execution such as
 <code>cpus</code>, <code>memory</code>, <code>conda</code> and other
 resources in the pipeline script. This is useful when prototyping a
@@ -648,8 +647,9 @@ characters.</p>
 <p>These settings are applied to all processes in the workflow. A
 process selector can be used to apply the configuration to a specific
 process or group of processes.</p>
-<div class="section level3">
-<h3 id="process-selectors">Process selectors<a class="anchor" aria-label="anchor" href="#process-selectors"></a></h3>
+</div>
+<div class="section level4">
+<h4 id="process-selectors">Process selectors<a class="anchor" aria-label="anchor" href="#process-selectors"></a></h4>
 <p>When a workflow has many processes, it is inconvenient to specify
 directives for all processes individually, especially if directives are
 repeated for groups of processes. A helpful strategy is to annotate the
@@ -674,6 +674,7 @@ process without the <code>big_mem</code> label.</li>
 processes of the workflow <code>small_time_cpus:big_mem</code>.</li>
 </ul><p>A regular expression cheat-sheet can be found <a href="https://www.jrebel.com/system/files/regular-expressions-cheat-sheet.pdf" class="external-link">here</a>
 if you would like to write more expressive expressions.</p>
+</div>
 <div class="section level4">
 <h4 id="selector-priority">Selector priority<a class="anchor" aria-label="anchor" href="#selector-priority"></a></h4>
 <p>When mixing generic process configuration and selectors, the
@@ -746,9 +747,9 @@ results to a subfolder based on the sample name.</p>
 </div>
 </div>
 </div>
-</div>
-</section><section><h2 class="section-heading" id="configuring-execution-platforms">Configuring execution platforms<a class="anchor" aria-label="anchor" href="#configuring-execution-platforms"></a></h2>
-<hr class="half-width"><p>Nextflow supports a wide range of execution platforms, from running
+<div class="section level4">
+<h4 id="configuring-execution-platforms">Configuring execution platforms<a class="anchor" aria-label="anchor" href="#configuring-execution-platforms"></a></h4>
+<p>Nextflow supports a wide range of execution platforms, from running
 locally, to running on HPC clusters or cloud infrastructures. See <a href="https://www.nextflow.io/docs/latest/executor.html" class="external-link">https://www.nextflow.io/docs/latest/executor.html</a>
 for the full list of supported executors.</p>
 <div id="task-10.4" class="callout challenge">
@@ -800,9 +801,9 @@ configure processes depending on the executor used.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="configuring-software-requirements">Configuring software requirements<a class="anchor" aria-label="anchor" href="#configuring-software-requirements"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="software-configuration-using-docker">Software configuration using Docker<a class="anchor" aria-label="anchor" href="#software-configuration-using-docker"></a></h3>
+</div>
+<div class="section level4">
+<h4 id="configuring-software-requirements">Configuring software requirements<a class="anchor" aria-label="anchor" href="#configuring-software-requirements"></a></h4>
 <p>Docker is a container technology. Container images are lightweight,
 standalone, executable package of software that includes everything
 needed to run an application: code, runtime, system tools, system
@@ -820,8 +821,8 @@ takes the form
 default, Docker containers run software using a privileged user. This is
 where Apptainer is preferred for computer cluster.</p>
 </div>
-<div class="section level3">
-<h3 id="software-configuration-using-apptainer-former-singularity">Software configuration using Apptainer (former Singularity)<a class="anchor" aria-label="anchor" href="#software-configuration-using-apptainer-former-singularity"></a></h3>
+<div class="section level4">
+<h4 id="software-configuration-using-apptainer-former-singularity">Software configuration using Apptainer (former Singularity)<a class="anchor" aria-label="anchor" href="#software-configuration-using-apptainer-former-singularity"></a></h4>
 <p>Singularity is another container technology, commonly used on HPC
 clusters. It is different to Docker in several ways. The primary
 differences are that processes are run as the user, and certain

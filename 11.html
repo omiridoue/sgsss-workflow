@@ -510,6 +510,13 @@ without having to re-run it from scratch.</p>
 <p><strong>The Work directory</strong></p>
 <p>By default the pipeline results are cached in the directory
 <code>work</code> where the pipeline is launched.</p>
+<div id="task-12.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="task-12.2" class="callout-inner">
+<h3 class="callout-title">Task 12.2</h3>
+<div class="callout-content">
 <p>We can use the Bash <code>tree</code> command to list the contents of
 the work directory. <strong>Note:</strong> By default tree does not
 print hidden files (those beginning with a dot <code>.</code>). Use the
@@ -519,6 +526,16 @@ print hidden files (those beginning with a dot <code>.</code>). Use the
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span> work</span></code></pre>
 </div>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
 <p><strong>Task execution directory</strong></p>
 <p>Within the <code>work</code> directory there are multiple task
 execution directories. There is one directory for each time a process is
@@ -549,19 +566,23 @@ This file is used to capture and store the exit status of the process
 that was run by the .command.sh script.</p></li>
 <li><p>Any task input files (symlinks)</p></li>
 <li><p>Any task output files</p></li>
-</ul><p><strong>Specifying another work directory</strong></p>
+</ul></div>
+</div>
+</div>
+</div>
+<p><strong>Specifying another work directory</strong></p>
 <p>Depending on your script, this work folder can take a lot of disk
 space. You can specify another work directory using the command line
 option <code>-w</code>. <strong>Note</strong> Using a different work
 directory will mean that any jobs will need to re-run from the
 beginning.</p>
 <p><strong>Clean the work directory</strong></p>
-<div id="task-12.2" class="callout challenge">
+<div id="task-12.3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="task-12.2" class="callout-inner">
-<h3 class="callout-title">Task 12.2</h3>
+<div id="task-12.3" class="callout-inner">
+<h3 class="callout-title">Task 12.3</h3>
 <div class="callout-content">
 <p>If you are sure you won’t resume your pipeline execution, clean this
 folder periodically using the command <code>nextflow clean</code>.</p>
@@ -573,12 +594,12 @@ folder periodically using the command <code>nextflow clean</code>.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Supply the option <code>-n</code> to print names of files to be
 removed without deleting them, or <code>-f</code> to force the removal
