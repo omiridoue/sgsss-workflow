@@ -390,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Workflow</h1>
-        <p>Last updated on 2025-06-26 |
+        <p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/07.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -461,7 +461,7 @@ information can be found in the official documentation <a href="https://www.next
 <p>As seen previously, a <code>process</code> is invoked as a function
 in the <code>workflow</code> scope, passing the expected input channels
 as arguments as it if were.</p>
-<p>To combined multiple processes invoke them in the order they would
+<p>To combine multiple processes invoke them in the order they would
 appear in a workflow. When invoking a process with multiple inputs,
 provide them in the same order in which they are declared in the
 <code>input</code> block of the process.</p>
@@ -543,7 +543,7 @@ workflow is the output of the process <code>META_MORAN</code> being
 connected to <code>JOINFILES</code> process in the workflow
 definition.</p>
 <p><strong>Note:</strong> You will need to use the <code>collect</code>
-operator to gather the items in the simulatio_ch to a single List item.
+operator to gather the items in the simulation_ch to a single List item.
 The reason for this is the <code>JOINFILES</code> module combines output
 into a figure summarising model comparison statistics.</p>
 </div>
@@ -591,7 +591,7 @@ into a figure summarising model comparison statistics.</p>
 inside the <code>workflow</code> scope.</li>
 <li>A process is invoked like a function inside the
 <code>workflow</code> scope passing any required input parameters as
-arguments. e.g. <code>FASTQC(reads_ch)</code>.</li>
+arguments. e.g. <code>ESTIMATION(estimation_channel)</code>.</li>
 <li>Process outputs can be accessed using the <code>out</code> attribute
 for the respective <code>process</code> object or assigning the output
 to a Nextflow variable.</li>
@@ -664,7 +664,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/07.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/07.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-26",
+  "dateModified": "2025-06-27",
   "datePublished": "2025-06-27"
 }
 
