@@ -307,9 +307,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#docker-hub">Docker Hub</a></li>
-<li><a href="#git">Git</a></li>
-<li><a href="#containers-in-the-workflow">Containers in the workflow</a></li>
-<li><a href="#alternative-platforms-for-the-hpc">Alternative Platforms for the HPC</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -392,7 +389,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Auxiliary Tools</h1>
-        <p>Last updated on 2025-06-26 |
+        <p>Last updated on 2025-06-27 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/01.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -518,9 +515,9 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 </div>
 </div>
 </div>
-</div>
-</section><section><h2 class="section-heading" id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h2>
-<hr class="half-width"><div id="task-11.2" class="callout challenge">
+<div class="section level4">
+<h4 id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h4>
+<div id="task-11.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -549,8 +546,10 @@ synchronizing their work with the repository.</div>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="containers-in-the-workflow">Containers in the workflow<a class="anchor" aria-label="anchor" href="#containers-in-the-workflow"></a></h2>
-<hr class="half-width"><p>Within our workflow we can specify the container we want to use, as a
+</div>
+<div class="section level4">
+<h4 id="containers-in-the-workflow">Containers in the workflow<a class="anchor" aria-label="anchor" href="#containers-in-the-workflow"></a></h4>
+<p>Within our workflow we can specify the container we want to use, as a
 matter of fact we can specify a container for different processes - the
 possibility is endless! Say for example you would like to write
 interoperable code and use Python for one part of your analysis and R
@@ -560,8 +559,10 @@ software (i.e R and Python) installed.</p>
 <p>Say we work with one container, but would like to make sure the
 pipeline is portable. In this case we work with profiles, which is
 another layer for customisation.</p>
-</section><section><h2 class="section-heading" id="alternative-platforms-for-the-hpc">Alternative Platforms for the HPC<a class="anchor" aria-label="anchor" href="#alternative-platforms-for-the-hpc"></a></h2>
-<hr class="half-width"><p>Many container platforms are available, but Apptainer is designed for
+</div>
+<div class="section level4">
+<h4 id="alternative-platforms-for-compute-clusters">Alternative Platforms for compute clusters<a class="anchor" aria-label="anchor" href="#alternative-platforms-for-compute-clusters"></a></h4>
+<p>Many container platforms are available, but Apptainer is designed for
 ease-of-use on shared systems and in high performance computing (HPC)
 environments. Nextflow can build an immutable image based off a Docker
 recipe file.</p>
@@ -571,8 +572,9 @@ recipe file.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://omiridoue-siena_r:0.8</span></code></pre>
 </div>
-<div class="section level3">
-<h3 id="workflow-definition">Workflow Definition<a class="anchor" aria-label="anchor" href="#workflow-definition"></a></h3>
+</div>
+<div class="section level4">
+<h4 id="workflow-definition">Workflow Definition<a class="anchor" aria-label="anchor" href="#workflow-definition"></a></h4>
 <p>Within our workflow, we can declare a process container, and ensure
 we enable apptainer. Again we don’t want to hard code this decision as
 we’d like to keep options as flexible as possible. This is why we build
@@ -641,6 +643,7 @@ Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
 </div>
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/10.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
@@ -699,7 +702,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/01.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/01.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-26",
+  "dateModified": "2025-06-27",
   "datePublished": "2025-06-27"
 }
 
