@@ -3,21 +3,40 @@
 | Teaching  | 15 | Exercises  | 10 | 
 | --------------- | -------------- | -------------- |-------------- |
 
-### Browsing Docker Hub
+- Understand how to reproduce code.
+- Understand the benefits of containers.
+
+- When should I use a pre-built container?
+- How can I customise a container?
+- What is a remote codespace?
+
+## Docker Hub
+
+By sharing a container, you create a portable and replicable research environment that can be easily accessed and used by other researchers. This process not only facilitates collaboration but also ensures that your work is preserved in an environment where it can be run without compatibility issues, i.e you can do your best to 'future-proof' your research.
+
+To share your code and software, you'll use Docker Hub. [Docker hub](https://www.docker.com/get-started/) is a cloud-based registry service that lets you share and distribute container images.
+
+There is a sea of containers out there, it is not necessarily safe to use a docker container, as there is always risk of malware. The following involves guidance on best practice:
 
 - The container image is updated regularly, the latest version should be available alongside previous versions.
-- The container image associated with a well established company, community, or other group that is well-known.
 - There is a Dockerfile or other listing of what has been installed to the container image.
 - The container image page has documentation on how to use the container image.
 
-If a container image is never updated, created by a random person, and does not have a lot of metadata, it is probably worth skipping over. Even if such a container image is secure, it is not reproducible and not a dependable way to run research computations.
+
+If a container image is never updated, and does not have a lot of metadata, it is probably worth skipping over. Even if such a container image is secure, it is not reproducible and not a dependable way to run research computations.
 
 
 ### Docker Recipe File
 
-Much like a cookbook, you can pull out recipes and alter to own taste. This is how you normally get started building your own image, you can start with a base repository, and layer requirements.
+Much like a cookbook, you can pull out recipes and alter to own preference. This is how you normally get started building your own image, you can start with a base repository.
 
-For the following image we use a base image from bioconductor, R 4.4.1 and install relevant packages. We also install the RSiena package 1.4.19 from source code. The docker container is then stored onto the online docker hub. 
+## Task 11.1
+
+In this case we use a base image for R on a Linux machine, from bioconductor. We layer requirements, i.e code libraries. 
+
+To do this we evaluate the command `install.packages()` using R. This is possible as we work within the docker container which has already installed R. We install packages directly from CRAN, in this case the recipe file could be improved on by requesting exact versions for packages. 
+
+We also demonstrate installing RSiena version `1.4.19` from source code. Note as we build the container, we realise this is a self-contained enviroment and so need to manage file paths the same way we would with a folder that takes up its own space on our directory. To do this we copy the source code into the top level of our container and then use option `install.packages(...,repos = NULL, type= 'source')`. The next steps involve pushing the local container onto docker hub, under the name, `siena_r` and a version tag number. As this is an iterative process, the version tag number we are working with here follows the semi-colon `siena_r:0.8`. In some cases you may require a specific version of a container; however, the most recent version can also be requested with `siena_r:latest`. 
 
 ``` docker
 
@@ -31,47 +50,61 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 
 ```
 
-### Using Docker with Local Profile
+#### Git 
 
-In the nextflow.config file you will need to toggle docker.enabled to true, within the scope of our local profile.
+## Task 11.2
 
-``` nextflow.config
+![Arrows indicate users making changes and synchronizing their work with the repository.](episodes/fig/version-control.svg)
 
-profiles {
-  local {
-    includeConfig 'conf/local.config'
-    docker.enabled = true
-    process.container = 'omiridoue/siena_r:0.8'
-  }
-  slurm {
-    includeConfig 'conf/slurm.config'
-    apptainer.enabled = true
-    apptainer.cacheDir = "apptainer"
-    apptainer.enabled = true
-    apptainer.autoMounts = true
 
-    process.executor = 'slurm'
-    process.container = 'apptainer/omiridoue-siena_r-0.8.img'
-  }
-}
+```bash 
 
+git clone --branch ready-set-workflow --single-branch https://github.com/omiridoue/sgsss-workflow.git
 ```
+
+#### Containers in the workflow
+
+Within our workflow we can specify the container we want to use, as a matter of fact we can specify a container for different processes - the possibility is endless! Say for example you would like to write interoperable code and use Python for one part of your analysis and R for another part, this is possible by defining a different container for each process. Another option is to build one container with all the software (i.e R and Python) installed.
+
+Say we work with one container, but would like to make sure the pipeline is portable. In this case we work with profiles, which is another layer for customisation.
+
+
+#### Alternative Platforms for compute clusters
 
 Many container platforms are available, but Apptainer is designed for ease-of-use on shared systems and in high performance computing (HPC) environments. Nextflow can build an immutable image based off a Docker recipe file.
 
-### Building an Apptainer Image
-
-Once we have a docker image it is straightforward to convert this to an apptainer (former singularity) container with the following command:
+ __Building an Apptainer Image__
 
 ``` bash
 singularity pull docker://omiridoue-siena_r:0.8
 
 ```
 
-### Using Apptainer for HPC Profile
+#### Workflow Definition
 
-Within our workflow, we can declare a process container, and ensure we enable apptainer. 
+Within our workflow, we can declare a process container, and ensure we enable apptainer. Again we don't want to hard code this decision as we'd like to keep options as flexible as possible. This is why we build a profile for each our compute environments, in this case for our local machine / GitHub codespace we have access to Docker. However, for our slurm profile, relevant to a computer cluster with Slurm workload manager, we opt for apptainer (former singularity), as docker is not available.
 
+## Task 11.3
 
 We can declare a different config file for different compute environments, or profiles. These profiles are stored under the conf sub-folder. 
 
+```
+profiles {
+
+  local {
+    includeConfig 'conf/local.config'
+    process.container = 'omiridoue/siena_r:0.8'
+  }
+  slurm {
+    includeConfig 'conf/slurm.config'
+    process.executor = 'slurm'
+    process.container = 'omiridoue/siena_r:0.8'
+  }
+}
+```
+
+- The Docker Hub is an online repository of container images.
+- Find a container recipe file that works for your project and customise this.
+- Nextflow can pull a docker container from Docker Hub and convert this to an Apptainer image.
+- Docker is not permitted on most HPC environments, apptainer sif files are used instead.
+- Containers are important to reproducible workflows and portability of workflows across environments.
