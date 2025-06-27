@@ -1,3 +1,7 @@
+# Section 07: Workflow (optional)
+
+| Teaching  | 15 | Exercises  | 15 | 
+| --------------- | -------------- | -------------- |-------------- |
 
 - Create a Nextflow workflow joining multiple processes.
 - Understand how to to connect processes via their inputs and outputs within a workflow.
