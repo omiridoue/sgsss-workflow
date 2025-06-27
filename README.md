@@ -31,11 +31,11 @@ Follow the link to Nextflow documentation below:
   </a>
 </p>
 
-## Data 
+## Synthetic Data 
 
-Synthetic data was developed for teaching and learning purposes. 
+The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
 
-The data has no fidelity to any existing data. It does not resembles real-world data in any way. This type of dataset is helpful as it allows the development and testing of code. The example demonstrates an example from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
+The example application is from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
 
 ### Step 1: Open GitHub Codespaces
 
