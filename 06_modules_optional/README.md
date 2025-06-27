@@ -3,7 +3,6 @@
 | Teaching  | 30 | Exercises  | 15 | 
 | --------------- | -------------- | -------------- |-------------- |
 
-
 - Define outputs to a process.
 - Understand how to handle grouped input and output using the tuple qualifier.
 - Understand how to use conditionals to control process execution.
@@ -12,5 +11,266 @@
 
 - How do I get data, files, and values,  out of processes?
 - How do I handle grouped input and output?
-- How can I control when a process is executed?
+- How can I control when a process is implemented?
 - How do I control resources, such as number of CPUs and memory, available to processes?
+- How do I save output/results from a process?
+
+## Outputs
+
+We have seen how to input data into a process; now we will see how to output files and values from a process.
+
+The `output` declaration block allows us to define the channels used by the process to send out the files and values produced.
+
+An output block is not required, but if it is present it can contain one or more output declarations.
+
+The output block follows the syntax shown below:
+
+```groovy 
+output:
+  <output qualifier> <output name>
+  <output qualifier> <output name>
+...
+
+```
+
+#### Output values
+
+Like the input, the type of output data is defined using type qualifiers.
+
+The `val` qualifier allows us to output a value defined in the script.
+
+Because Nextflow processes can only communicate through channels, if we want to share a value output of one process as input to another process, we would need to define that value in the output declaration block.
+
+#### Output files
+
+If we want to capture a file instead of a value as output we can use the
+`path` qualifier that can capture one or more files produced by the process, over the specified channel.
+
+In the file `06_modules_optional.nf` the process `ESTIMATION` creates a file named `<chr>_SIM.RDS` in the work directory containing the output from simulation run after n iterations, required for this to converge.
+
+Since a file parameter using the same name, `<chr>_SIM.RDS`, is declared in the output block, when the task is completed that file is sent over the output channel.
+
+A downstream `operator`, such as `.view` or a `process` declaring the same channel as input will be able to receive it.
+
+#### Multiple output files
+
+When an output file name contains a `*` or `?` metacharacter it is interpreted as a pattern match.
+This allows us to capture multiple files into a list and output them as a one item channel.
+
+**Note:** There are some caveats on glob pattern behaviour:
+
+- Input files are not included in the list of possible matches.
+- Glob pattern matches against both files and directories path.
+- When a two stars pattern `**` is used to recurse through subdirectories, only file paths are matched i.e. directories are not included in the result list.
+
+#### Grouped inputs and outputs
+
+So far we have seen how to declare multiple input and output channels, but each channel was handling only one value at time. However Nextflow can handle groups of values using the `tuple` qualifiers.
+
+In tuples the first item is the grouping key and the second item is the list.
+
+When using channel containing a tuple, such a one created with `.filesFromPairs` factory method, the corresponding input declaration must be declared with a `tuple` qualifier, followed by definition of each item in the tuple.
+
+In the same manner an output channel containing tuple of values can be declared using the `tuple` qualifier following by the definition of each tuple element in the tuple.
+
+#### Conditional script execution
+
+Sometimes you want to change how a module is run depending on some condition. In Nextflow scripts we can use conditional statements such as the `if` statement or any other expression evaluating to boolean value `true` or `false`.
+
+#### If statement
+
+The `if` statement uses the same syntax common to other programming languages such Java, C, JavaScript, etc.
+
+```groovy
+if( < boolean expression > ) {
+    // true branch
+}
+else if ( < boolean expression > ) {
+    // true branch
+}
+else {
+    // false branch
+}
+```
+
+
+For example, the Nextflow script below will use the `if` and `else if` pattern of statements to change what the COUNT module counts depending on an input.
+
+## Task 6.1 
+
+Inspect the module `ESTIMATION`, what is the name of the input variable that is used by the workflow to evaluate a series of conditional statements?
+
+The input variable name is `specification` this takes on character values so we need to use the == statement. 
+
+``` groovy
+process ESTIMATION {
+.
+.
+.
+ input:
+  tuple val(school_period), val(specification), val(school_ID_dat), path(compositionFile_period), val(school_ID), path(STR), val(period), val(effects)
+  
+  output:
+.
+.
+.
+
+script:
+
+  if (specification == "all")
+      template '1000_model_estimation_all.R'
+  else if (specification == "influence")
+      template '1000_model_estimation_influence.R'
+  else if (specification == "none")
+      template '1000_model_estimation_no.R'
+  else
+      template '1000_model_estimation_selection.R'
+
+}
+
+```
+
+## Conditional execution of a process
+
+The `when` declaration allows you to define a condition that must be verified in order to execute the process. This can be any expression that evaluates a boolean value; `true` or `false`.
+
+It is useful to enable/disable the process execution depending on the state of various inputs and parameters.
+
+#### Directives
+
+Directive declarations allow the definition of optional settings, like the number of `cpus` and amount of `memory`, that affect the execution of the current process without affecting the task itself.
+
+They must be entered at the top of the process body, before any other declaration blocks (i.e. `input`, `output`, etc).
+
+**Note:** You do not use `=` when assigning a value to a directive.
+
+Directives are commonly used to define the amount of computing resources to be used or extra information for configuration or logging purpose.
+
+## Task 6.2
+
+Inspect the module `ESTIMATION`, what is the name of the variable used in the directive or tag of the process? Where is this defined in the process?
+
+The directive used to label and distinguish tasks for each run of the `ESTIMATION` process is `school_period`. 
+
+``` groovy
+process ESTIMATION {
+
+     tag{school_period}
+.
+.
+.
+
+}
+```
+
+The above process uses the three directives, `tag`, `cpus` and `echo`.
+
+The `tag` directive to allow you to give a custom tag to each process execution. This tag makes it easier to identify a particular task (implemented instance of a process) in a log file or in the execution report.
+
+The second directive `cpus`  allows you to define the number of CPUs required for each task.
+
+The third directive `echo true` prints the stdout to the terminal.
+
+We use the Nextflow `task.cpus` variable to capture the number of cpus assigned to a task. This is frequently used to specify the number of threads in a multi-threaded command in the script block.
+
+Another commonly used directive is memory specification: `memory`.
+
+A complete list of directives is available at this [link](https://www.nextflow.io/docs/latest/process.html#directives).
+
+## Task 6.3
+
+Many software tools allow users to configure the number of CPU threads used, optimizing performance for faster and more efficient data processing in high-throughput tasks.
+
+Open the `06_modules_optional.nf` script. 
+
+Based on the set of directives write a comment explaining what the purpose of each one is.
+
+``` groovy
+process ESTIMATION {
+
+  tag{school_period}
+
+  label 'small_time_cpus' // process label allocating resources 
+  
+  errorStrategy { task.exitStatus == 140 ? 'retry' : 'ignore' } // if a task happens to fail, ask nextflow to carry on with the rest of the tasks, otherwise it'll stop all processes
+  maxRetries 1 // specify the number of times to a process is to be rescheduled once it fails
+.
+.
+.
+
+}
+```
+
+#### Organising outputs
+
+__PublishDir directive__
+
+Nextflow manages intermediate results from the pipeline's expected outputs independently.
+
+Files created by a `process` are stored in a task specific working directory which is considered as temporary. Normally this is under the `work` directory, which can be deleted upon completion.
+
+The files you want the workflow to return as results need to be defined in the `output` block of the process and then the output directory specified using the `directive` `publishDir`. More information [here](https://www.nextflow.io/docs/latest/process.html#publishdir).
+
+**Note:** A common mistake is to specify an output directory in the `publishDir` directive while forgetting to specify the files you want to include in the `output` block.
+
+``` groovy
+publishDir <directory>, parameter: value, parameter2: value ...
+```
+
+For example if we want to capture the results of the `ESTIMATION` process in a `results/siena_sim/$school_period` output directory we
+need to define the files in the `output` and  specify the location of the results directory in the `publishDir` directive:
+
+
+In the above example, the `publishDir "results/siena_sim/$school_period"`,  creates a symbolic link `->` to the output files specified by the process `ESTIMATION.simulation_ch` to the directory path `results/siena_sim/$school_period`.
+
+A symbolic link, often referred to as a symlink, is a type of file that serves as a reference or pointer to another file or directory, allowing multiple access paths to the same resource without duplicating its actual data. 
+
+## publishDir
+
+The publishDir output is relative to the path the pipeline run has been launched. Hence, it is a good practice to use [implicit variables](https://www.nextflow.io/docs/latest/script.html?highlight=projectdir#script-implicit-variables) like `projectDir` to specify publishDir value.
+
+#### publishDir parameters
+
+The `publishDir` directive can take optional parameters, for example the `mode` parameter can take the value `"copy"` to specify that you wish to copy the file to output directory rather than just a symbolic link to the files in the working directory. Since the working directory is generally deleted on completion of a pipeline, it is safest to use `mode: "copy"` for results files. The default mode (symlink) is helpful for checking intermediate files which are not needed in the long term.
+
+Full list [here](https://www.nextflow.io/docs/latest/process.html#publishdir).
+
+#### Manage semantic sub-directories
+
+You can use more than one `publishDir` to keep different outputs in separate directories. To specify which files to put in which output directory use the parameter `pattern` with the a glob pattern that selects which files to publish from the overall set of output files.
+
+In the example below we will create an output folder structure in the directory results, which contains a separate sub-directory for sequence id file, `pattern: "*.png"` ,  and a sequence directory, `"$params.outdir/siena_gof/$school_period"` for the set of goodness of fit figures assessing model fit. Remember, we need to specify the files we want to copy as outputs.
+
+## Task 6.4
+
+Inspect the `publishDir` directive to the nextflow script `06_modules_optional.nf` can you identify how many unique output directories are specified by this single process ?
+
+
+```groovy
+process ESTIMATION {
+
+.
+.
+.
+
+  publishDir "$params.outdir/siena_fit", pattern: "*.RDS",  mode: "copy", overwrite: true // all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED
+  
+  publishDir "$params.outdir/siena_sim/$school_period", pattern: "*_SIM.RDS",  mode: "copy", overwrite: true
+  publishDir "$params.outdir/siena_gof/$school_period", pattern: "*.png",  mode: "copy", overwrite: true
+
+.
+.
+.
+
+} 
+```
+
+#### Nextflow Patterns
+
+If you want to find out common structures of Nextflow processes, the [Nextflow Patterns page](https://nextflow-io.github.io/patterns/) collects some recurrent implementation patterns used in Nextflow applications.
+
+
+- Outputs to a process are defined using the output blocks.
+- You can group input and output data from a process using the tuple qualifier.
+- The execution of a process can be controlled using the `when` declaration and conditional statements.
+- Files produced within a process and defined as `output` can be saved to a directory using the `publishDir` directive.
