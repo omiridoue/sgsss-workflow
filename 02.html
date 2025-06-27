@@ -480,8 +480,8 @@ section.</p></li>
 </ul><p>A process that takes the channel as input. Independent instances
 (tasks) of that process are run in parallel. Each task generates an
 output, which is passed to another channel and used as input for the
-next process. We’ll figure out how this works in practice with some of
-the practice examples in the section.</p>
+next process. We’ll figure out how this works with some of the practice
+examples in the section.</p>
 </div>
 <div class="section level3">
 <h3 id="workflow-implementation">Workflow implementation<a class="anchor" aria-label="anchor" href="#workflow-implementation"></a></h3>
@@ -651,9 +651,9 @@ command.</li>
 <div id="task-2.3" class="callout-inner">
 <h3 class="callout-title">Task 2.3</h3>
 <div class="callout-content">
-<p>Let’s edit the <code>02_hello_nextflow.nf</code> script and add
-specify the output directory, where we want Nextflow to store data files
-that were the result of decompressing the <code>tar</code> archive
+<p>Let’s edit the <code>02_hello_nextflow.nf</code> script and specify
+the output directory, where we want Nextflow to store data files that
+were the result of decompressing the <code>tar</code> archive
 folder.</p>
 </div>
 </div>
@@ -699,12 +699,8 @@ to the pipeline parameter.</p>
 <span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="st">          """</span></span>
 <span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<p>Add the output directory <code>"$projectDir"</code> in the process
-<code>GENERATE_READS</code>.</p>
+<p>Here we’ve added the output directory <code>"$projectDir"</code> in
+the process <code>GENERATE_READS</code>.</p>
 <p>This step, <code>publishDir "$projectDir"</code>, will add a
 directory to output the decompressed files. The set of options that can
 be specified are listed in the <a href="https://www.nextflow.io/docs/latest/reference/stdlib.html" class="external-link">Nextflow
@@ -716,6 +712,10 @@ called <code>tmp</code> that will store the output of the process
 <p>The new line of code should read:</p>
 <p><code>publishDir "$projectDir/tmp", mode: "copy", overwrite: true</code></p>
 <p>How would this change where the output is stored?</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
