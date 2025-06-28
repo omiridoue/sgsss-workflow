@@ -214,9 +214,8 @@ This will give an error as there is no data directory.
 
 1. Navigate to the Nextflow script file called `04_channels.nf` .
 2. The pre-populated code involves x5 queue channels. Identify the name of each of these channels. Write comments within your script to explain what this queue channel involves. 
-4. The workflow is pre-populated with one queue channel. Make sure to include all 5 channels in the workflow.
-5. Hint: Run the workflow script through the terminal with `nextflow run`.
-6. Hint: use the `.view()` operator to print the output of the channel. Again type the `nextflow run` command to run the workflow. 
+3. Hint: Run the workflow script through the terminal with `nextflow run`.
+4. Hint: use the `.view()` operator to print the output of the channel. Again type the `nextflow run` command to run the workflow. 
 
 
 ``` groovy 
