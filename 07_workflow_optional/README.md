@@ -20,6 +20,55 @@ Our previous episodes have shown how to parameterise workflows using `params`, m
 We can connect processes to create our pipeline inside a `workflow` scope.
 The  workflow scope starts with the keyword `workflow`, followed by an optional name and finally the workflow body delimited by curly brackets `{}`.
 
+## Task 7.1 
+
+
+## Task 7.1
+
+Ready set workflow! Run the full workflow demo.
+
+:::::::::::::::  solution
+
+``` bash 
+
+nextflow run main.nf -profile local
+
+```
+
+``` output 
+
+training/sgsss-workflow/scripts -> nextflow run main.nf -profile local
+Nextflow 25.04.4 is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 25.04.3
+
+Launching `main.nf` [confident_kimura] DSL2 - revision: bc82a00e22
+
+
+====================================================
+ ╔═╔ ╔═╗╔╗╔ ╔═╗
+ ║ ║ ║╣ ║║║ ║═║
+═╝ ╝ ╚═╝╝╚╝ ╝ ╝
+====================================================
+batches                     : 1
+model specification         : /workspaces/training/sgsss-workflow/scripts/params/meta.csv
+school data                 : /workspaces/training/sgsss-workflow/scripts/data/each_period.tar.gz
+school info                 : /workspaces/training/sgsss-workflow/scripts/params/school_info.json
+composition data            : /workspaces/training/sgsss-workflow/scripts/data/composition_each_period.tar.gz
+effects                     : /workspaces/training/sgsss-workflow/scripts/params/effects.csv
+subgroup                    : /workspaces/training/sgsss-workflow/scripts/params/subgroup.csv
+
+
+
+executor >  local (8)
+[d0/de71b6] GENERATE_DAT (1)               [100%] 1 of 1 ✔
+[08/aff58c] GENERATE_RDS (1)               [100%] 1 of 1 ✔
+[0e/2d5ac4] ESTIMATION (school123_period2) [ 12%] 4 of 32
+[-        ] META_MORAN                     -
+[-        ] JOINFILES                      -
+
+```
+
 ## Implicit workflow
 
 In contrast to processes, the workflow definition in Nextflow does not require a name. In Nextflow, if you don't give a name to a workflow, it's considered the main/implicit starting point of your workflow program.
@@ -45,7 +94,7 @@ It can be useful to name the output of a process, especially if there are multip
 
 The process `output` definition allows the use of the `emit:` option to define a named identifier that can be used to reference the channel in the external scope.
 
-## Task 7.1 
+## Task 7.2
 
 Inspect the code for the `ESTIMATION` module. Can you identify the named output that is used in the workflow in the `main.nf` file?
 
@@ -71,7 +120,7 @@ A workflow component can access any variable and parameter defined in the outer 
 
 In this example `pipe_meta` or `pipe_effects`, are defined outside the workflow scope, but are accessed inside the `workflow` scope.
 
-## Task 7.2
+## Task 7.3
 
 Open the `main.nf` file and identify at which stage of the workflow is the output of the process `META_MORAN` being connected to `JOINFILES` process in the workflow definition.
 
