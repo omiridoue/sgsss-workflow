@@ -877,8 +877,10 @@ code:</li>
 </ol><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="dt">def</span> ZipChannel_dat <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>composition_data<span class="op">)</span> </span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="dt">def</span> ZipChannel_RDS <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>school_data<span class="op">)</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">//05_modules.nf</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="dt">def</span> ZipChannel_dat <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>composition_data<span class="op">)</span> </span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="dt">def</span> ZipChannel_RDS <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">fromPath</span><span class="op">(</span>params<span class="op">.</span>school_data<span class="op">)</span></span></code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal"><li>The map closure is a type of function operating on the output of a
 Channel. Just like a function you return select values using the return
@@ -890,12 +892,14 @@ option for combining two separate data types.</li>
 </ol><div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_RDS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span></code></pre>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">//05_modules.nf</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>    composition <span class="op">=</span> <span class="fu">GENERATE_RDS</span><span class="op">(</span>ZipChannel_dat<span class="op">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>    <span class="op">|</span> flatten \</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="op">|</span> map <span class="op">{</span> file <span class="op">-&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="dt">def</span> key <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">'</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    <span class="dt">def</span> school_ID <span class="op">=</span> file<span class="op">.</span>name<span class="op">.</span><span class="fu">toString</span><span class="op">().</span><span class="fu">split</span><span class="op">(</span><span class="st">"_|</span><span class="sc">\\</span><span class="st">."</span><span class="op">)[</span><span class="dv">0</span><span class="op">]</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">tuple</span><span class="op">(</span>school_ID<span class="op">,</span> key<span class="op">,</span> file<span class="op">)}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -937,18 +941,19 @@ rather than 1.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>   <span class="op">.</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">//05_modules.nf</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>workflow <span class="op">{</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>   <span class="op">.</span></span>
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>   <span class="op">.</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    estimation_channel <span class="op">=</span> composition \</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>dataset<span class="op">,</span> by<span class="op">:</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    estimation_channel <span class="op">=</span> composition \</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>dataset<span class="op">,</span> by<span class="op">:</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
 <span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>   <span class="op">.</span></span>
 <span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>   <span class="op">.</span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>   <span class="op">.</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>

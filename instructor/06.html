@@ -390,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Modules Part 2</h1>
-        <p>Last updated on 2025-06-27 |
+        <p>Last updated on 2025-06-28 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/06.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -640,14 +640,16 @@ defined in the process?</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">//06_modules_optional.nf</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>     tag<span class="op">{</span>school_period<span class="op">}</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>     tag<span class="op">{</span>school_period<span class="op">}</span></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -696,19 +698,21 @@ purpose of each one is.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">//06_modules_optional.nf</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span> <span class="co">// process label allocating resources </span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  </span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> <span class="co">// if a task happens to fail, ask nextflow to carry on with the rest of the tasks, otherwise it'll stop all processes</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  maxRetries <span class="dv">1</span> <span class="co">// specify the number of times to a process is to be rescheduled once it fails</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  tag<span class="op">{</span>school_period<span class="op">}</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  label <span class="st">'small_time_cpus'</span> <span class="co">// process label allocating resources </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  errorStrategy <span class="op">{</span> task<span class="op">.</span>exitStatus <span class="op">==</span> <span class="dv">140</span> <span class="op">?</span> <span class="st">'retry'</span> <span class="op">:</span> <span class="st">'ignore'</span> <span class="op">}</span> <span class="co">// if a task happens to fail, ask nextflow to carry on with the rest of the tasks, otherwise it'll stop all processes</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  maxRetries <span class="dv">1</span> <span class="co">// specify the number of times to a process is to be rescheduled once it fails</span></span>
 <span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -814,22 +818,24 @@ output directories are specified by this single process ?</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">//06_modules_optional.nf</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>process ESTIMATION <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  <span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_fit"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span> <span class="co">// all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>  </span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_sim/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*_SIM.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_gof/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.png"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  <span class="fu">publishDir</span> <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_fit"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span> <span class="co">// all file outputs are copied to this directory - i.e CONVERGED / NOT CONVERGED</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  </span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_sim/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*_SIM.RDS"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/siena_gof/</span><span class="ss">$school_period</span><span class="st">"</span><span class="op">,</span> pattern<span class="op">:</span> <span class="st">"*.png"</span><span class="op">,</span>  mode<span class="op">:</span> <span class="st">"copy"</span><span class="op">,</span> overwrite<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
 <span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="op">}</span> </span></code></pre>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="op">}</span> </span></code></pre>
 </div>
 </div>
 </div>
@@ -930,7 +936,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/06.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/06.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-27",
+  "dateModified": "2025-06-28",
   "datePublished": "2025-06-28"
 }
 
