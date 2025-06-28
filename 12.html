@@ -514,9 +514,23 @@ away this set-up information by creating a new profile in the
 <code>conf/</code> subfolder (ex. <code>conf/slurm.config</code>). Then
 the command I would use to schedule the launch of the pipeline say using
 2 hours and 5 minutes would involve the following:</p>
-<pre><code>sbatch -A none -J "demo" --time=02:05:00 --wrap 'nextflow run /mnt/scratch/users/&lt;username&gt;/sgsss-workflow/main.nf -profile slurm'</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> ready-set-workflow <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">-A</span> none <span class="at">-J</span> <span class="st">"demo"</span> <span class="at">--time</span><span class="op">=</span>02:05:00 <span class="at">--wrap</span> <span class="st">'nextflow run /mnt/scratch/users/&lt;username&gt;/sgsss-workflow/main.nf -profile slurm'</span></span></code></pre>
+</div>
 <p>Hint: replace the file path to your sgsss-workflow/main.nf file with
 the appropriate directory on your computer cluster.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">sacct</span> <span class="at">--starttime</span> 2025-07-10 <span class="at">--format</span><span class="op">=</span>User,JobID,Jobname%50,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist</span></code></pre>
+</div>
 <p>An important detail to note is, the time we request to run our batch
 job submission is not necessarily the time required to run the entire
 pipeline. The reason for this is that <code>sbatch</code> schedules our
