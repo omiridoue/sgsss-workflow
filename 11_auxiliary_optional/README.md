@@ -54,9 +54,6 @@ RUN R -e "install.packages('rsiena_1.4.19.tar.gz', repos = NULL, type = 'source'
 
 ## Task 11.2
 
-![Arrows indicate users making changes and synchronizing their work with the repository.](episodes/fig/version-control.svg)
-
-
 ```bash 
 
 git clone --branch ready-set-workflow --single-branch https://github.com/omiridoue/sgsss-workflow.git
