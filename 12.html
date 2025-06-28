@@ -382,7 +382,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Portability of Workflow</h1>
-        <p>Last updated on 2025-06-27 |
+        <p>Last updated on 2025-06-28 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/12.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -457,7 +457,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre><code>conda create --name nf-env bioconda::nextflow
 </code></pre>
@@ -504,7 +504,7 @@ Cloud.</div>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute
@@ -527,7 +527,9 @@ scheduled to complete, there is no problem you can prevent a possible
 ‘time-out’ by specifying
 <code>export NXF_DISABLE_JOBS_CANCELLATION=true</code> to add this to
 your system variables.</p>
-</div>
+<figure><img src="fig/sbatch-slurm.png" alt="Batch job submission on compute cluster using the workflow profile slurm." class="figure mx-auto d-block"><div class="figcaption">Batch job submission on compute cluster using
+the workflow profile slurm.</div>
+</figure></div>
 </div>
 </div>
 </div>
@@ -614,7 +616,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/12.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/12.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-27",
+  "dateModified": "2025-06-28",
   "datePublished": "2025-06-28"
 }
 

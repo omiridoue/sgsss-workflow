@@ -570,15 +570,19 @@ implementing the ESTIMATION moderator.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>workflow<span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="op">.</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">//main.nf </span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>workflow<span class="op">{</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="op">.</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    estimation_out <span class="op">=</span> <span class="fu">ESTIMATION</span><span class="op">(</span>estimation_channel<span class="op">)</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    estimation_out<span class="op">.</span>simulation_ch</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    estimation_out <span class="op">=</span> <span class="fu">ESTIMATION</span><span class="op">(</span>estimation_channel<span class="op">)</span></span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    estimation_out<span class="op">.</span>simulation_ch</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    <span class="op">.</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -620,27 +624,40 @@ into a figure summarising model comparison statistics.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>workflow <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="op">.</span></span>
+<pre class="sourceCode groovy" tabindex="0"><code class="sourceCode groovy"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">//main.nf </span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>workflow <span class="op">{</span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="op">.</span></span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="op">.</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>    estimation_out<span class="op">.</span>simulation_ch\</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">split</span><span class="op">(</span><span class="st">'_|</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">]]}</span> \</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>mapped_params<span class="op">,</span> by<span class="op">:</span> <span class="dv">0</span><span class="op">)</span> \</span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>        <span class="op">|</span> transpose \</span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">groupTuple</span><span class="op">(</span>by<span class="op">:</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">],</span> sort<span class="op">:</span> <span class="kw">true</span><span class="op">)</span> \</span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">5</span><span class="op">]]</span>  <span class="op">}</span> \</span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>        <span class="op">|</span> META_MORAN \</span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>        <span class="op">|</span> collect \</span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>        <span class="op">|</span> JOINFILES \</span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>        <span class="op">|</span> view</span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="op">}</span>        </span></code></pre>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="op">.</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>    estimation_out<span class="op">.</span>simulation_ch\</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">split</span><span class="op">(</span><span class="st">'_|</span><span class="sc">\\</span><span class="st">.'</span><span class="op">)[</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">4</span><span class="op">]]}</span> \</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">combine</span><span class="op">(</span>mapped_params<span class="op">,</span> by<span class="op">:</span> <span class="dv">0</span><span class="op">)</span> \</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>        <span class="op">|</span> transpose \</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>        <span class="op">|</span> <span class="fu">groupTuple</span><span class="op">(</span>by<span class="op">:</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">],</span> sort<span class="op">:</span> <span class="kw">true</span><span class="op">)</span> \</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>        <span class="op">|</span> map <span class="op">{</span> it <span class="op">-&gt;</span> <span class="op">[</span>it<span class="op">[</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">0</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">1</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">],</span> it<span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">3</span><span class="op">],</span> it<span class="op">[</span><span class="dv">5</span><span class="op">]]</span>  <span class="op">}</span> \</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>        <span class="op">|</span> META_MORAN \</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>        <span class="op">|</span> collect \</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>        <span class="op">|</span> JOINFILES \</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>        <span class="op">|</span> view</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="op">}</span>        </span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+<p>To import the workflow code navigate to the following repository:</p>
+<ul><li><a href="https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow" class="external-link">ready-set-workflow</a></li>
+</ul><p>Then download the code as a ZIP folder or preferably use the git
+command to store a local copy:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> ready-set-workflow <span class="at">--single-branch</span> https://github.com/omiridoue/sgsss-workflow.git</span></code></pre>
+</div>
+<p>Note if you download the material as a ZIP folder this will rename
+the folder to sgsss-workflow-ready-set-workflow you can always reinstate
+the repository name to avoid running into any name clashes.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
