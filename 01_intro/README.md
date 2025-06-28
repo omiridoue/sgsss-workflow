@@ -131,9 +131,6 @@ Step 1: Follow the link to [repo-boilerplate](https://github.com/omiridoue/sgsss
 
 Step 2: Click on the code tab to download the folders for the workflow.
 
-![Workflow manager template folder build your own workflow](episodes/fig/repo-boilerplate.png)
-
-
 Alternatively, you can use git to download the code for the specific branch, with the following code:
 
 ```bash
