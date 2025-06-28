@@ -60,6 +60,26 @@ The material and supporting resources can be found in the following folders:
 * [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
 * [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
 
+## Schedule 
+
+---
+| Section | Duration | Topics Covered |
+|---------|----------|---------------|
+| **1. Introduction** | 00h 25m | What are the FAIR research principles?<br>How do FAIR principles apply to software?<br>How does folder organisation help me? |
+| **2. Hello Nextflow** | 00h 50m | What is Nextflow?<br>Why should I use a workflow management system?<br>What are the features of Nextflow?<br>What are the main components of a Nextflow script?<br>How do I run a Nextflow script? |
+| **3. Parameters** | 01h 15m | How can I change the data a workflow uses?<br>How can I parameterise a workflow?<br>How can I add my parameters to a file? |
+| **4. Channels** | 01h 40m | How do I move data around in Nextflow?<br>How do I handle different types of input, e.g. files and parameters?<br>How can I use pattern matching to select input files? |
+| **5. Modules** | 02h 10m | How do I run tasks/modules in Nextflow?<br>How do I get data, files and values, into a module? |
+| **6. Modules Part 2** | 02h 10m | How do I get data, files, and values, out of processes?<br>How do I handle grouped input and output?<br>How can I control when a process is implemented?<br>How do I control resources, such as number of CPUs and memory, available to processes?<br>How do I save output/results from a process? |
+| **7. Workflow** | 02h 10m | How do I connect channels and processes to create a workflow?<br>How do I invoke a process inside a workflow? |
+| **8. Operators** | 02h 10m | How do I perform operations, such as filtering, on channels?<br>What are the different kinds of operations I can perform on channels?<br>How do I combine operations?<br>How can I use a CSV file to process data into a Channel? |
+| **9. Reporting** | 02h 10m | How do I get information about my pipeline run?<br>How can I see what commands I ran?<br>How can I create a report from my run? |
+| **10. Nextflow configuration** | 02h 10m | How do I configure a Nextflow workflow?<br>How do I assign different resources to different processes?<br>How do I separate and provide configuration for different computational systems? |
+| **11. Auxiliary Tools** | 02h 10m | When should I use a pre-built container?<br>How can I customise a container?<br>What is a remote codespace? |
+| **12. Resuming a Workflow** | 02h 10m | How can I restart a Nextflow workflow after an error?<br>How can I add new data to a workflow without starting from the beginning?<br>Where can I find intermediate data and results? |
+| **13. Portability of Workflow** | 02h 10m | How can I move my analysis to a computer cluster? |
+| **Finish** | 02h 10m |  |
+
 ## Acknowledgements
 
 I am grateful to the Scottish Graduate School of Social Sciences (SGSSS) for funding and organising this course.
