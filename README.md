@@ -46,7 +46,7 @@ The data involves low fidelity synthetic data. This means that the data is gener
 
 ## Course materials
 
-The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository. The teaching and learning material lives in the following page: [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(PGR) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
+The guided practical material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts) scripts repository. The teaching and learning material lives in the [course training](https://omiridoue.github.io/sgsss-workflow/) page. Material was prepared by [(PGR) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
  
 ### Materials
 
