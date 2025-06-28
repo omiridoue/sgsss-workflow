@@ -85,7 +85,7 @@ To run a Nextflow script use the command `nextflow run <script_name>`.
 Run the script by entering the following command in your terminal:
 
 ```bash
-$ nextflow run 02_hello_nextflow.nf
+nextflow run 02_hello_nextflow.nf
 ```
 
 You should see output similar to the text shown below:
