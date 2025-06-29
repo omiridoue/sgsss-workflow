@@ -35,11 +35,8 @@ and reusable (can be understood, modified, built upon, or incorporated into othe
 
 Join Menti: https://www.menti.com/alg8a76zkfgp
 
-<div class="padlet-embed" style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'>
-  <p style="padding: 0; margin: 0;">
-    <iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alfn4xpqitna69dtr66ktgv1278zfrys/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;'></iframe>
-  </p>
-</div>
+
+<iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alfn4xpqitna69dtr66ktgv1278zfrys/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;'></iframe>
 
 __File Naming__
 
