@@ -11,8 +11,6 @@
 
 Workflow managers support portability of analysis across compute environments and scale your analysis. This is quite important given the time required to set-up from scratch and work the ropes of using HPC. A good number of HPCs rely on workload managers like Slurm, including the resources I access as a PGR student, at the MVLS school, University of Glasgow. Some the following may map on to the resources you can access to support your research. Please contact your HPC administrator team to request support with setting up.
 
-![Archie West, Edinburgh Parallel Computing Centre (EPCC), Institutions University of Glasgow, University of Edinburgh, University of St. Andrews, University of Strathclyde](episodes/fig/image.png)
-
 Once you register an account with your HPC resource, the most straightforward way to install Nextflow is by creating a stand-alone 'environment' using the software management tool, conda. 
 
 You may require support with this step, please get in touch with your HPC support team. You will also require singularity / apptainer - to set up a container to run your project. Check whether this is already installed, if not please request further support from your HPC team.
