@@ -127,7 +127,7 @@ You can use the `Channel.fromList` method to create a queue channel from a list 
 
 ## Task 4.2
 
-Write a Nextflow script that creates `value` channel using `meta_verbose_ch` as input, containing the list of values `["all","influence","selection", "none"]`. These represent the different specifications of our models. Essentially we'd like to conduct a set of model comparison checks by estimating a full specification and nested sub-models.
+Write a Nextflow script that creates `value` channel using `meta_verbose_ch` as input, containing the list of values `["all","influence","selection", "none"]`. These represent the different specifications of our models. Essentially we'd like to conduct a set of model comparison checks by estimating a full specification and nested sub-models. Open up the [nextflow docs](https://www.nextflow.io/docs/latest/channel.html) to check the syntax for this.
 
 Then print the contents of the channels using the `view` operator.
 How many lines does the queue and value channel print?
