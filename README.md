@@ -62,7 +62,7 @@ The material and supporting resources can be found in the following folders:
 
 ## Schedule 
 
-| Section | Duration | Topics Covered |
+| Section | Time | Topics Covered |
 |---------|----------|---------------|
 | **1. Introduction** | 00h 25m | What are the FAIR research principles?<br>How do FAIR principles apply to software?<br>How does folder organisation help me? |
 | **2. Hello Nextflow** | 00h 50m | What is Nextflow?<br>Why should I use a workflow management system?<br>What are the features of Nextflow?<br>What are the main components of a Nextflow script?<br>How do I run a Nextflow script? |
