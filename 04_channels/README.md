@@ -64,7 +64,7 @@ Explain that as you are just setting up channels you do not need to add any proc
 Run the channels example file using:
 
 ```bash
-$ nextflow run 04_channels.nf
+nextflow run 04_channels.nf
 ```
 
 
@@ -151,11 +151,12 @@ workflow {
     def school_ID = file.name.toString().split("_|\\.")[0]
     return tuple(school_ID, key, file)}
 
-    composition \
-    | view
+    //composition \
+    //| view
 
-    Channel.of(meta_verbose_ch) \
-    | view
+    // Uncomment the following lines
+    //Channel.of(meta_verbose_ch) \
+    //| view
 
     Channel.fromList(meta_verbose_ch) \
     | view
