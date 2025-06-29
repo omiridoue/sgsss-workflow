@@ -382,7 +382,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Portability of Workflow</h1>
-        <p>Last updated on 2025-06-28 |
+        <p>Last updated on 2025-06-29 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/12.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -479,10 +479,22 @@ command line. The default, i.e no environment is (base).</p>
 </div>
 </div>
 </div>
+<p>We saw various different profiles are used to define nextflow
+configuration profiles to determine how a workflow is actually run on
+the target system.</p>
+<p>If not otherwise specified, processes are run on the local computer.
+The local runtime is very useful for pipeline development and testing
+purposes, but for real world computational pipelines an HPC or cloud
+platform is often required.</p>
 <p>You may require support with this step, please get in touch with your
 HPC support team. You will also require singularity / apptainer - to set
 up a container to run your project. Check whether this is already
 installed, if not please request further support from your HPC team.</p>
+<p>We can seamlessly transfer analysis from your computer, a grid
+platform, or the cloud, without modifying it, by simply defining the
+target platform in the configuration file. This is where our workflow
+management system shines through and ensures we can build portability
+and interoperability into our analysis.</p>
 <div id="task-13.2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -556,14 +568,12 @@ the workflow profile slurm.</div>
 <div class="callout-inner">
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
-<ul><li>Nextflow automatically keeps track of all the processes executed in
-your pipeline via checkpointing.</li>
-<li>Nextflow caches intermediate data in task directories within the
-work directory.</li>
-<li>Nextflow caching and checkpointing allows re-entrancy into a
-workflow after a pipeline error or using new data, skipping steps that
-have been successfully executed.</li>
-<li>Re-entrancy is enabled using the <code>-resume</code> option.</li>
+<ul><li>Nextflow provides an abstraction between the pipeline’s functional
+logic and the underlying execution system.</li>
+<li>The nextflow configuration file can help define a target platform
+where we intend to implement our workflow.</li>
+<li>We can specify a profile for our target platform through the
+<code>-profile</code> option.</li>
 </ul></div>
 </div>
 </div>
@@ -632,7 +642,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/instructor/12.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/instructor/12.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-28",
+  "dateModified": "2025-06-29",
   "datePublished": "2025-06-29"
 }
 
