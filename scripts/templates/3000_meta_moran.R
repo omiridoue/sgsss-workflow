@@ -34,7 +34,6 @@ school_period <- "${school_period}"
 
 # Extract the school size
 input <- "${schoolsize}"
-print(input)
 
 nodes <- as.integer(input)
 
