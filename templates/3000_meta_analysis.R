@@ -32,7 +32,7 @@ if (length(sim_files) == 4) {
     
     # Extract the school size
     input <- "${schoolsize}"
-    print(input)
+    # print(input)
 
     nodes <- as.integer(input)
 
