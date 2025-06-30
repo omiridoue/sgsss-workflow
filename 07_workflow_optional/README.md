@@ -22,12 +22,9 @@ The  workflow scope starts with the keyword `workflow`, followed by an optional 
 
 ## Task 7.1 
 
-
-## Task 7.1
-
 Ready set workflow! Run the full workflow demo.
 
-:::::::::::::::  solution
+
 
 ``` bash 
 
