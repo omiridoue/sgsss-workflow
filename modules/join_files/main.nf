@@ -10,7 +10,7 @@ process JOINFILES {
   val ready
 
   output:
-  path("*")
+  val ready
 
   script:
   template '3000_moran_plots.R'
