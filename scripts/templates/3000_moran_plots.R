@@ -60,8 +60,6 @@ moran_decomposition |>
     col="lightgrey",
     names= c("Full", "Excluding PS", "Excluding PI", "Excluding PS and PI"))
 
-print(colnames(nacf_OBS_NULL))
-
 sim <- nacf_OBS_NULL |> 
   filter(social_interaction %in% "SIM") |> 
   select(Moran_School) |> 
