@@ -40,6 +40,12 @@ The training is based off [carpentries incubator](https://carpentries-incubator.
 - [x] Ability to design and implement research projects from data to report
 - [x] Navigate reproducible, efficient, and communicable code via GitHub
 
+## Pre-requisites
+
+- [x]  Bring own device to follow practical component
+- [x]  Set up an account with GitHub, follow link to: [GitHub page](https://github.com/)
+- [x]  Optionally, upgrade to a GitHub Education account. For more information follow link: [GitHub Education](https://github.com/education)
+
 ## Synthetic Data 
 
 The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
@@ -68,12 +74,14 @@ Link to Pre-recorded Material:
 
 Follow along the pre-recorded sessions and companion practical material:
 
-[Workflow 00: Setup](https://omiridoue.github.io/sgsss-workflow/)
-[Workflow 01: Intro](https://omiridoue.github.io/sgsss-workflow/00.html)
-[Workflow 02: Hello Nextflow](https://omiridoue.github.io/sgsss-workflow/02.html)
-[Workflow 03: Parameters](https://omiridoue.github.io/sgsss-workflow/03.html)
-[Workflow 04: Channels](https://omiridoue.github.io/sgsss-workflow/04.html)
-[Workflow 05: Modules + Optional Topics](https://omiridoue.github.io/sgsss-workflow/05.html)
+- [Workflow 00: Setup](https://omiridoue.github.io/sgsss-workflow/)
+- [Workflow 01: Intro](https://omiridoue.github.io/sgsss-workflow/00.html)
+- [Workflow 02: Hello Nextflow](https://omiridoue.github.io/sgsss-workflow/02.html)
+- [Workflow 03: Parameters](https://omiridoue.github.io/sgsss-workflow/03.html)
+- [Workflow 04: Channels](https://omiridoue.github.io/sgsss-workflow/04.html)
+- [Workflow 05: Modules + Optional Topics](https://omiridoue.github.io/sgsss-workflow/05.html)
+
+
 
 ## Schedule 
 
