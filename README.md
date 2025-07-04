@@ -72,7 +72,7 @@ Link to Pre-recorded Material:
 
 [Building your own Computational Pipeline for Social Scientists](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
 
-Follow along the pre-recorded sessions and companion practical material:
+Follow along with the companion practical material:
 
 - [Workflow 00: Setup](https://omiridoue.github.io/sgsss-workflow/)
 - [Workflow 01: Intro](https://omiridoue.github.io/sgsss-workflow/00.html)
