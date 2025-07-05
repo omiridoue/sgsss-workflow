@@ -1294,7 +1294,7 @@ e.g. <code>data/multi_period.tar.gz</code>, in the
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1341,7 +1341,7 @@ quotes.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This runs the process GENERATE_DAT twice, once for each file it
 matches.</p>
@@ -1387,7 +1387,7 @@ changing the pipeline input to all files in the directory that end with
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1473,7 +1473,7 @@ subgroup                    : /workspaces/training/sgsss-workflow/scripts/params
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Parameters </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Here we use the nextflow environment variable <code>baseDir</code>
 which is resolved by the workflow at runtime. The path to the data and
@@ -1535,7 +1535,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-04"><p>Content from <a href="04.html">Channels</a></p>
 <hr>
-<p>Last updated on 2025-06-29 |
+<p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/04.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -2130,7 +2130,7 @@ element.</p>
 containing four tuples. Each tuple will contain the pairs of data reads
 for the four schools with synthetic data in the <code>tmp/</code>
 directory. Make sure you have previously completed Task 3.3, or check
-you <code>tmp/</code> folder contains both data files,
+your <code>tmp/</code> folder contains both data files,
 <code>.RDS</code>, as well as auxiliary data files,
 <code>.dat</code>.</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -2203,7 +2203,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-05"><p>Content from <a href="05.html">Modules</a></p>
 <hr>
-<p>Last updated on 2025-06-28 |
+<p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/05.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -2299,7 +2299,7 @@ module:</p>
 <h3 class="callout-title">Task 5.1</h3>
 <div class="callout-content">
 <p>Open the Nextflow script <code>05_modules.nf</code> navigate to the
-module definition section. You notice there is now a references to a
+module definition section. You notice there is now a reference to a
 module <code>GENERATE_READS</code>. Where is the process defined? How
 many times is the process used in the workflow?</p>
 </div>
@@ -2412,7 +2412,7 @@ These are normally the commands you would run on a terminal.</p>
 the last statement when the module contains <code>input</code> and
 <code>output</code> declarations.</p>
 <p>The <code>script</code> block can be a simple one line string in
-quotes e.g.</p>
+quotes.</p>
 <p>Or, for commands that span multiple lines you can encase the command
 in triple quotes <code>"""</code>.</p>
 <div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
@@ -2911,7 +2911,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-06"><p>Content from <a href="06.html">Modules Part 2</a></p>
 <hr>
-<p>Last updated on 2025-06-28 |
+<p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/06.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -3030,10 +3030,8 @@ Nextflow can handle groups of values using the <code>tuple</code>
 qualifiers.</p>
 <p>In tuples the first item is the grouping key and the second item is
 the list.</p>
-<p>When using channel containing a tuple, such a one created with
-<code>.filesFromPairs</code> factory method, the corresponding input
-declaration must be declared with a <code>tuple</code> qualifier,
-followed by definition of each item in the tuple.</p>
+<p>When using channel containing a tuple, such one created with
+<code>.filesFromPairs</code> factory method.</p>
 <p>In the same manner an output channel containing tuple of values can
 be declared using the <code>tuple</code> qualifier following by the
 definition of each tuple element in the tuple.</p>
@@ -3065,8 +3063,8 @@ programming languages such Java, C, JavaScript, etc.</p>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>For example, the Nextflow script below will use the <code>if</code>
-and <code>else if</code> pattern of statements to change what the COUNT
-module counts depending on an input.</p>
+and <code>else if</code> pattern of statements to change what the
+<code>ESTIMATION</code> module counts depending on an input.</p>
 <div id="task-6.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -3085,7 +3083,7 @@ conditional statements?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The input variable name is <code>specification</code> this takes on
 character values so we need to use the == statement.</p>
@@ -3164,7 +3162,7 @@ defined in the process?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The directive used to label and distinguish tasks for each run of the
 <code>ESTIMATION</code> process is <code>school_period</code>.</p>
@@ -3186,15 +3184,14 @@ defined in the process?</p>
 </div>
 </div>
 </div>
-<p>The above process uses the three directives, <code>tag</code>,
-<code>cpus</code> and <code>echo</code>.</p>
+<p>The above process uses the one directives, <code>tag</code>.</p>
 <p>The <code>tag</code> directive to allow you to give a custom tag to
 each process execution. This tag makes it easier to identify a
 particular task (implemented instance of a process) in a log file or in
 the execution report.</p>
-<p>The second directive <code>cpus</code> allows you to define the
-number of CPUs required for each task.</p>
-<p>The third directive <code>echo true</code> prints the stdout to the
+<p>Another directive <code>cpus</code> allows you to define the number
+of CPUs required for each task.</p>
+<p>One other directive <code>echo true</code> prints the stdout to the
 terminal.</p>
 <p>We use the Nextflow <code>task.cpus</code> variable to capture the
 number of cpus assigned to a task. This is frequently used to specify
@@ -3224,7 +3221,7 @@ purpose of each one is.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3347,7 +3344,7 @@ output directories are specified by this single process ?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3723,7 +3720,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-08"><p>Content from <a href="08.html">Operators</a></p>
 <hr>
-<p>Last updated on 2025-06-28 |
+<p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/08.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -4175,7 +4172,6 @@ well.</p>
 the items emitted by two channels for which exists a matching key. The
 key is defined, by default, as the first element in each item
 emitted.</p>
-<p>The resulting channel emits:</p>
 </div>
 </div>
 <div class="section level3">
@@ -4230,10 +4226,10 @@ length. This is useful when you want to use a sample sheet.</p>
 <p>In the simplest case just apply the <code>splitCsv</code> operator to
 a channel emitting a CSV formatted text files or text entries. For
 example:</p>
-<p>For the CSV file <code>samples.csv</code>.</p>
+<p>For the CSV file <code>effects.csv</code>.</p>
 <p>We can use the <code>splitCsv()</code> operator to split the channel
 contaning a CSV file into three elements.</p>
-<p>The above example shows hows the CSV file <code>samples.csv</code> is
+<p>The above example shows hows the CSV file <code>effects.csv</code> is
 parsed and is split into three elements.</p>
 <div class="section level5">
 <h5 id="accessing-values">Accessing values<a class="anchor" aria-label="anchor" href="#accessing-values"></a>
@@ -4313,7 +4309,7 @@ on the Nextflow web site.</p>
 <li>Nextflow <em>operators</em> are methods that allow you to modify,
 set or view channels.</li>
 <li>Operators can be separated in to several groups; filtering ,
-transforming , splitting , combining , forking and Maths operators</li>
+transforming , splitting , combining , forking and Maths operators.</li>
 <li>To use an operator use the dot notation after the Channel object
 e.g. <code>ESTIMATION.simulation_ch.view()</code>.</li>
 <li>You can parse text items emitted by a channel, that are formatted
@@ -5382,7 +5378,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-11"><p>Content from <a href="11.html">Resuming a Workflow</a></p>
 <hr>
-<p>Last updated on 2025-06-27 |
+<p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/11.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -5454,7 +5450,7 @@ process.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> nextflow run 06_modules_optional.nf <span class="at">-resume</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">nextflow</span> run 02_hello_nextflow.nf <span class="at">-resume</span></span></code></pre>
 </div>
 <p>We can see in the output that the results from the processes have
 been retrieved from the cache.</p>
@@ -5522,7 +5518,7 @@ print hidden files (those beginning with a dot <code>.</code>). Use the
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> tree <span class="at">-a</span> work</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">tree</span> <span class="at">-a</span> work</span></code></pre>
 </div>
 </div>
 </div>
@@ -5589,7 +5585,7 @@ folder periodically using the command <code>nextflow clean</code>.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> nextflow clean [run_name<span class="kw">|</span><span class="ex">session_id]</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">nextflow</span> clean [run_name<span class="kw">|</span><span class="ex">session_id]</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -5713,7 +5709,7 @@ software.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Conda </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre><code>conda create --name nf-env bioconda::nextflow
 </code></pre>
@@ -5773,7 +5769,7 @@ Cloud.</div>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Alas, we can tap into the seamless portability of Nextflow across set
 ups (ex. local, slurm, azure). You can switch between these compute

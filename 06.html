@@ -390,7 +390,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Modules Part 2</h1>
-        <p>Last updated on 2025-06-28 |
+        <p>Last updated on 2025-07-05 |
 
         <a href="https://github.com/omiridoue/sgsss_workflow/edit/main/episodes/06.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -502,10 +502,8 @@ Nextflow can handle groups of values using the <code>tuple</code>
 qualifiers.</p>
 <p>In tuples the first item is the grouping key and the second item is
 the list.</p>
-<p>When using channel containing a tuple, such a one created with
-<code>.filesFromPairs</code> factory method, the corresponding input
-declaration must be declared with a <code>tuple</code> qualifier,
-followed by definition of each item in the tuple.</p>
+<p>When using channel containing a tuple, such one created with
+<code>.filesFromPairs</code> factory method.</p>
 <p>In the same manner an output channel containing tuple of values can
 be declared using the <code>tuple</code> qualifier following by the
 definition of each tuple element in the tuple.</p>
@@ -535,8 +533,8 @@ programming languages such Java, C, JavaScript, etc.</p>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="op">}</span></span></code></pre>
 </div>
 <p>For example, the Nextflow script below will use the <code>if</code>
-and <code>else if</code> pattern of statements to change what the COUNT
-module counts depending on an input.</p>
+and <code>else if</code> pattern of statements to change what the
+<code>ESTIMATION</code> module counts depending on an input.</p>
 <div id="task-6.1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -555,7 +553,7 @@ conditional statements?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The input variable name is <code>specification</code> this takes on
 character values so we need to use the == statement.</p>
@@ -631,7 +629,7 @@ defined in the process?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The directive used to label and distinguish tasks for each run of the
 <code>ESTIMATION</code> process is <code>school_period</code>.</p>
@@ -653,15 +651,14 @@ defined in the process?</p>
 </div>
 </div>
 </div>
-<p>The above process uses the three directives, <code>tag</code>,
-<code>cpus</code> and <code>echo</code>.</p>
+<p>The above process uses the one directives, <code>tag</code>.</p>
 <p>The <code>tag</code> directive to allow you to give a custom tag to
 each process execution. This tag makes it easier to identify a
 particular task (implemented instance of a process) in a log file or in
 the execution report.</p>
-<p>The second directive <code>cpus</code> allows you to define the
-number of CPUs required for each task.</p>
-<p>The third directive <code>echo true</code> prints the stdout to the
+<p>Another directive <code>cpus</code> allows you to define the number
+of CPUs required for each task.</p>
+<p>One other directive <code>echo true</code> prints the stdout to the
 terminal.</p>
 <p>We use the Nextflow <code>task.cpus</code> variable to capture the
 number of cpus assigned to a task. This is frequently used to specify
@@ -691,7 +688,7 @@ purpose of each one is.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -811,7 +808,7 @@ output directories are specified by this single process ?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">GROOVY<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -934,7 +931,7 @@ any links that you are not going to use.
   "url": "https://omiridoue.github.io/sgsss_workflow/06.html",
   "identifier": "https://omiridoue.github.io/sgsss_workflow/06.html",
   "dateCreated": "2025-04-03",
-  "dateModified": "2025-06-28",
+  "dateModified": "2025-07-05",
   "datePublished": "2025-07-05"
 }
 
