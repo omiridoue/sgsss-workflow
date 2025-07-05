@@ -1,8 +1,6 @@
 process JOINFILES {
-  tag{school_period}
   label 'big_mem'
   errorStrategy 'ignore'
-  debug true
 
   publishDir "${params.outdir}/plots", mode: "copy", overwrite: true
 
