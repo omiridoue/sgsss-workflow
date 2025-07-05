@@ -2,9 +2,7 @@
 
 # Practical Guide: Building your own Computational Pipeline for Social Scientists
 
-
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="fig/cc_by-nc-nd.svg" /></a>
-
 
 ## Introduction
 
@@ -31,11 +29,15 @@ Follow the link to Nextflow documentation below:
   </a>
 </p>
 
-## Synthetic Data 
 
-The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
+## Pre-requisites
 
-The example application is from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
+- [x]  Bring own device to follow practical component
+- [x]  Set up an account with GitHub, follow link to: [GitHub page](https://github.com/)
+- [x]  Optionally, upgrade to a GitHub Education account. For more information follow link: [GitHub Education](https://github.com/education)
+
+
+## Set up
 
 ### Step 1: Open GitHub Codespaces
 
@@ -71,3 +73,34 @@ cd sgsss-workflow/scripts
 The training materials can be found in the following folders:
 * [code](episodes/files/scripts) - Jupyter Notebooks and syntax files containing executable Python and R code.
 * [installation](https://omiridoue.github.io/sgsss-workflow/) - Guidance on installing software on your own machines.
+
+
+Further material and supporting resources can be found in the following links:
+* [set-up](https://omiridoue.github.io/sgsss-workflow/) - Instructions to set up the material for the workshop.
+* [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
+* [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
+
+### Guided Practical Resources (Asynchronous)
+
+Link to Pre-recorded Material:
+
+[Building your own Computational Pipeline for Social Scientists](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
+
+Follow along with the companion practical material:
+
+- [Workflow 00: Setup](https://omiridoue.github.io/sgsss-workflow/)
+- [Workflow 01: Intro](https://omiridoue.github.io/sgsss-workflow/00.html)
+- [Workflow 02: Hello Nextflow](https://omiridoue.github.io/sgsss-workflow/02.html)
+- [Workflow 03: Parameters](https://omiridoue.github.io/sgsss-workflow/03.html)
+- [Workflow 04: Channels](https://omiridoue.github.io/sgsss-workflow/04.html)
+- [Workflow 05: Modules + Optional Topics](https://omiridoue.github.io/sgsss-workflow/05.html)
+
+## Synthetic Data 
+
+The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
+
+The example application is from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
+
+## AI Disclosure
+
+This document was created with assistance from AI tools. The content has been reviewed and edited by the author. For more information on the extent and nature of AI usage, please contact the author.
