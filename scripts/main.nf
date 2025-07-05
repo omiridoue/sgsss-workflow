@@ -130,8 +130,7 @@ workflow {
         | map { it -> [it[1], it[3][0], it[3][1], it[3][2], it[3][3], it[5]]  } \
         | META_MORAN \
         | collect \
-        | JOINFILES \
-        | view
+        | JOINFILES 
         
 }
 
