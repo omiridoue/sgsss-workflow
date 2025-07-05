@@ -80,8 +80,6 @@ Follow along with the companion practical material:
 - [Workflow 04: Channels](https://omiridoue.github.io/sgsss-workflow/04.html)
 - [Workflow 05: Modules + Optional Topics](https://omiridoue.github.io/sgsss-workflow/05.html)
 
-
-
 ## Schedule 
 
 | Section | Time | Topics Covered |
