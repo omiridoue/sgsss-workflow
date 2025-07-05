@@ -36,7 +36,7 @@ nextflow run main.nf -profile local
 
 To run the pipeline on a computer cluster you should first check specifics with your local administrator and check out the section on [portability](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts). 
 
-`Hint: If your computer cluster has miniforge / conda installed then you can use this download your nextflow environment, you can assign any meaningful name by changing `--name nf-env`, for example `--name nextflow`. The following commands will likely differ on your cluster so the instructions are unlikely to work out of the box.`
+`Hint: If your computer cluster has miniforge / conda installed then you can use this download your nextflow environment, you can assign any meaningful name by changing --name nf-env, for example --name nextflow. The following commands will likely differ on your cluster setup so the instructions the following commands are unlikely to work out of the box.`
 
 ```bash
 module load apps/miniforge
