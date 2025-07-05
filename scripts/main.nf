@@ -122,8 +122,6 @@ workflow {
     
     estimation_out = ESTIMATION(estimation_channel)
 
-    mapped_params.view()
-
     estimation_out.simulation_ch\
         | map { it -> [it[0].split('_|\\.')[0], it[1], it[2], it[3], it[4]]} \
         | combine(mapped_params, by: 0) \
