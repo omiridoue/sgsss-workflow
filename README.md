@@ -1,5 +1,5 @@
-![alt text](image-1.png)
-# Building your own Computational Pipeline for Social Scientists
+![alt text](episodes/fig/sltf.png)
+# Welcome: Building your own Computational Pipeline for Social Scientists
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="episodes/fig/cc_by-nc-nd.svg" /></a>
@@ -114,6 +114,11 @@ Please do not hesitate to get in contact if you have queries, suggestions or cor
 Any errors, omissions or inaccuracies are my own.
 
 > All examples and descriptions are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
+
+## AI Disclosure
+
+This document was created with assistance from AI tools. The content has been reviewed and edited by the author. For more information on the extent and nature of AI usage, please contact the author.
 
 ## Citations 
 
