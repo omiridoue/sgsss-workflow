@@ -1,4 +1,4 @@
-![SGSSS Logo](fig/SGSSS_Stacked.png)
+![image](https://github.com/user-attachments/assets/884c5c31-3a4b-47ed-8539-2ddacdc13551)
 
 # Building your own Computational Pipeline for Social Scientists
 
