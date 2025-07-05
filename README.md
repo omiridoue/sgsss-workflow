@@ -47,7 +47,7 @@ The training is based off [carpentries incubator](https://carpentries-incubator.
 
 ## Synthetic Data 
 
-The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
+The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic data can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this statement. The code used to generate data can be shared upon request, drop a line to [(PGR) Eleni Omiridou](mailto:2333157o@student.gla.ac.uk).
 
 ## Course materials
 
