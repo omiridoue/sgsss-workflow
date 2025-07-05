@@ -1,5 +1,4 @@
-![SGSSS Logo](episodes/fig/SGSSS_Stacked.png)
-
+![alt text](image-1.png)
 # Building your own Computational Pipeline for Social Scientists
 
 
