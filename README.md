@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/884c5c31-3a4b-47ed-8539-2ddacdc13551)
 
-# Building your own Computational Pipeline for Social Scientists
+# Practical Guide: Building your own Computational Pipeline for Social Scientists
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="fig/cc_by-nc-nd.svg" /></a>
