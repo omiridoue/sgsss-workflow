@@ -87,12 +87,12 @@ obs2 <- nacf_OBS_NULL |>
   summarise(mean_sim = mean(as.numeric(Moran_School))) |> 
   pull()
 
-add observed Moran in data set as upper reference line:
+#add observed Moran in data set as upper reference line:
 lines(x=c(0.5,4.5),
      y=rep(obs1,2),
      lty="dashed",col="blue",lwd=2)
 
-add observed Moran in data set as upper reference line:
+#add observed Moran in data set as upper reference line:
 lines(x=c(0.5,4.5),
      y=rep(obs2,2),
      lty="dashed",col="red",lwd=2)
