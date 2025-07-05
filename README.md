@@ -1,4 +1,4 @@
-# Building your Own Workflow 
+# Full demo: Building your Own Workflow 
 
 The demo workflow involves simulation based analysis. Specifically, the following repository is a demonstration of implementing stochastic actor based models in the Simulation Investigation Empirical Analysis (SIENA) framework on separate school data with the simulation only framework. For further information see the suite of packages within [socnet](https://github.com/stocnet).
 ## Synthetic Data
