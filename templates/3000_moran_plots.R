@@ -100,4 +100,4 @@ lines(x=c(0.5,4.5),
 legend("topright", legend=c("Mean Moran's I, Random Permutations","Mean Observed Moran's I, period 1", "Mean Observed Moran's I, period 2"), fill=c("black","blue", "red"), cex = 0.5)
 title(xlab = "Model Specification", ylab = "Moran's I")
 
-#dev.off()
+dev.off()
