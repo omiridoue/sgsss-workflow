@@ -35,30 +35,30 @@ moran_decomposition[,c("social_interaction")] <- "OBS"
 ## Meta-Analysis - MORAN I
 ## -----------------------------------------------------------------------------
 # SUB GROUP ANALYSIS - SCHOOL SIZE
-# moran_decomposition |> 
-#   group_by(stsize,school_period) |> 
-#   summarise(Group_Mean_Control_M = mean(School_Control_M),
-#             Group_Mean_PS_M = mean(School_PS_M), 
-#             Group_Mean_PI_M = mean(School_PI_M),
-#             Group_Mean_Undet_M = mean(School_Undetermined_M), 
-#             Group_Mean_Control_M = mean(School_Control_M), 
-#             Group_Mean_PS_M = mean(School_PS_M),
-#             Group_Mean_PI_M = mean(School_PI_M),
-#             Group_Mean_Undet_M = mean(School_Undetermined_M)) 
+moran_decomposition |> 
+  group_by(stsize,school_period) |> 
+  summarise(Group_Mean_Control_M = mean(School_Control_M),
+            Group_Mean_PS_M = mean(School_PS_M), 
+            Group_Mean_PI_M = mean(School_PI_M),
+            Group_Mean_Undet_M = mean(School_Undetermined_M), 
+            Group_Mean_Control_M = mean(School_Control_M), 
+            Group_Mean_PS_M = mean(School_PS_M),
+            Group_Mean_PI_M = mean(School_PI_M),
+            Group_Mean_Undet_M = mean(School_Undetermined_M)) 
 
 png(filename=paste0("${projectDir}","/results","/plots/","moranI_autocorr.png"))
 
 # plot Supplementary Figure S1
-# moran_decomposition |> 
-#   filter(social_interaction %in% "OBS") |> 
-#   select(Mean_Moran_School,Mean_Moran_School_exclPS,Mean_Moran_School_exclPI,Mean_Moran_School_exclBoth) |> 
-#   vioplot::vioplot(list(
-#     full=Mean_Moran_School,
-#     no_sel=Mean_Moran_School_exclPS,
-#     no_inf=Mean_Moran_School_exclPI,
-#     neither=Mean_Moran_School_exclBoth),
-#     col="lightgrey",
-#     names= c("Full", "Excluding PS", "Excluding PI", "Excluding PS and PI"))
+moran_decomposition |> 
+  filter(social_interaction %in% "OBS") |> 
+  select(Mean_Moran_School,Mean_Moran_School_exclPS,Mean_Moran_School_exclPI,Mean_Moran_School_exclBoth) |> 
+  vioplot::vioplot(list(
+    full=Mean_Moran_School,
+    no_sel=Mean_Moran_School_exclPS,
+    no_inf=Mean_Moran_School_exclPI,
+    neither=Mean_Moran_School_exclBoth),
+    col="lightgrey",
+    names= c("Full", "Excluding PS", "Excluding PI", "Excluding PS and PI"))
 
 # print(colnames(nacf_OBS_NULL))
 
@@ -70,7 +70,7 @@ sim <- nacf_OBS_NULL |>
 
 # add expected Moran under random allocation of behaviour
 # as lower reference line:
-#lines(x=c(0.5,4.5),y=rep(sim,2),col="black",lwd=2)
+lines(x=c(0.5,4.5),y=rep(sim,2),col="black",lwd=2)
 
 
 obs1 <- nacf_OBS_NULL |> 
