@@ -8,6 +8,8 @@
 
 Computational social science (CSS) brings computational approaches to social science questions, has been shown to be a powerful tool.
 
+The training explores a practical introduction to building computational workflows with Nextflow with the examples focusing on an application within social science. Feel free to follow along some of the practical material, the only prerequisite is that you register for an account with GitHub - no prior software installation is required!
+
 [Nextflow](https://www.nextflow.io/) is workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
 can integrate various software package and environment management systems
