@@ -30,6 +30,7 @@ Follow the link to Nextflow documentation below:
 </p>
 
 
+
 ## Pre-requisites
 
 - [x]  Bring own device to follow practical component
@@ -37,13 +38,12 @@ Follow the link to Nextflow documentation below:
 - [x]  Optionally, upgrade to a GitHub Education account. For more information follow link: [GitHub Education](https://github.com/education)
 
 
-## Set up
+## Set up - Online Learning Environment
 
 ### Step 1: Open GitHub Codespaces
 
 The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(Student) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
 
-This lesson is a template lesson that uses [The Carpentries Workbench][workbench].
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
@@ -68,23 +68,22 @@ cd sgsss-workflow/scripts
 
 ```
 
-### Materials
+## Practical Material
 
 The training materials can be found in the following folders:
+
 * [code](episodes/files/scripts) - Jupyter Notebooks and syntax files containing executable Python and R code.
 * [installation](https://omiridoue.github.io/sgsss-workflow/) - Guidance on installing software on your own machines.
 
-
 Further material and supporting resources can be found in the following links:
+
 * [set-up](https://omiridoue.github.io/sgsss-workflow/) - Instructions to set up the material for the workshop.
 * [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
 * [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
 
-### Guided Practical Resources (Asynchronous)
+### Asynchronous Material
 
-Link to Pre-recorded Material:
-
-[Building your own Computational Pipeline for Social Scientists](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
+Link to [pre-recorded material](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
 
 Follow along with the companion practical material:
 
@@ -101,6 +100,21 @@ The data involves low fidelity synthetic data. This means that the data is gener
 
 The example application is from my research project working with school based secondary data on adolescent health behaviours. It is common for health and education researchers to work with multi-level data involving individual questionnaire data (level 1), nested in schools (level 2) and time (level 3).
 
+
 ## AI Disclosure
 
 This document was created with assistance from AI tools. The content has been reviewed and edited by the author. For more information on the extent and nature of AI usage, please contact the author.
+
+## Citations 
+
+> Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. [https://github.com/carpentries-incubator/workflows-nextflow](https://github.com/carpentries-incubator/workflows-nextflow) 2021.
+
+> Ruth M. Ripley, Tom A. B. Snijders, Zsofia Boda, Andras Voros, and Paulina Preciado (2024). Manual for Siena version 4.0. R package version 1.4.13. [https://www.cran.r-project.org/web/packages/RSiena/](https://www.cran.r-project.org/web/packages/RSiena/).
+
+> The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. [http://doi.org/10.5281/zenodo.3233853](http://doi.org/10.5281/zenodo.3332807).
+
+> The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. [http://doi.org/10.5281/zenodo.3332807](http://doi.org/10.5281/zenodo.3332807).
+
+>The lesson material was adapted with permission from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)
+
+
