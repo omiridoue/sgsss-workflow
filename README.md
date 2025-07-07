@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Computational social science (CSS), which brings computational approaches to social science questions, has been shown to be a powerful tool.
+Computational social science (CSS) brings computational approaches to social science questions, has been shown to be a powerful tool.
 
 [Nextflow](https://www.nextflow.io/) is workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
