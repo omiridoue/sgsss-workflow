@@ -49,6 +49,8 @@ The course material for the half day course can be found in the [sgsss-workflow]
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
+`Note: Steps 2 - 4 require you to copy and paste the code directly into your Terminal! Press Enter to run the code each time.`
+
 ### Step 2: Organise Template Files
 
 ```
