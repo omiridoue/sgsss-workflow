@@ -53,11 +53,13 @@ The data involves low fidelity synthetic data. This means that the data is gener
 
 The guided practical material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts) scripts repository. The teaching and learning material lives in the [course training](https://omiridoue.github.io/sgsss-workflow/) page. Material was prepared by [(PGR) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
  
-### Materials
+### Online Learning Environment
 
 This workshop makes use of an online teaching and learning space. This online environment involves using the GitHub Codespaces training environment:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+### Practical Code
 
 The material and supporting resources can be found in the following folders:
 * [set-up](https://omiridoue.github.io/sgsss-workflow/) - Instructions to set up the material for the workshop.
@@ -65,11 +67,9 @@ The material and supporting resources can be found in the following folders:
 * [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
 * [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
 
-## Guided Practical Resources (Asynchronous)
+### Asynchronous Material
 
-Link to Pre-recorded Material:
-
-[Building your own Computational Pipeline for Social Scientists](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
+Link to [pre-recorded material](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
 
 Follow along with the companion practical material:
 
@@ -122,12 +122,12 @@ This document was created with assistance from AI tools. The content has been re
 
 ## Citations 
 
-> Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. https://github.com/carpentries-incubator/workflows-nextflow 2021.
+> Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. [https://github.com/carpentries-incubator/workflows-nextflow](https://github.com/carpentries-incubator/workflows-nextflow) 2021.
 
-> Ruth M. Ripley, Tom A. B. Snijders, Zsofia Boda, Andras Voros, and Paulina Preciado (2024). Manual for Siena version 4.0. R package version 1.4.13. https://www.cran.r-project.org/web/packages/RSiena/.
+> Ruth M. Ripley, Tom A. B. Snijders, Zsofia Boda, Andras Voros, and Paulina Preciado (2024). Manual for Siena version 4.0. R package version 1.4.13. [https://www.cran.r-project.org/web/packages/RSiena/](https://www.cran.r-project.org/web/packages/RSiena/).
 
-> The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. DOI 10.5281/zenodo.3233853.
+> The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. [http://doi.org/10.5281/zenodo.3233853](http://doi.org/10.5281/zenodo.3332807).
 
-> The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3332807.
+> The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. [http://doi.org/10.5281/zenodo.3332807](http://doi.org/10.5281/zenodo.3332807).
 
 >The lesson material was adapted with permission from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)

@@ -50,8 +50,16 @@ mv * templates/
 ``` bash
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
+```
+
+### Step 4: Change Working Directory
+
+
+``` bash
+
 cd sgsss-workflow
 ```
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
