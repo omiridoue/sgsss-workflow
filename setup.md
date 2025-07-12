@@ -5,16 +5,20 @@ root: .
 ---
 
 
+The workshop offers an overview to Nextflow. Nextflow integrates various software package and environment management systems such as Docker, Singularity, and Conda. It allows for existing pipelines written in common scripting languages, such as R and Python, to be seamlessly coupled together. It simplifies the implementation and running of workflows on cloud or high-performance computing (HPC) infrastructure. 
+
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Set-up
+## Set-up Material
 
-To follow along the practical component it is recommended to use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so. 
+To follow along the practical component it is recommended use GitHub Codespaces. This will require a stable internet connection. If you are not signed in to GitHub, you may be prompted to do so, once you open the material in GitHub Codespaces.
 
 :::::::::::::::  solution
-## Set up Environment
 
-## Step 1: Set up Coding Environment
+## Set-up Practical Material
+
+### Step 1: Set up Coding Environment
 
 ::: group-tab
 
@@ -33,7 +37,7 @@ Alternatively, you can set up locally using VS Code
 
 :::
 
-## Step 2: Make a template folder
+### Step 2: Clear Template Content
 
 ``` bash
 mkdir templates
@@ -41,21 +45,28 @@ mkdir templates
 mv * templates/
 ```
 
-## Step 3: Download Material for Workshop
+### Step 3: Load Material for Workshop
 
 ``` bash
 git clone --branch workflow-scripts --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
-cd sgsss-workflow/scripts
-
 ```
+
+### Step 4: Change Working Directory
+
+
+``` bash
+
+cd sgsss-workflow
+```
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## GitHub Codespaces
+## Online Learning Environment
 
 GitHub Codespaces is a cloud development environment for teams to develop software efficiently and securely. We use it as a training environment because it allows us to work in a consistent and thoroughly tested environment. It requires connection to Internet and can be accessed through your web browser.
 
@@ -67,12 +78,14 @@ You can create a free GitHub account from the [GitHub home page](https://github.
 
 ##### Running GitHub Codespaces
 
-Once you are logged in to GitHub in your browser, you can open you can click on the button shown below from the many pages in the training portal where it is displayed.
+You can click on the button shown below from the many pages in the training portal where it is displayed.
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+Once you are logged in to GitHub, you can open this link in your browser to open the training environment: <https://codespaces.new/nextflow-io/training?quickstart=1&ref=master>.
 
 You should be presented with a page where you can create a new GitHub Codespace. You can click "Change options" to configure the machine used.
 
-Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelise workflow execution.
+Using a machine with more cores allows you to take greater advantage of Nextflow's ability to parallelize workflow execution.
 
 **For the hands-on component, we recommend using a 4-core machine.**
 
