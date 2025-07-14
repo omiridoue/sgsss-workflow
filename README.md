@@ -103,4 +103,6 @@ For the command to work, replace `<username>` with your username, and generally 
 
 > Ruth M. Ripley, Tom A. B. Snijders, Zsofia Boda, Andras Voros, and Paulina Preciado (2024). Manual for Siena version 4.0. R package version 1.4.13. https://www.cran.r-project.org/web/packages/RSiena/.
 
+> Steglich, C., Snijders, T.A.B., Pearson, M., 2010. Dynamic Networks and Behavior: Separating Selection from Influence. Sociological Methodology 40, 329–393. https://doi.org/10.1111/j.1467-9531.2010.01225.x
+
 >The lesson material was adapted with permission from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)
