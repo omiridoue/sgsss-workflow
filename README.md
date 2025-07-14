@@ -31,7 +31,7 @@ Follow the link to Nextflow documentation below:
   </a>
 </p>
 
-
+The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(Student) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
 
 ## Pre-requisites
 
@@ -44,8 +44,8 @@ Follow the link to Nextflow documentation below:
 
 ### Step 1: Open GitHub Codespaces
 
-The course material for the half day course can be found in the [sgsss-workflow](https://github.com/omiridoue/sgsss-workflow) repository, the material lives in a webpage that hosts the [course training](https://omiridoue.github.io/sgsss-workflow/). Material was prepared by [(Student) Eleni Omiridou](https://www.gla.ac.uk/pgrs/eleniomiridou/), University of Glasgow. The course was first run in July 2025.
-
+Click on the button below to launch a new codespace. If you have are not already logged into GitHub in your browser then you may be prompted to do so.
+Then click the option to create a new codespace. You can opt for all the default options or choose to change ex. machine type.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
 
