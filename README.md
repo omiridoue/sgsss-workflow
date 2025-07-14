@@ -66,13 +66,21 @@ To run the pipeline on a computer cluster you should first check specifics with 
 
 `Hint: If your computer cluster has miniforge / conda installed then you can use this download your nextflow environment, you can assign any meaningful name by changing --name nf-env, for example --name nextflow. The following commands will likely differ on your cluster setup so the instructions the following commands are unlikely to work out of the box.`
 
+Run only once to set-up the code environment. 
+
 ```bash
 module load apps/miniforge
 
 conda create --name nf-env bioconda::nextflow
 ```
 
-The workflow code in this repository implements a profile using Slurm for demonstration purposes. 
+Run only once to download the code from GitHub. Ensure you first navigate to your shared scratch foloder before downloading the material `Hint: cd /mnt/scratch/users/<username>`
+
+```bash
+git clone --branch ready-set-workflow --single-branch https://github.com/omiridoue/sgsss-workflow.git
+```
+
+Run every time you log onto a new session in your computer cluster:
 
 ```bash
 module load apps/miniforge
@@ -81,23 +89,13 @@ module load apps/apptainer
 conda activate nf-env
 ```
 
-To do this we will swap our local profile to slurm, by specifying `-profile slurm` instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
-
-```bash
-module load apps/miniforge
-module load apps/apptainer
-
-conda activate nf-env
-```
+We will swap our local profile to slurm, by specifying `-profile slurm` instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
 
 ```bash
 sbatch -A none -J "demo" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users/<username>/sgsss-workflow/main.nf  -profile slurm'
 ```
 
-For the command to work, replace `<username>` with your username, and ensure you first navigate to your shared scratch foloder 
-before downloading the material 
-
-`Hint: cd /mnt/scratch/users/<username>`
+For the command to work, replace `<username>` with your username, and generally make sure the file path to the `main.nf` file is correct.
 
 ## Citations 
 
