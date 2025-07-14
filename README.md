@@ -44,7 +44,7 @@ The course material for the half day course can be found in the [sgsss-workflow]
 
 ### Step 1: Open GitHub Codespaces
 
-Click on the button below to launch a new codespace. If you have are not already logged into GitHub in your browser then you may be prompted to do so.
+Click on the button below to launch a new codespace. If you are not already logged into GitHub in your browser then you may be prompted to do so.
 Then click the option to create a new codespace. You can opt for all the default options or choose to change ex. machine type.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
