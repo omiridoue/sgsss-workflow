@@ -48,7 +48,7 @@ git clone --branch ready-set-workflow --single-branch https://github.com/omirido
 ### Step 4: Navigate to the new Folder
 
 ```
-cd sgsss-workflow/scripts
+cd sgsss-workflow
 
 ```
 
