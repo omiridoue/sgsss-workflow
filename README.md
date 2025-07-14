@@ -36,6 +36,8 @@ mkdir templates
 mv * templates/
 ```
 
+`You will find the following message, this is ok the command will have worked as expected - mv: cannot move 'templates' to a subdirectory of itself, 'templates/templates'`
+
 ### Step 3: Read in Material Using Git
 
 ```
