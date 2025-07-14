@@ -18,15 +18,41 @@ In terms of fidelity to the friendship generator the synthetic dataset matches c
 - actors are allowed up to 6 outgoing ties per time point
 - three waves of friendship data 
 
-### Local profile 
+## Set up - GitHub Codespaces
 
-To run the pipeline on your local machine type the following command in the terminal (this works with a bash or java terminal): 
+### Step 1: Open GitHub Codespaces
 
-```bash
+Click on the button below to launch a new codespace. If you are not already logged into GitHub in your browser then you may be prompted to do so.
+Then click the option to create a new codespace. You can opt for all the default options or choose to change ex. machine type.
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextflow-io/training?quickstart=1&ref=master)
+
+`Note: Steps 2 - 4 require you to copy and paste the code directly into your Terminal! Press Enter to run the code each time.`
+
+### Step 2: Organise Template Files
+
+```
+mkdir templates
+mv * templates/
+```
+
+### Step 3: Read in Material Using Git
+
+```
 git clone --branch ready-set-workflow --single-branch https://github.com/omiridoue/sgsss-workflow.git
 
 ```
+
+### Step 4: Navigate to the new Folder
+
+```
+cd sgsss-workflow/scripts
+
+```
+
+### Local profile 
+
+To run the pipeline on your local machine type the following command in the terminal: 
 
 ```bash
 nextflow run main.nf -profile local
