@@ -89,7 +89,7 @@ module load apps/apptainer
 conda activate nf-env
 ```
 
-We will swap our local profile to slurm, by specifying `-profile slurm` instead. As we are working with Slurm we can submit a batch job with the following command with in our terminal:
+We will swap our local profile to slurm, by specifying `-profile slurm` instead. As we are working with Slurm we can submit a batch job with the following command normally you would run this command from the `login` node.
 
 ```bash
 sbatch -A none -J "demo" --time=10:00:00 --wrap 'nextflow run /mnt/scratch/users/<username>/sgsss-workflow/main.nf  -profile slurm'
