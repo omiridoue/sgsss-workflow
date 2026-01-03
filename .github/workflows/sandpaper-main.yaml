@@ -55,6 +55,19 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
+      - name: "Validate CITATION.cff"
+        run: |
+          Rscript -e "
+          citation <- yaml:: read_yaml('CITATION.cff')
+          if (length(citation\$authors) == 0) stop('No authors found')
+          for (i in seq_along(citation\$authors)) {
+            author <- citation\$authors[[i]]
+            if (is.null(author[['given-names']]) || is.null(author[['family-names']])) {
+              stop(paste('Author', i, 'is missing given-names or family-names'))
+            }
+          }
+          message('CITATION.cff validation passed')
+          "
       - name: "Deploy Site"
         run: |
           renv::install("omiridoue/varnish")
