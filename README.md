@@ -72,6 +72,14 @@ cd sgsss-workflow/scripts
 
 ```
 
+### Step 5: Toggle syntax parser 
+
+`Edit`: To disable the strict syntax check run the parser you need to downgrade the parser version.
+
+```bash
+export NXF_SYNTAX_PARSER=v1
+```
+
 ## Practical Material
 
 The training materials can be found in the following folders:
