@@ -51,11 +51,15 @@ git clone --branch ready-set-workflow --single-branch https://github.com/omirido
 cd sgsss-workflow
 ```
 
-### Local profile 
+
+### Step 5: Run the Pipeline with Local profile 
 
 To run the pipeline on your local machine type the following command in the terminal: 
+`Edit`: To disable the strict syntax check run the parser you need to downgrade the parser version.
 
 ```bash
+export NXF_SYNTAX_PARSER=v1
+
 nextflow run main.nf -profile local
 ```
 
@@ -105,5 +109,6 @@ For the command to work, replace `<username>` with your username, and generally 
 > Steglich, C., Snijders, T.A.B., Pearson, M., 2010. Dynamic Networks and Behavior: Separating Selection from Influence. Sociological Methodology 40, 329–393. https://doi.org/10.1111/j.1467-9531.2010.01225.x
 
 >The lesson material was adapted with permission from seqera labs [nextflow-tutorial](https://github.com/seqeralabs/nextflow-tutorial)
+
 
 
