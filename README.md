@@ -9,7 +9,7 @@
 
 Computational social science (CSS) brings computational approaches to social science questions.
 
-This student-led training explores a practical introduction to building computational workflows with [Nextflow](https://www.nextflow.io/).
+This student-led training explores a practical introduction to building computational workflows with [Nextflow](https://www.nextflow.io/), using the Simulation Investigation for Empirical Network Analysis package RSiena.
 
 [Nextflow](https://www.nextflow.io/) is a workflow management software which
 enables the writing of scalable and reproducible scientific workflows. It
