@@ -67,19 +67,6 @@ The material and supporting resources can be found in the following folders:
 * [template](https://github.com/omiridoue/sgsss-workflow/tree/repo-boilerplate) - Template folder to adapt to your own workflow.
 * [workflow](https://github.com/omiridoue/sgsss-workflow/tree/ready-set-workflow) - Full demo - ready-set-workflow !
 
-### Asynchronous Material
-
-Link to [pre-recorded material](https://youtube.com/playlist?list=PLF2plRzeFIjiV0JvN20TGxYgucR98OXNq&si=c_po1RYGY9eggCkI)
-
-Follow along with the companion practical material:
-
-- [Workflow 00: Setup](https://omiridoue.github.io/sgsss-workflow/)
-- [Workflow 01: Intro](https://omiridoue.github.io/sgsss-workflow/00.html)
-- [Workflow 02: Hello Nextflow](https://omiridoue.github.io/sgsss-workflow/02.html)
-- [Workflow 03: Parameters](https://omiridoue.github.io/sgsss-workflow/03.html)
-- [Workflow 04: Channels](https://omiridoue.github.io/sgsss-workflow/04.html)
-- [Workflow 05: Modules + Optional Topics](https://omiridoue.github.io/sgsss-workflow/05.html)
-
 ## Schedule 
 
 | Section | Time | Topics Covered |
