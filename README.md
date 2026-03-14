@@ -55,7 +55,7 @@ cd sgsss-workflow
 ### Step 5: Run the Pipeline with Local profile 
 
 To run the pipeline on your local machine type the following command in the terminal: 
-`Edit`: To disable the strict syntax check run the parser you need to downgrade the parser version.
+`Edit`: To disable the strict syntax check you need to downgrade the parser version.
 
 ```bash
 export NXF_SYNTAX_PARSER=v1
