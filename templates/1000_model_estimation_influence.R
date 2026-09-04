@@ -36,7 +36,7 @@ print("====================================")
 
 
 school <- readRDS("${STR}")
-compChange <- RSiena::as_composition_rsienaFromFile("${compositionFile_period}")
+compChange <- RSiena::sienaCompositionChangeFromFile("${compositionFile_period}")
 
 # Create Behaviour Data Object
 behaviour_matrix <- as.matrix(school[["behaviour"]])
