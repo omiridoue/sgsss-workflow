@@ -118,7 +118,7 @@ This document was created with assistance from AI tools. The content has been re
 
 > Graeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia Introduction to Workflows with Nextflow and nf-core. [https://github.com/carpentries-incubator/workflows-nextflow](https://github.com/carpentries-incubator/workflows-nextflow) 2021.
 
-> Ruth M. Ripley, Tom A. B. Snijders, Zsofia Boda, Andras Voros, and Paulina Preciado (2024). Manual for Siena version 4.0. R package version 1.4.13. [https://www.cran.r-project.org/web/packages/RSiena/](https://www.cran.r-project.org/web/packages/RSiena/).
+> Ruth M. Ripley, Tom A.B. Snijders, Zsófia Boda and András Vörös (2026). Manual for RSiena. R package version 1.6.11. https://www.stats.ox.ac.uk/~snijders/siena/.
 
 > The Turing Way Community. (2022). The Turing Way: A handbook for reproducible, ethical and collaborative research (1.0.2). Zenodo. [http://doi.org/10.5281/zenodo.3233853](http://doi.org/10.5281/zenodo.3332807).
 
