@@ -106,7 +106,7 @@ For the command to work, replace `<username>` with your username, and generally 
 
 > Murray, J.M., Sánchez-Franco, S.C., Sarmiento, O.L., Kimbrough, E.O., Tate, C., Montgomery, S.C., Kumar, R., Dunne, L., Ramalingam, A., Krupka, E.L., Montes, F., Zhou, H., Moore, L., Bauld, L., Llorente, B., Kee, F., Hunter, R.F., 2023. Selection homophily and peer influence for adolescents’ smoking and vaping norms and outcomes in high and middle-income settings. Humanit Soc Sci Commun 10, 1–35. https://doi.org/10.1057/s41599-023-02124-9
 
-> Ruth M. Ripley, Tom A.B. Snijders  Zsófia Boda and András Vörös (2026). Manual for RSiena. R package version 1.6.11. https://www.stats.ox.ac.uk/~snijders/siena/.
+> Ruth M. Ripley, Tom A.B. Snijders, Zsófia Boda and András Vörös (2026). Manual for RSiena. R package version 1.6.11. https://www.stats.ox.ac.uk/~snijders/siena/.
 
 > Steglich, C., Snijders, T.A.B., Pearson, M., 2010. Dynamic Networks and Behavior: Separating Selection from Influence. Sociological Methodology 40, 329–393. https://doi.org/10.1111/j.1467-9531.2010.01225.x
 
