@@ -338,7 +338,7 @@ profiles {
   local {
     includeConfig 'conf/local.config'
     docker.enabled = true
-    process.container = 'omiridoue/siena_r:0.8'
+    process.container = 'omiridoue/siena_r:0.9'
   }
   slurm {
     includeConfig 'conf/slurm.config'
@@ -348,7 +348,7 @@ profiles {
     apptainer.autoMounts = true
 
     process.executor = 'slurm'
-    process.container = 'omiridoue/siena_r:0.8'
+    process.container = 'omiridoue/siena_r:0.9'
   }
 }
 ```
