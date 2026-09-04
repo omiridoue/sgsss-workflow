@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, ...)  {
+sienaRunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas, returnChains, returnDeps, status, ...)  {
   numr <- 0 
   ans <- ans0
 
@@ -21,7 +21,7 @@ siena07RunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, ver
       status <- "_NOTCONVERGED"
       break
       }
-    ans <- siena07(alg = alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
+    ans <- siena(control_algo = alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
   
   } 
   saveRDS(ans, file = paste0(modelName, "ITER", numr, status,"_SIM.RDS"))
