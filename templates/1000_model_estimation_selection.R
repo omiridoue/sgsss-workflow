@@ -124,24 +124,24 @@ myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
 
 
 png(filename=paste0("${school_period}","_S_", "gofIndegrees.png"))
-gofIndegrees <- test_gof(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
+gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
 plot(gofIndegrees, main = paste0("${school_period}","_S_", "gofIndegrees"))
 dev.off()
 
 # goodness of fit for outdegree distribution:
 png(filename=paste0("${school_period}","_S_", "gofOutdegrees.png"))
-gofOutdegrees <- test_gof(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
+gofOutdegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
 plot(gofOutdegrees, main = paste0("${school_period}","_S_", "gofOutdegrees"))
 dev.off()
 
 # goodness of fit for triad census:
 png(filename=paste0("${school_period}","_S_", "gofTriads.png"))
-gofTriads <- test_gof(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
+gofTriads <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
 plot(gofTriads, main = paste0("${school_period}","_","_S_", "gofTriads"))
 dev.off()
 
 png(filename=paste0("${school_period}","_S_", "gofEgoAlterTable.png"))
-gof.EgoAlterTable <- test_gof(myResults_sim,EgoAlterTable,
+gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
                               verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_S_", "gofEgoAlterTable"))
 dev.off()
