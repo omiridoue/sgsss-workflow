@@ -83,7 +83,7 @@ myResults <- RSiena::siena(modelOptions,
                              batch=TRUE,
                              verbose=FALSE,
                              silent=TRUE,
-                             returnThetas=TRUE)
+                             returnDeps=TRUE)
 
 # # ===============================================================================
 
@@ -141,10 +141,4 @@ png(filename=paste0("${school_period}","_N_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
 	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_N_", "gofEgoAlterTable"))
-dev.off()
-
-png(filename=paste0("${school_period}","_N_", "gofGeodesic.png"))
-gof.geodesic <- sienaGOF(myResults_sim,GeodesicDistribution,
-                           varName = "friends",cumulative = FALSE)
-plot(gof.geodesic, main = paste0("${school_period}","_N_", "gofGeodesic"))
 dev.off()
