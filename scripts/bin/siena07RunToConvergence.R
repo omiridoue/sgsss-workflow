@@ -1,8 +1,8 @@
 #!/usr/bin/env Rscript
 
-siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, ...){
+siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, initC, clusterType, ...){
   numr <- 0
-
+ 
   repeat {
     
     numr <- numr + 1 ## Count the number of repeated runs
@@ -14,14 +14,29 @@ siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batc
       previous_estimation <- ans
     }
 
-    saveRDS(previous_estimation, file = paste0(modelName, "ITER", numr,".RDS"))
+    if (isTRUE(numr == 1)) {
+          alg$n2start <- (sum(eff$include) + 7) * 2.52**4
+          alg$n3 <- alg$n3 * 1.1 + numr * 500
 
-    alg$n2start <- 2 * (sum(eff$include) + 7) * 2.52**4
-    alg$n3 <- alg$n3 * 1.1 + numr * 100
+          alg$firstg <- 0.05
 
-    if (isTRUE(numr == 1)) {alg$firstg <- alg$firstg/5}
+          alg$nsub <- 4
 
-     ans <- siena07(x = alg, data = dat, effects = eff, thetaBound = thetaB, prevAns = previous_estimation, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=10, useCluster=TRUE)
+           ans <- siena07(alg = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, useCluster=FALSE)
+    }
+ 
+
+          alg$n2start <- 2 * (sum(eff$include) + 7) * 2.52**4
+          alg$n3 <- alg$n3 * 1.1 + numr * 10000
+
+          alg$firstg <- 0.001
+
+          alg$nsub <- 1
+
+          eff <- updateTheta(eff, ans) 
+
+           ans <- siena07(alg = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=nbrNodes, useCluster=useCluster,
+                    initC = initC, clusterType = clusterType)
 
      tconv.max <- ans$tconv.max ## Extract the overall maximum convergence ratio
      tratio.max <- max(abs(ans$tstat[(ans$effects$type != "rate") & (ans$effects$fix == FALSE)])) ## Extract the maximum absolute value of the convergence t-ratios. Don't include the t-ratio for the rate parameter as it is fixed!
@@ -45,7 +60,7 @@ siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batc
 
       break 
     } 
-    if (isTRUE(numr > 29)) {
+    if (isTRUE(numr > 100)) {
       status <- "_NOTCONVERGED"
       
       saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
