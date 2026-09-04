@@ -78,6 +78,7 @@ cond <- which(effects_info)
 #     myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("test")] <- TRUE
 #   }
 # }
+modelOptions <- sienaAlgorithmCreate(MaxDegree=c(friends=6), diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
 myResults <- RSiena::siena(modelOptions,
                              data = myData,
@@ -85,9 +86,7 @@ myResults <- RSiena::siena(modelOptions,
                              batch=TRUE,
                              verbose=FALSE,
                              silent=TRUE,
-                             returnThetas=TRUE,
-                             nbrNodes = availableCores,
-                             useCluster = TRUE)
+                             returnThetas=TRUE)
 
 # # ===============================================================================
 
@@ -110,39 +109,44 @@ modelOptions_sim <- RSiena::sienaAlgorithmCreate(
 
 # # # ===============================================================================
 myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
-                                   dat = myData,
-                                   eff = myEffects_Network,
-                                   thetaB=Inf,
-                                   ans0 = myResults,
-                                   modelName = paste0("${school_period}","_I_"),
-                                   batch=TRUE,
-                                   verbose=FALSE,
-                                   silent=TRUE,
-                                   returnThetas=TRUE,
-                                   returnChains=FALSE,
-                                   returnDeps=TRUE,
-                                   status = NULL)
-
+   dat = myData,
+   eff = myEffects_Network,
+   thetaB=Inf,
+   ans0 = myResults,
+   modelName = paste0("${school_period}","_I_"),
+   batch=TRUE,
+   verbose=TRUE,
+   silent=FALSE,
+   returnThetas=TRUE,
+   returnChains=FALSE,
+   returnDeps=TRUE,
+   status = NULL)
 
 png(filename=paste0("${school_period}","_I_", "gofIndegrees.png"))
-gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
+gofIndegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
 plot(gofIndegrees, main = paste0("${school_period}","_I_", "gofIndegrees"))
 dev.off()
 
 # goodness of fit for outdegree distribution:
 png(filename=paste0("${school_period}","_I_", "gofOutdegrees.png"))
-gofOutdegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
+gofOutdegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
 plot(gofOutdegrees, main = paste0("${school_period}","_I_", "gofOutdegrees"))
 dev.off()
 
 # goodness of fit for triad census:
 png(filename=paste0("${school_period}","_I_", "gofTriads.png"))
-gofTriads <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
-plot(gofTriads, main = paste0("${school_period}","_","_I_", "gofTriads"))
+gofTriads <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
+plot(gofTriads, main = paste0("${school_period}","_","_I_", "gofTriads"), center= TRUE, scale = TRUE)
 dev.off()
 
 png(filename=paste0("${school_period}","_I_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
-                              verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
+	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_I_", "gofEgoAlterTable"))
+dev.off()
+
+png(filename=paste0("${school_period}","_I_", "gofGeodesic.png"))
+gof.geodesic <- sienaGOF(myResults_sim,GeodesicDistribution,
+                           varName = "friends",cumulative = FALSE)
+plot(gof.geodesic, main = paste0("${school_period}","_I_", "gofGeodesic"))
 dev.off()
