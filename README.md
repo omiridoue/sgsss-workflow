@@ -1,6 +1,6 @@
 # Full demo: Building your Own Workflow 
 
-The demo workflow involves simulation based analysis. Specifically, the following repository is a demonstration of implementing stochastic actor based models in the Simulation Investigation Empirical Analysis (SIENA) framework on separate school data with the simulation only framework. For further information see the suite of packages within [socnet](https://github.com/stocnet).
+The demo workflow involves simulation based analysis. Specifically, the following repository is a demonstration of implementing stochastic actor based models in the Simulation Investigation Empirical Analysis (SIENA) framework on separate school data with the simulation only framework. For further information see the suite of packages within [stocnet](https://github.com/stocnet).
 ## Synthetic Data
 
 The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to (PGR) Eleni Omiridou.
