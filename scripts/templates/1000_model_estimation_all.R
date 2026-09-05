@@ -37,16 +37,12 @@ print(specification)
 print("====================================")
 
 school <- readRDS("${STR}")
-compChange <- RSiena::as_composition_rsienaFromFile("${compositionFile_period}")
+compChange <- RSiena::sienaCompositionChangeFromFile("${compositionFile_period}")
 
 # Create Behaviour Data Object
-behaviour_matrix <- as.matrix(school[["behaviour"]])
+behavior_matrix <- as.matrix(school[["behavior"]])
 
-behaviour_matrix[behaviour_matrix %in% c(1)] <- 1
-behaviour_matrix[behaviour_matrix %in% c(2,3,4)] <- 2
-behaviour_matrix[behaviour_matrix %in% c(5,6)] <- 3
-
-smoking <- RSiena::as_dependent_rsiena(behaviour_matrix, type = "behavior")
+smoking <- RSiena::as_dependent_rsiena(behavior_matrix, type = "behavior")
 
 # Constant Covariates over Time
 gender <- RSiena::as_covariate_rsiena(school[["gender"]], warn=FALSE)
@@ -83,6 +79,7 @@ cond <- which(effects_info)
 #   }
 # }
 
+modelOptions <- sienaAlgorithmCreate(diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
 myResults <- RSiena::siena(modelOptions,
                              data = myData,
@@ -90,9 +87,8 @@ myResults <- RSiena::siena(modelOptions,
                              batch=TRUE,
                              verbose=FALSE,
                              silent=TRUE,
-                             returnThetas=TRUE,
-                             nbrNodes = availableCores,
-                             useCluster = TRUE)
+                             returnDeps=TRUE,
+						     thetaBound=Inf)
 
 # # ===============================================================================
 
@@ -132,39 +128,21 @@ modelOptions_sim <- RSiena::sienaAlgorithmCreate(
 
 # # # ===============================================================================
 myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
-                                   dat = myData,
-                                   eff = myEffects_Network,
-                                   thetaB=Inf,
-                                   ans0 = myResults,
-                                   modelName = paste0("${school_period}","_A_"),
-                                   batch=TRUE,
-                                   verbose=FALSE,
-                                   silent=TRUE,
-                                   returnThetas=TRUE,
-                                   returnChains=FALSE,
-                                   returnDeps=TRUE,
-                                   status = NULL)
-
-
-png(filename=paste0("${school_period}","_A_", "gofIndegrees.png"))
-gofIndegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofIndegrees, main = paste0("${school_period}","_A_", "gofIndegrees"))
-dev.off()
-
-# goodness of fit for outdegree distribution:
-png(filename=paste0("${school_period}","_A_", "gofOutdegrees.png"))
-gofOutdegrees <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofOutdegrees, main = paste0("${school_period}","_A_", "gofOutdegrees"))
-dev.off()
-
-# goodness of fit for triad census:
-png(filename=paste0("${school_period}","_A_", "gofTriads.png"))
-gofTriads <- sienaGOF(sienaFitObject=myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
-plot(gofTriads, main = paste0("${school_period}","_","_A_", "gofTriads"))
-dev.off()
+   dat = myData,
+   eff = myEffects_Network,
+   thetaB=Inf,
+   ans0 = myResults,
+   modelName = paste0("${school_period}","_A_"),
+   batch=TRUE,
+   verbose=TRUE,
+   silent=FALSE,
+   returnThetas=TRUE,
+   returnChains=FALSE,
+   returnDeps=TRUE,
+   status = NULL)
 
 png(filename=paste0("${school_period}","_A_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
-                              verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
+	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_A_", "gofEgoAlterTable"))
 dev.off()
