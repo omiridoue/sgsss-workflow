@@ -37,9 +37,9 @@ school <- readRDS("${STR}")
 compChange <- RSiena::sienaCompositionChangeFromFile("${compositionFile_period}")
 
 # Create Behaviour Data Object
-behaviour_matrix <- as.matrix(school[["behaviour"]])
+behavior_matrix <- as.matrix(school[["behavior"]])
 
-smoking <- RSiena::as_dependent_rsiena(behaviour_matrix, type = "behavior")
+smoking <- RSiena::as_dependent_rsiena(behavior_matrix, type = "behavior")
 
 # Constant Covariates over Time
 gender <- RSiena::as_covariate_rsiena(school[["gender"]], warn=FALSE)
