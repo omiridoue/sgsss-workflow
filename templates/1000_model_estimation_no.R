@@ -42,10 +42,6 @@ compChange <- RSiena::sienaCompositionChangeFromFile("${compositionFile_period}"
 # Create Behaviour Data Object
 behaviour_matrix <- as.matrix(school[["behaviour"]])
 
-behaviour_matrix[behaviour_matrix %in% c(1)] <- 1
-behaviour_matrix[behaviour_matrix %in% c(2,3,4)] <- 2
-behaviour_matrix[behaviour_matrix %in% c(5,6)] <- 3
-
 smoking <- RSiena::as_dependent_rsiena(behaviour_matrix, type = "behavior")
 
 # Constant Covariates over Time
