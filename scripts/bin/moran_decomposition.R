@@ -1,4 +1,6 @@
 moran_decomposition <- function(School_raw, School_exclPI_raw, School_exclPS_raw, School_exclBoth_raw, nodes, school_period){
+  #Code adapted from Murray, J.M., Sánchez-Franco, S.C., Sarmiento, O.L., Kimbrough, E.O., Tate, C., Montgomery, S.C., Kumar, R., Dunne, L., Ramalingam, A., Krupka, E.L., Montes, F., Zhou, H., Moore, L., Bauld, L., Llorente, B., Kee, F., Hunter, R.F., 2023. Selection homophily and peer influence for adolescents’ smoking and vaping norms and outcomes in high and middle-income settings. Humanit Soc Sci Commun 10, 1–35. https://doi.org/10.1057/s41599-023-02124-9
+  #Code adapted from Steglich, Snijders & Pearson (2010, Sociological Methodology) version of 14 December 2022 written by Christian Steglich https://www.stats.ox.ac.uk/~snijders/siena/MoranDecompositionExample.R
   
   nodes <- nodes
   nodes <- as.numeric(nodes)
