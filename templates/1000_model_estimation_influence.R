@@ -86,7 +86,8 @@ myResults <- RSiena::siena(modelOptions,
                              batch=TRUE,
                              verbose=FALSE,
                              silent=TRUE,
-                             returnDeps=TRUE)
+                             returnDeps=TRUE,
+						     thetaBound=Inf)
 
 # # ===============================================================================
 
