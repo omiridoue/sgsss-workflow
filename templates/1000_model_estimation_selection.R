@@ -118,22 +118,6 @@ myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
    returnDeps=TRUE,
    status = NULL)
 
-png(filename=paste0("${school_period}","_S_", "gofIndegrees.png"))
-gofIndegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofIndegrees, main = paste0("${school_period}","_S_", "gofIndegrees"))
-dev.off()
-
-# goodness of fit for outdegree distribution:
-png(filename=paste0("${school_period}","_S_", "gofOutdegrees.png"))
-gofOutdegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
-plot(gofOutdegrees, main = paste0("${school_period}","_S_", "gofOutdegrees"))
-dev.off()
-
-# goodness of fit for triad census:
-png(filename=paste0("${school_period}","_S_", "gofTriads.png"))
-gofTriads <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
-plot(gofTriads, main = paste0("${school_period}","_","_S_", "gofTriads"), center= TRUE, scale = TRUE)
-dev.off()
 
 png(filename=paste0("${school_period}","_S_", "gofEgoAlterTable.png"))
 gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
