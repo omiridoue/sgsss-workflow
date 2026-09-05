@@ -34,8 +34,8 @@ sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch,
           alg$nsub <- 1
 
           eff <- updateTheta(eff, ans) 
-
-           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
+          output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, control_out= output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
 
      tconv.max <- ans$tconv.max ## Extract the overall maximum convergence ratio
      tratio.max <- max(abs(ans$tstat[(ans$effects$type != "rate") & (ans$effects$fix == FALSE)])) ## Extract the maximum absolute value of the convergence t-ratios. Don't include the t-ratio for the rate parameter as it is fixed!
