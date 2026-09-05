@@ -2,7 +2,7 @@
 
 sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, initC, clusterType, ...){
   numr <- 0
-  output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
+  output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains)
 
   repeat {
     
@@ -23,7 +23,7 @@ sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch,
 
           alg$nsub <- 4
 
-           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, control_out = output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose,  returnDeps=returnDeps, silent=silent, control_out = output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
     }
  
 
