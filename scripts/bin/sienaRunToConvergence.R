@@ -1,12 +1,13 @@
 #!/usr/bin/env Rscript
 
-siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, initC, clusterType, ...){
+sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbose, silent, returnThetas,  returnChains, returnDeps, status, nbrNodes, useCluster, initC, clusterType, ...){
   numr <- 0
- 
+  output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains)
+
   repeat {
     
     numr <- numr + 1 ## Count the number of repeated runs
-    
+
     if (isTRUE(numr == 1)) {
       previous_estimation <- ans0
     }
@@ -22,7 +23,7 @@ siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batc
 
           alg$nsub <- 4
 
-           ans <- siena07(alg = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, useCluster=FALSE)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose,  returnDeps=returnDeps, silent=silent, control_out = output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
     }
  
 
@@ -34,9 +35,7 @@ siena07RunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batc
           alg$nsub <- 1
 
           eff <- updateTheta(eff, ans) 
-
-           ans <- siena07(alg = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, returnChains=returnChains, returnThetas=returnThetas, returnDeps=returnDeps, nbrNodes=nbrNodes, useCluster=useCluster,
-                    initC = initC, clusterType = clusterType)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, returnDeps=returnDeps, batch=batch, verbose=verbose, silent=silent, control_out= output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
 
      tconv.max <- ans$tconv.max ## Extract the overall maximum convergence ratio
      tratio.max <- max(abs(ans$tstat[(ans$effects$type != "rate") & (ans$effects$fix == FALSE)])) ## Extract the maximum absolute value of the convergence t-ratios. Don't include the t-ratio for the rate parameter as it is fixed!
