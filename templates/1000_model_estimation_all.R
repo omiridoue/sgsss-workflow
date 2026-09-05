@@ -79,7 +79,7 @@ cond <- which(effects_info)
 #   }
 # }
 
-modelOptions <- sienaAlgorithmCreate(MaxDegree=c(friends=6), diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
+modelOptions <- sienaAlgorithmCreate(diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
 myResults <- RSiena::siena(modelOptions,
                              data = myData,
