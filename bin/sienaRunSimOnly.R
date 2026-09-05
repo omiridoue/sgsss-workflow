@@ -21,9 +21,9 @@ sienaRunSimOnly <- function(alg, dat, eff, thetaB, ans0, modelName, batch, verbo
       status <- "_NOTCONVERGED"
       break
       }
-    output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains, returnDeps=returnDeps)
+    output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains)
     
-    ans <- siena(control_algo=alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, batch=batch, verbose=verbose, silent=silent, control_out=output_control)
+    ans <- siena(control_algo=alg, data=dat, effects=eff, prevAns=ans, thetaBound = thetaB, returnDeps=returnDeps, batch=batch, verbose=verbose, silent=silent, control_out=output_control)
 
   }
   saveRDS(ans, file = paste0(modelName, "ITER", numr, status,"_SIM.RDS"))
