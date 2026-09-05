@@ -57,8 +57,8 @@ myEffects_Network <- RSiena::make_specification(myData)
 # Model Specification
 myEffects_Network <- set_effect(myEffects_Network, Rate, type="rate",
              depvar="friends")
-myEffects_Network <- set_effect(myEffects_Network, list(density, recip,
-             gwespFF), type="eval", depvar="friends")
+myEffects_Network <- set_effect(myEffects_Network, transTrip1, verbose = FALSE)
+
 myEffects_Network <- set_effect(myEffects_Network, linear, type="eval",
              depvar="smoking")
 
