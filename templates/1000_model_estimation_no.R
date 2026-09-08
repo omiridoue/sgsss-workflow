@@ -122,3 +122,20 @@ gof.EgoAlterTable <- sienaGOF(myResults_sim,EgoAlterTable,
 	verbose=TRUE,join=TRUE,varName=c("friends","smoking"))
 plot(gof.EgoAlterTable, main = paste0("${school_period}","_N_", "gofEgoAlterTable"))
 dev.off()
+
+png(filename=paste0("${school_period}","_N_", "gofIndegrees.png"))
+gofIndegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=IndegreeDistribution, cumulative=FALSE, levls=0:6)
+plot(gofIndegrees, main = paste0("${school_period}","_N_", "gofIndegrees"))
+dev.off()
+
+# goodness of fit for outdegree distribution:
+png(filename=paste0("${school_period}","_N_", "gofOutdegrees.png"))
+gofOutdegrees <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=OutdegreeDistribution, cumulative=FALSE, levls=0:6)
+plot(gofOutdegrees, main = paste0("${school_period}","_N_", "gofOutdegrees"))
+dev.off()
+
+# goodness of fit for triad census:
+png(filename=paste0("${school_period}","_N_", "gofTriads.png"))
+gofTriads <- sienaGOF(myResults_sim, varName="friends", auxiliaryFunction=TriadCensus, verbose=TRUE,join=TRUE)
+plot(gofTriads, main = paste0("${school_period}","_","_N_", "gofTriads"), center= TRUE, scale = TRUE)
+dev.off()
