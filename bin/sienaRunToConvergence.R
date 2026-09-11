@@ -5,7 +5,7 @@ sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch,
   output_control <- set_output_saom(returnThetas=returnThetas, returnChains=returnChains)
 
   repeat {
-    
+
     numr <- numr + 1 ## Count the number of repeated runs
 
     if (isTRUE(numr == 1)) {
@@ -23,9 +23,9 @@ sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch,
 
           alg$nsub <- 4
 
-           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose,  returnDeps=returnDeps, silent=silent, control_out = output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, batch=batch, verbose=verbose,  returnDeps=returnDeps, silent=silent) #, control_out = output_control)
     }
- 
+
 
           alg$n2start <- 2 * (sum(eff$include) + 7) * 2.52**4
           alg$n3 <- alg$n3 * 1.1 + numr * 10000
@@ -34,38 +34,39 @@ sienaRunToConvergence <- function(alg, dat, eff, thetaB, ans0, modelName, batch,
 
           alg$nsub <- 1
 
-          eff <- updateTheta(eff, ans) 
-           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, returnDeps=returnDeps, batch=batch, verbose=verbose, silent=silent, control_out= output_control, nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
+          eff <- updateTheta(eff, ans)
+           ans <- siena(control_algo = alg, data = dat, effects = eff, thetaBound = thetaB, returnDeps=returnDeps, batch=batch, verbose=verbose, silent=silent)#, control_out= output_control)
+           # nbrNodes=nbrNodes, useCluster=useCluster, initC = initC, clusterType = clusterType)
 
      tconv.max <- ans$tconv.max ## Extract the overall maximum convergence ratio
      tratio.max <- max(abs(ans$tstat[(ans$effects$type != "rate") & (ans$effects$fix == FALSE)])) ## Extract the maximum absolute value of the convergence t-ratios. Don't include the t-ratio for the rate parameter as it is fixed!
-    
+
     saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
 
-    if (isTRUE(tconv.max < 0.25)) { 
-      if (isTRUE(tratio.max < 0.11)) { 
+    if (isTRUE(tconv.max < 0.25)) {
+      if (isTRUE(tratio.max < 0.11)) {
         status <- "_CONVERGED"
 
         saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
 
-        break 
-      } 
-    } 
-    
-    if (isTRUE(tconv.max > 100)) { 
-      status <- "_NOTCONVERGED"
-      
-      saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
+        break
+      }
+    }
 
-      break 
-    } 
-    if (isTRUE(numr > 100)) {
+    if (isTRUE(tconv.max > 100)) {
       status <- "_NOTCONVERGED"
-      
+
       saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
 
       break
-    } # now it has lasted too long 
+    }
+    if (isTRUE(numr > 100)) {
+      status <- "_NOTCONVERGED"
+
+      saveRDS(ans, file = paste0(modelName, "ITER", numr, status,".RDS"))
+
+      break
+    } # now it has lasted too long
   }
   return(ans)
  }
