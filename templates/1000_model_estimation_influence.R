@@ -73,10 +73,9 @@ cond <- which(effects_info)
 #     myEffects_Network[myEffects_Network[, c("effectNumber")] == cond[i], c("test")] <- TRUE
 #   }
 # }
-modelOptions <- sienaAlgorithmCreate(diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
+modelOptions <- sienaAlgorithmCreate(MaxDegree = c(friends = 6), diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
-myResults <- RSiena::siena(modelOptions,
-						     #MaxDegree = c(friends = 6),
+ans0 <- RSiena::siena(modelOptions,
                              data = myData,
                              effects = myEffects_Network,
                              batch=TRUE,
@@ -86,6 +85,22 @@ myResults <- RSiena::siena(modelOptions,
 						     thetaBound=Inf)
 
 # # ===============================================================================
+# modelOptions_conv <- sienaAlgorithmCreate(MaxDegree = c(friends = 6), diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
+
+# # ===============================================================================
+# myResults <- sienaRunToConvergence(alg=modelOptions_conv,
+#    dat = myData,
+#    eff = myEffects_Network,
+#    thetaB=Inf,
+#    ans0 = ans0,
+#    modelName = paste0("${school_period}","_A_"),
+#     batch=TRUE,
+#     verbose=FALSE,
+#     silent=TRUE,
+#    returnThetas=TRUE,
+#    returnChains=FALSE,
+#    returnDeps=TRUE,
+#     status = NULL)
 
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
   MaxDegree = c(friends = 6),
@@ -95,6 +110,8 @@ modelOptions_sim <- RSiena::sienaAlgorithmCreate(
   nsub = 0,
   n3 = 500
 ) # the seed is for the lab only
+
+ifelse(is.null(myResults), myResults <- ans0, myResults <- myResults)
 
 # # # ===============================================================================
 myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
