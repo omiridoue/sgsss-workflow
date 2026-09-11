@@ -118,6 +118,8 @@ modelOptions_sim <- RSiena::sienaAlgorithmCreate(
   n3 = 500
 ) # the seed is for the lab only
 
+ifelse(is.null(myResults), myResults <- ans0, myResults <- myResults)
+
 # # # ===============================================================================
 myResults_sim <- sienaRunSimOnly(alg = modelOptions_sim,
    dat = myData,
