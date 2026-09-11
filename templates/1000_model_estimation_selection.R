@@ -71,7 +71,7 @@ cond <- which(effects_info)
 #   }
 # }
 
-modelOptions <- sienaAlgorithmCreate(diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
+modelOptions <- sienaAlgorithmCreate(MaxDegree = c(friends = 6), diagonalize=0.2, seed=786840, useStdInits = TRUE, n3 = 100)
 
 myResults <- RSiena::siena(modelOptions,
                              data = myData,
@@ -85,7 +85,7 @@ myResults <- RSiena::siena(modelOptions,
 # # ===============================================================================
 
 modelOptions_conv <- RSiena::sienaAlgorithmCreate(
-  #MaxDegree = c(friends = 6),
+  MaxDegree = c(friends = 6),
   diagonalize = .2,
   seed = 786840,
   n3 = 10000,
@@ -94,7 +94,7 @@ modelOptions_conv <- RSiena::sienaAlgorithmCreate(
 
 
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
-  #MaxDegree = c(friends = 6),
+  MaxDegree = c(friends = 6),
   diagonalize = .2,
   seed = 786840,
   simOnly = TRUE,
