@@ -94,6 +94,8 @@ modelOptions_conv <- RSiena::sienaAlgorithmCreate(
 ) # the seed is for the lab only
 
 
+ifelse(is.null(myResults), myResults <- ans0, myResults <- myResults)
+
 modelOptions_sim <- RSiena::sienaAlgorithmCreate(
   MaxDegree = c(friends = 6),
   diagonalize = .2,
