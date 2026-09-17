@@ -63,6 +63,8 @@ export NXF_SYNTAX_PARSER=v1
 nextflow run main.nf -profile local
 ```
 
+<img width="1732" height="873" alt="image" src="https://github.com/user-attachments/assets/c20ae3ad-f1b3-40d1-879f-0c68d12735c6" />
+
 ### Slurm profile (computer cluster)
 
 To run the pipeline on a computer cluster you should first check specifics with your local administrator and check out the section on [portability](https://github.com/omiridoue/sgsss-workflow/tree/workflow-scripts). 
