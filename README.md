@@ -1,11 +1,12 @@
 # Full demo: Building your Own Workflow 
 
-The demo workflow involves simulation based analysis. Specifically, the following repository is a demonstration of implementing stochastic actor based models in the Simulation Investigation Empirical Analysis (SIENA) framework on separate school data with the simulation only framework. For further information see the suite of packages within [stocnet](https://github.com/stocnet).
+The demo workflow involves simulation based analysis. Specifically, the following repository is a demonstration of implementing the stochastic actor oriented model framework in the Simulation Investigation Empirical Analysis (SIENA) package in the statistical software R. SAOM is implemented to model the co-evolution of friendships and smoking and is fitted to synthetic data for separate school and period combinations. For further information on RSiena see the suite of packages within [stocnet](https://github.com/stocnet).
+
 ## Synthetic Data
 
 The data involves low fidelity synthetic data. This means that the data is generated using functions, and only resembles real-world data in a very basic way. This type of synthetic can be useful for teaching and learning, or helping develop code. Generative AI was used to construct the data generating functions for this synthetic data. Please ensure any further use of this data includes this section. The code used to generate data can be shared upon request, drop a line to (PGR) Eleni Omiridou.
 
-The synthetic data was generated using GitHub Co-Pilot AI and Python. The purpose for generating low fidelity was for code development and demonstration of code. The topic area of the data relates to my project looking at health and education research in schools. You can request the code scripts for the data generation functions with an email to [2333157O@student.gla.ac.uk](mailto:2333157O@student.gla.ac.uk). The data is of low fidelity in the following respect:
+The synthetic data was generated using GitHub Co-Pilot AI and Python. The purpose for generating low fidelity was for code development and demonstration of code. The topic area of the data relates to my project looking at health and education research in schools. You can request the code scripts for the data generation functions with an email to [e.omiridou.1@research.gla.ac.uk](mailto:e.omiridou.1@research.gla.ac.uk). The data is of low fidelity in the following respect:
 
 - no correspondence to school level characteristics like school size 
 - school IDs have no correspondence to schools
